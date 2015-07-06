@@ -59,3 +59,16 @@ user_back_img: null
 message: ""
 }
 ```
+
+
+## 编辑用户资料
+#url  v1/user/editprofile
+
+参数
+1)access_token
+2)nick_name
+3)user_ico
+4)user_back_img
+5)user_email
+
+成功时，返回当前用户模型信息
