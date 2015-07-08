@@ -58,6 +58,9 @@ return array(
         'badWords' => array(
             'class' => 'BadWords'
         ),
+        'zip'=>array(
+            'class'=>'application.extensions.zip.EZip',
+        ),
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=why',
 			'emulatePrepare' => true,

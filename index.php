@@ -22,12 +22,12 @@ require_once($yii);
 //}
 
 $app = Yii::createWebApplication($config);
-$rs = Yii::app()->db->createCommand('select * from url_route')->queryAll();
-var_dump($rs);
-Yii::app()->urlManager->addRules(
-    array(
-        'dd.html'=>'site/test'
-    )
-);
+//$rs = Yii::app()->db->createCommand('select * from url_route')->queryAll();
+//var_dump($rs);
+//Yii::app()->urlManager->addRules(
+//    array(
+//        'dd.html'=>'site/test'
+//    )
+//);
 $app->run();
 //var_dump(Yii::app()->urlManager);exit;

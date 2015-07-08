@@ -2,7 +2,402 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ac9fce7-6e90-454f-a51b-183971353653" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/v1/controllers/StoryController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/ajax-loader.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/ajax-loader.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/arrow.jpg" afterPath="$PROJECT_DIR$/custom/images/arrow.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/arrow.png" afterPath="$PROJECT_DIR$/custom/images/arrow.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/arrow_left_1.png" afterPath="$PROJECT_DIR$/custom/images/arrow_left_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/arrow_left_2.png" afterPath="$PROJECT_DIR$/custom/images/arrow_left_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/arrow_right_1.png" afterPath="$PROJECT_DIR$/custom/images/arrow_right_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/arrow_right_2.png" afterPath="$PROJECT_DIR$/custom/images/arrow_right_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/arrow_yellow.jpg" afterPath="$PROJECT_DIR$/custom/images/arrow_yellow.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/arrow_yellow.png" afterPath="$PROJECT_DIR$/custom/images/arrow_yellow.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bg.gif" afterPath="$PROJECT_DIR$/css/bg.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/bird.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/bird.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/blank.gif" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/blank.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/ico/bootstrap-apple-114x114.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/ico/bootstrap-apple-114x114.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/ico/bootstrap-apple-57x57.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/ico/bootstrap-apple-57x57.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/ico/bootstrap-apple-72x72.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/ico/bootstrap-apple-72x72.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/browsers.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/browsers.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/rating/delete.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/rating/delete.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/delete.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/delete.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/down.gif" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/down.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/example-diagram-01.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/example-diagram-01.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/example-diagram-02.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/example-diagram-02.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/example-diagram-03.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/example-diagram-03.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_close.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_close.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_loading.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_loading.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_nav_left.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_nav_left.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_nav_right.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_nav_right.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_e.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_e.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_n.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_n.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_ne.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_ne.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_nw.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_nw.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_s.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_s.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_se.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_se.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_sw.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_sw.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_w.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_shadow_w.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_title_left.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_title_left.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_title_main.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_title_main.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_title_over.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_title_over.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_title_right.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancy_title_right.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancybox-x.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancybox-x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancybox-y.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancybox-y.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancybox.png" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/fancybox.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/fav.ico" afterPath="$PROJECT_DIR$/custom/images/fav.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/ico/favicon.ico" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/ico/favicon.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/file.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/file.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/folder-closed.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/folder-closed.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/folder.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/folder.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/footer_03.png" afterPath="$PROJECT_DIR$/custom/images/footer_03.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/footer_05.png" afterPath="$PROJECT_DIR$/custom/images/footer_05.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/footer_07.png" afterPath="$PROJECT_DIR$/custom/images/footer_07.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/four.png" afterPath="$PROJECT_DIR$/custom/images/four.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/img/glyphicons-halflings-white.png" afterPath="$PROJECT_DIR$/themes/bootstrap/img/glyphicons-halflings-white.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/img/glyphicons-halflings.png" afterPath="$PROJECT_DIR$/themes/bootstrap/img/glyphicons-halflings.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/grid-18px.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/grid-18px.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/icon_03.png" afterPath="$PROJECT_DIR$/custom/images/icon_03.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/icon_3_03.png" afterPath="$PROJECT_DIR$/custom/images/icon_3_03.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/autocomplete/indicator.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/autocomplete/indicator.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/line_weixin.png" afterPath="$PROJECT_DIR$/custom/images/line_weixin.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/loading.gif" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/loading.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/images/logo.png" afterPath="$PROJECT_DIR$/assets/38c69400/images/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/logo.png" afterPath="$PROJECT_DIR$/custom/images/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/lun01.jpg" afterPath="$PROJECT_DIR$/custom/images/lun01.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/lun02.jpg" afterPath="$PROJECT_DIR$/custom/images/lun02.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/lun03.jpg" afterPath="$PROJECT_DIR$/custom/images/lun03.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/message.png" afterPath="$PROJECT_DIR$/custom/images/message.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/minus.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/minus.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/one.png" afterPath="$PROJECT_DIR$/custom/images/one.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/plus.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/plus.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/rating/star.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/rating/star.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/step1.jpg" afterPath="$PROJECT_DIR$/custom/images/step1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/step2.jpg" afterPath="$PROJECT_DIR$/custom/images/step2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/step3.jpg" afterPath="$PROJECT_DIR$/custom/images/step3.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/support.png" afterPath="$PROJECT_DIR$/custom/images/support.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/supports.png" afterPath="$PROJECT_DIR$/custom/images/supports.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/tbiao.png" afterPath="$PROJECT_DIR$/custom/images/tbiao.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/thmail.png" afterPath="$PROJECT_DIR$/custom/images/thmail.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/thou.png" afterPath="$PROJECT_DIR$/custom/images/thou.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/three.png" afterPath="$PROJECT_DIR$/custom/images/three.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/tman.png" afterPath="$PROJECT_DIR$/custom/images/tman.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/tmess.png" afterPath="$PROJECT_DIR$/custom/images/tmess.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-black-line.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-black-line.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-black.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-black.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-default-line.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-default-line.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-default.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-default.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-famfamfam-line.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-famfamfam-line.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-famfamfam.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-famfamfam.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-gray-line.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-gray-line.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-gray.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-gray.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-red-line.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-red-line.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-red.gif" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/images/treeview-red.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/twitter-logo-no-bird.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/img/twitter-logo-no-bird.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/two.png" afterPath="$PROJECT_DIR$/custom/images/two.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_flat_0_aaaaaa_40x100.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_glass_55_fbf9ee_1x400.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_glass_75_dadada_1x400.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_glass_75_dadada_1x400.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_glass_75_e6e6e6_1x400.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_glass_95_fef1ec_1x400.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-icons_222222_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-icons_2e83ff_256x240.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-icons_2e83ff_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-icons_454545_256x240.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-icons_454545_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-icons_888888_256x240.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-icons_888888_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-icons_cd0a0a_256x240.png" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/images/ui-icons_cd0a0a_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/up.gif" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/up.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/update.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/update.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/view.png" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/view.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/yile.png" afterPath="$PROJECT_DIR$/custom/images/yile.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/images/yile_weixin.png" afterPath="$PROJECT_DIR$/custom/images/yile_weixin.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/.gitignore" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/.htaccess" afterPath="$PROJECT_DIR$/protected/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/classic/views/.htaccess" afterPath="$PROJECT_DIR$/themes/classic/views/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/components/AdminController.php" afterPath="$PROJECT_DIR$/protected/modules/admin/components/AdminController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/AdminModule.php" afterPath="$PROJECT_DIR$/protected/modules/admin/AdminModule.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/ApiController.php" afterPath="$PROJECT_DIR$/protected/components/ApiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BActiveForm.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BActiveForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BAlert.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BAlert.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BBreadcrumbs.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BBreadcrumbs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/behaviors/BController.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/behaviors/BController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/helpers/BHtml.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/helpers/BHtml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BLinkPager.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BLinkPager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BModal.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BModal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BPopover.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BPopover.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BProgressBar.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BProgressBar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BTabs.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/BTabs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/BadWords.php" afterPath="$PROJECT_DIR$/protected/components/BadWords.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/ChangeLog.txt" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/ChangeLog.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ContactForm.php" afterPath="$PROJECT_DIR$/protected/models/ContactForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/Controller.php" afterPath="$PROJECT_DIR$/protected/components/Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/controller/ControllerCode.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/controller/ControllerCode.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/controller/ControllerGenerator.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/controller/ControllerGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/CountrySelectorWidget.php" afterPath="$PROJECT_DIR$/protected/extensions/CountrySelectorWidget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/CrudCode.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/CrudCode.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/CrudGenerator.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/CrudGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/controllers/DefaultController.php" afterPath="$PROJECT_DIR$/protected/modules/admin/controllers/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/EMailer.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/EMailer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/form/FormCode.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/form/FormCode.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/form/FormGenerator.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/form/FormGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/LICENSE" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/LICENSE" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/LICENSE" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/LICENSE" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoginForm.php" afterPath="$PROJECT_DIR$/protected/models/LoginForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/Makefile" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/gii-1.1.15/ModelCode.php" afterPath="$PROJECT_DIR$/protected/runtime/gii-1.1.15/ModelCode.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/gii-1.1.15/ModuleCode.php" afterPath="$PROJECT_DIR$/protected/runtime/gii-1.1.15/ModuleCode.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/PersonForm.php" afterPath="$PROJECT_DIR$/protected/models/PersonForm.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/README.md" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/README" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/README" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/Request.php" afterPath="$PROJECT_DIR$/protected/models/Request.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/RequestPerson.php" afterPath="$PROJECT_DIR$/protected/models/RequestPerson.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/SendMessage.php" afterPath="$PROJECT_DIR$/protected/models/SendMessage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/controllers/SendMessageController.php" afterPath="$PROJECT_DIR$/protected/modules/admin/controllers/SendMessageController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/SiteController.php" afterPath="$PROJECT_DIR$/protected/controllers/SiteController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/tests/functional/SiteTest.php" afterPath="$PROJECT_DIR$/protected/tests/functional/SiteTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/Subscribe.php" afterPath="$PROJECT_DIR$/protected/models/Subscribe.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/Subscribe2.php" afterPath="$PROJECT_DIR$/protected/models/Subscribe2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/Subscribe3.php" afterPath="$PROJECT_DIR$/protected/models/Subscribe3.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/Subscribe4.php" afterPath="$PROJECT_DIR$/protected/models/Subscribe4.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/controllers/SubscribeController.php" afterPath="$PROJECT_DIR$/protected/modules/admin/controllers/SubscribeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/User.php" afterPath="$PROJECT_DIR$/protected/models/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/v1/controllers/UserController.php" afterPath="$PROJECT_DIR$/protected/modules/v1/controllers/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/UserForget.php" afterPath="$PROJECT_DIR$/protected/models/UserForget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/UserIdentity.php" afterPath="$PROJECT_DIR$/protected/components/UserIdentity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/UserToken.php" afterPath="$PROJECT_DIR$/protected/models/UserToken.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/v1/V1Module.php" afterPath="$PROJECT_DIR$/protected/modules/v1/V1Module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/tests/WebTestCase.php" afterPath="$PROJECT_DIR$/protected/tests/WebTestCase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/_form.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/_form.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/_form.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/_search.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/_search.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/_search.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/_view.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/_view.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/_view.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/site/pages/about.php" afterPath="$PROJECT_DIR$/protected/views/site/pages/about.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/views/site/pages/about.php" afterPath="$PROJECT_DIR$/themes/bootstrap/views/site/pages/about.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/aboutus.html" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/aboutus.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/form/templates/default/action.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/form/templates/default/action.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/admin.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/admin.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/admin.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/js/analytics.js" afterPath="$PROJECT_DIR$/custom/js/analytics.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/js/app.js" afterPath="$PROJECT_DIR$/custom/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/js/app.min.js" afterPath="$PROJECT_DIR$/custom/js/app.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/css/application.css" afterPath="$PROJECT_DIR$/themes/bootstrap/css/application.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/js/application.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/js/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/application.log" afterPath="$PROJECT_DIR$/protected/runtime/application.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/css/application.min.css" afterPath="$PROJECT_DIR$/themes/bootstrap/css/application.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-alerts.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-alerts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-alerts.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-alerts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-dropdown.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-dropdown.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-dropdown.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-dropdown.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-modal.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-modal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-modal.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-modal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-popover.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-popover.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-popover.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-popover.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/css/bootstrap-responsive.css" afterPath="$PROJECT_DIR$/themes/bootstrap/css/bootstrap-responsive.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/css/bootstrap-responsive.min.css" afterPath="$PROJECT_DIR$/themes/bootstrap/css/bootstrap-responsive.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-scrollspy.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-scrollspy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-scrollspy.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-scrollspy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-tabs.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-tabs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-tabs.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-tabs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-twipsy.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/bootstrap-twipsy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-twipsy.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/unit/bootstrap-twipsy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/bootstrap.css" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/bootstrap.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/css/bootstrap.css" afterPath="$PROJECT_DIR$/themes/bootstrap/css/bootstrap.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/js/bootstrap.js" afterPath="$PROJECT_DIR$/themes/bootstrap/js/bootstrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/bootstrap.less" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/bootstrap.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/lib/bootstrap.less" afterPath="$PROJECT_DIR$/themes/bootstrap/lib/bootstrap.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/bootstrap.min.css" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/bootstrap.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/themes/bootstrap/css/bootstrap.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/themes/bootstrap/js/bootstrap.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/tests/bootstrap.php" afterPath="$PROJECT_DIR$/protected/tests/bootstrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/class.phpmailer.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/class.phpmailer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/class.pop3.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/class.pop3.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/class.smtp.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/class.smtp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/column1.php" afterPath="$PROJECT_DIR$/protected/views/layouts/column1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/views/layouts/column1.php" afterPath="$PROJECT_DIR$/themes/bootstrap/views/layouts/column1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/column2.php" afterPath="$PROJECT_DIR$/protected/views/layouts/column2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/views/layouts/column2.php" afterPath="$PROJECT_DIR$/themes/bootstrap/views/layouts/column2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/console.php" afterPath="$PROJECT_DIR$/protected/config/console.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/site/contact.php" afterPath="$PROJECT_DIR$/protected/views/site/contact.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/views/site/contact.php" afterPath="$PROJECT_DIR$/themes/bootstrap/views/site/contact.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/examples/container-app.html" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/examples/container-app.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/controller/templates/default/controller.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/controller/templates/default/controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/controller.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/create.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/create.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/create.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/create.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/create.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/create.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/site/createb.php" afterPath="$PROJECT_DIR$/protected/views/site/createb.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/site/createc.php" afterPath="$PROJECT_DIR$/protected/views/site/createc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/custom.php" afterPath="$PROJECT_DIR$/protected/config/custom.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/css/docs.css" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/css/docs.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/site/error.php" afterPath="$PROJECT_DIR$/protected/views/site/error.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/views/site/error.php" afterPath="$PROJECT_DIR$/themes/bootstrap/views/site/error.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/examples/fluid.html" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/examples/fluid.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/form.css" afterPath="$PROJECT_DIR$/css/form.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/form/templates/default/form.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/form/templates/default/form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/forms.less" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/forms.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/lib/forms.less" afterPath="$PROJECT_DIR$/themes/bootstrap/lib/forms.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/examples/hero.html" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/examples/hero.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/css/ie.css" afterPath="$PROJECT_DIR$/assets/38c69400/css/ie.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/ie.css" afterPath="$PROJECT_DIR$/css/ie.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/index.html" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/index.html" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/controller/views/index.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/controller/views/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/index.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/views/index.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/views/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/form/views/index.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/form/views/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/default/index.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/default/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/index.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/index.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/v1/views/default/index.php" afterPath="$PROJECT_DIR$/protected/modules/v1/views/default/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/site/index.php" afterPath="$PROJECT_DIR$/protected/views/site/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/views/default/index.php" afterPath="$PROJECT_DIR$/themes/bootstrap/views/default/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/views/site/index.php" afterPath="$PROJECT_DIR$/themes/bootstrap/views/site/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/javascript.html" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/javascript.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/js/jquery-ui-i18n.min.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/js/jquery-ui-i18n.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery-ui.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery-ui.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/js/jquery-ui.min.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/js/jquery-ui.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.ajaxqueue.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.ajaxqueue.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/autocomplete/jquery.autocomplete.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/autocomplete/jquery.autocomplete.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.autocomplete.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.autocomplete.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.ba-bbq.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.ba-bbq.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.ba-bbq.min.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.ba-bbq.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.bgiframe.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.bgiframe.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.cookie.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.cookie.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/jquery.fancybox-1.3.1.css" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/jquery.fancybox-1.3.1.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/fancybox/jquery.fancybox-1.3.1.pack.js" afterPath="$PROJECT_DIR$/assets/38c69400/js/fancybox/jquery.fancybox-1.3.1.pack.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.history.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.history.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/js/jquery.js" afterPath="$PROJECT_DIR$/custom/js/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.maskedinput.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.maskedinput.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.maskedinput.min.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.maskedinput.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.metadata.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.metadata.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.min.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.min_old.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.min_old.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.multifile.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.multifile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/rating/jquery.rating.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/rating/jquery.rating.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.rating.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.rating.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.treeview.async.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.treeview.async.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/treeview/jquery.treeview.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/treeview/jquery.treeview.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.treeview.edit.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.treeview.edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.treeview.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.treeview.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.accordion.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.accordion.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.autocomplete.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.autocomplete.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.button.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.button.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.core.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.core.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.datepicker.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.datepicker.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.dialog.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.dialog.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.menu.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.menu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.progressbar.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.progressbar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.resizable.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.resizable.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.selectable.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.selectable.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.slider.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.slider.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.spinner.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.spinner.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.tabs.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.tabs.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.theme.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.theme.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.tooltip.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/jui/css/base/jquery.ui.tooltip.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.yii.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.yii.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.yiiactiveform.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.yiiactiveform.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/jquery.yiigridview.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/jquery.yiigridview.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/yiitab/jquery.yiitab.css" afterPath="$PROJECT_DIR$/assets/29b1fabe/yiitab/jquery.yiitab.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery.yiitab.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery.yiitab.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/jquery_old.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/jquery_old.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/default/login.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/default/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/site/login.php" afterPath="$PROJECT_DIR$/protected/views/site/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/views/site/login.php" afterPath="$PROJECT_DIR$/themes/bootstrap/views/site/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/css/main.css" afterPath="$PROJECT_DIR$/assets/38c69400/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/main.js" afterPath="$PROJECT_DIR$/assets/38c69400/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/views/layouts/main.php" afterPath="$PROJECT_DIR$/themes/bootstrap/views/layouts/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main_bak.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main_bak.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/mixins.less" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/mixins.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/lib/mixins.less" afterPath="$PROJECT_DIR$/themes/bootstrap/lib/mixins.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/patterns.less" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/patterns.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/lib/patterns.less" afterPath="$PROJECT_DIR$/themes/bootstrap/lib/patterns.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ar.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-br.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-br.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ca.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ca.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ch.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ch.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-cz.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-cz.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-de.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-de.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-dk.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-dk.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-es.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-es.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-et.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-et.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-fi.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-fi.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-fo.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-fo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-fr.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-fr.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-hu.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-hu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-it.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-it.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ja.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ja.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-nl.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-nl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-no.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-no.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-pl.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-pl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ro.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ro.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ru.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-ru.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-se.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-se.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-tr.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-tr.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-zh.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-zh.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-zh_cn.php" afterPath="$PROJECT_DIR$/protected/extensions/mailer/phpmailer/language/phpmailer.lang-zh_cn.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/tests/phpunit.xml" afterPath="$PROJECT_DIR$/protected/tests/phpunit.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/js/google-code-prettify/prettify.css" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/js/google-code-prettify/prettify.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/js/google-code-prettify/prettify.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/docs/assets/js/google-code-prettify/prettify.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/css/print.css" afterPath="$PROJECT_DIR$/assets/38c69400/css/print.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/print.css" afterPath="$PROJECT_DIR$/css/print.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/punycode.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/punycode.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/29b1fabe/punycode.min.js" afterPath="$PROJECT_DIR$/assets/29b1fabe/punycode.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/vendor/qunit.css" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/vendor/qunit.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/vendor/qunit.js" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/js/tests/vendor/qunit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/reset.less" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/reset.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/lib/reset.less" afterPath="$PROJECT_DIR$/themes/bootstrap/lib/reset.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/scaffolding.less" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/scaffolding.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/lib/scaffolding.less" afterPath="$PROJECT_DIR$/themes/bootstrap/lib/scaffolding.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/css/screen.css" afterPath="$PROJECT_DIR$/assets/38c69400/css/screen.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/screen.css" afterPath="$PROJECT_DIR$/css/screen.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/css/style-min.css" afterPath="$PROJECT_DIR$/custom/css/style-min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/css/style.css" afterPath="$PROJECT_DIR$/custom/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/styles.css" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/widgets/assets/gridview/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/site/support.php" afterPath="$PROJECT_DIR$/protected/views/site/support.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/css/supports.css" afterPath="$PROJECT_DIR$/custom/css/supports.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/tables.less" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/tables.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/lib/tables.less" afterPath="$PROJECT_DIR$/themes/bootstrap/lib/tables.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/test.php" afterPath="$PROJECT_DIR$/protected/config/test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/38c69400/js/tooltip.js" afterPath="$PROJECT_DIR$/assets/38c69400/js/tooltip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/type.less" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/type.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/lib/type.less" afterPath="$PROJECT_DIR$/themes/bootstrap/lib/type.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/update.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/update.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/update.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/update.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/update.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/update.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/variables.less" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/vendor/bootstrap/lib/variables.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/bootstrap/lib/variables.less" afterPath="$PROJECT_DIR$/themes/bootstrap/lib/variables.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/controller/templates/default/view.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/controller/templates/default/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/view.php" afterPath="$PROJECT_DIR$/protected/extensions/bootstrap-theme/gii/crud/templates/default/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/view.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/sendMessage/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/view.php" afterPath="$PROJECT_DIR$/protected/modules/admin/views/subscribe/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/wis.iml" afterPath="$PROJECT_DIR$/.idea/wis.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/yiic.bat" afterPath="$PROJECT_DIR$/protected/yiic.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/yiic.php" afterPath="$PROJECT_DIR$/protected/yiic.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/yiic" afterPath="$PROJECT_DIR$/protected/yiic" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom/js/zepto.js" afterPath="$PROJECT_DIR$/custom/js/zepto.js" />
     </list>
     <ignored path="wis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,24 +420,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/v1/controllers/UserController.php">
+      <file leaf-file-name="StoryController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/modules/v1/controllers/StoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="54" selection-start="3429" selection-end="3429" vertical-scroll-proportion="-17.653847" vertical-offset="1020" max-vertical-offset="13430">
+            <state line="25" column="25" selection-start="783" selection-end="783" vertical-scroll-proportion="0.615942" vertical-offset="0" max-vertical-offset="690">
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="23" selection-start="747" selection-end="747" vertical-scroll-proportion="0.9115942" vertical-offset="204" max-vertical-offset="1139">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
           </provider>
         </entry>
       </file>
@@ -63,11 +446,13 @@
         <option value="$PROJECT_DIR$/protected/models/UserToken.php" />
         <option value="$PROJECT_DIR$/protected/config/custom.php" />
         <option value="$PROJECT_DIR$/protected/controllers/SiteController.php" />
-        <option value="$PROJECT_DIR$/protected/config/main.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/protected/modules/v1/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/protected/components/ApiController.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/protected/modules/v1/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/protected/config/main.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/protected/modules/v1/controllers/StoryController.php" />
+        <option value="$PROJECT_DIR$/protected/extensions/zip/EZip.php" />
       </list>
     </option>
   </component>
@@ -159,11 +544,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
+              <option name="myItemId" value="extensions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -181,15 +562,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="extensions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="v1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="zip" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -207,7 +584,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -217,7 +594,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../yii" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../advanced" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
@@ -246,7 +623,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -254,7 +631,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2267525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23247497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -288,6 +665,34 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/protected/modules/v1/controllers/StoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="32" selection-start="423" selection-end="423" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="646">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/extensions/CountrySelectorWidget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="18" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="5576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/extensions/zip/EZip.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="4" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.0" vertical-offset="581" max-vertical-offset="1258">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="10" selection-start="1731" selection-end="1731" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1751">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="40" selection-start="1488" selection-end="1488" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1700">
@@ -297,39 +702,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="693" selection-end="924" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="646">
-          <folding>
-            <marker date="1435831122317" expanded="true" signature="-1:-1" placeholder="select * fro..url_route..." />
-          </folding>
-        </state>
+        <state line="23" column="0" selection-start="693" selection-end="924" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="646" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../yii/framework/base/CApplication.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="52" selection-start="1056" selection-end="1056" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="17170">
-          <folding />
-        </state>
+        <state line="25" column="52" selection-start="1056" selection-end="1056" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="17170" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/components/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="7" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="476">
-          <folding />
-        </state>
+        <state line="14" column="7" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="476" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../yii/framework/web/CUrlManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="28" selection-start="9856" selection-end="9864" vertical-scroll-proportion="0.0" vertical-offset="4063" max-vertical-offset="14552">
-          <folding />
-        </state>
+        <state line="239" column="28" selection-start="9856" selection-end="9864" vertical-scroll-proportion="0.0" vertical-offset="4063" max-vertical-offset="14552" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="30" selection-start="7245" selection-end="7245" vertical-scroll-proportion="0.0" vertical-offset="3526" max-vertical-offset="4318">
-          <folding />
-        </state>
+        <state line="245" column="30" selection-start="7245" selection-end="7245" vertical-scroll-proportion="0.0" vertical-offset="3526" max-vertical-offset="4318" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/console.php">
@@ -349,30 +742,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/UserForget.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1938">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1938" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="56" selection-start="668" selection-end="668" vertical-scroll-proportion="0.6026588" vertical-offset="0" max-vertical-offset="2397">
-          <folding />
-        </state>
+        <state line="24" column="56" selection-start="668" selection-end="668" vertical-scroll-proportion="0.6026588" vertical-offset="0" max-vertical-offset="2397" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../yii/framework/web/CUrlManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="28" selection-start="9856" selection-end="9864" vertical-scroll-proportion="0.0" vertical-offset="4063" max-vertical-offset="14552">
-          <folding />
-        </state>
+        <state line="239" column="28" selection-start="9856" selection-end="9864" vertical-scroll-proportion="0.0" vertical-offset="4063" max-vertical-offset="14552" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/components/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="7" selection-start="516" selection-end="516" vertical-scroll-proportion="0.34492755" vertical-offset="0" max-vertical-offset="690">
-          <folding />
-        </state>
+        <state line="14" column="7" selection-start="516" selection-end="516" vertical-scroll-proportion="0.34492755" vertical-offset="0" max-vertical-offset="690" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../yii/framework/yiilite.php">
@@ -384,63 +769,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="30" selection-start="7245" selection-end="7245" vertical-scroll-proportion="0.92608696" vertical-offset="3526" max-vertical-offset="4318">
-          <folding />
-        </state>
+        <state line="245" column="30" selection-start="7245" selection-end="7245" vertical-scroll-proportion="0.92608696" vertical-offset="3526" max-vertical-offset="4318" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../yii/framework/base/CApplication.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="52" selection-start="1056" selection-end="1056" vertical-scroll-proportion="-0.17577548" vertical-offset="425" max-vertical-offset="17051">
-          <folding />
-        </state>
+        <state line="25" column="52" selection-start="1056" selection-end="1056" vertical-scroll-proportion="-0.17577548" vertical-offset="425" max-vertical-offset="17051" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/config/custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="7" selection-start="24" selection-end="24" vertical-scroll-proportion="0.04927536" vertical-offset="0" max-vertical-offset="690" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/components/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="219" column="5" selection-start="5354" selection-end="5354" vertical-scroll-proportion="0.65507245" vertical-offset="3271" max-vertical-offset="5219" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/column1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="0" selection-start="1116" selection-end="1116" vertical-scroll-proportion="-22.615385" vertical-offset="806" max-vertical-offset="1513" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/v1/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="261" column="0" selection-start="11208" selection-end="11208" vertical-scroll-proportion="0.7536232" vertical-offset="228" max-vertical-offset="918" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="9" selection-start="604" selection-end="604" vertical-scroll-proportion="0.3942029" vertical-offset="0" max-vertical-offset="690">
-          <folding>
-            <marker date="1435831122317" expanded="true" signature="-1:-1" placeholder="select * fro..url_route..." />
-          </folding>
+        <state line="24" column="0" selection-start="738" selection-end="925" vertical-scroll-proportion="0.59130436" vertical-offset="0" max-vertical-offset="690" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/extensions/zip/EZip.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="13" selection-start="991" selection-end="991" vertical-scroll-proportion="0.5022157" vertical-offset="0" max-vertical-offset="1258">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="40" selection-start="1488" selection-end="1488" vertical-scroll-proportion="0.76376814" vertical-offset="357" max-vertical-offset="1700">
+        <state line="59" column="10" selection-start="1731" selection-end="1731" vertical-scroll-proportion="0.56666666" vertical-offset="612" max-vertical-offset="1751">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/custom.php">
+    <entry file="file://$PROJECT_DIR$/protected/extensions/CountrySelectorWidget.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="7" selection-start="24" selection-end="24" vertical-scroll-proportion="0.04927536" vertical-offset="0" max-vertical-offset="690">
+        <state line="17" column="18" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="5576">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/components/ApiController.php">
+    <entry file="file://$PROJECT_DIR$/protected/modules/v1/controllers/StoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="19" selection-start="378" selection-end="378" vertical-scroll-proportion="0.44347826" vertical-offset="0" max-vertical-offset="4352">
+        <state line="25" column="25" selection-start="783" selection-end="783" vertical-scroll-proportion="0.615942" vertical-offset="0" max-vertical-offset="690">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/v1/controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="54" selection-start="3429" selection-end="3429" vertical-scroll-proportion="-17.653847" vertical-offset="1020" max-vertical-offset="13430">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="23" selection-start="747" selection-end="747" vertical-scroll-proportion="0.9115942" vertical-offset="204" max-vertical-offset="1139">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
   </component>

@@ -60,6 +60,13 @@ message: ""
 }
 ```
 
+## 查看自已的资料
+# url v1/user/MyProfile
+必要参数
+access_token
+
+成功时，返回当前用户模型信息
+
 
 ## 编辑用户资料
 #url  v1/user/editprofile
@@ -72,3 +79,5 @@ message: ""
 5)user_email
 
 成功时，返回当前用户模型信息
+
+

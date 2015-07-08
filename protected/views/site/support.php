@@ -7,9 +7,9 @@
 <!-- welcome语 begin-->
 <section class="section no-padding" style="background-color: #11b509;height:300px;">
     <div class="container">
-        <div class="row ta-c">
+        <div class="row ta-c uniSans">
             <div class="f50 fff mt-90">
-                Welcome to Linkoak Support
+                Welcome to Wisape Support
             </div>
             <div class="f50 fff mt-5">
                 We are always here, listening to you.
@@ -23,9 +23,7 @@
 <section class="section no-padding">
     <div class="container mt-65">
         <div class="row ">
-            <h2 class="fz-32 c333 b">If you have any ideas or suggestions on Linkoak, please feel free to write to us. And we
-                will send you a solution within 24 hours. </h2>
-
+            <h2 class="fz-32 c333 b">If you have any ideas or suggestions on Wisape, please feel free to write to us. And we will send you a solution within 24 hours.</h2>
         </div>
     </div>
 
@@ -39,17 +37,17 @@
             <h2 class="fz-32 c333 b">Find the best way to get in touch:</h2>
             <div class="row-equal-columns row ta-l mb-5 width-80">
                 <div class="col-md-4">
-                    <a href="mailto:support@linkoak.com" target="_blank">
+                    <a href="mailto:support@wisape.com" target="_blank">
                         <input class="orbtn share-via-email support-icon" name="yt0" type="button" value="Contact us via E-mail">
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="https://www.facebook.com/linkoak" target="_blank">
+                    <a href="https://www.facebook.com/pages/Wisape/968758586520540" target="_blank">
                         <input class="orbtn share-via-facebook support-icon" name="yt0" type="button" value="Find us on Facebook">
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="https://twitter.com/linkoak" target="_blank">
+                    <a href="https://twitter.com/WisapeAgency" target="_blank">
                         <input class="orbtn share-via-twitter support-icon" name="yt0" type="button" value="Follow us on Twitter">
                     </a>
                 </div>
@@ -64,12 +62,12 @@
         <div class="row row-equal-columns width-100">
             <div class="width-100">
                 <div class="col-md-6">
-                    <h2 class="font_size20 ta-l" style="padding-left: 16px;"><span class="support-icon icon-wechat mr-20">&nbsp;</span>Talk to us via WeChat (<span class="fz-14">our public account ID: Linkoak</span>)</h2>
+                    <h2 class="font_size20 ta-l" style="padding-left: 16px;"><span class="support-icon icon-wechat mr-20">&nbsp;</span>Talk to us via WeChat (<span class="fz-14">Our public account ID: Wisape</span>)</h2>
                     <img draggable="false" class="mt-5" src="<?php echo SITE_URL?>/custom/images/yile_weixin.png" style="width:180px;height:180px;">
 
                 </div>
                 <div class="col-md-6">
-                    <h2 class="font_size20"><span class="support-icon icon-line mr-20">&nbsp;</span>Reach us on Line (<span class="fz-14">our group ID: Linkoak</span>)</h2>
+                    <h2 class="font_size20"><span class="support-icon icon-line mr-20">&nbsp;</span>Reach us on Line (<span class="fz-14">Our group ID: wisape</span>)</h2>
                     <img draggable="false" class="mt-5" src="<?php echo SITE_URL?>/custom/images/line_weixin.png" style="width:180px;height:180px;">
 
                 </div>
@@ -142,7 +140,7 @@
 
                                 <span class="dn-i width-5 ccc">&nbsp;</span><?php echo $form->textField($model,'subject',array(
                                     'maxlength'=>200,
-                                    'class'=>'grabtn width-95 thmail',
+                                    'class'=>'grabtn width-95 subject',
                                     'placeholder'=>'Subject',
                                 )); ?>
                                 <div style="display:none" id="SendMessage_subject_em_" class="poptip">
@@ -165,7 +163,7 @@
                     </div>
                 </div>
                 <div class="ta-r">
-                    <?php echo CHtml::Button('Send',array('onclick'=>'sendmessage(\'send-message-form\');','class'=>'grbtn width-18 mt-10')); ?>
+                    <?php echo CHtml::Button('Send Message',array('onclick'=>'sendmessage(\'send-message-form\');','class'=>'grbtn width-18 mt-10')); ?>
                 </div>
                 <?php $this->endWidget(); ?>
             </div>

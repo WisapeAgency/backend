@@ -2837,3 +2837,268 @@ Stack trace:
 #2 {main}
 REQUEST_URI=/dd.html
 ---
+2015/07/07 02:49:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route.
+in D:\www\wis\index.php (25)
+2015/07/07 02:49:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route' in D:\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\www\wis\index.php(25): CDbCommand->queryAll()
+#2 {main}
+REQUEST_URI=/v1/createzip
+---
+2015/07/07 02:49:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route.
+in D:\www\wis\index.php (25)
+2015/07/07 02:49:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route' in D:\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\www\wis\index.php(25): CDbCommand->queryAll()
+#2 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://loc.wis/v1/createzip
+---
+2015/07/07 02:49:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route.
+in D:\www\wis\index.php (25)
+2015/07/07 02:49:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route' in D:\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\www\wis\index.php(25): CDbCommand->queryAll()
+#2 {main}
+REQUEST_URI=/v1/story/createzip
+---
+2015/07/07 02:49:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route.
+in D:\www\wis\index.php (25)
+2015/07/07 02:49:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route' in D:\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\www\wis\index.php(25): CDbCommand->queryAll()
+#2 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://loc.wis/v1/story/createzip
+---
+2015/07/07 02:53:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route.
+in D:\www\wis\index.php (25)
+2015/07/07 02:53:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route' in D:\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\www\wis\index.php(25): CDbCommand->queryAll()
+#2 {main}
+REQUEST_URI=/v1/story/createzip
+---
+2015/07/07 02:53:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route.
+in D:\www\wis\index.php (25)
+2015/07/07 02:53:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'why.url_route' doesn't exist. The SQL statement executed was: select * from url_route' in D:\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\www\wis\index.php(25): CDbCommand->queryAll()
+#2 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://loc.wis/v1/story/createzip
+---
+2015/07/07 02:53:15 [error] [php] include(EZip.php): failed to open stream: No such file or directory (D:\www\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\www\yii\framework\YiiBase.php(217): spl_autoload_call()
+#1 D:\www\yii\framework\base\CModule.php(386): createComponent()
+#2 D:\www\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 D:\www\wis\protected\modules\v1\controllers\StoryController.php(6): CWebApplication->__get()
+#4 D:\www\yii\framework\web\actions\CInlineAction.php(49): StoryController->actionCreatezip()
+#5 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#7 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#8 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#9 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#11 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/createzip
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (6)
+in D:\www\wis\index.php (32)
+2015/07/07 02:53:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#2 D:\www\wis\index.php(32): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://loc.wis/v1/story/createzip
+---
+2015/07/07 02:59:24 [error] [php] include(EZip.php): failed to open stream: No such file or directory (D:\www\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\www\yii\framework\YiiBase.php(217): spl_autoload_call()
+#1 D:\www\yii\framework\base\CModule.php(386): createComponent()
+#2 D:\www\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 D:\www\wis\protected\modules\v1\controllers\StoryController.php(6): CWebApplication->__get()
+#4 D:\www\yii\framework\web\actions\CInlineAction.php(49): StoryController->actionCreatezip()
+#5 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#7 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#8 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#9 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#11 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/createzip
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (6)
+in D:\www\wis\index.php (32)
+2015/07/07 02:59:25 [error] [php] include(EZip.php): failed to open stream: No such file or directory (D:\www\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\www\yii\framework\YiiBase.php(217): spl_autoload_call()
+#1 D:\www\yii\framework\base\CModule.php(386): createComponent()
+#2 D:\www\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 D:\www\wis\protected\modules\v1\controllers\StoryController.php(6): CWebApplication->__get()
+#4 D:\www\yii\framework\web\actions\CInlineAction.php(49): StoryController->actionCreatezip()
+#5 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#7 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#8 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#9 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#11 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/createzip
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (6)
+in D:\www\wis\index.php (32)
+2015/07/07 02:59:25 [error] [php] include(EZip.php): failed to open stream: No such file or directory (D:\www\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\www\yii\framework\YiiBase.php(217): spl_autoload_call()
+#1 D:\www\yii\framework\base\CModule.php(386): createComponent()
+#2 D:\www\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 D:\www\wis\protected\modules\v1\controllers\StoryController.php(6): CWebApplication->__get()
+#4 D:\www\yii\framework\web\actions\CInlineAction.php(49): StoryController->actionCreatezip()
+#5 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#7 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#8 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#9 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#11 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/createzip
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (6)
+in D:\www\wis\index.php (32)
+2015/07/07 02:59:26 [error] [php] include(EZip.php): failed to open stream: No such file or directory (D:\www\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\www\yii\framework\YiiBase.php(217): spl_autoload_call()
+#1 D:\www\yii\framework\base\CModule.php(386): createComponent()
+#2 D:\www\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 D:\www\wis\protected\modules\v1\controllers\StoryController.php(6): CWebApplication->__get()
+#4 D:\www\yii\framework\web\actions\CInlineAction.php(49): StoryController->actionCreatezip()
+#5 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#7 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#8 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#9 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#11 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/createzip
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (6)
+in D:\www\wis\index.php (32)
+2015/07/07 02:59:26 [error] [php] include(EZip.php): failed to open stream: No such file or directory (D:\www\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\www\yii\framework\YiiBase.php(217): spl_autoload_call()
+#1 D:\www\yii\framework\base\CModule.php(386): createComponent()
+#2 D:\www\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 D:\www\wis\protected\modules\v1\controllers\StoryController.php(6): CWebApplication->__get()
+#4 D:\www\yii\framework\web\actions\CInlineAction.php(49): StoryController->actionCreatezip()
+#5 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#7 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#8 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#9 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#11 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/createzip
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (6)
+in D:\www\wis\index.php (32)
+2015/07/07 03:01:32 [error] [php] include(EZip.php): failed to open stream: No such file or directory (D:\www\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\www\yii\framework\YiiBase.php(217): spl_autoload_call()
+#1 D:\www\yii\framework\base\CModule.php(386): createComponent()
+#2 D:\www\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 D:\www\wis\protected\modules\v1\controllers\StoryController.php(6): CWebApplication->__get()
+#4 D:\www\yii\framework\web\actions\CInlineAction.php(49): StoryController->actionCreatezip()
+#5 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#7 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#8 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#9 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#11 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/createzip
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (6)
+in D:\www\wis\index.php (32)
+2015/07/07 03:01:35 [error] [php] include(EZip.php): failed to open stream: No such file or directory (D:\www\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\www\yii\framework\YiiBase.php(217): spl_autoload_call()
+#1 D:\www\yii\framework\base\CModule.php(386): createComponent()
+#2 D:\www\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 D:\www\wis\protected\modules\v1\controllers\StoryController.php(6): CWebApplication->__get()
+#4 D:\www\yii\framework\web\actions\CInlineAction.php(49): StoryController->actionCreatezip()
+#5 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#7 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#8 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#9 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#11 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/createzip
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (6)
+in D:\www\wis\index.php (32)
+2015/07/07 03:02:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "' e.href /'".' in D:\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('' e.href /'')
+#1 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#2 D:\www\wis\index.php(32): CApplication->run()
+#3 {main}
+REQUEST_URI=/'+e.href+/'
+HTTP_REFERER=http://loc.wis/v1/story/createzip
+---
+2015/07/07 03:02:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "' d /'".' in D:\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('' d /'')
+#1 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#2 D:\www\wis\index.php(32): CApplication->run()
+#3 {main}
+REQUEST_URI=/'+d+/'
+HTTP_REFERER=http://loc.wis/v1/story/createzip
+---
+2015/07/07 03:02:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "' e.href /'".' in D:\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('' e.href /'')
+#1 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#2 D:\www\wis\index.php(32): CApplication->run()
+#3 {main}
+REQUEST_URI=/'+e.href+/'
+HTTP_REFERER=http://loc.wis/v1/story/createzip
+---
+2015/07/07 03:02:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "custom/fonts/geogrotesque/ae7eda9b-5729-4029-8ea8-1f4b2feb6595.woff".' in D:\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('custom/fonts/ge...')
+#1 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#2 D:\www\wis\index.php(32): CApplication->run()
+#3 {main}
+REQUEST_URI=/custom/fonts/geogrotesque/ae7eda9b-5729-4029-8ea8-1f4b2feb6595.woff
+HTTP_REFERER=http://loc.wis/custom/css/style.css
+---
+2015/07/07 03:02:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "custom/fonts/geogrotesque/f5e7d965-e646-4ea9-8b21-bf17e3e5de42.ttf".' in D:\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('custom/fonts/ge...')
+#1 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#2 D:\www\wis\index.php(32): CApplication->run()
+#3 {main}
+REQUEST_URI=/custom/fonts/geogrotesque/f5e7d965-e646-4ea9-8b21-bf17e3e5de42.ttf
+HTTP_REFERER=http://loc.wis/custom/css/style.css
+---
+2015/07/07 03:02:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "custom/fonts/geogrotesque/ae7eda9b-5729-4029-8ea8-1f4b2feb6595.woff".' in D:\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('custom/fonts/ge...')
+#1 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#2 D:\www\wis\index.php(32): CApplication->run()
+#3 {main}
+REQUEST_URI=/custom/fonts/geogrotesque/ae7eda9b-5729-4029-8ea8-1f4b2feb6595.woff
+HTTP_REFERER=http://loc.wis/custom/css/style.css
+---
+2015/07/07 03:02:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "' d /'".' in D:\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('' d /'')
+#1 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#2 D:\www\wis\index.php(32): CApplication->run()
+#3 {main}
+REQUEST_URI=/'+d+/'
+HTTP_REFERER=http://loc.wis/v1/story/createzip
+---

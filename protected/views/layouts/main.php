@@ -5,7 +5,7 @@ $model = new Subscribe();
 <html>
 <head>
     <meta charset="utf-8">
-    <title>linkoak：Free and simple|Create business story and share it on facebook, twitter, linkedin and wechat，etc </title>
+    <title>Wisape：Free and simple|Something Wonderful is Coming.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link rel="stylesheet" href="<?php echo SITE_URL?>/custom/css/style.css">
     <!--[if lt IE 10]>
@@ -14,7 +14,7 @@ $model = new Subscribe();
     </script>
     <![endif]-->
     <!-- This site is optimized with the Yoast WordPress SEO plugin v1.7.4 - https://yoast.com/wordpress/plugins/seo/ -->
-    <meta name="description" content="Create a stunning business story with Linkoak.No coding skills  needed. Choose a template to customize it ,spread your content and achieve better Customer Acquisition today!">
+    <meta name="description" content="Free and simple|Something Wonderful is Coming.">
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
 	<link rel="shortcut icon" href="<?php echo SITE_URL?>/custom/images/fav.ico" mce_href="<?php echo SITE_URL?>/custom/images/fav.ico" type="image/x-icon" />
@@ -65,10 +65,14 @@ $model = new Subscribe();
     <div class="beg"></div>
     <div class="cuent" >
         <div class="title">
-            <a href="javascript:void(0)" id="close" class="titleBt close">&nbsp;</a></div>
+            <a href="javascript:void(0)" id="close" class="titleBt close">&nbsp;</a>
+        </div>
         <div class="box-img">
-            <p class="red">Congratulation!</p>
-            <p>Stay tuned with the release of linkoak:)</p>
+            <img src="<?php echo SITE_URL?>/custom/images/dialog_img1.png" style="width: 76px;margin-bottom: 15px;"/>
+            <p class="gray">Congratulation!</p>
+            <p>Your subscription has been sent to us.<br/>
+               We will make you being one of first users once<br/>
+               we release Wisape App beta version </p>
         </div>
 
     </div>
@@ -83,7 +87,9 @@ $model = new Subscribe();
                 <div class="flex">
                     <div class="block block-text">
                         <header><img draggable="false" src="<?php echo SITE_URL?>/custom/images/yile.png" class="width-7 padd" alt="" title="yile" />	</header>
-                        <p>Yile is a leading mobile internet development company with millions of users worldwide. 10+ years Internet experience gives us a unique insight for creating amazing and stunning mobile products. Innovation and creativeness is our ultimate commitment, and we have a great passion for everything mobile and we put this love fully into our work.</p>
+                        <p>
+                        We are a group of young professionals interested in providing brands with endless solutions to build firm relationship with their customers. In this group, there are thinkers, marketers, programmers, artists and filmmakers. We believe that science, marketing and art could make a good chemical reaction for all of our customers.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -139,11 +145,11 @@ $model = new Subscribe();
 </section>
 <footer id="footer">
     <div class="copyright ">
-        Copyright @2015 YiLe all rights reserved
+        Copyright @2015 Wisape all rights reserved
         <div class="footicon">
-            <a href="mailto:support@linkoak.com" target="_blank" ><img src="<?php echo SITE_URL?>/custom/images/message.png"/></a>
-            <a href="https://www.facebook.com/linkoak" target="_blank"><img src="<?php echo SITE_URL?>/custom/images/footer_05.png"/></a>
-            <a href="https://twitter.com/linkoak" target="_blank"><img src="<?php echo SITE_URL?>/custom/images/footer_07.png"/></a>
+            <a href="https://www.facebook.com/pages/Wisape/968758586520540" target="_blank" ><img src="<?php echo SITE_URL?>/custom/images/message.png"/></a>
+            <a href="https://twitter.com/WisapeAgency" target="_blank"><img src="<?php echo SITE_URL?>/custom/images/footer_05.png"/></a>
+            <a href="https://plus.google.com/u/1/100245433638834075493/posts" target="_blank"><img src="<?php echo SITE_URL?>/custom/images/footer_07.png"/></a>
         </div>
     </div>
     <!--/ .cppyright-->

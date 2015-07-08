@@ -21,13 +21,14 @@
                                             <svg class="slider-post-slanting hidden-xs hidden-portrait" viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice" style="position:absolute; bottom: 0px; min-height: 810px;">
                                                 <polygon opacity="0.9" fill="#24b011" points="2000,1620 0,1620 0,0 600,0 "/>
                                             </svg>
-                                            <div class="slider-post-content">
+                                            <img style="position: absolute;width: 120px;left: 50px;" src="<?php echo SITE_URL?>/custom/images/freeTag.png"/>
+                                            <div class="slider-post-content" style="margin-top: 75px;">
                                                 <div class="slider-post-fill" style="background-color: #f9b635"></div>
                                                 <header>
-                                                    <h1>LINKOAK </h1>
+                                                    <h1 style="font-size: 36px;">Wisape helps your business </h1>
                                                     <!--<p class="subheading">Case study</p>-->
                                                 </header>
-                                                <p><span>Make outstanding business stories. It’s FREE! </span>Linkoak helps you make great web apps that promote your business using your phone without cost.</p>
+                                                <p style="text-transform: uppercase;font-family: Arial;color: #ffdd3e;font-weight: bold;">get more target customers and improve measurable ROI(Return On Investment)</p>
                                                 <div class="sbtn">
                                                     <?php $form=$this->beginWidget('CActiveForm', array(
                                                         'id'=>'subscribe-form',
@@ -57,7 +58,7 @@
                                                         <span class="poptip-arrow poptip-arrow-top"><em>◆</em><i>◆</i></span>
                                                         <span id="sub_1_text"></span>
                                                     </div>
-                                                    <span class="small mt5">Free to apply for it now</span>
+                                                    <span class="small mt5" style="margin-left: 8px;">Free to apply for it now</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,12 +74,12 @@
                                                 <polygon opacity="0.9" fill="#37a5df" points="2000,1620 0,1620 0,0 600,0 "/>
                                             </svg>
 
-                                            <div class="slider-post-content">
+                                            <div class="slider-post-content" style="margin-top:105px;">
                                                 <div class="slider-post-fill" style="background-color: #002395"></div>
                                                 <header>
-                                                    <h1>PAINLESS TO USE</h1>
+                                                    <h1 style="font-size: 48px;color: #ffdd3e;">1 minute</h1>
                                                 </header>
-                                                <p>Literally anyone with almost no technical capabilities can create a stunning mobile HTML5 page using Linkoak.<br />Your efficiency matters, we can improve it.
+                                                <p style="text-transform: uppercase;font-family: Arial;font-weight: bold;">create your stunning business story
                                                 </p>
                                                 <div class="sbtn">
                                                     <?php $form=$this->beginWidget('CActiveForm', array(
@@ -101,8 +102,7 @@
                                                         <span class="poptip-arrow poptip-arrow-top"><em>◆</em><i>◆</i></span>
                                                         <span id="sub_2_text"></span>
                                                     </div>
-
-                                                    <span class="small mt5">Free to apply for it now</span>
+                                                    <span class="small mt5" style="margin-left: 8px;">Free to apply for it now</span>
                                                 </div>
 
                                             </div>
@@ -117,18 +117,18 @@
                                         </div>
                                         <div class="content-layer">
                                             <svg class="slider-post-slanting hidden-xs hidden-portrait" viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice" style="position:absolute; bottom: 0px; min-height: 810px;">
-                                                <polygon opacity="0.9" fill="#f2b931" points="2000,1620 0,1620 0,0 600,0 "/>
+                                                <polygon opacity="0.9" fill="#16191c" points="2000,1620 0,1620 0,0 600,0 "/>
                                             </svg>
 
-                                            <div class="slider-post-content">
+                                            <div class="slider-post-content" style="margin-top: 70px;">
                                                 <div class="slider-post-fill" style="background-color: #647077"></div>
 
                                                 <header>
-                                                    <h1>Social, Share, Expand</h1>
-
+                                                    <h2 style="text-transform: uppercase;color: #f9c615;">Promote story in</h2>
+                                                    <h1 style="text-transform: uppercase;color: #f9c615;">multiple  channels</h1>
                                                 </header>
-                                                <p>
-                                                    Tell your Business Story to Expand your brand on your phone.<br />Share your story on Facebook, Twitter, and more throughout the world. It’s time to take your business to the next level.
+                                                <p style="font-family:Arial;">
+                                                    Find out your analytics data and report
                                                 </p>
                                                 <div class="sbtn">
                                                     <?php $form=$this->beginWidget('CActiveForm', array(
@@ -156,7 +156,7 @@
                                                         <span class="poptip-arrow poptip-arrow-top"><em>◆</em><i>◆</i></span>
                                                         <span id="sub_3_text"></span>
                                                     </div>
-                                                    <span class="small mt5">Free to apply for it now</span>
+                                                    <span class="small mt5" style="margin-left: 8px;">Free to apply for it now</span>
                                                 </div>
 
                                             </div>
@@ -187,7 +187,7 @@
         <div class="row">
             <div class="column col-md-12 padding-medium padding-tb-default">
                 <div class="flex align-center">
-                    <h1>Product function</h1>
+                    <h1>Features</h1>
                     <hr class=" brgreen">
                 </div>
             </div>
@@ -200,9 +200,9 @@
                     </div>
                     <div class="block block-text">
                         <header>
-                            <h2 class="align-center font_size30">Business Story Builder</h2>
+                            <h2 class="align-center font_size30">Wise Story Builder</h2>
                         </header>
-                        <p class="p1">Literally anyone with almost no technical capabilities can create a stunning mobile HTML5 page using Linkoak.<br />Your efficiency matters, we can improve it.</p>
+                        <p class="p1">No technical skills required. Click, choose, drag, your business story page is done! Wisape can prove it.</p>
                     </div>
                 </div>
             </div>
@@ -213,11 +213,10 @@
                     </div>
                     <div class="block block-text">
                         <header>
-                            <h2 class="align-center font_size30">Simple and Efficient</h2>
+                            <h2 class="align-center font_size30">Easy and Fast</h2>
                         </header>
-                        <p class="p1">Drag, click, and within 5 minutes, your elegant business story will come out.</p>
+                        <p class="p1">Any business owner can build the masterpiece page nicely and wisely.  Wisape offers various page templates as your options. </p>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -229,8 +228,8 @@
                     </div>
                     <div class="block block-text">
                         <header>
-                            <h2 class="align-center font_size30">Branching Out Your Business</h2></header>
-                        <p class="p1">Branch out your business into a strong, dense oak tree: With Linkoak, your business story will spread from point to point, and then point to side with multi channels like Facebook, Instagram, WeChat, and throughout the world.</p>
+                            <h2 class="align-center font_size30">Reach and Engage</h2></header>
+                        <p class="p1">Reach new target customers anytime anywhere using you phone. Wisape spreads your business on Facebook, Twitter, Instagram, LINE, and more channels. People even can scan your Wisape QR code wherever you want them to see!</p>
                     </div>
                 </div>
             </div>
@@ -240,8 +239,8 @@
                         <img draggable="false" src="<?php echo SITE_URL?>/custom/images/four.png" srcset="<?php echo SITE_URL?>/custom/images/four.png 750w, <?php echo SITE_URL?>/custom/images/four.png 1280w, <?php echo SITE_URL?>/custom/images/four.png" class="width-50 center" alt="" title="Stupid_Studio_Frontpage_proces_rev2" />
                     </div>
                     <div class="block block-text">
-                        <header><h2 class="align-center font_size30">Monitoring Your Campaigns</h2></header>
-                        <p class="p1"> Linkoak keeps records of traffic for your campaigns. You will see the activity of how many people follow and share your stories, and then you will be able to see the big picture for your business. </p>
+                        <header><h2 class="align-center font_size30">Customer Activities Updates</h2></header>
+                        <p class="p1">You will get a full sight of the exactly amount of "View" and "Like" that your page get from Wisape. Furthermore, our premium features allow you check all templates in different fields to modify your marketing strategies to reach your goal. </p>
                     </div>
                 </div>
             </div>
@@ -256,26 +255,27 @@
     <div class="bg">
         <img src="<?php echo SITE_URL?>/custom/images/step1.jpg" width="100%" height="100%"/>
         <div class="contant">
-            <div class= "absole">
-                <p>Mike is the manager of a food store and he wants to tell local people the latest discounts</p>
-                <h3>What interests you?</h3>
-            </div></div>
+            <div class= "absole" style="background-color:#11b509;">
+                <h3>Online Retailers</h3>
+                <p>For e-commerce and social commerce, Wisape helps you create crafted promotion pages for the products, events and brands. For more important, you will see the significant increase of your customers, sales and ROI. It's time to take your business to the next level.</p>
+            </div>
+        </div>
     </div>
     <div class="bg">
         <img src="<?php echo SITE_URL?>/custom/images/step2.jpg" width="100%" height="100%"/>
         <div class="contant">
-            <div class="absori">
-                <p>Today is their wedding anniversary,Jack and Rosanne want to share their past 10 years happy married life</p>
-                <h3>What do you want to share?</h3>
+            <div class="absori" style="background-color:#218dd7;">
+                <h3>Local Business Owners</h3>
+                <p>Your business goes online from now on. It is time to say bye to long distance relationship with your customer. After quick creating and promoting your business using Wisape, your potential customers will notice you from social net work in the other side of the world. </p>
             </div>
         </div>
     </div>
     <div class="bg">
         <img src="<?php echo SITE_URL?>/custom/images/step3.jpg" width="100%" height="100%"/>
         <div class="contant">
-            <div class= "absole">
-                <p>Beth is an owner of a nail service salon and she wants to expand and keep her client base</p>
-                <h3>What inspires you?</h3>
+            <div class= "absole" style="background-color:#2f3135;">
+                <h3>For You Right Now</h3>
+                <p>Wisape offers customized solutions for your business. If you are a restaurant owner, our services include booking, groupon, discount, and more. </p>
             </div></div>
     </div>
 </section>
@@ -285,7 +285,7 @@
     <div class="row">
         <div class="column col-md-12 padding-medium padding-tb-default">
             <div class="flex align-center">
-                <h1>REGISTER TO BE A TRIAL USER</h1>
+                <h1>Join Beta Here for <span style="color:red;">FREE！</span></h1>
                 <hr class="brgreen">
             </div>
         </div>
@@ -294,7 +294,7 @@
         <div class="column col-md-12 padding-medium padding-tb-default">
             <div class="flex">
                 <div class="block block-text align-center">
-                    <p class="p1">Simple and effective – experience a new-generation solution for spreading your value and interests with linkoak. Contact us to get more benefits.</p>
+                    <p class="p1">Please input your email below, we will make you being one of first users once we release the beta version.</p>
                     <div class="padding-bottom" style="margin-bottom:14px;">
                         <input type="button" value="I’m a business owner" class="grbtn" id="J-RFBBtn">
                         <input type="button" value="I’m an individual" class="yebtn"  id="J-RFPBtn">
@@ -385,13 +385,13 @@
                                     <header><h3 class="align-left">Content</h3></header>
                                     <?php echo $form->textArea($request_model_b,'message',array(
                                         'class'=>'width-100 grabtn',
-                                        'rows'=>11,
+                                        'rows'=>9,
                                         'placeholder'=>'message',
                                         // 'value'=>'       message'
                                     )); ?>
                                 </div>
                             </div>
-                            <?php echo CHtml::Button('Send Mesaage',array('onclick'=>'send(\'request-form-b\');','class'=>'grbtn width-92')); ?>
+                            <?php echo CHtml::Button('Send Message',array('onclick'=>'send(\'request-form-b\');','class'=>'grbtn width-92')); ?>
                             <?php $this->endWidget(); ?>
                         </div>
                     </div>
@@ -463,10 +463,10 @@
                             <div class="column col-md-6 padding-medium padding-tb-default">
                                 <div class="flex">
                                     <header><h3 class="align-left">Content</h3></header>
-                                    <?php echo $form->textArea($model_p,'message',array('class'=>'width-100 grabtn','rows'=>11,'value'=>'       message')); ?>
+                                    <?php echo $form->textArea($model_p,'message',array('class'=>'width-100 grabtn','rows'=>9,'value'=>'       message')); ?>
                                 </div>
                             </div>
-                            <?php echo CHtml::Button('Send Mesaage',array('onclick'=>'send(\'request-form-c\');','class'=>'grbtn width-92')); ?>
+                            <?php echo CHtml::Button('Send Message',array('onclick'=>'send(\'request-form-c\');','class'=>'grbtn width-92')); ?>
                             <?php $this->endWidget(); ?>
                         </div>
                     </div>
@@ -507,11 +507,11 @@
     window.onscroll = function(){
         var t = document.documentElement.scrollTop || document.body.scrollTop;
         if( t > $(".bg1").height() ){
-            $('.contant .absole').animate({left:'0'},2000);
-            $('.absori').animate({right:'0'},2000);
+            $('.contant .absole').animate({right:'0'},2000);
+            $('.absori').animate({left:'0'},2000);
         }
         if( t > $(".bg1").height()+ $(".bg").height()+ $(".bg").height() ) {
-            $('.contant3 .absole').animate({left:'0%'},2000);
+            $('.contant3 .absole').animate({right:'0%'},2000);
         }
         if( t > 0 ){
             $('.fix').show();

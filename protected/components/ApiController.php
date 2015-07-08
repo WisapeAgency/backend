@@ -45,9 +45,9 @@ class ApiController extends CController
      * @param $user_token
      * @return array|CActiveRecord|mixed|null
      */
-    protected function getUserModelByToken($user_token){
-        return CalUser::model()->findByAttributes(array(
-            'user_token'=>$user_token,
+    protected function getUserModelByToken($access_token){
+        return User::model()->findByAttributes(array(
+            'access_token'=>$access_token,
         ));
     }
 
@@ -168,6 +168,57 @@ class ApiController extends CController
         }
         return true;
     }
+
+
+    protected function saveStrToImg($str){
+        $jpg = base64_decode($str);
+        $filename=time().'_'.rand().'.jpg';
+        $root = $_SERVER['DOCUMENT_ROOT'].'/uploads/';
+
+        $path = 'uploads/';
+        $custom = date('Ymd').'/';
+        $path.=$custom;
+        try{
+            if (!is_dir($path)) $this->mkdirs($path);
+            //打开文件准备写入
+            $file = fopen($root.$custom.$filename,"w");
+            fwrite($file,$jpg);//写入
+            fclose($file);//关闭
+            return SITE_URL.'uploads/'.$custom.$filename;
+        }catch (Exception $e){
+            $this->sendErrorResponse('图片保存失败!');
+        }
+    }
+
+    /**
+     * 递归创建目录
+     * @param  $dir
+     */
+    protected function mkdirs($dir){
+        if(!is_dir($dir)){
+            $this->mkdirs(dirname($dir));
+            mkdir($dir);
+        }
+    }
+
+    /**
+     * 删除指定的文件
+     * @param $url
+     * @return bool
+     */
+    protected function delFileFromServer($url){
+        $tmp = stripos($url, 'upload');
+        $path = substr($url,$tmp);
+        $filename = $path;
+        if(file_exists($filename)){
+            if(unlink($filename)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+
 
     /**
      * 检查当前用户的user_token
