@@ -81,3 +81,72 @@ access_token
 成功时，返回当前用户模型信息
 
 
+## 创建story
+#url v1/story/create
+
+#1) uid
+#2) description
+#3) rec_status(A发布D删除T草稿)
+#4) small_img(缩略图base64给过来)
+#5) story_name
+#6) zip_file (以文件形式传过来)
+
+
+修改时
+
+
+成功时返回
+```javascript
+{
+    "success": 1,
+    "data": {
+        "createtime": 1436343993,
+        "uid": "2",
+        "description": "xxxx",
+        "rec_status": "A",
+        "like_num": 0,
+        "view_num": 0,
+        "share_num": 0,
+        "small_img": "http://loc.wisuploads/20150708/1436343993_13689.jpg",
+        "story_name": "shit",
+        "story_url": "http://loc.wis/html/2/201507080826",
+        "id": "1"
+    },
+    "message": ""
+}
+```
+
+
+## 创建 share like view
+#url v1/story/share
+
+#1)type
+ 1 share
+ 2 view
+ 3 like
+#2 sid (当前story id)
+
+
+成功时
+
+
+成功时返回
+```javascript
+{
+    "success": 1,
+    "data": {
+        "createtime": 1436343993,
+        "uid": "2",
+        "description": "xxxx",
+        "rec_status": "A",
+        "like_num": 1,
+        "view_num": 1,
+        "share_num": 2,
+        "small_img": "http://loc.wisuploads/20150708/1436343993_13689.jpg",
+        "story_name": "shit",
+        "story_url": "http://loc.wis/html/2/201507080826",
+        "id": "1"
+    },
+    "message": ""
+}
+```

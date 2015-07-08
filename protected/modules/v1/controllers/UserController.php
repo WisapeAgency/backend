@@ -231,7 +231,8 @@ EOF;
     public function actionEditProfile(){
         if(isset($_POST['access_token'])){
             $userModel = $this->getUserModelByToken($_POST['access_token']);
-            $img1 = $img2 = $im1 = $im2 = '';
+            $this->sendDataResponse($userModel->getAttributes());
+//            $this->sendErrorResponse(404,$_POST['nick_name']);
             if(isset($_POST['nick_name'])){
                 $userModel->nick_name = $_POST['nick_name'];
             }
@@ -241,17 +242,12 @@ EOF;
                 $im1 = $userModel->user_ico_b = $this->saveStrToImg(trim($_POST['user_ico']));
                 $userModel->user_ico_n = $userModel->user_ico_s = $im1;
             }
-            if(isset($_POST['user_back_img'])){
-                $img2 = $userModel->user_back_img;
-                $im2 = $userModel->user_back_img = $this->saveStrToImg(trim($_POST['user_back_img']));
-            }
             if(isset($_POST['user_email'])){
                 $userModel->user_email = $_POST['user_email'];
             }
             try{
                 if($userModel->save()){
                     if($im1) $this->delFileFromServer($img1);
-                    if($im2) $this->delFileFromServer($img2);
                 }
             }catch (Exception $e){
                 $this->sendErrorResponse(500,$e->getMessage());

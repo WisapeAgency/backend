@@ -1,26 +1,29 @@
 <?php
 
 /**
- * This is the model class for table "user_token".
+ * This is the model class for table "story".
  *
- * The followings are the available columns in table 'user_token':
- * @property integer $user_token_id
- * @property integer $user_id
- * @property string $user_token
- * @property integer $token_start
- * @property integer $token_end
- *
- * The followings are the available model relations:
- * @property User[] $users
+ * The followings are the available columns in table 'story':
+ * @property integer $id
+ * @property integer $uid
+ * @property string $story_name
+ * @property string $story_url
+ * @property string $description
+ * @property string $small_img
+ * @property string $rec_status
+ * @property integer $share_num
+ * @property integer $like_num
+ * @property integer $view_num
+ * @property integer $createtime
  */
-class UserToken extends CActiveRecord
+class Story extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'user_token';
+		return 'story';
 	}
 
 	/**
@@ -31,12 +34,14 @@ class UserToken extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-//			array('user_id, user_token', 'required'),
-//			array('user_id, token_start, token_end', 'numerical', 'integerOnly'=>true),
-			array('user_token', 'length', 'max'=>50),
+			array('uid, share_num, like_num, view_num, createtime', 'numerical', 'integerOnly'=>true),
+			array('story_name, story_url', 'length', 'max'=>200),
+			array('small_img', 'length', 'max'=>255),
+			array('rec_status', 'length', 'max'=>1),
+			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_token_id, user_id, user_token, token_start, token_end', 'safe', 'on'=>'search'),
+			array('id, uid, story_name, story_url, description, small_img, rec_status, share_num, like_num, view_num, createtime', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,7 +53,6 @@ class UserToken extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'users' => array(self::HAS_MANY, 'User', 'user_token_id'),
 		);
 	}
 
@@ -58,11 +62,17 @@ class UserToken extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'user_token_id' => 'User Token',
-			'user_id' => 'User',
-			'user_token' => 'User Token',
-			'token_start' => 'Token Start',
-			'token_end' => 'Token End',
+			'id' => 'ID',
+			'uid' => 'Uid',
+			'story_name' => 'Story Name',
+			'story_url' => 'Story Url',
+			'description' => 'Description',
+			'small_img' => 'Small Img',
+			'rec_status' => 'A D T',
+			'share_num' => 'Share Num',
+			'like_num' => 'Like Num',
+			'view_num' => 'View Num',
+			'createtime' => 'Createtime',
 		);
 	}
 
@@ -84,11 +94,17 @@ class UserToken extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('user_token_id',$this->user_token_id);
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('user_token',$this->user_token,true);
-		$criteria->compare('token_start',$this->token_start);
-		$criteria->compare('token_end',$this->token_end);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('uid',$this->uid);
+		$criteria->compare('story_name',$this->story_name,true);
+		$criteria->compare('story_url',$this->story_url,true);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('small_img',$this->small_img,true);
+		$criteria->compare('rec_status',$this->rec_status,true);
+		$criteria->compare('share_num',$this->share_num);
+		$criteria->compare('like_num',$this->like_num);
+		$criteria->compare('view_num',$this->view_num);
+		$criteria->compare('createtime',$this->createtime);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -99,11 +115,10 @@ class UserToken extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return UserToken the static model class
+	 * @return Story the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-
 }

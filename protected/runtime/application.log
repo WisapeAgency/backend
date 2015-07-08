@@ -3102,3 +3102,105 @@ Stack trace:
 REQUEST_URI=/'+d+/'
 HTTP_REFERER=http://loc.wis/v1/story/createzip
 ---
+2015/07/08 06:17:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#2 D:\www\wis\index.php(32): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://loc.wis/index.php/gii/default/login
+---
+2015/07/08 08:15:45 [error] [php] Undefined index: image (D:\www\wis\protected\modules\v1\controllers\StoryController.php:68)
+Stack trace:
+#0 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#1 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#2 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#3 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#5 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/create
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (68)
+in D:\www\wis\index.php (32)
+2015/07/08 08:16:20 [error] [php] move_uploaded_file(.html/2/201507080816/aaa.zip): failed to open stream: No such file or directory (D:\www\wis\protected\modules\v1\controllers\StoryController.php:68)
+Stack trace:
+#0 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#2 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#3 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#4 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#6 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/create
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (68)
+in D:\www\wis\index.php (32)
+2015/07/08 08:17:41 [error] [php] move_uploaded_file(): The second argument to copy() function cannot be a directory (D:\www\wis\protected\modules\v1\controllers\StoryController.php:69)
+Stack trace:
+#0 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#2 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#3 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#4 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#6 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/create
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (69)
+in D:\www\wis\index.php (32)
+2015/07/08 08:18:45 [error] [php] move_uploaded_file(): The second argument to copy() function cannot be a directory (D:\www\wis\protected\modules\v1\controllers\StoryController.php:69)
+Stack trace:
+#0 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#2 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#3 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#4 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#6 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/create
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (69)
+in D:\www\wis\index.php (32)
+2015/07/08 08:19:29 [error] [php] move_uploaded_file(): The second argument to copy() function cannot be a directory (D:\www\wis\protected\modules\v1\controllers\StoryController.php:69)
+Stack trace:
+#0 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#2 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#3 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#4 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#6 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/create
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (69)
+in D:\www\wis\index.php (32)
+2015/07/08 08:21:48 [error] [php] move_uploaded_file(): The second argument to copy() function cannot be a directory (D:\www\wis\protected\modules\v1\controllers\StoryController.php:70)
+Stack trace:
+#0 D:\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\www\yii\framework\web\CController.php(286): StoryController->runAction()
+#2 D:\www\yii\framework\web\CController.php(265): StoryController->runActionWithFilters()
+#3 D:\www\yii\framework\web\CWebApplication.php(282): StoryController->run()
+#4 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#6 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/story/create
+in D:\www\wis\protected\modules\v1\controllers\StoryController.php (70)
+in D:\www\wis\index.php (32)
+2015/07/08 09:05:01 [error] [php] Creating default object from empty value (D:\www\wis\protected\modules\v1\controllers\UserController.php:236)
+Stack trace:
+#0 D:\www\yii\framework\web\CController.php(286): UserController->runAction()
+#1 D:\www\yii\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\www\yii\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#5 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/user/editprofile
+in D:\www\wis\protected\modules\v1\controllers\UserController.php (236)
+in D:\www\wis\index.php (32)
+2015/07/08 09:11:53 [error] [php] Undefined variable: im2 (D:\www\wis\protected\modules\v1\controllers\UserController.php:255)
+Stack trace:
+#0 D:\www\yii\framework\web\CController.php(286): UserController->runAction()
+#1 D:\www\yii\framework\web\CController.php(265): UserController->runActionWithFilters()
+#2 D:\www\yii\framework\web\CWebApplication.php(282): UserController->run()
+#3 D:\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\www\yii\framework\base\CApplication.php(194): CWebApplication->processRequest()
+#5 D:\www\wis\index.php(32): CWebApplication->run()
+REQUEST_URI=/v1/user/editprofile
+in D:\www\wis\protected\modules\v1\controllers\UserController.php (255)
+in D:\www\wis\index.php (32)
