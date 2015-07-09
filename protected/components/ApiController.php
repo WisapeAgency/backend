@@ -186,7 +186,7 @@ class ApiController extends CController
             fclose($file);//关闭
             return SITE_URL.'uploads/'.$custom.$filename;
         }catch (Exception $e){
-            $this->sendErrorResponse('图片保存失败!');
+            $this->sendErrorResponse(500,'图片保存失败!');
         }
     }
 

@@ -35,6 +35,9 @@ class StoryController extends ApiController{
     }
 
 
+    /**
+     * 创建，修改故事
+     */
     public function actionCreate(){
         ini_set('upload_max_filesize', '20M');
         ini_set('post_max_size', '20M');
@@ -79,6 +82,31 @@ class StoryController extends ApiController{
             $this->sendErrorResponse(403);
         }
         $this->sendDataResponse($model->getAttributes());
+    }
+
+
+    /**
+     * 获取某个template的zip包
+     */
+    public function actionTemplate(){
+        if(isset($_POST['uid'])){
+            $model = Story::model()->findByPk($_POST['sid']);
+            if(empty($model->story_url)){
+//                $dir = substr($model->story_url,0,);
+            }
+        }
+    }
+
+
+    /**
+     * get Story by sid
+     */
+    public function actionGet(){
+        if(isset($_POST['sid'])){
+            $model = Story::model()->findByPk($_POST['sid']);
+            $this->sendDataResponse($model->getAttributes());
+        }
+        $this->sendErrorResponse(403);
     }
 
 

@@ -150,3 +150,33 @@ access_token
     "message": ""
 }
 ```
+
+## 获得 story 信息
+#url v1/story/get
+
+#1)sid story id
+
+
+成功时
+
+
+成功时返回
+```javascript
+{
+    "success": 1,
+    "data": {
+        "createtime": 1436343993,
+        "uid": "2",
+        "description": "xxxx",
+        "rec_status": "A",
+        "like_num": 1,
+        "view_num": 1,
+        "share_num": 2,
+        "small_img": "http://loc.wisuploads/20150708/1436343993_13689.jpg",
+        "story_name": "shit",
+        "story_url": "http://loc.wis/html/2/201507080826",
+        "id": "1"
+    },
+    "message": ""
+}
+```
