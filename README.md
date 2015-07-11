@@ -128,21 +128,14 @@ success: 1
 }
 ```
 
-
-
 ## 创建 share like view
 #url v1/story/share
 
 #1)type
-
  1 share
  2 view
  3 like
 #2 sid (当前story id)
-
-
-成功时
-
 
 成功时返回
 ```javascript
@@ -245,4 +238,3 @@ success: 1
     "message": ""
 }
 ```
-

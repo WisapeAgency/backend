@@ -18,16 +18,12 @@ return array(
 		'application.components.*',
 	),
 	
-//    'theme'=>'bootstrap',
+    //'theme'=>'bootstrap',
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool		
         'v1'=>array(),
-        'admin',
-        'gii'=>array(
-            'class'=>'system.gii.GiiModule',
-            'password'=>'abc',
-        )
+        'admin'
 	),
 
 	// application components

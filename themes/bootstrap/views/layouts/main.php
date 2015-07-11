@@ -33,7 +33,7 @@
 					'items'=>array(
 						array('label'=>'Home', 'url'=>array('/admin')),
 						array('label'=>'Subscribe', 'url'=>array('/admin/Subscribe/admin')),
-						array('label'=>'Template', 'url'=>array('/admin/Template/admin')),
+						//array('label'=>'BannerAdmin', 'url'=>array('/admin/webBanner/admin')),
 						array('label'=>'SendMessage', 'url'=>array('/admin/SendMessage/admin')),
 						array('label'=>'Login', 'url'=>array('/admin/default/login'), 'visible'=>Yii::app()->user->isGuest),
 					),
