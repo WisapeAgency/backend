@@ -33,8 +33,13 @@
 					'items'=>array(
 						array('label'=>'Home', 'url'=>array('/admin')),
 						array('label'=>'Subscribe', 'url'=>array('/admin/Subscribe/admin')),
-						//array('label'=>'BannerAdmin', 'url'=>array('/admin/webBanner/admin')),
 						array('label'=>'SendMessage', 'url'=>array('/admin/SendMessage/admin')),
+                        array('label'=>'Template', 'url'=>array('/admin/Template/admin')),
+                        array('label'=>'TemplateType', 'url'=>array('/admin/TemplateType/admin')),
+                        array('label'=>'Music', 'url'=>array('/admin/Music/admin')),
+                        array('label'=>'MusicType', 'url'=>array('/admin/MusicType/admin')),
+                        array('label'=>'Fonts', 'url'=>array('/admin/Fonts/admin')),
+                        array('label'=>'Active', 'url'=>array('/admin/Active/admin')),
 						array('label'=>'Login', 'url'=>array('/admin/default/login'), 'visible'=>Yii::app()->user->isGuest),
 					),
 					'htmlOptions'=>array(

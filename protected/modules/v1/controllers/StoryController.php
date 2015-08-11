@@ -71,6 +71,12 @@ class StoryController extends ApiController{
                 if($zip->extractZip($zipPath,$target_path)){
                     if(!unlink($zipPath)) $this->sendErrorResponse(500,'del zip error');
                     $model->story_url = SITE_URL.'/'.$target_path;
+                    $fp=fopen("/var/www/html/wis/$target_path","r+");
+                    while(!feof($fp))
+                    {
+                        $buffer=fgets($fp,4096);
+//                        $story .=$this->replace_tag($buffer);
+                    }
                 }else{
                     $this->sendErrorResponse(500,'zip file extract error');
                 }
@@ -98,7 +104,7 @@ class StoryController extends ApiController{
         ));
         if($model){
             $model->rec_status='D';
-            if($model->save()) $this->sendSuccessResponse();
+            if($model->save()) $this->sendDataResponse($model->getAttributes());
         }
     }
 
@@ -106,6 +112,33 @@ class StoryController extends ApiController{
      * story List
      */
     public function actionList(){
+        $model = $this->getUserModelByToken($_POST['access_token']);
+        $uid = $model->user_id;
+        if($model){
+            if(isset($_POST['page'])){
+                $page = $_POST['page'];
+                if(isset($_POST['page_size'])){
+                    $pageSize = $_POST['page_size'];
+                }else{
+                    $pageSize = PAGE_SIZE;
+                }
+                $start = ($page-1)*$pageSize;
+                $sql = "select * from story where uid=$uid limit $start,$pageSize";
+                $model = Yii::app()->db->createCommand($sql)->queryAll();
+            }else{
+                $model = Story::model()->findAll('uid=:uid',array(
+                    ':uid'=>$uid,
+                ));
+            }
+            $this->sendDataResponse($model);
+        }
+
+    }
+
+    /**
+     * story user List
+     */
+    public function actionUserList(){
         $model = $this->getUserModelByToken($_POST['access_token']);
         if($model){
             $uid = $model->user_id;
@@ -129,6 +162,23 @@ class StoryController extends ApiController{
         }
     }
 
+    /**
+     * copy story
+     * uid 当前用户
+     */
+    public function actionCopystory(){
+        if(isset($_POST['sid']) && $_POST['uid']){
+            $sourceStory = Story::model()->findByPk($_POST['sid']);
+            if($sourceStory->uid != 1) $this->sendErrorResponse(403,'不是官方提供的模板');
+            $model = new Story();
+            $model->attributes = $sourceStory->getAttributes();
+            $model->uid = $_POST['uid'];
+            if($model->save()){
+                $this->sendDataResponse($model->getAttributes());
+            }
+        }
+    }
+
 
     /**
      * get Story by sid
@@ -140,6 +190,18 @@ class StoryController extends ApiController{
         }
         $this->sendErrorResponse(403);
     }
+
+    /**
+     *
+     */
+    public function actionContent(){
+        if(isset($_POST['sid'])){
+            $model = Story::model()->findByPk($_POST['sid']);
+            echo file_get_contents($model->story_url.'/story.html');
+        }
+    }
+
+
 
 
 

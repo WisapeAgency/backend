@@ -238,6 +238,40 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::app()->user->logout();
-        $this->redirect(Yii::app()->homeUrl);
+        $this->redirect(SITE_URL.'index.php/admin/default/login');
+//         $this->redirect(Yii::app()->homeUrl);
     }
+
+
+    /**
+     * @param $customGetParam
+     */
+    public function actionAjaxUpload($customGetParam=false)
+    {
+        Yii::import("ext.EAjaxUpload.qqFileUploadHandler");
+        // list of valid extensions, ex. array("jpeg", "xml", "bmp")
+        $allowedExtensions = array("jpg",'png','jpeg','mp3','bmp','zip');
+        // max file size in bytes (1MB here)
+        $sizeLimit = 10 * 1024 * 1024;
+        $uploadHandler = new qqFileUploadHandler();
+        $uploadHandler->setAllowedExtensions($allowedExtensions);
+        $uploadHandler->setSizeLimit($sizeLimit);
+        $folder=Yii::app() -> getBasePath() . "/../uploads/";
+        $m = date('YmdH');
+        $folder = $folder.$m.'/';
+        if(!is_dir($folder)){
+            mkdir($folder,0777,true);
+        }
+        if(isset($customGetParam) && $customGetParam == true){
+            $result = $uploadHandler->handleUpload($folder,false,true);
+        }else{
+            $result = $uploadHandler->handleUpload($folder);
+        }
+        // to pass data through iframe you will need to encode all html tags
+        echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+    }
+
+
+
+
 }

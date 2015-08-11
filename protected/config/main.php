@@ -32,7 +32,7 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
             'loginUrl'=>array('/admin/default/login'),
-            'returnUrl'=>array('/admin/default'),
+            'returnUrl'=>array(SITE_URL.'/admin/Subscribe/admin'),
 		),
 		'mailer' => array(
             'class' => 'application.extensions.mailer.EMailer',
@@ -55,10 +55,10 @@ return array(
             'class'=>'application.extensions.zip.EZip',
         ),
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=why-test',
+			'connectionString' => 'mysql:host=localhost;dbname=wisape',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => 'root',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(

@@ -9,6 +9,9 @@
  * @property string $bg_img
  * @property string $url
  * @property string $rec_status
+ * @property integer $start_time
+ * @property integer $end_time
+ * @property string $country
  */
 class Active extends CActiveRecord
 {
@@ -28,12 +31,14 @@ class Active extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('start_time, end_time', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('bg_img, url', 'length', 'max'=>255),
 			array('rec_status', 'length', 'max'=>1),
+			array('country', 'length', 'max'=>5),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, bg_img, url, rec_status', 'safe', 'on'=>'search'),
+			array('id, title, bg_img, url, rec_status, start_time, end_time, country', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,6 +64,9 @@ class Active extends CActiveRecord
 			'bg_img' => '背景图片',
 			'url' => '网址',
 			'rec_status' => '状态',
+			'start_time' => '开始时间',
+			'end_time' => '结束时间',
+			'country' => '国家代码',
 		);
 	}
 
@@ -85,9 +93,15 @@ class Active extends CActiveRecord
 		$criteria->compare('bg_img',$this->bg_img,true);
 		$criteria->compare('url',$this->url,true);
 		$criteria->compare('rec_status',$this->rec_status,true);
+		$criteria->compare('start_time',$this->start_time);
+		$criteria->compare('end_time',$this->end_time);
+		$criteria->compare('country',$this->country,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+            'sort'=>array(
+                'defaultOrder'=>'id DESC',
+            ),
 		));
 	}
 

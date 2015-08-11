@@ -1,0 +1,998 @@
+/*
+    动画名称：从左进入
+*/
+[class*="ani-"]{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+.ani-enter-from-left{
+    background-image: url(../img/ani/enter-from-left.png);
+}
+.ani-enter-from-left.active{
+    background-image: url(../img/ani/enter-from-left-a.png);
+}
+.ani-enter-from-right{
+    background-image: url(../img/ani/enter-from-right.png);
+}
+.ani-enter-from-right.active{
+    background-image: url(../img/ani/enter-from-right-a.png);
+}
+.ani-enter-from-top{
+    background-image: url(../img/ani/enter-from-top.png);
+}
+.ani-enter-from-top.active{
+    background-image: url(../img/ani/enter-from-top-a.png);
+}
+.ani-enter-from-bottom{
+    background-image: url(../img/ani/enter-from-bottom.png);
+}
+.ani-enter-from-bottom.active{
+    background-image: url(../img/ani/enter-from-bottom-a.png);
+}
+.ani-enter-from-top-tanru{
+    background-image: url(../img/ani/enter-from-top-tanru.png);
+}
+.ani-enter-from-top-tanru.active{
+    background-image: url(../img/ani/enter-from-top-tanru-a.png);
+}
+.ani-enter-from-bottom-tanru{
+    background-image: url(../img/ani/enter-from-bottom-tanru.png);
+}
+.ani-enter-from-bottom-tanru.active{
+    background-image: url(../img/ani/enter-from-bottom-tanru-a.png);
+}
+.ani-enter-from-left-tanru{
+    background-image: url(../img/ani/enter-from-left-tanru.png);
+}
+.ani-enter-from-left-tanru.active{
+    background-image: url(../img/ani/enter-from-left-tanru-a.png);
+}
+.ani-enter-from-right-tanru{
+    background-image: url(../img/ani/enter-from-right-tanru.png);
+}
+.ani-enter-from-right-tanru.active{
+    background-image: url(../img/ani/enter-from-right-tanru-a.png);
+}
+@keyframes enter-from-left
+{
+    0%{
+        transform: translate3d(-1000px,0,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@-moz-keyframes enter-from-left /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(-1000px,0,0);
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+    }
+}
+@-webkit-keyframes enter-from-left /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(-1000px,0,0);
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+    }
+}
+@-o-keyframes enter-from-left /* Opera */
+{
+    0%{
+        -o-transform: translate3d(-1000px,0,0);
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+    }
+}
+/*
+    动画名称：从右侧进入
+*/
+@keyframes enter-from-right
+{
+    0%{
+        transform: translate3d(1000px,0,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@-moz-keyframes enter-from-right /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(1000px,0,0);
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+    }
+}
+@-webkit-keyframes enter-from-right /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(1000px,0,0);
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+    }
+}
+@-o-keyframes enter-from-right /* Opera */
+{
+    0%{
+        -o-transform: translate3d(1000px,0,0);
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+    }
+}
+/*
+    动画名称：从上方进入
+*/
+@keyframes enter-from-top
+{
+    0%{
+        transform: translate3d(0,-1000px,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@-moz-keyframes enter-from-top /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(0,-1000px,0);
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+    }
+}
+@-webkit-keyframes enter-from-top /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(0,-1000px,0);
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+    }
+}
+@-o-keyframes enter-from-top /* Opera */
+{
+    0%{
+        -o-transform: translate3d(0,-1000px,0);
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+    }
+}
+/*
+    动画名称：从下方进入
+*/
+@keyframes enter-from-bottom
+{
+    0%{
+        transform: translate3d(0,1000px,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@-moz-keyframes enter-from-bottom /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(0,1000px,0);
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+    }
+}
+@-webkit-keyframes enter-from-bottom /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(0,1000px,0);
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+    }
+}
+@-o-keyframes enter-from-bottom /* Opera */
+{
+    0%{
+        -o-transform: translate3d(0,1000px,0);
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+    }
+}
+/*
+    动画名称：抖动
+*/
+@keyframes doudong
+{
+    0%{
+        transform: translate3d(-2px,0,0);
+    }
+    20%{
+        transform: translate3d(2px,0,0);
+    }
+    40%{
+        transform: translate3d(-2px,2px,0);
+    }
+    60%{
+        transform: translate3d(2px,-2px,0);
+    }
+    80%{
+        transform: translate3d(2px,2px,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@-moz-keyframes doudong /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(-2px,0,0);
+    }
+    20%{
+        -moz-transform: translate3d(2px,0,0);
+    }
+    40%{
+        -moz-transform: translate3d(-2px,2px,0);
+    }
+    60%{
+        -moz-transform: translate3d(2px,-2px,0);
+    }
+    80%{
+        -moz-transform: translate3d(2px,2px,0);
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+    }
+}
+@-webkit-keyframes doudong /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(-2px,0,0);
+    }
+    20%{
+        -webkit-transform: translate3d(2px,0,0);
+    }
+    40%{
+        -webkit-transform: translate3d(-2px,2px,0);
+    }
+    60%{
+        -webkit-transform: translate3d(2px,-2px,0);
+    }
+    80%{
+        -webkit-transform: translate3d(2px,2px,0);
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+    }
+}
+@-o-keyframes doudong /* Opera */
+{
+    0%{
+        -o-transform: translate3d(-2px,0,0);
+    }
+    20%{
+        -o-transform: translate3d(2px,0,0);
+    }
+    40%{
+        -o-transform: translate3d(-2px,2px,0);
+    }
+    60%{
+        -o-transform: translate3d(2px,-2px,0);
+    }
+    80%{
+        -o-transform: translate3d(2px,2px,0);
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+    }
+}
+/*
+    动画名称：闪烁
+*/
+@keyframes shanshuo
+{
+    0%{
+        opacity: 0.1;
+    }
+    50%{
+        opacity: 1.0;
+    }
+    100%{
+        opacity: 0.1;
+    }
+}
+@-moz-keyframes shanshuo /* Firefox */
+{
+    0%{
+        opacity: 0.1;
+    }
+    50%{
+        opacity: 1.0;
+    }
+    100%{
+        opacity: 0.1;
+    }
+}
+@-webkit-keyframes shanshuo /* Safari 和 Chrome */
+{
+    0%{
+        opacity: 0.1;
+    }
+    50%{
+        opacity: 1.0;
+    }
+    100%{
+        opacity: 0.1;
+    }
+}
+@-o-keyframes shanshuo /* Opera */
+{
+    0%{
+        opacity: 0.1;
+    }
+    50%{
+        opacity: 1.0;
+    }
+    100%{
+        opacity: 0.1;
+    }
+}
+/*
+    动画名称：突显
+*/
+@keyframes tuxian
+{
+    0%{
+        transform: scale(1,1);
+    }
+    50%{
+        transform: scale(1.5,1.5);
+    }
+    75%{
+        transform: scale(0.8,0.8);
+    }
+    85%{
+        transform: scale(1.1,1.1);
+    }
+    94.5%{
+        transform: scale(0.95,0.95);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+@-moz-keyframes tuxian /* Firefox */
+{
+    0%{
+        -moz-transform: scale(1,1);
+    }
+    50%{
+        -moz-transform: scale(1.5,1.5);
+    }
+    75%{
+        -moz-transform: scale(0.8,0.8);
+    }
+    85%{
+        -moz-transform: scale(1.1,1.1);
+    }
+    94.5%{
+        -moz-transform: scale(0.95,0.95);
+    }
+    100%{
+        -moz-transform: scale(1,1);
+    }
+}
+@-webkit-keyframes tuxian /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: scale(1,1);
+    }
+    50%{
+        -webkit-transform: scale(1.5,1.5);
+    }
+    75%{
+        -webkit-transform: scale(0.8,0.8);
+    }
+    85%{
+        -webkit-transform: scale(1.1,1.1);
+    }
+    94.5%{
+        -webkit-transform: scale(0.95,0.95);
+    }
+    100%{
+        -webkit-transform: scale(1,1);
+    }
+}
+@-o-keyframes tuxian /* Opera */
+{
+    0%{
+        -o-transform: scale(1,1);
+    }
+    50%{
+        -o-transform: scale(1.5,1.5);
+    }
+    75%{
+        -o-transform: scale(0.8,0.8);
+    }
+    85%{
+        -o-transform: scale(1.1,1.1);
+    }
+    94.5%{
+        -o-transform: scale(0.95,0.95);
+    }
+    100%{
+        -o-transform: scale(1,1);
+    }
+}
+/*
+    动画名称：钟摆
+*/
+@keyframes zhongbai
+{
+    0%{
+        transform: translate3D(-60px,-20px,0);
+    }
+    25%{
+        transform: translate3D(0,0,0);
+    }
+    50%{
+        transform: translate3D(60px,-20px,0);
+    }
+    75%{
+        transform: translate3D(0,0,0);
+    }
+    100%{
+        transform: translate3D(-60px,-20px,0);
+    }
+}
+@-moz-keyframes zhongbai /* Firefox */
+{
+    0%{
+        -moz-transform: translate3D(-60px,-20px,0);
+    }
+    25%{
+        -moz-transform: translate3D(0,0,0);
+    }
+    50%{
+        -moz-transform: translate3D(60px,-20px,0);
+    }
+    75%{
+        -moz-transform: translate3D(0,0,0);
+    }
+    100%{
+        -moz-transform: translate3D(-60px,-20px,0);
+    }
+}
+@-webkit-keyframes zhongbai /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3D(-60px,-20px,0);
+    }
+    25%{
+        -webkit-transform: translate3D(0,0,0);
+    }
+    50%{
+        -webkit-transform: translate3D(60px,-20px,0);
+    }
+    75%{
+        -webkit-transform: translate3D(0,0,0);
+    }
+    100%{
+        -webkit-transform: translate3D(-60px,-20px,0);
+    }
+}
+@-o-keyframes zhongbai /* Opera */
+{
+    0%{
+        -o-transform: translate3D(-60px,-20px,0);
+    }
+    25%{
+        -o-transform: translate3D(0,0,0);
+    }
+    50%{
+        -o-transform: translate3D(60px,-20px,0);
+    }
+    75%{
+        -o-transform: translate3D(0,0,0);
+    }
+    100%{
+        -o-transform: translate3D(-60px,-20px,0);
+    }
+}
+/*
+    动画名称：从左渐入
+*/
+@keyframes enter-from-left-fadeIn
+{
+    0%{
+        transform: translate3d(-1000px,0,0);
+        opacity:0;
+    }
+    100%{
+        transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-moz-keyframes enter-from-left-fadeIn /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(-1000px,0,0);
+        opacity:0;
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-webkit-keyframes enter-from-left-fadeIn /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(-1000px,0,0);
+        opacity:0;
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-o-keyframes enter-from-left-fadeIn /* Opera */
+{
+    0%{
+        -o-transform: translate3d(-1000px,0,0);
+        opacity:0;
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+/*
+    动画名称：从右侧渐入
+*/
+@keyframes enter-from-right-fadeIn
+{
+    0%{
+        transform: translate3d(1000px,0,0);
+        opacity:0;
+    }
+    100%{
+        transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-moz-keyframes enter-from-right-fadeIn  /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(1000px,0,0);
+        opacity:0;
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-webkit-keyframes enter-from-right-fadeIn /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(1000px,0,0);
+        opacity:0;
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-o-keyframes enter-from-right-fadeIn /* Opera */
+{
+    0%{
+        -o-transform: translate3d(1000px,0,0);
+        opacity:0;
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+/*
+    动画名称：从上方渐入
+*/
+@keyframes enter-from-top-fadeIn
+{
+    0%{
+        transform: translate3d(0,-1000px,0);
+        opacity:0;
+    }
+    100%{
+        transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-moz-keyframes enter-from-top-fadeIn /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(0,-1000px,0);
+        opacity:0;
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-webkit-keyframes enter-from-top-fadeIn /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(0,-1000px,0);
+        opacity:0;
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-o-keyframes enter-from-top-fadeIn /* Opera */
+{
+    0%{
+        -o-transform: translate3d(0,-1000px,0);
+        opacity:0;
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+/*
+    动画名称：从下方渐入
+*/
+@keyframes enter-from-bottom-fadeIn
+{
+    0%{
+        transform: translate3d(0,1000px,0);
+        opacity:0;
+    }
+    100%{
+        transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-moz-keyframes enter-from-bottom-fadeIn /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(0,1000px,0);
+        opacity:0;
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-webkit-keyframes enter-from-bottom-fadeIn /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(0,1000px,0);
+        opacity:0;
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+@-o-keyframes enter-from-bottom-fadeIn /* Opera */
+{
+    0%{
+        -o-transform: translate3d(0,1000px,0);
+        opacity:0;
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+        opacity:1;
+    }
+}
+/*
+    动画名称：从左弹入
+*/
+@keyframes enter-from-left-tanru
+{
+    0%{
+        transform: translate3d(-1000px,0,0);
+    }
+    80%{
+        transform: translate3d(50px,0,0);
+    }
+    90%{
+        transform: translate3d(-25px,0,0);
+    }
+    95%{
+        transform: translate3d(10px,0,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@-moz-keyframes enter-from-left-tanru /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(-1000px,0,0);
+    }
+    80%{
+        -moz-transform: translate3d(50px,0,0);
+    }
+    90%{
+        -moz-transform: translate3d(-25px,0,0);
+    }
+    95%{
+        -moz-transform: translate3d(10px,0,0);
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+    }
+}
+@-webkit-keyframes enter-from-left-tanru /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(-1000px,0,0);
+    }
+    80%{
+        -webkit-transform: translate3d(50px,0,0);
+    }
+    90%{
+        -webkit-transform: translate3d(-25px,0,0);
+    }
+    95%{
+        -webkit-transform: translate3d(10px,0,0);
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+    }
+}
+@-o-keyframes enter-from-left-tanru /* Opera */
+{
+    0%{
+        -o-transform: translate3d(-1000px,0,0);
+    }
+    80%{
+        -o-transform: translate3d(50px,0,0);
+    }
+    90%{
+        -o-transform: translate3d(-25px,0,0);
+    }
+    95%{
+        -o-transform: translate3d(10px,0,0);
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+    }
+}
+/*
+    动画名称：从右弹入
+*/
+@keyframes enter-from-right-tanru
+{
+    0%{
+        transform: translate3d(1000px,0,0);
+    }
+    80%{
+        transform: translate3d(-50px,0,0);
+    }
+    90%{
+        transform: translate3d(25px,0,0);
+    }
+    95%{
+        transform: translate3d(-10px,0,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@-moz-keyframes enter-from-right-tanru /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(1000px,0,0);
+    }
+    80%{
+        -moz-transform: translate3d(-50px,0,0);
+    }
+    90%{
+        -moz-transform: translate3d(25px,0,0);
+    }
+    95%{
+        -moz-transform: translate3d(-10px,0,0);
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+    }
+}
+@-webkit-keyframes enter-from-right-tanru /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(1000px,0,0);
+    }
+    80%{
+        -webkit-transform: translate3d(-50px,0,0);
+    }
+    90%{
+        -webkit-transform: translate3d(25px,0,0);
+    }
+    95%{
+        -webkit-transform: translate3d(-10px,0,0);
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+    }
+}
+@-o-keyframes enter-from-right-tanru /* Opera */
+{
+    0%{
+        -o-transform: translate3d(1000px,0,0);
+    }
+    80%{
+        -o-transform: translate3d(-50px,0,0);
+    }
+    90%{
+        -o-transform: translate3d(25px,0,0);
+    }
+    95%{
+        -o-transform: translate3d(-10px,0,0);
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+    }
+}
+/*
+    动画名称：从上弹入
+*/
+@keyframes enter-from-top-tanru
+{
+    0%{
+        transform: translate3d(0,-1000px,0);
+    }
+    80%{
+        transform: translate3d(0,50px,0);
+    }
+    90%{
+        transform: translate3d(0,-25px,0);
+    }
+    95%{
+        transform: translate3d(0,10px,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@-moz-keyframes enter-from-top-tanru /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(0,-1000px,0);
+    }
+    80%{
+        -moz-transform: translate3d(0,50px,0);
+    }
+    90%{
+        -moz-transform: translate3d(0,-25px,0);
+    }
+    95%{
+        -moz-transform: translate3d(0,10px,0);
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+    }
+}
+@-webkit-keyframes enter-from-top-tanru /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(0,-1000px,0);
+    }
+    80%{
+        -webkit-transform: translate3d(0,50px,0);
+    }
+    90%{
+        -webkit-transform: translate3d(0,-25px,0);
+    }
+    95%{
+        -webkit-transform: translate3d(0,10px,0);
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+    }
+}
+@-o-keyframes enter-from-top-tanru /* Opera */
+{
+    0%{
+        -o-transform: translate3d(0,-1000px,0);
+    }
+    80%{
+        -o-transform: translate3d(0,50px,0);
+    }
+    90%{
+        -o-transform: translate3d(0,-25px,0);
+    }
+    95%{
+        -o-transform: translate3d(0,10px,0);
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+    }
+}
+/*
+    动画名称：从下弹入
+*/
+@keyframes enter-from-bottom-tanru
+{
+    0%{
+        transform: translate3d(0,1000px,0);
+    }
+    80%{
+        transform: translate3d(0,-50px,0);
+    }
+    90%{
+        transform: translate3d(0,25px,0);
+    }
+    95%{
+        transform: translate3d(0,-10px,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@-moz-keyframes enter-from-bottom-tanru /* Firefox */
+{
+    0%{
+        -moz-transform: translate3d(0,1000px,0);
+    }
+    80%{
+        -moz-transform: translate3d(0,-50px,0);
+    }
+    90%{
+        -moz-transform: translate3d(0,25px,0);
+    }
+    95%{
+        -moz-transform: translate3d(0,-10px,0);
+    }
+    100%{
+        -moz-transform: translate3d(0,0,0);
+    }
+}
+@-webkit-keyframes enter-from-bottom-tanru /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: translate3d(0,1000px,0);
+    }
+    80%{
+        -webkit-transform: translate3d(0,-50px,0);
+    }
+    90%{
+        -webkit-transform: translate3d(0,25px,0);
+    }
+    95%{
+        -webkit-transform: translate3d(0,-10px,0);
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+    }
+}
+@-o-keyframes enter-from-bottom-tanru /* Opera */
+{
+    0%{
+        -o-transform: translate3d(0,1000px,0);
+    }
+    80%{
+        -o-transform: translate3d(0,-50px,0);
+    }
+    90%{
+        -o-transform: translate3d(0,25px,0);
+    }
+    95%{
+        -o-transform: translate3d(0,-10px,0);
+    }
+    100%{
+        -o-transform: translate3d(0,0,0);
+    }
+}
+

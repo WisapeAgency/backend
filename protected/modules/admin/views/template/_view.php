@@ -29,5 +29,19 @@
 	<?php echo CHtml::encode($data->rec_status); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>
+	<?php echo CHtml::encode($data->type); ?>
+	<br />
+
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('order')); ?>:</b>
+	<?php echo CHtml::encode($data->order); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('order_type')); ?>:</b>
+	<?php echo CHtml::encode($data->order_type); ?>
+	<br />
+
+	*/ ?>
 
 </div>

@@ -33,7 +33,8 @@ class UserController extends ApiController
                     ->where('user_email=:email',array(':email'=>strtolower($_POST['user_email'])))
                     ->queryScalar();
                 if($rs){
-                    $this->sendDataResponse(User::model()->findByPk($rs)->getAttributes());
+                    $this->sendDataResponse(User::model()->findByPk($rs)->getAttributes(), '该用户已经注册！');
+                    return;
                 }
                 try{
                     $model=new User;
@@ -108,8 +109,8 @@ class UserController extends ApiController
      * 用户填写email后，发送邮件到目标email后，用户点击链接后修改
      */
     public function actionForget(){
-        if(isset($_POST['user_email'])){
-            $email = strtolower(trim($_POST['user_email']));
+        if(isset($_REQUEST['user_email'])){
+            $email = strtolower(trim($_REQUEST['user_email']));
             $userModel = User::model()->find('user_email=:user_email',array(':user_email'=>$email));
             if($userModel){
                 //生成密钥
@@ -179,7 +180,7 @@ Don't want to receive this type of email? Unsubscribe.<br />
 </table>
 EOF;
                 //发送邮件
-                if($this->send_mail($_POST['user_email'],$html)){
+                if($this->sendemail($email,$html)){
                     //将密钥存入数据库并设置过期时间
                     $model = new UserForget();
                     $model->email = $email;
@@ -189,19 +190,16 @@ EOF;
                     $model->token = $key;
                     $model->rec_status = 'A';
                     if($model->save()){
-                        $this->sendSucessResponse('邮件已发送,请查阅');
+                        $this->sendSuccessResponse();
                     }else{
-                        $this->log('User','Forget','邮件发送完成，数据库未记录');
-                        $this->sendErrorResponse('邮件发送完成，数据库未记录');
+                        $this->sendErrorResponse(500, '邮件发送完成，数据库未记录');
                     }
                 }else{
-                    $this->log('User','Forget','邮件发送失败');
                     //邮件发送失败，报告错误
-                    $this->sendErrorResponse('邮件发送失败');
+                    $this->sendErrorResponse(500, '邮件发送失败');
                 }
             }else{
-                $this->log('User','Forget','用户不存在');
-                $this->sendErrorResponse('用户不存在');
+                $this->sendErrorResponse(401, '用户不存在');
             }
         }
     }
@@ -256,6 +254,82 @@ EOF;
         }
     }
 
+    /**
+     * 用户消息中心
+     * 用户id
+     */
+    public function actionMessage(){
+        if(isset($_POST['uid'])){
+            //获得用户没有读过的message
+            //获得当前用户message列表
+            $add = '';
+            $sql = "select mid from readed_message where uid={$_POST['uid']}";
+            $str = Yii::app()->db->createCommand($sql)->queryScalar();
+            if(is_string($str)){
+                $add = " and id not in($str)";
+            }
+            $sql = "select * from user_message where 1 $add";
+            $data = Yii::app()->db->createCommand($sql)->queryAll();
+            $this->sendDataResponse($data);
+        }
+    }
+    /**
+     * 阅读用户消息
+     * 用户id
+     * mid
+     */
+    public function actionReadmessage(){
+        if(isset($_POST['uid']) && isset($_POST['mid'])){
+            //获得当前用户message列表
+            $model = ReadedMessage::model()->findByAttributes(array(
+                'uid'=>$_POST['uid']
+            ));
+            if(!$model){
+                $model = new ReadedMessage();
+                $model->mid = $_POST['mid'];
+            }else{
+                $model->mid .= ','.$_POST['mid'];
+            }
+            $model->uid = $_POST['uid'];
+            if($model->save()){
+                $this->sendSuccessResponse();
+            }
+            $this->sendErrorResponse(500);
+        }
+    }
+
+
+
+    /**
+     * 根据country 代码返回
+     */
+    public function actionActive(){
+        $where = '';
+        $now = $_POST['now'];
+        if(isset($_POST['country_code'])){
+            $country_code = $_POST['country_code'];
+            $where .= " AND country='$country_code' or country is null";
+        }else{
+            $where = ' AND country is null';
+        }
+        $sql = "select * from active where start_time<=$now AND end_time>=$now AND rec_status='A' $where";
+        $models = Yii::app()->db->createCommand($sql)->queryAll();
+        $this->sendDataResponse($models);
+    }
+
+
+    /**
+     * 启动页图片
+     */
+    public function actionStartpage(){
+        $model = StartPage::model()->findByAttributes(array(
+            'rec_status'=>'A',
+        ));
+        if(!$model){
+            $this->sendDataResponse(array());
+        }
+        $this->sendDataResponse($model->getAttributes());
+    }
 
 
 }

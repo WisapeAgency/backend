@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 	'Login',
 );
 ?>
-<p>Please fill out the following form with your login credentials:</p>
+<p>Please fill out the following form with your login credentials:4</p>
 
 <div class="form">
 <?php $form=$this->beginWidget('BActiveForm', array(

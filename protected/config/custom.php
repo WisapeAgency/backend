@@ -6,3 +6,4 @@ define('WIS_USER',1);
 define('FACE_BOOK_USER',2);
 define('TWITTER_USER',3);
 define('LIFE_TIME',3600);
+define('PAGE_SIZE',30);

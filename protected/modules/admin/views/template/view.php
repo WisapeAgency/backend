@@ -27,5 +27,8 @@ $this->menu=array(
 		'temp_description',
 		'temp_url',
 		'rec_status',
+		'type',
+		'order',
+		'order_type',
 	),
 )); ?>

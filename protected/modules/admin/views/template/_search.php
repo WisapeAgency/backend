@@ -41,6 +41,21 @@
 		<?php echo $form->textField($model,'rec_status',array('size'=>1,'maxlength'=>1)); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'type'); ?>
+		<?php echo $form->textField($model,'type'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'order'); ?>
+		<?php echo $form->textField($model,'order'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'order_type'); ?>
+		<?php echo $form->textField($model,'order_type',array('size'=>1,'maxlength'=>1)); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

@@ -244,23 +244,23 @@ class ApiController extends CController
         $to = $email;
         $subject = 'Password Recovery';
         if($to !== null){
-            //要看email是否存在，存在才发邮件
-            $data = $this->curl_post("http://107.150.97.118:58080/web/check!email.action", array(
-                'email'=>$to
-            ));
-            $resultData = json_decode($data);
-            if($resultData->errorCode == 3){
+//             //要看email是否存在，存在才发邮件
+//             $data = $this->curl_post("http://107.150.97.118:58080/web/check!email.action", array(
+//                 'email'=>$to
+//             ));
+//             $resultData = json_decode($data);
+//             if($resultData->errorCode == 3){
                 $key = sha1(uniqid(rand()));
                 $url = SITE_URL.'site/forget/k/'.base64_encode($key).'/e/'.base64_encode($to);
-                try{
-                    $model = new WebForget();
-                    $model->forget_key = $key;
-                    $model->user_email = $to;
-                    $model->rec_status = 'A';
-                    $model->save();
-                }catch (Exception $e){
-                    echo $e->getMessage();exit;
-                }
+//                 try{
+//                     $model = new WebForget();
+//                     $model->forget_key = $key;
+//                     $model->user_email = $to;
+//                     $model->rec_status = 'A';
+//                     $model->save();
+//                 }catch (Exception $e){
+//                     echo $e->getMessage();exit;
+//                 }
                 $html = <<<EOF
                 Hello!,
 
@@ -288,14 +288,17 @@ EOF;
                 Yii::app()->mailer->Subject = $subject;
                 Yii::app()->mailer->Body = $html;
                 if(!Yii::app()->mailer->Send()){
-                    echo 1;Yii::app()->end();
+//                     Yii::app()->end();
+                    return false;
                 }else{
-                    echo 3;Yii::app()->end();
+//                     Yii::app()->end();
+                    return true;
                 }
-            }else{
-                echo 2;Yii::app()->end();
-            }
+//             }else{
+//                 echo 2;Yii::app()->end();
+//             }
         }
+        return false;
     }
 
 

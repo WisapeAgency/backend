@@ -39,18 +39,38 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'model'=>$model,
 )); ?>
 </div><!-- search-form -->
-
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'template-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
 		'temp_name',
-		'temp_img',
-		'temp_description',
-		'temp_url',
-		'rec_status',
+        array(
+            'name'=>'temp_img',
+            'type'=>'raw',
+            'value'=>'CHtml::image($data->temp_img,"",array("style"=>"width:100px;height:125px;"))',
+        ),
+//        'temp_description',
+//        'temp_url',
+        array(
+            'name'=>'rec_status',
+            'header'=>'status',
+            'filter'=>CHtml::dropDownList('Template[rec_status]', $model->rec_status, array(''=>'请选择','A'=>'活动','D'=>'非活动')),
+            'value'=> '$data->rec_status=="A" ? "活动":"非活动"',
+        ),
+        array(
+            'name'=>'type',
+            'filter'=>CHtml::listData( TemplateType::model()->findAll(), 'id', 'name'),
+//            'filter'=>CHtml::dropDownList('Template[type]', $model->type, Template::model()->findAllByAttributes('id','name')),
+            'value'=>'$data->typeName->name'
+        ),
+        'order',
+        array(
+            'header'=>'HotNew',
+            'name'=>'order_type',
+            'filter'=>CHtml::dropDownList('Template[order_type]', $model->order_type, array(''=>'请选择','H'=>'Hot','N'=>'New')),
+            'value'=>'$data->order_type=="H" ? "H":"N"'
+        ),
 		array(
 			'class'=>'CButtonColumn',
 		),
