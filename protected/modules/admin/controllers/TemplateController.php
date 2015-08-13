@@ -75,14 +75,14 @@ class TemplateController extends AdminController
                 $dir_str = strstr($model->temp_url,'/uploads');
                 $new_zip = explode('/',$dir_str);
                 $new_zip = $new_zip[3];
-                $dir_str = SITE_DIR.$dir_str;
+                $dir_str = ROOT_PATH.$dir_str;
                 if(is_file($dir_str)){
                     $zip = Yii::app()->zip;
                     if($zip->extractZip($dir_str,substr($dir_str,0,-4) )){
                         //替换文本
                         $zip_dir = dirname($dir_str);
                         $html_path = substr($dir_str,0,-4).'/stage.html';
-                        $str = file_get_contents(str_replace(SITE_DIR,'http://www.wisape.com',$html_path));
+                        $str = file_get_contents(str_replace(ROOT_PATH,SITE_URL,$html_path));
                         $str .=  str_replace("jpg","jpg?type=stage&id=$model->id",$str);
                         $str .=  str_replace("png","png?type=stage&id=$model->id",$str);
                         $str .=  str_replace("gif","gif?type=stage&id=$model->id",$str);
