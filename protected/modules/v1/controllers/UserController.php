@@ -18,31 +18,40 @@ class UserController extends ApiController
     public function actionLogin()
     {
         //创建类型必须给出
-        if(isset($_POST['type'])){
-            $type=$_POST['type'];
+	    if(isset($_REQUEST['type'])){
+            $type=$_REQUEST['type'];
         }else{
             $this->sendErrorResponse(403);
         }
         //本地注册处理
         if($type == WIS_USER){
-            if(isset($_POST['user_email']) && isset($_POST['user_pwd'])){
+        	$email = $_REQUEST['user_email'];
+        	$pwd = $_REQUEST['user_pwd'];
+            if(isset($email) && isset($pwd) && !empty(trim($email)) && !empty(trim($pwd))){
+            	$email = trim($email);
+            	$pwd = trim($pwd);
                 //邮箱是否已存在
                 $rs = Yii::app()->db->createCommand()
                     ->select('user_id')
                     ->from('user')
-                    ->where('user_email=:email',array(':email'=>strtolower($_POST['user_email'])))
+                    ->where('user_email=:email',array(':email'=>strtolower($email)))
                     ->queryScalar();
-                if($rs){
-                    $this->sendDataResponse(User::model()->findByPk($rs)->getAttributes(), '该用户已经注册！');
+           		if($rs){
+                	$user = User::model()->findByPk($rs)->getAttributes();
+                	if(md5($pwd) == $user['user_pwd']){
+	                    $this->sendDataResponse($user);
+                	}else{
+                		$this->sendErrorResponse(403,'密码错误');
+                	}
                     return;
                 }
                 try{
                     $model=new User;
-                    $model->attributes=$_POST;
+                    $model->attributes=$_REQUEST;
                     $model->user_email = strtolower($model->user_email);
-                    $model->user_pwd = trim($_POST['user_pwd']);
+                    $model->user_pwd = md5($pwd);
                     //生成用户昵称
-                    $nick_name = explode('@',$_POST['user_email']);
+                    $nick_name = explode('@',$email);
                     $model->nick_name = $nick_name[0];
 //                    $model->nick_name = Yii::app()->badWords->replacement($model->nick_name);
                     $model->nick_name = $model->nick_name;
@@ -60,7 +69,7 @@ class UserController extends ApiController
         }
 
         //第三方登陆是否已注册
-        if($type<>WIS_USER && isset($_POST['unique_str']) && isset($_POST['user_ico']) && isset($_POST['nick_name'])  ){
+        if($type<>WIS_USER && isset($_REQUEST['unique_str']) && isset($_REQUEST['user_ico']) && isset($_REQUEST['nick_name'])  ){
             if($type == FACE_BOOK_USER){
                 $user_ext_name = 'face_book';
             }elseif($type == TWITTER_USER){
@@ -70,8 +79,8 @@ class UserController extends ApiController
             $rs = Yii::app()->db->createCommand()
                 ->select('user_id')
                 ->from('user')
-                ->where('user_ext=:user_ext',array(':user_ext'=>$_POST['type']))
-                ->andWhere('unique_str=:unique_str',array(':unique_str'=>$_POST['unique_str']))
+                ->where('user_ext=:user_ext',array(':user_ext'=>$_REQUEST['type']))
+                ->andWhere('unique_str=:unique_str',array(':unique_str'=>$_REQUEST['unique_str']))
                 ->queryScalar();
             if($rs){
                 //用户已存在，无须创建!直接返回数据
@@ -81,15 +90,15 @@ class UserController extends ApiController
                 //如果系统不存在，则创建用户
                 try{
                     $model=new User;
-                    $model->attributes=$_POST;
+                    $model->attributes=$_REQUEST;
                     //第三方拿到的信息有 id,名称，头象
-                    $model->nick_name = $_POST['nick_name'];
+                    $model->nick_name = $_REQUEST['nick_name'];
 //                    $model->nick_name = Yii::app()->badWords->replacement($model->nick_name);
                     $model->nick_name = $model->nick_name;
-                    $model->user_ext = $_POST['type'];
+                    $model->user_ext = $_REQUEST['type'];
                     $model->user_ext_name = $user_ext_name;
-                    $model->user_ico_b = $_POST['user_ico'];
-                    $model->unique_str = $_POST['unique_str'];
+                    $model->user_ico_b = $_REQUEST['user_ico'];
+                    $model->unique_str = $_REQUEST['unique_str'];
                     $model->access_token = $this->getAccessToken();
                     $model->save();
                 }catch (Exception $e){
