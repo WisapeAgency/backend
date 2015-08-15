@@ -31,6 +31,7 @@ class Active extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+            array('title, bg_img, url, rec_status, start_time, end_time, country', 'required'),
 			array('start_time, end_time', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('bg_img, url', 'length', 'max'=>255),

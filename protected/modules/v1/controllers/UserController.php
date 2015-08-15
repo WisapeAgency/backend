@@ -25,47 +25,45 @@ class UserController extends ApiController
         }
         //本地注册处理
         if($type == WIS_USER){
-        	$email = $_REQUEST['user_email'];
-        	$pwd = $_REQUEST['user_pwd'];
-            if(isset($email) && isset($pwd) && !empty(trim($email)) && !empty(trim($pwd))){
-            	$email = trim($email);
-            	$pwd = trim($pwd);
-                //邮箱是否已存在
-                $rs = Yii::app()->db->createCommand()
-                    ->select('user_id')
-                    ->from('user')
-                    ->where('user_email=:email',array(':email'=>strtolower($email)))
-                    ->queryScalar();
-           		if($rs){
-                	$user = User::model()->findByPk($rs)->getAttributes();
-                	if(md5($pwd) == $user['user_pwd']){
-	                    $this->sendDataResponse($user);
-                	}else{
-                		$this->sendErrorResponse(403,'密码错误');
-                	}
-                    return;
-                }
-                try{
-                    $model=new User;
-                    $model->attributes=$_REQUEST;
-                    $model->user_email = strtolower($model->user_email);
-                    $model->user_pwd = md5($pwd);
-                    //生成用户昵称
-                    $nick_name = explode('@',$email);
-                    $model->nick_name = $nick_name[0];
-//                    $model->nick_name = Yii::app()->badWords->replacement($model->nick_name);
-                    $model->nick_name = $model->nick_name;
-                    $model->user_ext = $type;
-                    $model->access_token = $this->getAccessToken();
-                    $model->save();
-                    $this->sendDataResponse($model->getAttributes());
-                }catch (Exception $e){
-                    //本地用户创建失败!
-                    $this->sendErrorResponse(500,$e->getMessage());
-                }
-            }else{
-                $this->sendErrorResponse(403,'用户输入信息不全');
+            if(isset($_REQUEST['user_email']) && isset($_REQUEST['user_pwd'])){
+            	$email = trim($_REQUEST['user_email']);
+            	$pwd = trim($_REQUEST['user_pwd']);
+            	if(!empty($email) && !empty($pwd)){
+	                //邮箱是否已存在
+	                $rs = Yii::app()->db->createCommand()
+	                    ->select('user_id')
+	                    ->from('user')
+	                    ->where('user_email=:email',array(':email'=>strtolower($email)))
+	                    ->queryScalar();
+	           		if($rs){
+	                	$user = User::model()->findByPk($rs)->getAttributes();
+	                	if(md5($pwd) == $user['user_pwd']){
+		                    $this->sendDataResponse($user);
+	                	}else{
+	                		$this->sendErrorResponse(403,'密码错误');
+	                	}
+	                }
+	                try{
+	                    $model=new User;
+	                    $model->attributes=$_REQUEST;
+	                    $model->user_email = strtolower($model->user_email);
+	                    $model->user_pwd = md5($pwd);
+	                    //生成用户昵称
+	                    $nick_name = explode('@',$email);
+	                    $model->nick_name = $nick_name[0];
+	//                    $model->nick_name = Yii::app()->badWords->replacement($model->nick_name);
+	                    $model->nick_name = $model->nick_name;
+	                    $model->user_ext = $type;
+	                    $model->access_token = $this->getAccessToken();
+	                    $model->save();
+	                    $this->sendDataResponse($model->getAttributes());
+	                }catch (Exception $e){
+	                    //本地用户创建失败!
+	                    $this->sendErrorResponse(500,$e->getMessage());
+	                }
+            	}
             }
+            $this->sendErrorResponse(403,'用户输入信息不全');
         }
 
         //第三方登陆是否已注册

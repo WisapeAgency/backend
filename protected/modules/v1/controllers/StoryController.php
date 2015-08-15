@@ -20,18 +20,35 @@ class StoryController extends ApiController{
      * 前端调用
      */
     public function actionShare(){
-        $type = $_POST['type'];
-        $model = Story::model()->findByPk($_POST['sid']);
-        if($type == 1){
-            $model->share_num +=1;
-        }else if($type == 2){
-            $model->view_num +=1;
-        }else if($type == 3){
-            $model->like_num +=1;
-        }
-        if($model->save()){
-            $this->sendDataResponse($model->getAttributes());
-        }
+    	if(isset($_REQUEST['type']) && isset($_REQUEST['sid'])){
+	        $type = $_REQUEST['type'];
+	        $model = Story::model()->findByPk($_REQUEST['sid']);
+	        if($type == 1){
+	            $model->share_num +=1;
+	        }else if($type == 2){
+	            $model->view_num +=1;
+	        }else if($type == 3){
+	            $model->like_num +=1;
+	        }
+	        if($model->save()){
+	            $this->sendDataResponse($model->getAttributes());
+	        }
+    	}else{
+    		$this->sendErrorResponse(400, '缺少参数');
+    	}
+    }
+    
+    /**
+     * 获取story的浏览、点赞、分享次数
+     */
+    public function actionGetShare() {
+    	if(isset($_REQUEST['sid'])){
+    		$model = Story::model()->findByPk($_REQUEST['sid']);
+    		$data = array('view_num'=>$model->view_num, 'like_num'=>$model->like_num, 'share_num'=>$model->share_num);
+    		$this->sendDataResponse($data);
+    	}else{
+    		$this->sendErrorResponse(400, '缺少参数');
+    	}
     }
 
 

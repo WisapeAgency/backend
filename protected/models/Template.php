@@ -67,7 +67,7 @@ class Template extends CActiveRecord
 			'temp_img' => 'Temp Img',
 			'temp_description' => 'Temp Description',
 			'temp_url' => 'Temp Url',
-			'rec_status' => 'A活动D非活动',
+			'rec_status' => '状态',
 			'type' => 'Type',
 			'order' => '排序',
 			'order_type' => 'H N',

@@ -60,7 +60,7 @@ class Music extends CActiveRecord
 			'music_name' => 'Music Name',
 			'music_url' => 'Music Url',
 			'type' => 'Type',
-			'rec_status' => 'Rec Status',
+			'rec_status' => '状态',
 		);
 	}
 
