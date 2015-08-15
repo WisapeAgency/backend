@@ -66,9 +66,15 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'rec_status'); ?>
-        <?php echo $form->DropDownList($model,'rec_status',array(''=>'请选择','A'=>'激活','D'=>'不激活'.PAGE_SIZE)); ?>
+        <?php echo $form->DropDownList($model,'rec_status',array(''=>'请选择','A'=>'激活','D'=>'不激活')); ?>
         <?php echo $form->error($model,'rec_status'); ?>
     </div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'default_down'); ?>
+		<?php echo $form->DropDownList($model,'default_down',array('0'=>'否','1'=>'是')); ?>
+		<?php echo $form->error($model,'default_down'); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

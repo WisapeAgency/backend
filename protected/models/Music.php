@@ -9,6 +9,7 @@
  * @property string $music_url
  * @property integer $type
  * @property string $rec_status
+ * @property string $default_down
  */
 class Music extends CActiveRecord
 {
@@ -31,10 +32,10 @@ class Music extends CActiveRecord
 			array('type', 'numerical', 'integerOnly'=>true),
 			array('music_name', 'length', 'max'=>100),
 			array('music_url', 'length', 'max'=>255),
-			array('rec_status', 'length', 'max'=>1),
+			array('rec_status, default_down', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, music_name, music_url, type, rec_status', 'safe', 'on'=>'search'),
+			array('id, music_name, music_url, type, rec_status,default_down', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,6 +62,7 @@ class Music extends CActiveRecord
 			'music_url' => 'Music Url',
 			'type' => 'Type',
 			'rec_status' => '状态',
+			'default_down' => '静默下载',
 		);
 	}
 
@@ -87,6 +89,7 @@ class Music extends CActiveRecord
 		$criteria->compare('music_url',$this->music_url,true);
 		$criteria->compare('type',$this->type);
 		$criteria->compare('rec_status',$this->rec_status,true);
+		$criteria->compare('default_down',$this->default_down,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

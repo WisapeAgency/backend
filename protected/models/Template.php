@@ -13,6 +13,7 @@
  * @property integer $type
  * @property integer $order
  * @property string $order_type
+ * @property string $default_down
  */
 class Template extends CActiveRecord
 {
@@ -36,7 +37,7 @@ class Template extends CActiveRecord
 			array('type, order', 'numerical', 'integerOnly'=>true),
 			array('temp_name', 'length', 'max'=>200),
 			array('temp_img, temp_url', 'length', 'max'=>255),
-			array('rec_status, order_type', 'length', 'max'=>1),
+			array('rec_status, order_type, default_down', 'length', 'max'=>1),
 			array('temp_description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -71,6 +72,7 @@ class Template extends CActiveRecord
 			'type' => 'Type',
 			'order' => '排序',
 			'order_type' => 'H N',
+			'default_down' => '静默下载',
 		);
 	}
 
@@ -101,6 +103,7 @@ class Template extends CActiveRecord
 		$criteria->compare('type',$this->type);
 		$criteria->compare('order',$this->order);
 		$criteria->compare('order_type',$this->order_type,true);
+		$criteria->compare('default_down',$this->default_down,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
