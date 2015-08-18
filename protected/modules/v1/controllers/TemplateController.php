@@ -31,6 +31,7 @@ class TemplateController extends ApiController{
         if(isset($_POST['type'])){
             $where = " AND type={$_POST['type']}";
         }
+        $order = ' order by `order` desc';
         if(isset($_POST['page'])){
             $page = $_POST['page'];
             if(isset($_POST['page_size'])){
@@ -39,10 +40,10 @@ class TemplateController extends ApiController{
                 $pageSize = PAGE_SIZE;
             }
             $start = ($page-1)*$pageSize;
-            $sql = "select * from template where rec_status='A' $where limit $start,$pageSize";
+            $sql = "select * from template where rec_status='A' $where $order limit $start,$pageSize";
             $model = Yii::app()->db->createCommand($sql)->queryAll();
         }else{
-            $sql = "select * from template where rec_status='A' $where";
+            $sql = "select * from template where rec_status='A' $where $order";
             $model = Yii::app()->db->createCommand($sql)->queryAll();
         }
         $this->sendDataResponse($model);

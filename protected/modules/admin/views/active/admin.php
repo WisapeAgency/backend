@@ -65,11 +65,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
         ),
         array(
             'name'=>'start_time',
-            'value'=>'date("Y-m-d H:i",$data->start_time)',
+            'value'=>'$data->start_time',
         ),
         array(
             'name'=>'end_time',
-            'value'=>'date("Y-m-d H:i",$data->end_time)',
+            'value'=>'$data->end_time',
         ),
 		'country',
 		array(

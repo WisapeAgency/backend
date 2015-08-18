@@ -70,8 +70,20 @@ class SendMessageController extends AdminController
 		if(isset($_POST['SendMessage']))
 		{
 			$model->attributes=$_POST['SendMessage'];
-			if($model->save())
+			if($model->save()){
+				//推送
+				include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+				$data = array (
+						'type' => OPERATION_MESSAGE,
+						'id' => $model->id,
+						'message_title' => $model->title,
+						'message_subject' => $model->subject,
+						'push_time' => $model->parsetime 
+				);
+				ParseApi::send($data);
+				//
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(

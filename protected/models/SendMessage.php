@@ -5,10 +5,11 @@
  *
  * The followings are the available columns in table 'send_message':
  * @property integer $id
- * @property string $user_name
+ * @property string $title
  * @property string $user_email
  * @property string $subject
  * @property string $user_message
+ * @property string $parsetime
  * @property string $createtime
  */
 class SendMessage extends CActiveRecord
@@ -29,15 +30,15 @@ class SendMessage extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_name, user_email', 'required','message'=>'This field is required'),
-			array('user_name', 'length', 'max'=>60),
+			array('title, subject, parsetime', 'required','message'=>'This field is required'),
+			array('title', 'length', 'max'=>60),
 			array('user_email', 'length', 'max'=>100),
             array('user_email', 'email','message'=>'It seems to be invalid Email'),
 			array('subject', 'length', 'max'=>200),
 			array('user_message', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_name, user_email, subject, user_message, createtime', 'safe', 'on'=>'search'),
+			array('id, title, user_email, subject, user_message, parsetime, createtime', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,10 +60,11 @@ class SendMessage extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'user_name' => 'User Name',
 			'user_email' => 'User Email',
-			'subject' => 'Subject',
-			'user_message' => 'User Message',
+			'title' => 'Message Title',
+			'subject' => 'Message Subject',
+			'user_message' => 'Message Content',	
+			'parsetime' => 'Push time',
 			'createtime' => 'Createtime',
 		);
 	}
@@ -86,10 +88,11 @@ class SendMessage extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('user_name',$this->user_name,true);
+		$criteria->compare('title',$this->title,true);
 		$criteria->compare('user_email',$this->user_email,true);
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('user_message',$this->user_message,true);
+		$criteria->compare('parsetime',$this->parsetime,true);
 		$criteria->compare('createtime',$this->createtime,true);
 
 		return new CActiveDataProvider($this, array(

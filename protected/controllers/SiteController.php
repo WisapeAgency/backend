@@ -272,6 +272,13 @@ class SiteController extends Controller
     }
 
 
+    public function actionParse()
+    {
+    	//推送消息
+    	include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+    	$data = array("message_title"=>"new story","message_subject"=>"story:abc","type"=>1,'id'=>1);
+    	ParseApi::send($data);echo 'ok';exit;
+    }
 
 
 }

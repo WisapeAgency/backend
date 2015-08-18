@@ -22,10 +22,10 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'user_name',
 		'user_email',
+		'title',
 		'subject',
 		'user_message',
-		'createtime',
+		'parsetime',
 	),
 )); ?>

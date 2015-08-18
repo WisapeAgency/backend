@@ -20,15 +20,15 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'user_name'); ?>
-		<?php echo $form->textField($model,'user_name',array('size'=>60,'maxlength'=>60)); ?>
-		<?php echo $form->error($model,'user_name'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'user_email'); ?>
 		<?php echo $form->textField($model,'user_email',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'user_email'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'title'); ?>
+		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>60)); ?>
+		<?php echo $form->error($model,'title'); ?>
 	</div>
 
 	<div class="row">
@@ -44,11 +44,17 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'createtime'); ?>
-		<?php echo $form->textField($model,'createtime'); ?>
-		<?php echo $form->error($model,'createtime'); ?>
+		<?php echo $form->labelEx($model,'parsetime'); ?>
+        <?php
+        $this->widget('ext.my97DatePicker.JMy97DatePicker',array(
+            'name'=>CHtml::activeName($model,'parsetime'),
+            'value'=>$model->parsetime?$model->parsetime:'',
+            'options'=>array('dateFmt'=>'yyyy-MM-dd HH:mm'),
+        ));
+        ?>
+		<?php echo $form->error($model,'parsetime'); ?>
 	</div>
-
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

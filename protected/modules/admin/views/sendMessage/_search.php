@@ -17,13 +17,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'user_name'); ?>
-		<?php echo $form->textField($model,'user_name',array('size'=>60,'maxlength'=>60)); ?>
+		<?php echo $form->label($model,'user_email'); ?>
+		<?php echo $form->textField($model,'user_email',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'user_email'); ?>
-		<?php echo $form->textField($model,'user_email',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->label($model,'title'); ?>
+		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>60)); ?>
 	</div>
 
 	<div class="row">
@@ -34,6 +34,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'user_message'); ?>
 		<?php echo $form->textArea($model,'user_message',array('rows'=>6, 'cols'=>50)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'parsetime'); ?>
+		<?php echo $form->textField($model,'parsetime'); ?>
 	</div>
 
 	<div class="row">

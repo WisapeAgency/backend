@@ -76,7 +76,7 @@
         <?php
         $this->widget('ext.my97DatePicker.JMy97DatePicker',array(
             'name'=>CHtml::activeName($model,'start_time'),
-            'value'=>$model->start_time?date('Y-m-d H:i',$model->start_time):'',
+            'value'=>$model->start_time?$model->start_time:'',
             'options'=>array('dateFmt'=>'yyyy-MM-dd HH:mm'),
         ));
         ?>
@@ -88,7 +88,7 @@
         <?php
         $this->widget('ext.my97DatePicker.JMy97DatePicker',array(
             'name'=>CHtml::activeName($model,'end_time'),
-            'value'=>$model->end_time?date('Y-m-d H:i',$model->end_time):'',
+            'value'=>$model->end_time?$model->end_time:'',
             'options'=>array('dateFmt'=>'yyyy-MM-dd HH:mm'),
         ));
         ?>

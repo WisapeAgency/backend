@@ -9,8 +9,8 @@
  * @property string $bg_img
  * @property string $url
  * @property string $rec_status
- * @property integer $start_time
- * @property integer $end_time
+ * @property string $start_time
+ * @property string $end_time
  * @property string $country
  */
 class Active extends CActiveRecord
@@ -32,7 +32,7 @@ class Active extends CActiveRecord
 		// will receive user inputs.
 		return array(
             array('title, bg_img, url, rec_status, start_time, end_time, country', 'required'),
-			array('start_time, end_time', 'numerical', 'integerOnly'=>true),
+// 			array('start_time, end_time', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('bg_img, url', 'length', 'max'=>255),
 			array('rec_status', 'length', 'max'=>1),
