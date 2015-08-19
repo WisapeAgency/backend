@@ -77,7 +77,7 @@ class FontsController extends ApiController
     			header('Content-Length: '.filesize($file_path));
     			ob_clean(); //Clean (erase) the output buffer
     			flush();
-    			readfile( $dir_str ); //读入一个文件并写入到输出缓冲。
+    			readfile( $file_path ); //读入一个文件并写入到输出缓冲。
     			Yii::app()->end();
     		}else{
     			$this->sendErrorResponse(404, $temp_url);

@@ -43,8 +43,8 @@ class MusicController extends ApiController{
     }
 
     public function actionDownload(){
-        if(isset($_POST['id'])){
-            $model = Music::model()->findByPk($_POST['id']);
+        if(isset($_REQUEST['id'])){
+            $model = Music::model()->findByPk($_REQUEST['id']);
             $dir_str = strstr($model->music_url,'/uploads');
 			$url = SITE_URL.$dir_str;
             $file_path = ROOT_PATH.$dir_str;
@@ -56,7 +56,7 @@ class MusicController extends ApiController{
                 header("Content-Type: application/zip");
                 header('Content-Disposition: attachment; filename='.$model->music_name);
                 header("Content-Transfer-Encoding: binary");
-                header('Content-Length: '.filesize($dir_str));
+                header('Content-Length: '.filesize($file_path));
                 ob_clean(); //Clean (erase) the output buffer
                 flush();
                 readfile( $file_path ); //读入一个文件并写入到输出缓冲。
