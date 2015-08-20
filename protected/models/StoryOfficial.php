@@ -17,7 +17,7 @@ class StoryOfficial extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'Story_Official';
+		return 'story_official';
 	}
 
 	/**

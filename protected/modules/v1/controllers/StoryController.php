@@ -130,8 +130,8 @@ class StoryController extends ApiController{
      */
     public function actionList(){
         $model = $this->getUserModelByToken($_POST['access_token']);
-        $uid = $model->user_id;
         if($model){
+	        $uid = $model->user_id;
             if(isset($_POST['page'])){
                 $page = $_POST['page'];
                 if(isset($_POST['page_size'])){
@@ -148,6 +148,8 @@ class StoryController extends ApiController{
                 ));
             }
             $this->sendDataResponse($model);
+        }else{
+        	$this->sendErrorResponse(404, '没有找到资源');
         }
 
     }

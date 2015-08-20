@@ -40,6 +40,7 @@
                         array('label'=>'MusicType', 'url'=>array('/admin/MusicType/admin')),
                         array('label'=>'Fonts', 'url'=>array('/admin/Fonts/admin')),
                         array('label'=>'Active', 'url'=>array('/admin/Active/admin')),
+                        array('label'=>'Official Story', 'url'=>array('/admin/StoryOfficial/admin')),
 						array('label'=>'Login', 'url'=>array('/admin/default/login'), 'visible'=>Yii::app()->user->isGuest),
 					),
 					'htmlOptions'=>array(
