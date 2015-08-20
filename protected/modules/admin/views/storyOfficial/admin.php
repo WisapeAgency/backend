@@ -44,7 +44,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'name',
-		'zip_url',
+		array(
+				'name'=>'small_img',
+				'type'=>'raw',
+				'value'=>'CHtml::image($data->small_img,"",array("style"=>"width:100px;height:125px;"))',
+		),
 		'rec_status',
 		'createtime',
 		array(

@@ -5,8 +5,7 @@ use Parse\ParseClient;
 use Parse\ParsePush;
 use Parse\ParseObject;
 
-define('OPERATION_MESSAGE', 1);
-define('SYSTEM_MESSAGE', 2);
+
 class ParseApi{
 	
 	

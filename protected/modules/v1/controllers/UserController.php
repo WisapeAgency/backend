@@ -261,49 +261,6 @@ EOF;
         }
     }
 
-    /**
-     * 用户消息中心
-     * 用户id
-     */
-    public function actionMessage(){
-        if(isset($_POST['uid'])){
-            //获得用户没有读过的message
-            //获得当前用户message列表
-            $add = '';
-            $sql = "select mid from readed_message where uid={$_POST['uid']}";
-            $str = Yii::app()->db->createCommand($sql)->queryScalar();
-            if(is_string($str)){
-                $add = " and id not in($str)";
-            }
-            $sql = "select * from user_message where 1 $add";
-            $data = Yii::app()->db->createCommand($sql)->queryAll();
-            $this->sendDataResponse($data);
-        }
-    }
-    /**
-     * 阅读用户消息
-     * 用户id
-     * mid
-     */
-    public function actionReadmessage(){
-        if(isset($_POST['uid']) && isset($_POST['mid'])){
-            //获得当前用户message列表
-            $model = ReadedMessage::model()->findByAttributes(array(
-                'uid'=>$_POST['uid']
-            ));
-            if(!$model){
-                $model = new ReadedMessage();
-                $model->mid = $_POST['mid'];
-            }else{
-                $model->mid .= ','.$_POST['mid'];
-            }
-            $model->uid = $_POST['uid'];
-            if($model->save()){
-                $this->sendSuccessResponse();
-            }
-            $this->sendErrorResponse(500);
-        }
-    }
 
 
 

@@ -28,14 +28,14 @@ class StoryOfficial extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, zip_url', 'required'),
+			array('name, small_img, zip_url', 'required'),
 			array('name', 'length', 'max'=>50),
-			array('zip_url', 'length', 'max'=>500),
+			array('small_img, zip_url', 'length', 'max'=>500),
 			array('rec_status', 'length', 'max'=>1),
 			array('createtime', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, zip_url, rec_status, createtime', 'safe', 'on'=>'search'),
+			array('id, name, small_img, zip_url, rec_status, createtime', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,6 +58,7 @@ class StoryOfficial extends CActiveRecord
 		return array(
 			'id' => 'Id',
 			'name' => 'Name',
+			'small_img' => 'Small Img',
 			'zip_url' => 'Zip Url',
 			'rec_status' => 'Rec Status',
 			'createtime' => 'Createtime',
@@ -86,6 +87,8 @@ class StoryOfficial extends CActiveRecord
 
 		$criteria->compare('name',$this->name,true);
 
+		$criteria->compare('small_img',$this->small_img,true);
+		
 		$criteria->compare('zip_url',$this->zip_url,true);
 
 		$criteria->compare('rec_status',$this->rec_status,true);
