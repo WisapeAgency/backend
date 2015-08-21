@@ -17,16 +17,25 @@ class ParseApi{
 		);
 	}
 	
-	static function send($obj, $useMasterKey = false){
-		if(is_array($obj)){
-			$obj['action'] = 'com.wisape.android.content.MessageCenterReceiver';
+	static function send($obj, $user=false){
+		if(!is_array($obj)){
+			return false;
 		}
 		self::init();
+		//app端接收消息的action
+		$obj['action'] = 'com.wisape.android.content.MessageCenterReceiver';
+		//设置推送对象
+		if(isset($user) && !empty($user)){
+			$channel = [$user];
+		}else{
+			$channel = ['abcde'];
+		}
+		
 		$data = array(
-				'channels' => ['abcde'],
+				'channels' => $channel,
 				'data' => $obj
 		);
-		ParsePush::send($data, $useMasterKey);
+		ParsePush::send($data);
 		
 // 		$testObject = ParseObject::create("TestObject");
 // 		$testObject->set("foo", "bar");

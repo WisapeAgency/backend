@@ -80,7 +80,7 @@ class SendMessageController extends AdminController
 						'message_subject' => $model->subject,
 						'push_time' => $model->parsetime 
 				);
-				ParseApi::send($data);
+				ParseApi::send($data, $model->user_email);
 				//
 				$this->redirect(array('view','id'=>$model->id));
 			}

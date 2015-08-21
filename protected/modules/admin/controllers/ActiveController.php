@@ -70,10 +70,23 @@ class ActiveController extends AdminController
 		if(isset($_POST['Active']))
 		{
 			$model->attributes=$_POST['Active'];
-            $model->start_time = strtotime($model->start_time);
-            $model->end_time   = strtotime($model->end_time);
-			if($model->save())
+//             $model->start_time = strtotime($model->start_time);
+//             $model->end_time   = strtotime($model->end_time);
+			if($model->save()){
+				//推送
+				include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+				$data = array (
+						'type' => ACTIVE_MESSAGE,
+						'id' => $model->id,
+						'message_title' => $model->title,
+						'message_subject' => '',
+						'push_time' => $model->start_time,
+						'expiration_time'=>$model->end_time
+				);
+				ParseApi::send($data);
+				
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(

@@ -129,13 +129,13 @@ class StoryController extends ApiController{
      * story List
      */
     public function actionList(){
-        $model = $this->getUserModelByToken($_POST['access_token']);
+        $model = $this->getUserModelByToken($_REQUEST['access_token']);
         if($model){
 	        $uid = $model->user_id;
-            if(isset($_POST['page'])){
-                $page = $_POST['page'];
-                if(isset($_POST['page_size'])){
-                    $pageSize = $_POST['page_size'];
+            if(isset($_REQUEST['page'])){
+                $page = $_REQUEST['page'];
+                if(isset($_REQUEST['page_size'])){
+                    $pageSize = $_REQUEST['page_size'];
                 }else{
                     $pageSize = PAGE_SIZE;
                 }
