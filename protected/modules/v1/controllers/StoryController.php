@@ -88,7 +88,7 @@ class StoryController extends ApiController{
                 if($zip->extractZip($zipPath,$target_path)){
                     if(!unlink($zipPath)) $this->sendErrorResponse(500,'del zip error');
                     $model->story_url = SITE_URL.'/'.$target_path;
-                    $fp=fopen("/var/www/html/wis/$target_path","r+");
+                    $fp=fopen(ROOT_PATH.'/'.$target_path, "r+");
                     while(!feof($fp))
                     {
                         $buffer=fgets($fp,4096);

@@ -56,8 +56,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
         array(
             'name'=>'rec_status',
             'header'=>'status',
-            'filter'=>CHtml::dropDownList('Music[rec_status]', $model->rec_status, array(''=>'请选择','A'=>'活动','D'=>'非活动')),
-            'value'=> '$data->rec_status=="A" ? "活动":"非活动"',
+            'filter'=>CHtml::dropDownList('Music[rec_status]', $model->rec_status, array(''=>'请选择','A'=>'激活','D'=>'未激活')),
+            'value'=> '$data->rec_status=="A" ? "激活":"未激活"',
         ),
 		array(
 				'header'=>'静默下载',

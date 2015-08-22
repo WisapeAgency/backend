@@ -18,13 +18,12 @@ class MessageController extends ApiController
 			if($model){
 				$user_email = $model->user_email;
 				//获得用户没有读过的message
-				//获得当前用户message列表
 				$add = '';
-				$sql = "select mid from readed_message where uid={$_REQUEST['uid']}";
-				$str = Yii::app()->db->createCommand($sql)->queryScalar();
-				if(is_string($str)){
-					$add = " and id not in($str)";
-				}
+// 				$sql = "select mid from readed_message where uid={$_REQUEST['uid']}";
+// 				$str = Yii::app()->db->createCommand($sql)->queryScalar();
+// 				if(is_string($str)){
+// 					$add = " and id not in($str)";
+// 				}
 				$sql = "select * from send_message where (user_email = '$user_email' or user_email is null or user_email ='') $add";
 				$data = Yii::app()->db->createCommand($sql)->queryAll();
 				$this->sendDataResponse($data);

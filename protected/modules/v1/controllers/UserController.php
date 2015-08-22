@@ -234,31 +234,41 @@ EOF;
      * @user_sig
      */
     public function actionEditProfile(){
-        if(isset($_POST['access_token'])){
-            $userModel = $this->getUserModelByToken($_POST['access_token']);
-//            $this->sendDataResponse($userModel->getAttributes());
-//            $this->sendErrorResponse(404,$_POST['nick_name']);
-            if(isset($_POST['nick_name'])){
-                $userModel->nick_name = $_POST['nick_name'];
+        if(isset($_REQUEST['access_token'])){
+            $userModel = $this->getUserModelByToken($_REQUEST['access_token']);
+            if($userModel){
+	            if(isset($_REQUEST['nick_name']) && !empty($_REQUEST['nick_name'])){
+	                $userModel->nick_name = $_REQUEST['nick_name'];
+	            }
+	
+	            if(isset($_REQUEST['user_ico']) && !empty($_REQUEST['user_ico'])){
+	                $img1 = $userModel->user_ico_b;
+	                $im1 = $userModel->user_ico_b = $this->saveStrToImg(trim($_REQUEST['user_ico']));
+	                $userModel->user_ico_n = $im1;
+	            }
+	            if(isset($_REQUEST['user_email']) && !empty($_REQUEST['user_email'])){
+	            	//邮箱是否已存在
+	                $rs = Yii::app()->db->createCommand()
+	                    ->select('user_id')
+	                    ->from('user')
+	                    ->where('user_email=:email',array(':email'=>strtolower($_REQUEST['user_email'])))
+	                    ->queryScalar();
+	           		if($rs){
+	           			$this->sendErrorResponse(403, '邮箱已经存在');
+	           		}
+	                $userModel->user_email = $_REQUEST['user_email'];
+	            }
+	            try{
+	                if($userModel->save()){
+	                    if($im1) $this->delFileFromServer($img1);
+	                }
+	            }catch (Exception $e){
+	                $this->sendErrorResponse(500,$e->getMessage());
+	            }
+	            $this->sendDataResponse($userModel->getAttributes());
             }
-
-            if(isset($_POST['user_ico'])){
-                $img1 = $userModel->user_ico_b;
-                $im1 = $userModel->user_ico_b = $this->saveStrToImg(trim($_POST['user_ico']));
-                $userModel->user_ico_n = $im1;
-            }
-            if(isset($_POST['user_email'])){
-                $userModel->user_email = $_POST['user_email'];
-            }
-            try{
-                if($userModel->save()){
-                    if($im1) $this->delFileFromServer($img1);
-                }
-            }catch (Exception $e){
-                $this->sendErrorResponse(500,$e->getMessage());
-            }
-            $this->sendDataResponse($userModel->getAttributes());
         }
+        $this->sendErrorResponse(403, '无效的token');
     }
 
 
@@ -268,17 +278,19 @@ EOF;
      * 根据country 代码返回
      */
     public function actionActive(){
-        $where = '';
-        $now = $_POST['now'];
-        if(isset($_POST['country_code'])){
-            $country_code = $_POST['country_code'];
-            $where .= " AND country='$country_code' or country is null";
-        }else{
+    	if(isset($_REQUEST['now'])){
+	        $now = $_REQUEST['now'];
             $where = ' AND country is null';
-        }
-        $sql = "select * from active where start_time<=$now AND end_time>=$now AND rec_status='A' $where";
-        $models = Yii::app()->db->createCommand($sql)->queryAll();
-        $this->sendDataResponse($models);
+	        if(isset($_REQUEST['country_code'])){
+	            $country_code = $_REQUEST['country_code'];
+	            $where = " AND country='$country_code' or country is null";
+	        }
+	        $sql = "select * from active where start_time<=$now AND end_time>=$now AND rec_status='A' $where";
+	        $models = Yii::app()->db->createCommand($sql)->queryAll();
+        	$this->sendDataResponse($models);
+    	}else{
+    		$this->sendErrorResponse(400, '参数不正确');
+    	}
     }
 
 

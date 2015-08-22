@@ -77,10 +77,13 @@ class SendMessageController extends AdminController
 						'type' => OPERATION_MESSAGE,
 						'id' => $model->id,
 						'message_title' => $model->title,
-						'message_subject' => $model->subject,
-						'push_time' => $model->parsetime 
+						'message_subject' => $model->subject
 				);
-				ParseApi::send($data, $model->user_email);
+				$param = array (
+						'user' => $model->user_email,
+						'push_time' => $model->parsetime
+				);
+				ParseApi::send($data, $param);
 				//
 				$this->redirect(array('view','id'=>$model->id));
 			}

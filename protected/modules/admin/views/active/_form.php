@@ -67,7 +67,7 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'rec_status'); ?>
-        <?php echo $form->DropDownList($model,'rec_status',array(''=>'请选择','A'=>'激活','D'=>'不激活')); ?>
+        <?php echo $form->DropDownList($model,'rec_status',array('A'=>'激活','D'=>'不激活')); ?>
         <?php echo $form->error($model,'rec_status'); ?>
     </div>
 

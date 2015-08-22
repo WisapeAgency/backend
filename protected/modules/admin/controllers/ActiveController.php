@@ -79,12 +79,14 @@ class ActiveController extends AdminController
 						'type' => ACTIVE_MESSAGE,
 						'id' => $model->id,
 						'message_title' => $model->title,
-						'message_subject' => '',
-						'push_time' => $model->start_time,
-						'expiration_time'=>$model->end_time
+						'message_subject' => ''
 				);
-				ParseApi::send($data);
-				
+				$param = array (
+						'push_time' => $model->start_time,
+						'expiration_time' => $model->end_time
+				);
+				ParseApi::send($data, $param);
+				//跳转
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}

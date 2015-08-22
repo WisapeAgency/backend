@@ -3,7 +3,6 @@ require 'autoload.php';
 
 use Parse\ParseClient;
 use Parse\ParsePush;
-use Parse\ParseObject;
 
 
 class ParseApi{
@@ -17,29 +16,38 @@ class ParseApi{
 		);
 	}
 	
-	static function send($obj, $user=false){
-		if(!is_array($obj)){
-			return false;
-		}
+	private static function convert($time){
+		$time = date('Y-m-d H:i:s', strtotime($time) - 8 * 3600);
+		return new DateTime($time);
+	}
+	
+	static function send($content, $param=array()){
 		self::init();
 		//app端接收消息的action
-		$obj['action'] = 'com.wisape.android.content.MessageCenterReceiver';
+		$content['action'] = 'com.wisape.android.content.MessageCenterReceiver';
 		//设置推送对象
-		if(isset($user) && !empty($user)){
-			$channel = [$user];
+		if(isset($param) && !empty($param['user'])){
+			$channel = [$param['user']];
 		}else{
 			$channel = ['abcde'];
 		}
 		
 		$data = array(
 				'channels' => $channel,
-				'data' => $obj
+				'data' => $content
 		);
-		ParsePush::send($data);
+		//设置推送时间
+		if(isset($param) && !empty($param['push_time'])){
+			//转换为UTC时间
+			$data['push_time'] = self::convert($param['push_time']);
+		}
+		//设置过期时间
+		if(isset($param) && !empty($param['expiration_time'])){
+			//转换为UTC时间
+			$data['expiration_time'] = self::convert($param['expiration_time']);
+		}
 		
-// 		$testObject = ParseObject::create("TestObject");
-// 		$testObject->set("foo", "bar");
-// 		$testObject->save();
+		ParsePush::send($data);
 	}
 	
 	
