@@ -41,7 +41,7 @@ class StoryController extends ApiController{
     /**
      * 获取story的浏览、点赞、分享次数
      */
-    public function actionGetShare() {
+    public function actionShareNum() {
     	if(isset($_REQUEST['sid'])){
     		$model = Story::model()->findByPk($_REQUEST['sid']);
     		$data = array('view_num'=>$model->view_num, 'like_num'=>$model->like_num, 'share_num'=>$model->share_num);
@@ -62,21 +62,21 @@ class StoryController extends ApiController{
         ini_set('max_execution_time', 300);
         //if(!isset($_POST)) $this->sendErrorResponse(403);
         //修改哈
-        if(isset($_POST['sid'])){
-            $model = Story::model()->findByPk($_POST['sid']);
+        if(isset($_REQUEST['sid'])){
+            $model = Story::model()->findByPk($_REQUEST['sid']);
         }else{
             $model = new Story(); //新建
             $model->share_num = $model->view_num = $model->like_num = 0;
         }
         $model->createtime = time();
-        $model->uid = $_POST['uid'];
-        $model->description = isset($_POST['description'])?$_POST['description']:'';
-        $model->rec_status = isset($_POST['rec_status'])?$_POST['rec_status']:'';
-        $model->small_img = isset($_POST['small_img'])?$this->saveStrToImg(trim($_POST['small_img'])):'';
-        $model->story_name = $_POST['story_name'];
+        $model->uid = $_REQUEST['uid'];
+        $model->description = isset($_REQUEST['description'])?$_REQUEST['description']:'';
+        $model->rec_status = isset($_REQUEST['rec_status'])?$_REQUEST['rec_status']:'';
+        $model->small_img = isset($_REQUEST['small_img'])?$this->saveStrToImg(trim($_REQUEST['small_img'])):'';
+        $model->story_name = $_REQUEST['story_name'];
         if(isset($_FILES['zip_file']['tmp_name'])){
             $target_path = "html/";
-            $target_path = $target_path.$_POST['uid'].'/'.date('YmdHi');
+            $target_path = $target_path.$_REQUEST['uid'].'/'.date('YmdHi');
             $zipPath = $target_path.'/'.$_FILES['zip_file']['name'];
             if (!is_dir($target_path)) $this->mkdirs($target_path);
 //                $this->sendErrorResponse(404,$target_path);

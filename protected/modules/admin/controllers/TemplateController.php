@@ -98,10 +98,10 @@ class TemplateController extends AdminController
 //                            $model->temp_url = SITE_URL.'uploads/'.date('YmdH').'/'.$rd;
                             $this->redirect(array('view','id'=>$model->id));
                         }else{
-                            echo 'dddddddd';exit;
+                            echo 'make zip erorr';exit;
                         }
                     }else{
-                        echo 'error';exit;
+                        echo 'extract error';exit;
                     }
                 }
             }

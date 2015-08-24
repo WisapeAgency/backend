@@ -10,9 +10,9 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>50,'maxlength'=>50)); ?>
-		<?php echo $form->error($model,'name'); ?>
+		<?php echo $form->labelEx($model,'story_name'); ?>
+		<?php echo $form->textField($model,'story_name',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->error($model,'story_name'); ?>
 	</div>
 
 	<div class="row">
@@ -50,9 +50,9 @@
 	</div>
 	
 	<div class="row">
-		<?php echo $form->labelEx($model,'zip_url'); ?>
-		<?php echo $form->textField($model,'zip_url',array('size'=>60,'maxlength'=>500,'id'=>'zip_url')); ?>
-		<?php echo $form->error($model,'zip_url'); ?>
+		<?php echo $form->labelEx($model,'story_url'); ?>
+		<?php echo $form->textField($model,'story_url',array('size'=>60,'maxlength'=>500,'id'=>'story_url')); ?>
+		<?php echo $form->error($model,'story_url'); ?>
 		<?php
         $this->widget('ext.EAjaxUpload.EAjaxUploadWidget', array(
             'id'=>CHtml::getIdByName('zipurl'),
@@ -63,7 +63,7 @@
                 ),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){
-                    $(\"#zip_url\").val(responseJSON.filename);
+                    $(\"#story_url\").val(responseJSON.filename);
                 }",
                     'onProgress'=>"js:function(id, fileName, loaded,total){}",
                 ),

@@ -22,13 +22,13 @@ class MusicController extends ApiController{
      */
     public function actionList(){
         $where = '';
-        if(isset($_POST['type'])){
-            $where = " AND type={$_POST['type']}";
+        if(isset($_REQUEST['type'])){
+            $where = " AND type={$_REQUEST['type']}";
         }
-        if(isset($_POST['page'])){
-            $page = $_POST['page'];
-            if(isset($_POST['page_size'])){
-                $pageSize = $_POST['page_size'];
+        if(isset($_REQUEST['page'])){
+            $page = $_REQUEST['page'];
+            if(isset($_REQUEST['page_size'])){
+                $pageSize = $_REQUEST['page_size'];
             }else{
                 $pageSize = PAGE_SIZE;
             }

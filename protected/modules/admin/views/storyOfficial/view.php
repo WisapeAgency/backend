@@ -19,8 +19,8 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'name',
-		'zip_url',
+		'story_name',
+		'story_url',
 		'rec_status',
 		'createtime',
 	),

@@ -3,10 +3,10 @@ require 'autoload.php';
 
 use Parse\ParseClient;
 use Parse\ParsePush;
+use Parse\ParseInstallation;
 
 
 class ParseApi{
-	
 	
 	private static function init(){
 		ParseClient::initialize(
@@ -25,15 +25,17 @@ class ParseApi{
 		self::init();
 		//app端接收消息的action
 		$content['action'] = 'com.wisape.android.content.MessageCenterReceiver';
+		
+		$query = ParseInstallation::query();
 		//设置推送对象
 		if(isset($param) && !empty($param['user'])){
-			$channel = [$param['user']];
+			$query->equalTo('channels', $param['user']);
 		}else{
-			$channel = ['abcde'];
+			$query->equalTo('channels', 'abcde');
 		}
 		
 		$data = array(
-				'channels' => $channel,
+				'where' => $query,
 				'data' => $content
 		);
 		//设置推送时间

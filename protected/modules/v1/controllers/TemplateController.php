@@ -28,14 +28,14 @@ class TemplateController extends ApiController{
      */
     public function actionList(){
         $where = '';
-        if(isset($_POST['type'])){
-            $where = " AND type={$_POST['type']}";
+        if(isset($_REQUEST['type'])){
+            $where = " AND type={$_REQUEST['type']}";
         }
         $order = ' order by `order` desc';
-        if(isset($_POST['page'])){
-            $page = $_POST['page'];
-            if(isset($_POST['page_size'])){
-                $pageSize = $_POST['page_size'];
+        if(isset($_REQUEST['page'])){
+            $page = $_REQUEST['page'];
+            if(isset($_REQUEST['page_size'])){
+                $pageSize = $_REQUEST['page_size'];
             }else{
                 $pageSize = PAGE_SIZE;
             }
@@ -68,7 +68,7 @@ class TemplateController extends ApiController{
 //                 flush(); //刷新PHP程序的缓冲，而不论PHP执行在何种情况下（CGI ，web服务器等等）。该函数将当前为止程序的所有输出发送到用户的浏览器。
 //                 readfile( $dir_str ); //读入一个文件并写入到输出缓冲。
 //                 Yii::app()->end();
-				$file_name = ($model->temp_name);
+				$file_name = ($model->temp_name).'.zip';
             	$this->sendDataResponse(array('temp_name'=>$file_name, 'temp_url'=>$url));
             }else{
                 $this->sendErrorResponse(404, $url);

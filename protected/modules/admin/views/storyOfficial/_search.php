@@ -11,13 +11,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->label($model,'story_name'); ?>
+		<?php echo $form->textField($model,'story_name',array('size'=>50,'maxlength'=>50)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'zip_url'); ?>
-		<?php echo $form->textField($model,'zip_url',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->label($model,'story_url'); ?>
+		<?php echo $form->textField($model,'story_url',array('size'=>60,'maxlength'=>500)); ?>
 	</div>
 
 	<div class="row">

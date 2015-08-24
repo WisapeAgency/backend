@@ -43,9 +43,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'name',
+		'story_name',
 		array(
-				'name'=>'small_img',
+				'story_name'=>'small_img',
 				'type'=>'raw',
 				'value'=>'CHtml::image($data->small_img,"",array("style"=>"width:100px;height:125px;"))',
 		),
