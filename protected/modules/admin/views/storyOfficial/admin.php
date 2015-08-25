@@ -45,7 +45,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'story_name',
 		array(
-				'story_name'=>'small_img',
+				'name'=>'small_img',
 				'type'=>'raw',
 				'value'=>'CHtml::image($data->small_img,"",array("style"=>"width:100px;height:125px;"))',
 		),

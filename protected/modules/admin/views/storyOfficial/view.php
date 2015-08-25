@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Story Officials'=>array('index'),
-	$model->name,
+	$model->story_name,
 );
 
 $this->menu=array(

@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'StoryOfficial':
  * @property integer $id
  * @property string $story_name
- * @property string $zip_url
+ * @property string $story_url
  * @property string $rec_status
  * @property string $createtime
  */
@@ -28,14 +28,14 @@ class StoryOfficial extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('story_name, small_img, zip_url', 'required'),
+			array('story_name, small_img, story_url', 'required'),
 			array('story_name', 'length', 'max'=>50),
-			array('small_img, zip_url', 'length', 'max'=>500),
+			array('small_img, story_url', 'length', 'max'=>500),
 			array('rec_status', 'length', 'max'=>1),
 			array('createtime', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, story_name, small_img, zip_url, rec_status, createtime', 'safe', 'on'=>'search'),
+			array('id, story_name, small_img, story_url, rec_status, createtime', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,7 +59,7 @@ class StoryOfficial extends CActiveRecord
 			'id' => 'Id',
 			'story_name' => 'Name',
 			'small_img' => 'Small Img',
-			'zip_url' => 'Zip Url',
+			'story_url' => 'Story Url',
 			'rec_status' => 'Rec Status',
 			'createtime' => 'Createtime',
 		);
@@ -89,7 +89,7 @@ class StoryOfficial extends CActiveRecord
 
 		$criteria->compare('small_img',$this->small_img,true);
 		
-		$criteria->compare('zip_url',$this->zip_url,true);
+		$criteria->compare('story_url',$this->story_url,true);
 
 		$criteria->compare('rec_status',$this->rec_status,true);
 

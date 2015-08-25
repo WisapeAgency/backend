@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Story Officials'=>array('index'),
-	$model->name=>array('view','id'=>$model->id),
+	$model->story_name=>array('view','id'=>$model->id),
 	'Update',
 );
 
