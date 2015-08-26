@@ -29,6 +29,7 @@ class Music extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+            array('music_name, music_url', 'required'),
 			array('type', 'numerical', 'integerOnly'=>true),
 			array('music_name', 'length', 'max'=>100),
 			array('music_url', 'length', 'max'=>255),

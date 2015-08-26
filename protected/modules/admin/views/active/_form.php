@@ -35,7 +35,8 @@
             'id'=>CHtml::getIdByName('MyAjaxUpload'),
             'config'=>array(
                 'request'=>array(
-                    'endpoint'=>Yii::app()->createUrl('site/ajaxUpload')
+                    'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
+                	'params'=>array('module'=>'active')
                 ),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){

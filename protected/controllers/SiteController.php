@@ -257,8 +257,13 @@ class SiteController extends Controller
         $uploadHandler->setAllowedExtensions($allowedExtensions);
         $uploadHandler->setSizeLimit($sizeLimit);
         $folder=Yii::app() -> getBasePath() . "/../uploads/";
+        //根据业务模块分类
+        if(isset($_POST['module']) && !empty($_POST['module'])){
+        	$folder = $folder.$_POST['module'].'/';
+        }
         $m = date('YmdH');
         $folder = $folder.$m.'/';
+        
         if(!is_dir($folder)){
             mkdir($folder,0777,true);
         }

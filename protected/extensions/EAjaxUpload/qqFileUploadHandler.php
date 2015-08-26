@@ -136,17 +136,17 @@ class qqFileUploadHandler
                 $filename .= rand(10, 99);
             }
         }
-        $m = date('YmdH').'/';
+        $url = SITE_URL.strstr($uploadDirectory,'uploads/');
         if($isCut){
             if($this->uploadedFile->save($uploadDirectory.$filename.'.'.$ext,$uploadDirectory.$filename.'_s.'.$ext,$ext)){
-                return array('success' => true, 'filename' => SITE_URL.'uploads/'.$m.$filename.'.'.$ext);
+                return array('success' => true, 'filename' => $url.$filename.'.'.$ext);
             }else{
                 return array('error' => 'Could not save uploaded file.'.
                     'The upload was cancelled, or server error encountered');
             }
         }else{
             if ($this->uploadedFile->save($uploadDirectory.$filename.'.'.$ext)) {
-                return array('success' => true, 'filename' => SITE_URL.'uploads/'.$m.$filename.'.'.$ext);
+                return array('success' => true, 'filename' => $url.$filename.'.'.$ext);
             } else {
                 return array('error' => 'Could not save uploaded file.'.
                     'The upload was cancelled, or server error encountered');

@@ -26,12 +26,12 @@ class MusicType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id', 'required'),
-			array('id, order', 'numerical', 'integerOnly'=>true),
+			array('name', 'required'),
+			array('order', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, order', 'safe', 'on'=>'search'),
+			array('name, order', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,7 +52,6 @@ class MusicType extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
 			'name' => 'Name',
 			'order' => 'Order',
 		);

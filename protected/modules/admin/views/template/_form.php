@@ -28,7 +28,8 @@
             'id'=>CHtml::getIdByName('MyAjaxUpload'),
             'config'=>array(
                 'request'=>array(
-                    'endpoint'=>Yii::app()->createUrl('site/ajaxUpload')
+                    'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
+					'params'=>array('module'=>'template')
                 ),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){
@@ -69,6 +70,7 @@
             'config'=>array(
                 'request'=>array(
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
+					'params'=>array('module'=>'template'),
                     $allowedExtensions = array("zip")
                 ),
                 'callbacks' => array(

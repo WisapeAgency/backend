@@ -35,6 +35,7 @@
             'config'=>array(
                 'request'=>array(
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
+                	'params'=>array('module'=>'fonts'),
                     $allowedExtensions = array("zip")
                 ),
                 'callbacks' => array(

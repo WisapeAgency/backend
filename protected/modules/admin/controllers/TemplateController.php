@@ -73,8 +73,8 @@ class TemplateController extends AdminController
             if($model->save()){
                 //解压并删除zip
                 $dir_str = strstr($model->temp_url,'/uploads');
-                $new_zip = explode('/',$dir_str);
-                $new_zip = $new_zip[3];
+                $zip_name = explode('/',$dir_str);
+                $zip_name = $zip_name[sizeof($zip_name) - 1];
                 $dir_str = ROOT_PATH.$dir_str;
                 if(is_file($dir_str)){
                     $zip = Yii::app()->zip;
@@ -83,18 +83,20 @@ class TemplateController extends AdminController
                         $zip_dir = dirname($dir_str);
                         $html_path = substr($dir_str,0,-4).'/stage.html';
                         $str = file_get_contents(str_replace(ROOT_PATH,SITE_URL,$html_path));
-                        $str .=  str_replace("jpg","jpg?type=stage&id=$model->id",$str);
-                        $str .=  str_replace("png","png?type=stage&id=$model->id",$str);
-                        $str .=  str_replace("gif","gif?type=stage&id=$model->id",$str);
-                        $str .=  str_replace("jpeg","jpeg?type=stage&id=$model->id",$str);
+                        $str =  str_replace("jpg","jpg?type=stage&id=$model->id",$str);
+                        $str =  str_replace("png","png?type=stage&id=$model->id",$str);
+                        $str =  str_replace("gif","gif?type=stage&id=$model->id",$str);
+                        $str =  str_replace("jpeg","jpeg?type=stage&id=$model->id",$str);
                         $fp=fopen($html_path,"w");
                         fwrite($fp,$str);
                         fclose($fp);
                         //压缩文本
-                        if(!unlink($dir_str)) $this->sendErrorResponse(500,'del zip error');
+                        if(!unlink($dir_str)){
+                        	echo 'del zip error';exit;
+                        }
                         $source = substr($dir_str,0,-4);
                         $rd = uniqid();
-                        if($zip->makeZip($source.'/',$new_zip)){
+                        if($zip->makeZip($source.'/',$zip_dir.'/'.$zip_name)){
 //                            $model->temp_url = SITE_URL.'uploads/'.date('YmdH').'/'.$rd;
                             $this->redirect(array('view','id'=>$model->id));
                         }else{

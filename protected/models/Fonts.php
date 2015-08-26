@@ -30,6 +30,7 @@ class Fonts extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+            array('name, zip_url', 'required'),
 			array('name', 'length', 'max'=>50),
 			array('zip_url', 'length', 'max'=>200),
 			array('default_down', 'length', 'max'=>1),

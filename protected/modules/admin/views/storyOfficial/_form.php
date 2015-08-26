@@ -59,6 +59,7 @@
             'config'=>array(
                 'request'=>array(
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
+					'params'=>array('module'=>'story_default'),
                     $allowedExtensions = array("zip")
                 ),
                 'callbacks' => array(

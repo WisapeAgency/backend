@@ -72,8 +72,8 @@ class FontsController extends AdminController
 			$model->attributes=$_POST['Fonts'];
 			if($model->save()){
                 $zip = Yii::app()->zip;
-                $source = strstr($model->zip_url,'/uploads');
-                $desc = '/var/www/html/wis'.substr($source,0,-4);
+                $source = ROOT_PATH.strstr($model->zip_url,'/uploads');
+                $desc = substr($source,0,-4);
                 $zip->extractZip($source, $desc);
                 $this->redirect(array('view','id'=>$model->id));
             }

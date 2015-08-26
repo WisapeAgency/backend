@@ -43,8 +43,8 @@ class EZip extends CApplicationComponent {
         {
             foreach ($src as $item)
                 if (file_exists($item))
-                    $this->addZipItem($zip, realpath(dirname($item)).'/', realpath($item).'/');
-            $zip->close();
+                    $this->addZipItem($zip, realpath($item).DIRECTORY_SEPARATOR, realpath($item).DIRECTORY_SEPARATOR);
+                $zip->close();
             return true;
         }
         return false;
