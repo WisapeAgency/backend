@@ -111,6 +111,7 @@
                                 'id'=>'send-message-form',
                                 'enableAjaxValidation'=>true,
                             )); ?>
+                            <?php /* ?>
                             <li>
 
                                 <span class="dn-i width-5 ccc">*</span><?php echo $form->textField($model,'user_name',array(
@@ -122,7 +123,7 @@
                                     <span class="poptip-arrow poptip-arrow-top"><em>◆</em><i>◆</i></span>
                                     <span id="SendMessage_user_name_em_text"></span>
                                 </div>
-                            </li>
+                            </li><?php */ ?>
                             <li>
 
                                 <span class="dn-i width-5 ccc">*</span><?php echo $form->textField($model,'user_email',array(

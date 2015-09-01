@@ -25,10 +25,46 @@ class StoryController extends ApiController{
 	        $model = Story::model()->findByPk($_REQUEST['sid']);
 	        if($type == 1){
 	            $model->share_num +=1;
+	        	if($model->share_num == 10)
+	        	{
+                	$user = User::model()->findByPk($model->uid)->getAttributes();
+	        		$message=new SendMessage;
+	        		$message->user_email = $user->user_email;
+	        		$message->title = 'Your story has been shared more than 10 times';
+	        		$message->user_message = 'We love your story "'.$model->story_name.'" and share it to our friends.\n Looking forward to read more stories from you.';
+	        		$message->createtime = time();
+	        		if($message->save()){
+	        			$this->sendMessage($message);
+	        		}
+	        	}
 	        }else if($type == 2){
 	            $model->view_num +=1;
+	        	if($model->view_num == 10)
+	        	{
+                	$user = User::model()->findByPk($model->uid)->getAttributes();
+	        		$message=new SendMessage;
+	        		$message->user_email = $user->user_email;
+	        		$message->title = 'You win more than 10 audiences';
+	        		$message->user_message = 'your story has been read more than 10 times.\n Publish it on your other social channels to get more audiences.'; 
+	        		$message->createtime = time();
+	        		if($message->save()){
+	        			$this->sendMessage($message);
+	        		}
+	        	}
 	        }else if($type == 3){
 	            $model->like_num +=1;
+	        	if($model->like_num == 10)
+	        	{
+                	$user = User::model()->findByPk($model->uid)->getAttributes();
+	        		$message=new SendMessage;
+	        		$message->user_email = $user->user_email;
+	        		$message->title = 'Your story has been liked by more than 10 times.';
+	        		$message->user_message = 'people liked your story "'.$model->story_name.'".\n Publish your story on other social channels to get more likes.';
+	        		$message->createtime = time();
+	        		if($message->save()){
+	        			$this->sendMessage($message);
+	        		}
+	        	}
 	        }
 	        if($model->save()){
 	            $this->sendDataResponse($model->getAttributes());
@@ -36,6 +72,21 @@ class StoryController extends ApiController{
     	}else{
     		$this->sendErrorResponse(400, '缺少参数');
     	}
+    }
+    
+    private function sendMessage($model){
+    	//推送
+    	include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+    	$data = array (
+    			'type' => SYSTEM_MESSAGE,
+    			'id' => $model->id,
+    			'message_title' => $model->title,
+    			'message_subject' => $model->subject
+    	);
+    	$param = array (
+    			'user' => $model->user_email
+    	);
+    	ParseApi::send($data, $param);
     }
     
     /**

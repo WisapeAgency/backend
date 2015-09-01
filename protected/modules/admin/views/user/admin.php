@@ -1,15 +1,12 @@
 <?php
-/* @var $this SendMessageController */
-/* @var $model SendMessage */
-
 $this->breadcrumbs=array(
-	'Send Messages'=>array('index'),
+	'Users'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List SendMessage', 'url'=>array('index')),
-	array('label'=>'Create SendMessage', 'url'=>array('create')),
+	array('label'=>'List User', 'url'=>array('index')),
+	array('label'=>'Create User', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +15,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#send-message-grid').yiiGridView('update', {
+	$('#user-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +23,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Send Messages</h1>
+<h1>Manage Users</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,22 +38,31 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'send-message-grid',
+	'id'=>'user-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+		'user_id',
+		'nick_name',
 		'user_email',
-		'title',
-		'subject',
-		'parsetime',
-		'createtime',
+		'access_token',
 		array(
-				'header'=>'消息类型',
-				'name'=>'type',
-				'filter'=>CHtml::dropDownList('SendMessage[type]', $model->type, array(''=>'请选择','1'=>'系统','2'=>'运营','3'=>'活动')),
-				'value'=>'$data->type=="1" ? "系统" : ($data->type=="2" ? "运营" : "活动")'
+				'name'=>'user_ico_n',
+				'type'=>'raw',
+				'value'=>'CHtml::image($data->user_ico_n,"",array("style"=>"width:100px;height:125px;"))',
 		),
+		/*
+		'user_pwd',
+		'user_ext',
+		'user_ext_name',
+		'user_sex',
+		'user_ico_n',
+		'user_ico_b',
+		'user_ico_s',
+		'user_token_id',
+		'user_back_img',
+		'unique_str',
+		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

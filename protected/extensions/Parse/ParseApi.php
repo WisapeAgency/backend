@@ -4,6 +4,7 @@ require 'autoload.php';
 use Parse\ParseClient;
 use Parse\ParsePush;
 use Parse\ParseInstallation;
+use parse\ParseUser;
 
 
 class ParseApi{
@@ -22,7 +23,7 @@ class ParseApi{
 	}
 	
 	static function send($content, $param=array()){
-		self::init();
+		self::init();		
 		//app端接收消息的action
 		$content['action'] = 'com.wisape.android.content.MessageCenterReceiver';
 		
@@ -50,6 +51,27 @@ class ParseApi{
 		}
 		
 		ParsePush::send($data);
+	}
+	
+	static function sendActive() {
+
+		self::init();
+		
+		// Find users near a given location
+		$userQuery = ParseUser::query();
+		$userQuery->withinMiles("location", 'CN', 1.0);
+			
+		// Find devices associated with these users
+		$pushQuery = ParseInstallation::query();
+		$pushQuery->matchesQuery('user', $userQuery);
+			
+		// Send push notification to query
+		ParsePush::send ( array (
+		"where" => $pushQuery,
+		"data" => array (
+		"alert" => "Free hotdogs at the Parse concession stand!"
+				)
+		) );exit;
 	}
 	
 	

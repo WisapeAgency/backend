@@ -11,6 +11,7 @@
  * @property string $user_message
  * @property string $parsetime
  * @property string $createtime
+ * @property integer $type
  */
 class SendMessage extends CActiveRecord
 {
@@ -30,7 +31,7 @@ class SendMessage extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, subject, parsetime', 'required','message'=>'This field is required'),
+			array('subject', 'required','message'=>'This field is required'),
 			array('title', 'length', 'max'=>60),
 			array('user_email', 'length', 'max'=>100),
             array('user_email', 'email','message'=>'It seems to be invalid Email'),
@@ -93,7 +94,7 @@ class SendMessage extends CActiveRecord
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('user_message',$this->user_message,true);
 		$criteria->compare('parsetime',$this->parsetime,true);
-		$criteria->compare('createtime',$this->createtime,true);
+		$criteria->compare('type',$this->type,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
