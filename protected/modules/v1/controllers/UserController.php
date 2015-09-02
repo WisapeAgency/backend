@@ -38,6 +38,21 @@ class UserController extends ApiController
 	           		if($rs){
 	                	$user = User::model()->findByPk($rs)->getAttributes();
 	                	if(md5($pwd) == $user['user_pwd']){
+	                		//是否更换设备
+	                		if($_REQUEST['install_id'] != $user['install_id']){
+	                			//推送消息
+	                			include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+	                			$data = array (
+	                					'type' => LOGIN_MESSAGE,
+	                					'message_title' => 'Your account has been logged in at another device.'
+	                			);
+	                			$param = array (
+	                					'user' => $user['user_email']
+	                			);
+	                			ParseApi::send($data, $param);
+	                			//更新id
+	                			User::model()->update(array('install_id' => $_REQUEST['install_id']));
+	                		}
 		                    $this->sendDataResponse($user);
 	                	}else{
 	                		$this->sendErrorResponse(403,'密码错误');
@@ -95,7 +110,7 @@ class UserController extends ApiController
                     $model->nick_name = $model->nick_name;
                     $model->user_ext = $_REQUEST['type'];
                     $model->user_ext_name = $user_ext_name;
-                    $model->user_ico_b = $_REQUEST['user_ico'];
+                    $model->user_ico_n = $_REQUEST['user_ico'];
                     $model->unique_str = $_REQUEST['unique_str'];
                     $model->access_token = $this->getAccessToken();
                     $model->save();
@@ -240,7 +255,7 @@ EOF;
 	            if(isset($_REQUEST['nick_name']) && !empty($_REQUEST['nick_name'])){
 	                $userModel->nick_name = $_REQUEST['nick_name'];
 	            }
-	
+	            $im1 = false;
 	            if(isset($_REQUEST['user_ico']) && !empty($_REQUEST['user_ico'])){
 	                $img1 = $userModel->user_ico_b;
 	                $im1 = $userModel->user_ico_b = $this->saveStrToImg(trim($_REQUEST['user_ico']));

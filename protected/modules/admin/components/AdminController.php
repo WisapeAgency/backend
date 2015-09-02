@@ -25,4 +25,19 @@ class AdminController extends CController
         Yii::app()->theme='bootstrap';
         $this->attachBehavior('bootstrap', new BController($this));
     }
+    
+    /**
+     * 创建模板、字体、音乐时推送消息
+     * @param unknown $messageModel
+     */
+    protected function sendMessage($messageModel){
+    	include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+    	$data = array (
+    			'type' => SYSTEM_MESSAGE,
+    			'id' => $messageModel->id,
+    			'message_title' => $messageModel->title,
+    			'message_subject' => $messageModel->subject
+    	);
+    	ParseApi::send($data);
+    }
 }

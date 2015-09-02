@@ -82,6 +82,7 @@ class ActiveController extends AdminController
 						'message_subject' => ''
 				);
 				$param = array (
+						'locale' => $model->country,
 						'push_time' => $model->start_time,
 						'expiration_time' => $model->end_time
 				);

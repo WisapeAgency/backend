@@ -70,8 +70,18 @@ class MusicController extends AdminController
 		if(isset($_POST['Music']))
 		{
 			$model->attributes=$_POST['Music'];
-			if($model->save())
+			if($model->save()){
+				//推送消息
+                $musicType = MusicType::model()->findAllByPk($model->type);
+				$message=new SendMessage;
+				$message->title = '1 new background musics are available for you';
+				$message->user_message = 'Set your story background with new music:\n'.($musicType->name).'分类：\n'.$model->music_name;
+				if($message->save()){
+					$this->sendMessage($message);
+				}
+				
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(

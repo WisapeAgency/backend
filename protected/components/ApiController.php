@@ -50,6 +50,20 @@ class ApiController extends CController
             'access_token'=>$access_token,
         ));
     }
+    
+    /**
+     * 根据用户email返回用户模型
+     * @param unknown $email
+     */
+    protected function getUserModelByEmail($email){
+		$rs = Yii::app ()->db->createCommand ()->select ( 'user_id' )->from ( 'user' )->where ( 'user_email=:email', array (
+				':email' => strtolower ( $email ) 
+		) )->queryScalar ();
+		if ($rs) {
+			return User::model ()->findByPk ( $rs )->getAttributes ();
+		}
+		return false;
+	}
 
     /**
      * 服务端生成与客户端一样的token值
@@ -173,18 +187,15 @@ class ApiController extends CController
     protected function saveStrToImg($str){
         $jpg = base64_decode($str);
         $filename=time().'_'.rand().'.jpg';
-        $root = $_SERVER['DOCUMENT_ROOT'].'/uploads/';
 
-        $path = 'uploads/';
-        $custom = date('Ymd').'/';
-        $path.=$custom;
+        $path = '/uploads/avatar/'.date('Ymd').'/';
         try{
             if (!is_dir($path)) $this->mkdirs($path);
             //打开文件准备写入
-            $file = fopen($root.$custom.$filename,"w");
+            $file = fopen(ROOT_PATH.$path.$filename,"w");
             fwrite($file,$jpg);//写入
             fclose($file);//关闭
-            return SITE_URL.'uploads/'.$custom.$filename;
+            return SITE_URL.$path.$filename;
         }catch (Exception $e){
             $this->sendErrorResponse(500,'图片保存失败!');
         }

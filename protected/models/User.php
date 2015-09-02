@@ -18,6 +18,8 @@
  * @property string $access_token
  * @property string $user_back_img
  * @property string $unique_str
+ * @property string $install_id
+ * @property string $createtime
  */
 class User extends CActiveRecord
 {

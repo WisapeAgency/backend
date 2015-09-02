@@ -75,6 +75,15 @@ class FontsController extends AdminController
                 $source = ROOT_PATH.strstr($model->zip_url,'/uploads');
                 $desc = substr($source,0,-4);
                 $zip->extractZip($source, $desc);
+
+                //推送消息
+                $message=new SendMessage;
+                $message->title = '1 new fonts are available for you';
+                $message->user_message = 'Create your story with new font:\n'.$model->name;
+                if($message->save()){
+                	$this->sendMessage($message);
+                }
+                
                 $this->redirect(array('view','id'=>$model->id));
             }
 		}

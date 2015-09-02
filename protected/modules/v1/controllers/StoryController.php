@@ -32,7 +32,6 @@ class StoryController extends ApiController{
 	        		$message->user_email = $user->user_email;
 	        		$message->title = 'Your story has been shared more than 10 times';
 	        		$message->user_message = 'We love your story "'.$model->story_name.'" and share it to our friends.\n Looking forward to read more stories from you.';
-	        		$message->createtime = time();
 	        		if($message->save()){
 	        			$this->sendMessage($message);
 	        		}
@@ -46,7 +45,6 @@ class StoryController extends ApiController{
 	        		$message->user_email = $user->user_email;
 	        		$message->title = 'You win more than 10 audiences';
 	        		$message->user_message = 'your story has been read more than 10 times.\n Publish it on your other social channels to get more audiences.'; 
-	        		$message->createtime = time();
 	        		if($message->save()){
 	        			$this->sendMessage($message);
 	        		}
@@ -60,7 +58,6 @@ class StoryController extends ApiController{
 	        		$message->user_email = $user->user_email;
 	        		$message->title = 'Your story has been liked by more than 10 times.';
 	        		$message->user_message = 'people liked your story "'.$model->story_name.'".\n Publish your story on other social channels to get more likes.';
-	        		$message->createtime = time();
 	        		if($message->save()){
 	        			$this->sendMessage($message);
 	        		}

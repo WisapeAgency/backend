@@ -97,6 +97,15 @@ class TemplateController extends AdminController
                         $source = substr($dir_str,0,-4);
                         $rd = uniqid();
                         if($zip->makeZip($source.'/',$zip_dir.'/'.$zip_name)){
+                        	//推送消息
+                        	$tempType = TemplateType::model()->findAllByPk($model->type);
+                        	$message=new SendMessage;
+                        	$message->title = '1 new Templates are available for you';
+                        	$message->user_message = 'Create your story with new Template:\n '.($tempType->name).'分类：\n'.$model->temp_name;
+                        	if($message->save()){
+                        		$this->sendMessage($message);
+                        	}
+                        	
 //                            $model->temp_url = SITE_URL.'uploads/'.date('YmdH').'/'.$rd;
                             $this->redirect(array('view','id'=>$model->id));
                         }else{
