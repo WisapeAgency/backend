@@ -21,7 +21,7 @@ class UserController extends ApiController
 	    if(isset($_REQUEST['type'])){
             $type=$_REQUEST['type'];
         }else{
-            $this->sendErrorResponse(403);
+            $this->sendErrorResponse(403, '缺少登录类型');
         }
         //本地注册处理
         if($type == WIS_USER){
@@ -38,22 +38,8 @@ class UserController extends ApiController
 	           		if($rs){
 	                	$user = User::model()->findByPk($rs)->getAttributes();
 	                	if(md5($pwd) == $user['user_pwd']){
-	                		//是否更换设备
-	                		if($_REQUEST['install_id'] != $user['install_id']){
-	                			//推送消息
-	                			include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
-	                			$data = array (
-	                					'type' => LOGIN_MESSAGE,
-	                					'message_title' => 'Your account has been logged in at another device.'
-	                			);
-	                			$param = array (
-	                					'user' => $user['user_email']
-	                			);
-	                			ParseApi::send($data, $param);
-	                			//更新id
-	                			User::model()->update(array('install_id' => $_REQUEST['install_id']));
-	                		}
-		                    $this->sendDataResponse($user);
+	                		$this->check_change_device($user);//是否更换终端登录
+	                		$this->sendDataResponse($user);
 	                	}else{
 	                		$this->sendErrorResponse(403,'密码错误');
 	                	}
@@ -70,6 +56,7 @@ class UserController extends ApiController
 	                    $model->nick_name = $model->nick_name;
 	                    $model->user_ext = $type;
 	                    $model->access_token = $this->getAccessToken();
+	                    $model->install_id = $_REQUEST['install_id'];
 	                    $model->save();
 	                    $this->sendDataResponse($model->getAttributes());
 	                }catch (Exception $e){
@@ -97,8 +84,9 @@ class UserController extends ApiController
                 ->queryScalar();
             if($rs){
                 //用户已存在，无须创建!直接返回数据
-                $model = User::model()->findByPk($rs);
-                $this->sendDataResponse($model->getAttributes());
+                $user = User::model()->findByPk($rs)->getAttributes();
+                $this->check_change_device($user);//是否更换终端登录
+                $this->sendDataResponse($user);
             }else{
                 //如果系统不存在，则创建用户
                 try{
@@ -113,6 +101,7 @@ class UserController extends ApiController
                     $model->user_ico_n = $_REQUEST['user_ico'];
                     $model->unique_str = $_REQUEST['unique_str'];
                     $model->access_token = $this->getAccessToken();
+                    $model->install_id = $_REQUEST['install_id'];
                     $model->save();
                 }catch (Exception $e){
                     //第三方注册失败
@@ -125,6 +114,27 @@ class UserController extends ApiController
         }
     }
 
+    /**
+     * 检查是否更换终端登录
+     * @param unknown $user
+     */
+    private function check_change_device($user){
+    	//是否更换设备
+    	if($_REQUEST['install_id'] != $user['install_id']){
+    		//推送消息
+    		include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+    		$data = array (
+    				'type' => LOGIN_MESSAGE,
+    				'message_title' => 'Your account has been logged in at another device.'
+    		);
+    		$param = array (
+    				'user' => $user['user_email']
+    		);
+    		ParseApi::send($data, $param);
+    		//更新id
+    		User::model()->update(array('install_id' => $_REQUEST['install_id']));
+    	}
+    }
 
     /**
      * 忘记密码处理

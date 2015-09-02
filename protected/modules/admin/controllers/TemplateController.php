@@ -98,7 +98,7 @@ class TemplateController extends AdminController
                         $rd = uniqid();
                         if($zip->makeZip($source.'/',$zip_dir.'/'.$zip_name)){
                         	//推送消息
-                        	$tempType = TemplateType::model()->findAllByPk($model->type);
+                        	$tempType = TemplateType::model()->findByPk($model->type);
                         	$message=new SendMessage;
                         	$message->title = '1 new Templates are available for you';
                         	$message->user_message = 'Create your story with new Template:\n '.($tempType->name).'分类：\n'.$model->temp_name;

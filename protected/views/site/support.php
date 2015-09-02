@@ -139,7 +139,7 @@
                             </li>
                             <li>
 
-                                <span class="dn-i width-5 ccc">&nbsp;</span><?php echo $form->textField($model,'subject',array(
+                                <span class="dn-i width-5 ccc">&nbsp;</span><?php echo $form->textField($model,'title',array(
                                     'maxlength'=>200,
                                     'class'=>'grabtn width-95 subject',
                                     'placeholder'=>'Subject',

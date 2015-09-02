@@ -32,18 +32,17 @@ class ParseApi{
 		if(isset($param) && !empty($param['user'])){
 			$installId = self::getUserInstallId($param['user']);
 			if(!$installId){
-				throw new \Exception(
-	                '没有找到该用户对应的设备，不能推送消息。\n user_email:'.$param['user']
-	            );
+				//TODO 记录日志：没有找到推送对象
+				return;
 			}
-			$query->equalTo('channels', $installId);
+			$query->equalTo('installationId', $installId);
 		}else{
 			$query->equalTo('channels', 'abcde');
 		}
 		//设置推送地区
 		if(isset($param) && !empty($param['locale'])){
 			$userQuery = ParseUser::query();
-			$userQuery->withinMiles("location", $param['locale'], 1.0);
+			$userQuery->near("location", $param['locale']);
 			$query->matchesQuery('user', $userQuery);
 		}
 		
@@ -87,7 +86,7 @@ class ParseApi{
 	}
 	
 	private static function getUserInstallId($email){		
-		$rs = Yii::app ()->db->createCommand ()->select ( 'installation_id' )->from ( 'user' )->where ( 'user_email=:email', array (
+		$rs = Yii::app ()->db->createCommand ()->select ( 'install_id' )->from ( 'user' )->where ( 'user_email=:email', array (
 				':email' => strtolower ( $email ) 
 		) )->queryScalar ();
 		return $rs;

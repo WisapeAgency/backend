@@ -72,7 +72,7 @@ class MusicController extends AdminController
 			$model->attributes=$_POST['Music'];
 			if($model->save()){
 				//推送消息
-                $musicType = MusicType::model()->findAllByPk($model->type);
+                $musicType = MusicType::model()->findByPk($model->type);
 				$message=new SendMessage;
 				$message->title = '1 new background musics are available for you';
 				$message->user_message = 'Set your story background with new music:\n'.($musicType->name).'分类：\n'.$model->music_name;

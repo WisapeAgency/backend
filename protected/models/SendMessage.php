@@ -31,7 +31,7 @@ class SendMessage extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('subject', 'required','message'=>'This field is required'),
+			array('title', 'required','message'=>'This field is required'),
 			array('title', 'length', 'max'=>60),
 			array('user_email', 'length', 'max'=>100),
             array('user_email', 'email','message'=>'It seems to be invalid Email'),
