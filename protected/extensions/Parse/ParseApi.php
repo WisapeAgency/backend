@@ -41,9 +41,10 @@ class ParseApi{
 		}
 		//设置推送地区
 		if(isset($param) && !empty($param['locale'])){
-			$userQuery = ParseUser::query();
-			$userQuery->near("location", $param['locale']);
-			$query->matchesQuery('user', $userQuery);
+// 			$userQuery = ParseUser::query();
+// 			$userQuery->withinMiles("location", $param['locale'], 1.0);
+// 			$query->matchesQuery('user', $userQuery);
+			$query->equalTo('localeIdentifier', $param['locale']);
 		}
 		
 		$data = array(

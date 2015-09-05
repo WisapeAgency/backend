@@ -48,7 +48,7 @@ class User extends CActiveRecord
 			array('access_token', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_id, nick_name, user_pwd, user_email, user_ext, user_ext_name, user_sex, user_ico_n, user_ico_b, user_ico_s, user_token_id, access_token, user_back_img, unique_str', 'safe', 'on'=>'search'),
+			array('user_id, nick_name, user_pwd, user_email, user_ext, user_ext_name, user_sex, user_ico_n, user_ico_b, user_ico_s, user_token_id, access_token, user_back_img, unique_str, install_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -118,6 +118,7 @@ class User extends CActiveRecord
 		$criteria->compare('access_token',$this->access_token,true);
 		$criteria->compare('user_back_img',$this->user_back_img,true);
 		$criteria->compare('unique_str',$this->unique_str,true);
+		$criteria->compare('install_id',$this->install_id,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

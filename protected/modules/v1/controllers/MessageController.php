@@ -28,8 +28,9 @@ class MessageController extends ApiController
 				$data = Yii::app()->db->createCommand($sql)->queryAll();
 				$this->sendDataResponse($data);
 			}
+		}else{
+			$this->sendErrorResponse(400, '参数不正确');
 		}
-		$this->sendErrorResponse(400, '参数不正确');
 	}
 
 	/**
@@ -54,7 +55,11 @@ class MessageController extends ApiController
 				$model->uid = $_REQUEST['uid'];
 				if($model->save()){
 					$this->sendDataResponse($message->getAttributes());
+				}else{
+					$this->sendErrorResponse(500, '读取消息内容失败');
 				}
+			}else{
+				$this->sendErrorResponse(404, '消息不存在');
 			}
 		}
 		$this->sendErrorResponse(400, '参数不正确');

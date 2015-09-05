@@ -46,6 +46,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'nick_name',
 		'user_email',
 		'access_token',
+		'install_id',
 		array(
 				'name'=>'user_ico_n',
 				'type'=>'raw',
