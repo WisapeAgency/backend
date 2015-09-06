@@ -272,16 +272,17 @@ EOF;
 	                $userModel->user_ico_n = $im1;
 	            }
 	            if(isset($_REQUEST['user_email']) && !empty($_REQUEST['user_email'])){
+	            	$email = strtolower($_REQUEST['user_email']);
 	            	//邮箱是否已存在
 	                $rs = Yii::app()->db->createCommand()
 	                    ->select('user_id')
 	                    ->from('user')
-	                    ->where('user_email=:email',array(':email'=>strtolower($_REQUEST['user_email'])))
+	                    ->where('user_id <> '.$userModel['user_id'].' and user_email=:email',array(':email'=>$email))
 	                    ->queryScalar();
 	           		if($rs){
 	           			$this->sendErrorResponse(403, '邮箱已经存在');
 	           		}
-	                $userModel->user_email = $_REQUEST['user_email'];
+	                $userModel->user_email = $email;
 	            }
 	            try{
 	                if($userModel->save()){

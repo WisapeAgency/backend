@@ -188,14 +188,15 @@ class ApiController extends CController
         $jpg = base64_decode($str);
         $filename=time().'_'.rand().'.jpg';
 
-        $path = '/uploads/avatar/'.date('Ymd').'/';
+        $dir = '/uploads/avatar/'.date('Ymd').'/';
+        $path = ROOT_PATH.$dir;
         try{
             if (!is_dir($path)) $this->mkdirs($path);
             //打开文件准备写入
-            $file = fopen(ROOT_PATH.$path.$filename,"w");
+            $file = fopen($path.$filename,"w");
             fwrite($file,$jpg);//写入
             fclose($file);//关闭
-            return SITE_URL.$path.$filename;
+            return SITE_URL.$dir.$filename;
         }catch (Exception $e){
             $this->sendErrorResponse(500,'图片保存失败!');
         }
@@ -218,7 +219,7 @@ class ApiController extends CController
      * @return bool
      */
     protected function delFileFromServer($url){
-        $tmp = stripos($url, 'upload');
+        $tmp = stripos($url, '/uploads');
         $path = substr($url,$tmp);
         $filename = $path;
         if(file_exists($filename)){
