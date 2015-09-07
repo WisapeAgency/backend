@@ -45,25 +45,31 @@ class MusicController extends ApiController{
     public function actionDownload(){
         if(isset($_REQUEST['id'])){
             $model = Music::model()->findByPk($_REQUEST['id']);
-            $dir_str = strstr($model->music_url,'/uploads');
-			$url = SITE_URL.$dir_str;
-            $file_path = ROOT_PATH.$dir_str;
-            if(is_file($file_path)){
-                header("Pragma: public"); // required 指明响应可被任何缓存保存
-                header("Expires: 0");
-                header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-                header("Cache-Control: private",false); // required for certain browsers
-                header("Content-Type: application/zip");
-                header('Content-Disposition: attachment; filename='.$model->music_name);
-                header("Content-Transfer-Encoding: binary");
-                header('Content-Length: '.filesize($file_path));
-                ob_clean(); //Clean (erase) the output buffer
-                flush();
-                readfile( $file_path ); //读入一个文件并写入到输出缓冲。
-                Yii::app()->end();
-            }else{
-                $this->sendErrorResponse(404, $url);
+            if($model){
+	            $dir_str = strstr($model->music_url,'/uploads');
+				$url = SITE_URL.$dir_str;
+	            $file_path = ROOT_PATH.$dir_str;
+	            if(is_file($file_path)){
+	                header("Pragma: public"); // required 指明响应可被任何缓存保存
+	                header("Expires: 0");
+	                header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	                header("Cache-Control: private",false); // required for certain browsers
+	                header("Content-Type: application/zip");
+	                header('Content-Disposition: attachment; filename='.$model->music_name);
+	                header("Content-Transfer-Encoding: binary");
+	                header('Content-Length: '.filesize($file_path));
+	                ob_clean(); //Clean (erase) the output buffer
+	                flush();
+	                readfile( $file_path ); //读入一个文件并写入到输出缓冲。
+	                Yii::app()->end();
+	            }else{
+	                $this->sendErrorResponse(404, $url);
+	            }
+        	}else{	
+            	$this->sendErrorResponse(400, '音乐不存在');
             }
+        }else{
+        	$this->sendErrorResponse(400, '缺少音乐ID');
         }
     }
 }

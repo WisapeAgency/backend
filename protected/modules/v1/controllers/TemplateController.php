@@ -52,27 +52,33 @@ class TemplateController extends ApiController{
     public function actionDownload(){
         if(isset($_REQUEST['id'])){
             $model = Template::model()->findByPk($_REQUEST['id']);
-            $dir_str = strstr($model->temp_url,'/uploads');
-			$url = SITE_URL.$dir_str;
-            $file_path = ROOT_PATH.$dir_str;
-            if(is_file($file_path)){
-//                 header("Pragma: public"); // required 指明响应可被任何缓存保存
-//                 header("Expires: 0");
-//                 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-//                 header("Cache-Control: private",false); // required for certain browsers
-//                 header("Content-Type: application/zip");
-//                 header('Content-Disposition: attachment; filename='.$model->temp_name);
-//                 header("Content-Transfer-Encoding: binary");
-//                 header('Content-Length: '.filesize($dir_str));
-//                 ob_clean(); //Clean (erase) the output buffer
-//                 flush(); //刷新PHP程序的缓冲，而不论PHP执行在何种情况下（CGI ，web服务器等等）。该函数将当前为止程序的所有输出发送到用户的浏览器。
-//                 readfile( $dir_str ); //读入一个文件并写入到输出缓冲。
-//                 Yii::app()->end();
-				$file_name = ($model->temp_name).'.zip';
-            	$this->sendDataResponse(array('temp_name'=>$file_name, 'temp_url'=>$url));
+            if($model){
+	            $dir_str = strstr($model->temp_url,'/uploads');
+				$url = SITE_URL.$dir_str;
+	            $file_path = ROOT_PATH.$dir_str;
+	            if(is_file($file_path)){
+	//                 header("Pragma: public"); // required 指明响应可被任何缓存保存
+	//                 header("Expires: 0");
+	//                 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	//                 header("Cache-Control: private",false); // required for certain browsers
+	//                 header("Content-Type: application/zip");
+	//                 header('Content-Disposition: attachment; filename='.$model->temp_name);
+	//                 header("Content-Transfer-Encoding: binary");
+	//                 header('Content-Length: '.filesize($dir_str));
+	//                 ob_clean(); //Clean (erase) the output buffer
+	//                 flush(); //刷新PHP程序的缓冲，而不论PHP执行在何种情况下（CGI ，web服务器等等）。该函数将当前为止程序的所有输出发送到用户的浏览器。
+	//                 readfile( $dir_str ); //读入一个文件并写入到输出缓冲。
+	//                 Yii::app()->end();
+					$file_name = ($model->temp_name).'.zip';
+	            	$this->sendDataResponse(array('temp_name'=>$file_name, 'temp_url'=>$url));
+	            }else{
+	                $this->sendErrorResponse(404, $url);
+	            }
             }else{
-                $this->sendErrorResponse(404, $url);
+            	$this->sendErrorResponse(400, '模板不存在');
             }
+        }else{
+        	$this->sendErrorResponse(400, '缺少模板ID');
         }
     }
 
