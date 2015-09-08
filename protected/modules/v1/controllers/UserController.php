@@ -304,19 +304,15 @@ EOF;
      * 根据country 代码返回
      */
     public function actionActive(){
-    	if(isset($_REQUEST['now'])){
-	        $now = $_REQUEST['now'];
+	        $now = time();
             $where = ' AND country is null';
 	        if(isset($_REQUEST['country_code'])){
 	            $country_code = $_REQUEST['country_code'];
 	            $where = " AND country='$country_code' or country is null";
 	        }
-	        $sql = "select * from active where start_time<=$now AND end_time>=$now AND rec_status='A' $where";
+	        $sql = "select * from active where unix_timestamp(start_time)<=$now AND unix_timestamp(end_time)>=$now AND rec_status='A' $where";
 	        $models = Yii::app()->db->createCommand($sql)->queryAll();
         	$this->sendDataResponse($models);
-    	}else{
-    		$this->sendErrorResponse(400, '参数不正确');
-    	}
     }
 
 
