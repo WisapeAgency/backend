@@ -86,7 +86,7 @@ class ActiveController extends AdminController
 						'push_time' => $model->start_time,
 						'expiration_time' => $model->end_time
 				);
-				ParseApi::send($data, $param);
+				ParseApi::sendActive($data, $param);
 				//跳转
 				$this->redirect(array('view','id'=>$model->id));
 			}

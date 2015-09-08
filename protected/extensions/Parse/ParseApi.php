@@ -4,7 +4,6 @@ require 'autoload.php';
 use Parse\ParseClient;
 use Parse\ParsePush;
 use Parse\ParseInstallation;
-use parse\ParseUser;
 
 
 class ParseApi{
@@ -25,7 +24,9 @@ class ParseApi{
 	static function send($content, $param=array()){
 		self::init();		
 		//app端接收消息的action
-		$content['action'] = 'com.wisape.android.content.MessageCenterReceiver';
+		if(empty($content['action'])){
+			$content['action'] = 'com.wisape.android.content.MessageCenterReceiver';
+		}
 		
 		$query = ParseInstallation::query();
 		//设置推送对象
@@ -65,25 +66,14 @@ class ParseApi{
 		ParsePush::send($data);
 	}
 	
-	static function sendActive() {
-
-		self::init();
-		
-		// Find users near a given location
-		$userQuery = ParseUser::query();
-		$userQuery->withinMiles("location", 'CN', 1.0);
-			
-		// Find devices associated with these users
-		$pushQuery = ParseInstallation::query();
-		$pushQuery->matchesQuery('user', $userQuery);
-			
-		// Send push notification to query
-		ParsePush::send ( array (
-		"where" => $pushQuery,
-		"data" => array (
-		"alert" => "Free hotdogs at the Parse concession stand!"
-				)
-		) );exit;
+	/**
+	 * 发送活动消息
+	 * @param unknown $content
+	 * @param unknown $param
+	 */
+	static function sendActive($content, $param=array()) {
+		$content['action'] = 'com.wisape.android.content.ActiveBroadcastReciver';
+		self::send($content, $param=array());
 	}
 	
 	private static function getUserInstallId($email){		

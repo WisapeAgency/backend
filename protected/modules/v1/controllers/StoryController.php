@@ -27,39 +27,33 @@ class StoryController extends ApiController{
 	            $model->share_num +=1;
 	        	if($model->share_num == 10)
 	        	{
-                	$user = User::model()->findByPk($model->uid)->getAttributes();
-	        		$message=new SendMessage;
-	        		$message->user_email = $user->user_email;
-	        		$message->title = 'Your story has been shared more than 10 times';
-	        		$message->user_message = 'We love your story "'.$model->story_name.'" and share it to our friends.\n Looking forward to read more stories from you.';
-	        		if($message->save()){
-	        			$this->sendMessage($message);
+                	$user = User::model()->findByPk($model->uid);
+                	if($user && !empty($user->user_email)){
+		        		$title = 'Your story has been shared more than 10 times';
+		        		$user_message = 'We love your story "'.$model->story_name.'" and share it to our friends.\n Looking forward to read more stories from you.';
+	        			$this->sendMessage($user->user_email, $title, $user_message);
 	        		}
 	        	}
 	        }else if($type == 2){
 	            $model->view_num +=1;
 	        	if($model->view_num == 10)
 	        	{
-                	$user = User::model()->findByPk($model->uid)->getAttributes();
-	        		$message=new SendMessage;
-	        		$message->user_email = $user->user_email;
-	        		$message->title = 'You win more than 10 audiences';
-	        		$message->user_message = 'your story has been read more than 10 times.\n Publish it on your other social channels to get more audiences.'; 
-	        		if($message->save()){
-	        			$this->sendMessage($message);
+	        		$user = User::model()->findByPk($model->uid);
+                	if($user && !empty($user->user_email)){
+		        		$title = 'You win more than 10 audiences';
+		        		$user_message = 'your story has been read more than 10 times.\n Publish it on your other social channels to get more audiences.'; 
+	        			$this->sendMessage($user->user_email, $title, $user_message);
 	        		}
 	        	}
 	        }else if($type == 3){
 	            $model->like_num +=1;
 	        	if($model->like_num == 10)
 	        	{
-                	$user = User::model()->findByPk($model->uid)->getAttributes();
-	        		$message=new SendMessage;
-	        		$message->user_email = $user->user_email;
-	        		$message->title = 'Your story has been liked by more than 10 times.';
-	        		$message->user_message = 'people liked your story "'.$model->story_name.'".\n Publish your story on other social channels to get more likes.';
-	        		if($message->save()){
-	        			$this->sendMessage($message);
+                	$user = User::model()->findByPk($model->uid);
+                	if($user && !empty($user->user_email)){
+		        		$title = 'Your story has been liked by more than 10 times.';
+		        		$user_message = 'people liked your story "'.$model->story_name.'".\n Publish your story on other social channels to get more likes.';
+		        		$this->sendMessage($user->user_email, $title, $user_message);
 	        		}
 	        	}
 	        }
@@ -71,19 +65,25 @@ class StoryController extends ApiController{
     	}
     }
     
-    private function sendMessage($model){
-    	//推送
-    	include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
-    	$data = array (
-    			'type' => SYSTEM_MESSAGE,
-    			'id' => $model->id,
-    			'message_title' => $model->title,
-    			'message_subject' => $model->subject
-    	);
-    	$param = array (
-    			'user' => $model->user_email
-    	);
-    	ParseApi::send($data, $param);
+    private function sendMessage($receiver, $title, $content){
+    	$message=new SendMessage;
+    	$message->user_email = $receiver;
+    	$message->title = $title;
+    	$message->user_message = $content;
+    	if($message->save()){
+	    	//推送
+	    	include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+	    	$data = array (
+	    			'type' => SYSTEM_MESSAGE,
+	    			'id' => $message->id,
+	    			'message_title' => $message->title,
+	    			'message_subject' => $message->subject
+	    	);
+	    	$param = array (
+	    			'user' => $message->user_email
+	    	);
+	    	ParseApi::send($data, $param);
+    	}
     }
     
     /**
