@@ -73,7 +73,7 @@ class ParseApi{
 	 */
 	static function sendActive($content, $param=array()) {
 		$content['action'] = 'com.wisape.android.content.ActiveBroadcastReciver';
-		self::send($content, $param=array());
+		self::send($content, $param);
 	}
 	
 	private static function getUserInstallId($email){		
