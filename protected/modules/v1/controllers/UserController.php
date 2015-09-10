@@ -58,6 +58,9 @@ class UserController extends ApiController
 	                    $model->access_token = $this->getAccessToken();
 	                    $model->install_id = isset($_REQUEST['install_id']) ? $_REQUEST['install_id'] : '';
 	                    $model->save();
+	                    //发送欢迎邮件
+	                    $this->sendWelcomeMail($model->user_email);
+	                    
 	                    $this->sendDataResponse($model->getAttributes());
 	                }catch (Exception $e){
 	                    //本地用户创建失败!
@@ -135,6 +138,57 @@ class UserController extends ApiController
     		$model = User::model()->updateByPk($user['user_id'], array('install_id' => $_REQUEST['install_id']));
     	}
     }
+    
+    /**
+     * 发送欢迎邮件
+     * @param unknown $email
+     */
+    private function sendWelcomeMail($email){
+    	$site_url = SITE_URL;
+//     	$site_url = 'http://106.75.196.252/';
+    	$html = <<<EOF
+<div style="width:100%; height:100%; background-color:#f5f5f5; color:#b9bbbc;text-align:center;line-height: 35px;font-size:14px;">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title></title>
+	<style type="text/css">
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+		fieldset,img{border:0;}
+		table{border:1px solid #eceae9; border-radius:5px; background-color:#FFFFFF;}
+		h3{color:#1e1e1e;text-align:center;}
+		.content{line-height:20px;font-size:14px;font-family:微软雅黑;text-align:center;position:relative;}
+		td p{line-height:25px;padding:7px 0;;font-family:微软雅黑;color:#000000;}
+	</style>
+	<table width="616" align="center" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td align="center" valign="top">
+					<p><img src="{$site_url}/custom/mail-icon/logo.png"></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="content" valign="top" style="padding:0 100px;">
+					<h3>WELCOME TO WLSAPE</h3>
+					<p>We're happy you're here.We created Wisape lets you create a stunning story with no technical skills needed ,and promote it to your Facebook,Twitter,LINE,etc</p>
+					<img src="{$site_url}/custom/mail-icon/Welcome-to-register.png" width="347" height="182">
+					<br/><br/>
+					<hr>
+					<span style="position:absolute; padding:0 10px;top:309px;left:237px;background-color:#fff;color:#000000;">Get social with us</span>
+					<p>
+						<img src="{$site_url}/custom/mail-icon/Welcome-to-register1.png" width="32" height="32"style="margin:0 5px;">
+						<img src="{$site_url}/custom/mail-icon/Welcome-to-register2.png" width="32" height="32"style="margin:0 5px;">
+						<img src="{$site_url}/custom/mail-icon/Welcome-to-register3.png" width="32" height="32"style="margin:0 5px;">
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	2015 Wisape,All rights reserved
+</div>
+EOF;
+			if(!$this->sendemail($email,$html)){
+				//TODO 记录日志
+			}
+    }
 
     /**
      * 忘记密码处理
@@ -145,72 +199,51 @@ class UserController extends ApiController
             $email = strtolower(trim($_REQUEST['user_email']));
             $userModel = User::model()->find('user_email=:user_email',array(':user_email'=>$email));
             if($userModel){
+            	$site_url = SITE_URL;
+//     	$site_url = 'http://106.75.196.252/';
                 //生成密钥
                 $key = sha1(uniqid(rand()));
                 $url = SITE_URL.'user/forget/uid/'.base64_encode($userModel->user_id).'/key/'.base64_encode($key).'/email/'.base64_encode($email);
                 $html = <<<EOF
-<table bgcolor="#fff" border="0" cellpadding="0" cellspacing="0" style="border-spacing: 0px; text-align:center; font-family:'微软雅黑'; font-size:15px; line-height:32px;" width="100%">
-	<tbody>
-		<tr>
-			<td style="height:30px; ">&nbsp;</td>
-		</tr>
-		<tr>
-			<td align="center" bgcolor="#fff" style=" width: 620px;" valign="top">
-			<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="color:#666;width: 620px;border-collapse: collapse; border:1px solid #d6d6d6;  padding:0 10px;text-align:left;font-size:14px; ">
-				<tbody>
-					<tr style="background: url(http://www.duorey.com/imges/bg_head.jpg) no-repeat; height:180px">
-						<td style="text-align:left;border-collapse: collapse; padding:0 20px;">
-						<h1 style="padding:15px 0;"><img src="http://www.duorey.com/imges/elogo.png" style="vertical-align: middle" /><br />
-						<br />
-						<span style="color:#333; font-weight:normal; font-size:22px;">Thank you for your support Duorey! </span></h1>
-						</td>
-					</tr>
-					<tr>
-						<td style=" border-collapse: collapse;padding:0 20px;">
-						<p>Dear Customer,</p>
-
-						<p>You requested to reset the password for your Duorey account. Please click this link to reset your password (valid for 10 minutes).</p>
-
-						<div style="text-align:center;"><a href="{$url}" style=" font-size:20px; background:#4dcd70; border-radius:10px; width:200px;height:50px;color:#fff;line-height:50px; text-decoration:none; display:inline-block; text-align:center; border:none;">Reset passsword</a></div>
-						</td>
-					</tr>
-            <tr >
-                <td style=" border-collapse: collapse;padding:15px 20px;">
-                        <p>
-                         Please ignore this email in case you did not have password recovery request. If you still have other problems, please contact us: <a href="mailto:support@duorey.com">support@duorey.com</a><br /></p>
-                     <p>Best Regards,<br/>Duorey Team</p>
-                </td>
-            </tr>
-            <tr style="border-bottom:1px solid #d6d6d6; display:none; ">
-                <td style=" border-collapse: collapse;padding:15px 20px;">
-                       <p>
-                <a href="#" target="_blank" style="color:#333; text-decoration:none;"><img src="http://www.duorey.com/imges/lock.png" style="vertical-align:text-bottom; margin-right:5px;" />Visist our website</a>
-                <a href="#" target="_blank" style="padding:0 20px; color:#333; text-decoration:none;"><img src="http://www.duorey.com/imges/apple.png" style="vertical-align:text-bottom; margin-right:5px;"/>Download iOS app</a>
-                <a href="#" target="_blank" style="color:#333; text-decoration:none;"><img src="http://www.duorey.com/imges/android.png" style="vertical-align:text-bottom; margin-right:5px;" />Download Android app</a>
-                </p>
-                </td>
-            </tr>
-            <tr  style="border-top:1px solid #d6d6d6; ">
-                <td style="text-align:center; padding-top:10px;">
-                <p>
-                <a href="https://www.facebook.com/pages/Duorey/993002840725693" target="_blank" style="padding:0 20px;"><img src="http://www.duorey.com/imges/facebook.jpg" /></a>
-                <a href="https://twitter.com/DuoRey"  target="_blank"><img src="http://www.duorey.com/imges/twitter.jpg" /></a>
-                </p>
-                    <p >This email was sent to {$email}.<br />
-Don't want to receive this type of email? Unsubscribe.<br />
-     Copyright © 2014. YiLe All rights reserved</p>
-                </td>
-            </tr>
-				</tbody>
-			</table>
-			</td>
-		</tr>
-		<tr valign="bottom">
-			<td style="border-collapse:collapse; height:10px;">&nbsp;</td>
-		</tr>
-	</tbody>
-</table>
+<div style="width:100%; height:100%; background-color:#f5f5f5; color:#b9bbbc;text-align:center;line-height: 35px;font-size:14px;"> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title></title>
+	<style type="text/css">
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+		fieldset,img{border:0;}
+		table{border:1px solid #eceae9; border-radius:5px; background-color:#FFFFFF;}
+		.content1{line-height:20px;font-size:14px;font-family:微软雅黑;text-align:center;position:relative;}
+		.content1 p{line-height:25px;padding:7px 0;font-family:微软雅黑; color:#000000;}
+		.content_a{line-height: 40px;display: block;height: 40px;width: 221px;color: #FFFFFF;text-decoration: none;background-color: #43a047; border-radius:5px;margin: 0 auto;font-size:15px;}
+		.content_a1{ color:#ff8800;}
+		.content_a2{color:#ff8800;text-decoration: none;}
+	</style>
+	<table width="616" align="center" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td align="center" valign="top">
+					<p><img src="{$site_url}/custom/mail-icon/logo.png"></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="content1" valign="top" style="padding:0 50px;">
+					<p>You has requested a link to change your password.To continue,please clikck on the link below.</p>
+					<p><a href="{$url}" class="content_a">Change My Password</a></p>
+					<p>Or copy and paste this URL into you browser:</p>
+					<p><a href="{$url}" class="content_a1">{$url}</a></p>
+					<br/>
+					<p>Your password won't be changed until you access the link above and create a new one.</p>
+					<p>If you didn't request this,please send us a message at <a class="content_a2">support@wisape.com</a></p>
+					<br/>
+					<br/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	This message is sent by Wisape
+</div>
 EOF;
+//                 $this->sendWelcomeMail($email);        
                 //发送邮件
                 if($this->sendemail($email,$html)){
                     //将密钥存入数据库并设置过期时间

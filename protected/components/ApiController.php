@@ -273,20 +273,23 @@ class ApiController extends CController
 //                 }catch (Exception $e){
 //                     echo $e->getMessage();exit;
 //                 }
-                $html = <<<EOF
-                Hello!,
 
-                You recently requested a new password for your account. Click the following link to create a new password.
-                {$url}
-                If clicking the link above doesn't work, please copy and paste the link in a new browser window instead.
-                     Please note: your secure link is only valid for a limited period of time.
-                If you have not requested a new password it's likely that another user entered your address by mistake, so you can safely disregard this email.
+//                 $html = <<<EOF
+//                 Hello!,
 
-                Welcome back!
-                wisape.com
-EOF;
+//                 You recently requested a new password for your account. Click the following link to create a new password.
+//                 {$url}
+//                 If clicking the link above doesn't work, please copy and paste the link in a new browser window instead.
+//                      Please note: your secure link is only valid for a limited period of time.
+//                 If you have not requested a new password it's likely that another user entered your address by mistake, so you can safely disregard this email.
+
+//                 Welcome back!
+//                 wisape.com
+// EOF;
+                
                 Yii::app()->mailer->Host = 'smtp.exmail.qq.com';
                 Yii::app()->mailer->IsSMTP();
+                Yii::app()->mailer->IsHTML(true);
                 Yii::app()->mailer->From = 'support@wisape.com';
                 Yii::app()->mailer->FromName = 'wisape';
                 Yii::app()->mailer->Username = 'support@wisape.com';
