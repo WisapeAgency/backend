@@ -228,9 +228,9 @@ EOF;
 			<tr>
 				<td class="content1" valign="top" style="padding:0 50px;">
 					<p>You has requested a link to change your password.To continue,please clikck on the link below.</p>
-					<p><a href="{$url}" class="content_a">Change My Password</a></p>
+					<p><a href="{$url}" class="content_a" style="text-decoration: none;">Change My Password</a></p>
 					<p>Or copy and paste this URL into you browser:</p>
-					<p><a href="{$url}" class="content_a1">{$url}</a></p>
+					<p><a href="{$url}" class="content_a1" style="width: 514px; display: block;">{$url}</a></p>
 					<br/>
 					<p>Your password won't be changed until you access the link above and create a new one.</p>
 					<p>If you didn't request this,please send us a message at <a class="content_a2">support@wisape.com</a></p>
