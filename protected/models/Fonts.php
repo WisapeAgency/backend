@@ -7,6 +7,7 @@
  * @property integer $id
  * @property string $name
  * @property string $zip_url
+ * @property string $rec_status
  * @property string $default_down
  */
 class Fonts extends CActiveRecord
@@ -36,7 +37,7 @@ class Fonts extends CActiveRecord
 			array('default_down', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, zip_url,dir_url,default_down', 'safe', 'on'=>'search'),
+			array('id, name, zip_url,dir_url,default_down,rec_status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,6 +61,7 @@ class Fonts extends CActiveRecord
 			'id' => 'ID',
 			'name' => 'Name',
 			'zip_url' => 'Zip Url',
+			'rec_status' => '状态',
 			'default_down' => '静默下载',
 		);
 	}
@@ -85,6 +87,7 @@ class Fonts extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('zip_url',$this->zip_url,true);
+		$criteria->compare('rec_status',$this->rec_status,true);
 		$criteria->compare('default_down',$this->default_down,true);
 
 		return new CActiveDataProvider($this, array(

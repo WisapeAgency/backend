@@ -16,10 +16,10 @@ class FontsController extends ApiController
                 $pageSize = PAGE_SIZE;
             }
             $start = ($page-1)*$pageSize;
-            $sql = "select * from fonts limit $start,$pageSize";
+            $sql = "select * from fonts where rec_status='A' limit $start,$pageSize";
             $model = Yii::app()->db->createCommand($sql)->queryAll();
         }else{
-            $sql = "select * from fonts";
+            $sql = "select * from fonts where rec_status='A'";
             $model = Yii::app()->db->createCommand($sql)->queryAll();
         }
         $this->sendDataResponse($model);

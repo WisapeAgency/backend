@@ -32,7 +32,7 @@ class FontsController extends AdminController
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'status'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -75,15 +75,6 @@ class FontsController extends AdminController
                 $source = ROOT_PATH.strstr($model->zip_url,'/uploads');
                 $desc = substr($source,0,-4);
                 $zip->extractZip($source, $desc);
-
-                //推送消息
-                $message=new SendMessage;
-                $message->title = '1 new fonts are available for you';
-                $message->user_message = 'Create your story with new font:\n'.$model->name;
-                if($message->save()){
-                	$this->sendMessage($message);
-                }
-                
                 $this->redirect(array('view','id'=>$model->id));
             }
 		}
@@ -147,6 +138,7 @@ class FontsController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+		
 		$model=new Fonts('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Fonts']))
@@ -155,6 +147,34 @@ class FontsController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * 复选框：批量修改状态
+	 */
+	public function actionStatus(){
+		$connection = Yii::app()->db;
+		$state = $_GET['state'];
+		$ids = implode(',', $_GET['checkedValue']);
+		$sql = "UPDATE fonts SET rec_status = '$state' WHERE id in ($ids) ";
+		$command = $connection->createcommand($sql)->query();
+		if($state == 'A'){
+			$size = sizeof($_GET['checkedValue']);
+			$sql = "SELECT `name` FROM `fonts` WHERE id in ($ids)";
+			$names = $connection->createcommand($sql)->queryAll();
+			$namestr = '';
+			foreach ($names as $n){
+				$namestr .= $n['name'].'\n';
+			}
+			//推送消息
+			$message=new SendMessage;
+			$message->title = $size.' new fonts are available for you';
+			$message->user_message = 'Create your story with new font:\n'.$namestr;
+			if($message->save()){
+				$this->sendMessage($message);
+			}
+		}
+		echo 1;
 	}
 
 	/**

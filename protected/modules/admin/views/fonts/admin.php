@@ -45,9 +45,23 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
+		array(
+				'htmlOptions'=>array('width'=>"30px"),
+				'class' => 'CCheckBoxColumn',
+				'name'=>'id',
+				'value'=>'$data->id',
+				'id'=>'ids',
+				'headerTemplate'=>'{item}',
+				'selectableRows'=>2,
+		),
 		'id',
 		'name',
-		'zip_url',
+		array(
+            'name'=>'rec_status',
+            'header'=>'status',
+            'filter'=>CHtml::dropDownList('Fonts[rec_status]', $model->rec_status, array(''=>'请选择','A'=>'激活','D'=>'未激活')),
+            'value'=> '$data->rec_status=="A" ? "激活":"未激活"',
+        ),
 		array(
 				'header'=>'静默下载',
 				'name'=>'default_down',
@@ -59,3 +73,33 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		),
 	),
 )); ?>
+<div class="row buttons">
+    <script type="text/javascript">
+        var data = new Object();  //对象
+        data.YII_CSRF_TOKEN='<?php echo Yii::app()->getRequest()->getCsrfToken() ?>';
+        function submitAjax(state){
+            data.state = state;   //为对象添加state属性，属性值为state  等同于：data['state'] = state
+            data.checkedValue=$('#fonts-grid').yiiGridView('getChecked', 'ids');
+            if (data.checkedValue.length==0){
+                alert("至少选择一项");
+                return;
+            }
+            url = '<?php echo SITE_URL?>/index.php/admin/fonts/status';
+//            $.each(data,function(key,val){
+//                alert('data数组中,索引:'+key+'对应的值为:'+val);
+//            });
+            $.ajax({
+                url: url,
+                type:'get',//必须使用,不知道为什么
+                dataType:'json',
+                data:data,
+                success:function(data){
+                    jQuery('#fonts-grid').yiiGridView('update');
+                }
+            })
+        }
+
+    </script>
+    <?php echo CHtml::button("激活",array('onClick'=>'submitAjax("A");')); ?>
+    <?php echo CHtml::button("禁用",array('onClick'=>'submitAjax("D");')); ?>
+</div>
