@@ -14,22 +14,23 @@ body {
 	width:100%;
 }
 #tab {
-	overflow:hidden;
 	margin:0 auto;
 	max-width:485px;
 }
 
 #tab li {
 	float:left;
-	color:#616668;
 	height:30px;
 	cursor:pointer;
-	line-height:30px;
 	padding:0 20px;
 	overflow: hidden;
+}
+#tab li a{
+	color:#616668;
+	line-height:30px;
 	text-align: center;
 	font-size: 16px;
-	
+	text-decoration: none;
 }
 #tab li.current {
 	color:#43a047;
@@ -40,7 +41,6 @@ body {
 }
 #content div {
 	line-height:25px;
-	display:none;
 	margin:0 250px;
 	padding:50px 0;
 }
@@ -59,11 +59,29 @@ body {
 	font-size: 19px;
 	font-weight: bold;	
 }
-@media screen and (max-width: 760px) {
-#content ul {
+@media screen and (max-width: 1080px) {
+#content div {
 	line-height:25px;
-	display:none;
 	margin:0 50px;
 	padding:50px 0;
+}
+#tab li {
+	float: left;
+	color: #616668;
+	height: 30px;
+	cursor: pointer;
+	line-height: 30px;
+	padding: 0px 10px;
+	overflow: hidden;
+	text-align: center;
+	font-size: 16px;
+	max-width:100px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#tab {
+  margin: 0 auto;
+  width: 360px;
 }
 }
