@@ -32,7 +32,7 @@ class MusicController extends AdminController
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'status'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -71,15 +71,6 @@ class MusicController extends AdminController
 		{
 			$model->attributes=$_POST['Music'];
 			if($model->save()){
-				//推送消息
-                $musicType = MusicType::model()->findByPk($model->type);
-				$message=new SendMessage;
-				$message->title = '1 new background musics are available for you';
-				$message->user_message = 'Set your story background with new music:\n'.($musicType->name).'分类：\n'.$model->music_name;
-				if($message->save()){
-					$this->sendMessage($message);
-				}
-				
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
@@ -151,6 +142,47 @@ class MusicController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * 复选框：批量修改状态
+	 */
+	public function actionStatus(){
+		$connection = Yii::app()->db;
+		$state = $_GET['state'];
+		$ids = implode(',', $_GET['checkedValue']);
+		$sql = "UPDATE `music` SET rec_status = '$state' WHERE id in ($ids) ";
+		$command = $connection->createcommand($sql)->query();
+		if($state == 'A'){
+			$size = sizeof($_GET['checkedValue']);
+			$sql = "SELECT t.`music_name`,tt.`name` FROM `music` t, `music_type` tt WHERE t.type=tt.id AND t.id in ($ids)";
+			$names = $connection->createcommand($sql)->queryAll();
+			//归类
+			$data = array();
+			foreach ($names as $n){
+				$type = $n['name'];
+				$temp_name = $n['music_name'];
+				if(isset($data[$type])){
+					$data[$type] .= '\n'.$temp_name;
+				}else{
+					$data[$type] = $temp_name;
+				}
+			}
+			//拼装
+			$str = '';
+			while ($var = current($data)) {
+				$str .= key($data).'分类：\n'.$var.'\n';
+				next($data);
+			}
+			//推送消息
+			$message=new SendMessage;
+			$message->title = $size.' new background musics are available for you';
+			$message->user_message = 'Set your story background with new music:\n'.$str;
+			if($message->save()){
+				$this->sendMessage($message);
+			}
+		}
+		echo 1;
 	}
 
 	/**

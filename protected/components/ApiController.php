@@ -252,9 +252,9 @@ class ApiController extends CController
         return md5(sha1(uniqid(rand())).microtime());
     }
 
-    protected function sendemail($email,$html){
+    protected function sendemail($email,$subject, $html){
         $to = $email;
-        $subject = 'Password Recovery';
+//         $subject = 'Password Recovery';
         if($to !== null){
 //             //要看email是否存在，存在才发邮件
 //             $data = $this->curl_post("http://107.150.97.118:58080/web/check!email.action", array(

@@ -65,12 +65,6 @@
         <?php echo $form->error($model,'type'); ?>
     </div>
 
-    <div class="row">
-        <?php echo $form->labelEx($model,'rec_status'); ?>
-        <?php echo $form->DropDownList($model,'rec_status',array('A'=>'激活','D'=>'不激活')); ?>
-        <?php echo $form->error($model,'rec_status'); ?>
-    </div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'default_down'); ?>
 		<?php echo $form->DropDownList($model,'default_down',array('0'=>'否','1'=>'是')); ?>

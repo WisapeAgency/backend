@@ -97,12 +97,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'rec_status'); ?>
-		<?php echo $form->DropDownList($model,'rec_status',array('A'=>'激活','D'=>'不激活')); ?>
-		<?php echo $form->error($model,'rec_status'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'type'); ?>
 		<?php echo $form->DropDownList($model,'type',CHtml::listData(TemplateType::model()->findAll(), 'id', 'name')); ?>
 		<?php echo $form->error($model,'type'); ?>

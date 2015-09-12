@@ -39,7 +39,7 @@ class SendMessage extends CActiveRecord
 			array('user_message', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, user_email, subject, user_message, parsetime, createtime', 'safe', 'on'=>'search'),
+			array('id, title, user_email, subject, user_message, parsetime, createtime, type', 'safe', 'on'=>'search'),
 		);
 	}
 

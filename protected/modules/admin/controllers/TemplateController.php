@@ -32,7 +32,7 @@ class TemplateController extends AdminController
                 'users'=>array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions'=>array('create','update'),
+                'actions'=>array('create','update', 'status'),
                 'users'=>array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -97,15 +97,6 @@ class TemplateController extends AdminController
                         $source = substr($dir_str,0,-4);
                         $rd = uniqid();
                         if($zip->makeZip($source.'/',$zip_dir.'/'.$zip_name)){
-                        	//推送消息
-                        	$tempType = TemplateType::model()->findByPk($model->type);
-                        	$message=new SendMessage;
-                        	$message->title = '1 new Templates are available for you';
-                        	$message->user_message = 'Create your story with new Template:\n '.($tempType->name).'分类：\n'.$model->temp_name;
-                        	if($message->save()){
-                        		$this->sendMessage($message);
-                        	}
-                        	
 //                            $model->temp_url = SITE_URL.'uploads/'.date('YmdH').'/'.$rd;
                             $this->redirect(array('view','id'=>$model->id));
                         }else{
@@ -184,6 +175,47 @@ class TemplateController extends AdminController
         $this->render('admin',array(
             'model'=>$model,
         ));
+    }
+
+    /**
+     * 复选框：批量修改状态
+     */
+    public function actionStatus(){
+    	$connection = Yii::app()->db;
+    	$state = $_GET['state'];
+    	$ids = implode(',', $_GET['checkedValue']);
+    	$sql = "UPDATE `template` SET rec_status = '$state' WHERE id in ($ids) ";
+    	$command = $connection->createcommand($sql)->query();
+    	if($state == 'A'){
+    		$size = sizeof($_GET['checkedValue']);
+    		$sql = "SELECT t.`temp_name`,tt.`name` FROM `template` t, `template_type` tt WHERE t.type=tt.id AND t.id in ($ids)";
+    		$names = $connection->createcommand($sql)->queryAll();
+			//归类
+    		$data = array();
+    		foreach ($names as $n){
+    			$type = $n['name'];
+    			$temp_name = $n['temp_name'];
+    			if(isset($data[$type])){
+    				$data[$type] .= '\n'.$temp_name;
+    			}else{
+	    			$data[$type] = $temp_name;
+    			}
+    		}
+    		//拼装
+    		$str = '';
+			while ($var = current($data)) {
+				$str .= key($data).'分类：\n'.$var.'\n';
+				next($data);
+			}
+    		//推送消息
+    		$message=new SendMessage;
+    		$message->title = $size.' new Templates are available for you';
+    		$message->user_message = 'Create your story with new Template:\n'.$str;
+            if($message->save()){
+    			$this->sendMessage($message);
+    		}
+    	}
+    	echo 1;
     }
 
     /**

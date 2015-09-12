@@ -185,8 +185,10 @@ class UserController extends ApiController
 	2015 Wisape,All rights reserved
 </div>
 EOF;
-			if(!$this->sendemail($email,$html)){
+			if(!$this->sendemail($email ,'Welcome To Wisape' ,$html)){
 				//TODO 记录日志
+				$msg = 'send welcome mail failed. user_email:'.$email;
+				Yii::log($msg, CLogger::LEVEL_ERROR);
 			}
     }
 
@@ -245,7 +247,7 @@ EOF;
 EOF;
 //                 $this->sendWelcomeMail($email);        
                 //发送邮件
-                if($this->sendemail($email,$html)){
+                if($this->sendemail($email, 'Password Recovery', $html)){
                     //将密钥存入数据库并设置过期时间
                     $model = new UserForget();
                     $model->email = $email;
