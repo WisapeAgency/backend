@@ -102,7 +102,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
                 alert("至少选择一项");
                 return;
             }
-            url = '<?php echo SITE_URL?>/index.php/admin/template/status';
+            url = '<?php echo SITE_URL?>index.php/admin/template/status';
 //            $.each(data,function(key,val){
 //                alert('data数组中,索引:'+key+'对应的值为:'+val);
 //            });
