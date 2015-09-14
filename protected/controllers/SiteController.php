@@ -43,46 +43,6 @@ class SiteController extends Controller
             'model4'=>$model4,
         ));
     }
-    
-    public function actionForget(){
-    	//TODO  校验key
-    	if(isset($_GET['uid'])&&isset($_GET['key'])&&isset($_GET['email']))
-    	{
-    		$userModel = UserForget::model()->find(array(
-    			'select'=>'*',
-    			'condition'=>'user_id=:user_id AND email = :email AND token = :token',
-    			'params'=>array(':user_id'=>base64_decode($_GET['uid']),':token'=>base64_decode($_GET['key']),':email'=> base64_decode($_GET["email"])),
-    			'join'=>''
-    				));
-    		if(!empty($userModel)&&time() <=$userModel->createtime)
-    		{
-    			$model = new ResetPWD;
-    			$model->user_id = $userModel->user_id;
-	    		return $this->renderPartial('resetpassword',array(
-	    				'resetPWD'=>$model,
-	    		));
-    		}
-    		return;
-    	}
-    }
-    
-    public function actionUpdatePwd(){
-    	$model=new ResetPWD();
-    	$this->performAjaxValidationRequest_c($model);
-    	if(isset($_POST['ResetPWD']))
-    	{
-    		$model->attributes = $_POST['ResetPWD'];
-    		$model->user_id = $_POST['ResetPWD']['user_id'];
-    		$user_model = User::model()->findByPk($model->user_id);
-    		$user_model ->user_pwd = md5($model->password);
-    		if($user_model->save())
-                Yii::app()->end($model->user_id);
-    	}
-    }
-    
-    public function actionUpdateSucess(){
-    	$this->renderPartial('resetpwd_sucess');
-    }
 
     public function actionSubscribe(){
         $model=new Subscribe;
