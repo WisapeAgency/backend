@@ -18,16 +18,16 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
+<?php /**
 	<div class="row">
 		<?php echo $form->labelEx($model,'music_name'); ?>
 		<?php echo $form->textField($model,'music_name',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'music_name'); ?>
 	</div>
-
+**/?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'music_url'); ?>
-		<?php echo $form->textField($model,'music_url',array('size'=>60,'maxlength'=>255,'id'=>'music_url')); ?>
+		<?php echo $form->textField($model,'music_url',array('size'=>60,'maxlength'=>255,'id'=>'music_url','readonly'=>'readonly')); ?>
 		<?php echo $form->error($model,'music_url'); ?>
         <?php
         $this->widget('ext.EAjaxUpload.EAjaxUploadWidget', array(

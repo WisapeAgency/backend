@@ -18,16 +18,16 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
+<?php /**
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
-
+**/?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'zip_url'); ?>
-		<?php echo $form->textField($model,'zip_url',array('size'=>60,'maxlength'=>200,'id'=>'zip_url')); ?>
+		<?php echo $form->textField($model,'zip_url',array('size'=>60,'maxlength'=>200,'id'=>'zip_url','readonly'=>'readonly')); ?>
 		<?php echo $form->error($model,'zip_url'); ?>
         <?php
         $this->widget('ext.EAjaxUpload.EAjaxUploadWidget', array(

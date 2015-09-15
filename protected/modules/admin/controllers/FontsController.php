@@ -4,16 +4,17 @@ class FontsController extends AdminController
 {
 	
 	private $font_css = <<<EOF
-	@font-face {
-		font-family: 'ArchitectsDaughter';
-		src: url('FONT_NAME/FONT_NAME.eot');
-		src: url('FONT_NAME/FONT_NAME.eot?#iefix') format('embedded-opentype'),
-		url('FONT_NAME/FONT_NAME.woff') format('woff'),
-		url('FONT_NAME/FONT_NAME.ttf') format('truetype'),
-		url('FONT_NAME/FONT_NAME.svg') format('svg');
-		font-weight: normal;
-		font-style: normal;
-	}
+@font-face {
+	font-family: 'FONT_NAME';
+	src: url('FONT_NAME/FONT_NAME.eot');
+	src: url('FONT_NAME/FONT_NAME.eot?#iefix') format('embedded-opentype'),
+	url('FONT_NAME/FONT_NAME.woff') format('woff'),
+	url('FONT_NAME/FONT_NAME.ttf') format('truetype'),
+	url('FONT_NAME/FONT_NAME.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 EOF;
 	
 	/**
@@ -84,6 +85,7 @@ EOF;
 		if(isset($_POST['Fonts']))
 		{
 			$model->attributes=$_POST['Fonts'];
+			$model->name = $this->getName($model->zip_url);
 			if($model->save()){
                 $zip = Yii::app()->zip;
                 $source = ROOT_PATH.strstr($model->zip_url,'/uploads');
@@ -93,9 +95,8 @@ EOF;
                 if(!unlink($source)){
                 	Yii::log('删除字体压缩包失败:'.$source, CLogger::LEVEL_WARNING);
                 }
-                //TODO 修改fonts.css文件
-//                 $path = ROOT_PATH.'/uploads/fonts/fonts.css';
-//                 str_replace('FONT_NAME', $model->name, $path);
+                //添加css模块
+                $this->addCss($model->name);
 
 				//跳转
                 $this->redirect(array('view','id'=>$model->id));
@@ -115,20 +116,66 @@ EOF;
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+		$old_name = $model->name;
+		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Fonts']))
 		{
 			$model->attributes=$_POST['Fonts'];
-			if($model->save())
+			$model->name = $this->getName($model->zip_url);
+			if($model->save()){
+				if($old_name != $model->name){
+					$this->delCss($old_name);
+					$this->addCss($model->name);
+				}				
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
 		));
+	}
+	
+	/**
+	 * 根据文件路径截取文件名
+	 * @param unknown $zip_url
+	 * @return string
+	 */
+	private function getName($zip_url){
+		return substr(strrchr($zip_url, '/'), 1, -4);
+	}
+	
+	/**
+	 * 添加css到公共文件
+	 * @param unknown $name
+	 */
+	private function addCss($name){
+		
+		$path = ROOT_PATH.'/uploads/fonts/fonts.css';
+		$font_content = str_replace('FONT_NAME', $name, $this->font_css);
+		$content = file_get_contents($path);
+		$content .= $font_content;
+		$fp = fopen ( $path, "w" );
+		fwrite ( $fp, $content );
+		fclose ( $fp );
+	}
+	
+	/**
+	 * 从公共文件删除css模块
+	 * @param unknown $name
+	 */
+	private function delCss($name){
+		
+		$path = ROOT_PATH.'/uploads/fonts/fonts.css';
+		$font_content = str_replace('FONT_NAME', $name, $this->font_css);
+		$content = file_get_contents($path);
+		$content = str_replace($font_content,'',$content);
+		$fp = fopen ( $path, "w" );
+		fwrite ( $fp, $content );
+		fclose ( $fp );
 	}
 
 	/**
@@ -138,8 +185,11 @@ EOF;
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
-
+		$model = $this->loadModel($id);
+		if($model->delete()){
+			//删除css
+			$this->delCss($model->name);
+		}
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));

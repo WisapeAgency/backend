@@ -70,6 +70,7 @@ class MusicController extends AdminController
 		if(isset($_POST['Music']))
 		{
 			$model->attributes=$_POST['Music'];
+			$model->music_name = $this->getName($model->music_url);
 			if($model->save()){
 				$this->redirect(array('view','id'=>$model->id));
 			}
@@ -95,6 +96,7 @@ class MusicController extends AdminController
 		if(isset($_POST['Music']))
 		{
 			$model->attributes=$_POST['Music'];
+			$model->music_name = $this->getName($model->music_url);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -102,6 +104,15 @@ class MusicController extends AdminController
 		$this->render('update',array(
 			'model'=>$model,
 		));
+	}
+	
+	/**
+	 * 根据文件路径截取文件名
+	 * @param unknown $zip_url
+	 * @return string
+	 */
+	private function getName($music_url){
+		return substr(strrchr($music_url, '/'), 1, -4);
 	}
 
 	/**
