@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-    <link href="<?php echo SITE_URL?>/custom/css/password.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo SITE_URL?>custom/css/password.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -12,7 +12,7 @@
 		<div class="header">
 			<div class="logo">
 				<a href="<?php echo SITE_URL?>">
-					<img src="<?php echo SITE_URL?>/custom/images/logo.png">
+					<img src="<?php echo SITE_URL?>custom/mail-icon/logo.png">
 				</a>
 			</div>
 		</div>
@@ -22,6 +22,4 @@
 	</div>
 <!-- html代码end -->
 </body>
-<script language="JavaScript" type="text/javascript" src="js/jquery.min.js"></script>
-<script language="JavaScript" type="text/javascript" src="js/index.js"></script>
 </html>

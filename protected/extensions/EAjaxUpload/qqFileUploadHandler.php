@@ -96,7 +96,7 @@ class qqFileUploadHandler
     /**
      * Returns array('success'=>true) or array('error'=>'error message')
      */
-    function handleUpload($uploadDirectory, $replaceOldFile = false,$isCut = false)
+    function handleUpload($uploadDirectory, $isUniqName = false, $replaceOldFile = false,$isCut = false)
     {
         if (!is_writable($uploadDirectory)) {
             return array('error' => "Server error. Upload directory isn't writable.");
@@ -121,8 +121,12 @@ class qqFileUploadHandler
         }
 
         $pathinfo = pathinfo($this->uploadedFile->getName());
-//        $filename = $pathinfo['filename'];
-        $filename = md5(uniqid());
+        
+		if($isUniqName){
+	        $filename = md5(uniqid());
+		}else{
+	        $filename = $pathinfo['filename'];
+		}
         $ext = $pathinfo['extension'];
 
         if ($this->allowedExtensions && !in_array(strtolower($ext), $this->allowedExtensions)) {

@@ -185,7 +185,7 @@ class UserController extends ApiController
 	2015 Wisape,All rights reserved
 </div>
 EOF;
-			if(!$this->sendemail($email ,'Welcome To Wisape' ,$html)){
+			if(!$this->sendemail($email ,'Welcome to Wisape' ,$html)){
 				//TODO 记录日志
 				$msg = 'send welcome mail failed. user_email:'.$email;
 				Yii::log($msg, CLogger::LEVEL_ERROR);
@@ -205,7 +205,7 @@ EOF;
 //     	$site_url = 'http://106.75.196.252/';
                 //生成密钥
                 $key = sha1(uniqid(rand()));
-                $url = SITE_URL.'user/forget/uid/'.base64_encode($userModel->user_id).'/key/'.base64_encode($key).'/email/'.base64_encode($email);
+                $url = SITE_URL.'index.php/site/forget/uid/'.base64_encode($userModel->user_id).'/key/'.base64_encode($key).'/email/'.base64_encode($email);
                 $html = <<<EOF
 <div style="width:100%; height:100%; background-color:#f5f5f5; color:#b9bbbc;text-align:center;line-height: 35px;font-size:14px;"> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -247,7 +247,7 @@ EOF;
 EOF;
 //                 $this->sendWelcomeMail($email);        
                 //发送邮件
-                if($this->sendemail($email, 'Password Recovery', $html)){
+                if($this->sendemail($email, 'Wisape Account password help', $html)){
                     //将密钥存入数据库并设置过期时间
                     $model = new UserForget();
                     $model->email = $email;

@@ -15,7 +15,7 @@
     <meta name="description" content="Free and simple|Something Wonderful is Coming.">
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
-	<link rel="shortcut icon" href="<?php echo SITE_URL?>/custom/images/fav.ico" mce_href="<?php echo SITE_URL?>/custom/images/fav.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?php echo SITE_URL?>custom/images/fav.ico" mce_href="<?php echo SITE_URL?>/custom/images/fav.ico" type="image/x-icon" />
     <!-- / Yoast WordPress SEO plugin. -->
 </head>
 <body>
@@ -23,12 +23,12 @@
 		<div class="header">
 			<div class="logo">
 				<a href="<?php echo SITE_URL?>">
-					<img src="<?php echo SITE_URL?>/custom/images/logo.png">
+					<img src="<?php echo SITE_URL?>custom/mail-icon/logo.png">
 				</a>
 			</div>
 		</div>
 		<div class="content">
-			<div class="content_cyp"><img src="<?php echo SITE_URL?>/custom/images/content_cyp.png"></div>
+			<div class="content_cyp"><img src="<?php echo SITE_URL?>custom/mail-icon/content_cyp.png"></div>
 			<p class="content_p">Please enter a new password for your account in the fields below</p>
 			<?php $form = $this->beginWidget('CActiveForm', array(
                                             'id'=>'resetPWD',
@@ -74,8 +74,8 @@
 		</div>
 	</div>
 
-<script language="JavaScript" type="text/javascript" src="<?php echo SITE_URL?>/custom/js/jquery.min.js"></script>
-<script language="JavaScript" type="text/javascript" src="<?php echo SITE_URL?>/custom/js/index.js"></script>
+<script language="JavaScript" type="text/javascript" src="<?php echo SITE_URL?>custom/js/jquery.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="<?php echo SITE_URL?>custom/js/index.js"></script>
 <script type="text/javascript">
 function send(formId){
 	var data= $("#"+formId).serialize();

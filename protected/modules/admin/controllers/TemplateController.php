@@ -82,7 +82,7 @@ class TemplateController extends AdminController
                         //替换文本
                         $zip_dir = dirname($dir_str);
                         $html_path = substr($dir_str,0,-4).'/stage.html';
-                        $str = file_get_contents(str_replace(ROOT_PATH,SITE_URL,$html_path));
+                        $str = file_get_contents($html_path);
                         $str =  str_replace("jpg","jpg?type=stage&id=$model->id",$str);
                         $str =  str_replace("png","png?type=stage&id=$model->id",$str);
                         $str =  str_replace("gif","gif?type=stage&id=$model->id",$str);

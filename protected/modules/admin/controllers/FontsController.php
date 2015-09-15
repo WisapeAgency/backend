@@ -2,6 +2,20 @@
 
 class FontsController extends AdminController
 {
+	
+	private $font_css = <<<EOF
+	@font-face {
+		font-family: 'ArchitectsDaughter';
+		src: url('FONT_NAME/FONT_NAME.eot');
+		src: url('FONT_NAME/FONT_NAME.eot?#iefix') format('embedded-opentype'),
+		url('FONT_NAME/FONT_NAME.woff') format('woff'),
+		url('FONT_NAME/FONT_NAME.ttf') format('truetype'),
+		url('FONT_NAME/FONT_NAME.svg') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+EOF;
+	
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -73,8 +87,17 @@ class FontsController extends AdminController
 			if($model->save()){
                 $zip = Yii::app()->zip;
                 $source = ROOT_PATH.strstr($model->zip_url,'/uploads');
-                $desc = substr($source,0,-4);
+//                 $desc = substr($source,0,-4);
+				$desc = ROOT_PATH.'/uploads/fonts/';
                 $zip->extractZip($source, $desc);
+                if(!unlink($source)){
+                	Yii::log('删除字体压缩包失败:'.$source, CLogger::LEVEL_WARNING);
+                }
+                //TODO 修改fonts.css文件
+//                 $path = ROOT_PATH.'/uploads/fonts/fonts.css';
+//                 str_replace('FONT_NAME', $model->name, $path);
+
+				//跳转
                 $this->redirect(array('view','id'=>$model->id));
             }
 		}
