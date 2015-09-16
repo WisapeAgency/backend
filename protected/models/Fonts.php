@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'fonts':
  * @property integer $id
  * @property string $name
+ * @property string $preview_img
  * @property string $zip_url
  * @property string $rec_status
  * @property string $default_down
@@ -31,13 +32,13 @@ class Fonts extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-            array('name, zip_url', 'required'),
+            array('name, preview_img, zip_url', 'required'),
 			array('name', 'length', 'max'=>50),
 			array('zip_url', 'length', 'max'=>200),
 			array('default_down', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, zip_url,dir_url,default_down,rec_status', 'safe', 'on'=>'search'),
+			array('id, name, preview_img, zip_url,dir_url,default_down,rec_status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,6 +61,7 @@ class Fonts extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
+			'preview_img' => 'Preview Image',
 			'zip_url' => 'Zip Url',
 			'rec_status' => '状态',
 			'default_down' => '静默下载',

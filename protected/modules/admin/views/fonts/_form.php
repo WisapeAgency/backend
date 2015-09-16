@@ -25,6 +25,42 @@
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 **/?>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'preview_img'); ?>
+		<?php echo $form->textField($model,'preview_img',array('size'=>60,'maxlength'=>200,'id'=>'preview_img','readonly'=>'readonly')); ?>
+		<?php echo $form->error($model,'preview_img'); ?>
+		<img id="pre_bg" src="<?php echo $model->preview_img?>" width="100px">
+        <?php
+        $this->widget('ext.EAjaxUpload.EAjaxUploadWidget', array(
+            'id'=>CHtml::getIdByName('previewimg'),
+            'config'=>array(
+                'request'=>array(
+                    'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
+                	'params'=>array('module'=>'fonts/preview_image')
+                ),
+                'callbacks' => array(
+                    'onComplete'=>"js:function(id, fileName, responseJSON){
+                    $(\"#preview_img\").val(responseJSON.filename);
+                    $(\"#pre_bg\").attr('src',responseJSON['filename']);
+                }",
+                    'onProgress'=>"js:function(id, fileName, loaded,total){}",
+                ),
+                'template' => '<div class="qq-uploader span12">'
+                    .'<div class="qq-upload-button btn btn-success">{uploadButtonText}</div>'
+                    .'<pre class="qq-upload-drop-area span12"><span>{dragZoneText}</span></pre>'
+                    .'<span class="qq-drop-processing"><span>{dropProcessingText}</span><span class="qq-drop-processing-spinner"></span></span>'
+                    .'<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;width:50%"></ul>'
+                    .'</div>',
+                'classes' => array(
+                    'success' => 'alert alert-success',
+                    'fail' => 'alert alert-error'
+                ),
+            )
+        ));
+        ?>
+	</div>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'zip_url'); ?>
 		<?php echo $form->textField($model,'zip_url',array('size'=>60,'maxlength'=>200,'id'=>'zip_url','readonly'=>'readonly')); ?>

@@ -57,6 +57,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'name',
 		array(
+				'name'=>'preview_img',
+				'type'=>'raw',
+				'value'=>'CHtml::image($data->preview_img,"",array("style"=>"width:100px;height:125px;"))',
+		),
+		array(
             'name'=>'rec_status',
             'header'=>'status',
             'filter'=>CHtml::dropDownList('Fonts[rec_status]', $model->rec_status, array(''=>'请选择','A'=>'激活','D'=>'未激活')),

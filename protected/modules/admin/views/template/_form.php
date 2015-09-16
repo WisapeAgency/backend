@@ -20,7 +20,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'temp_img'); ?>
-		<?php echo $form->textField($model,'temp_img',array('size'=>60,'maxlength'=>255,'id'=>'temp_img')); ?>
+		<?php echo $form->textField($model,'temp_img',array('size'=>60,'maxlength'=>255,'id'=>'temp_img','readonly'=>'readonly')); ?>
 		<?php echo $form->error($model,'temp_img'); ?>
         <img id="pre_bg" src="<?php echo $model->temp_img?$model->temp_img:SITE_URL.'uploads/nopic.jpg'?>" width="100px">
         <?php
@@ -61,7 +61,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'temp_url'); ?>
-		<?php echo $form->textField($model,'temp_url',array('size'=>60,'maxlength'=>255,'id'=>'temp_url')); ?>
+		<?php echo $form->textField($model,'temp_url',array('size'=>60,'maxlength'=>255,'id'=>'temp_url','readonly'=>'readonly')); ?>
 		<?php echo $form->error($model,'temp_url'); ?>
 
         <?php
