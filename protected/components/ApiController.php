@@ -263,7 +263,7 @@ class ApiController extends CController
 //             $resultData = json_decode($data);
 //             if($resultData->errorCode == 3){
                 $key = sha1(uniqid(rand()));
-                $url = SITE_URL.'site/forget/k/'.base64_encode($key).'/e/'.base64_encode($to);
+                $url = SITE_URL.'index.php/site/forget/k/'.base64_encode($key).'/e/'.base64_encode($to);
 //                 try{
 //                     $model = new WebForget();
 //                     $model->forget_key = $key;
