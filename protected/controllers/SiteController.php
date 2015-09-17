@@ -50,8 +50,8 @@ class SiteController extends Controller
     	{
     		$userModel = UserForget::model()->find(array(
     			'select'=>'*',
-    			'condition'=>'user_id=:user_id AND email = :email AND token = :token',
-    			'params'=>array(':user_id'=>base64_decode($_GET['uid']),':token'=>base64_decode($_GET['key']),':email'=> base64_decode($_GET["email"])),
+    			'condition'=>'user_id=:user_id AND email = :email AND token = :token AND rec_status =:rec_status',
+    			'params'=>array(':user_id'=>base64_decode($_GET['uid']),':token'=>base64_decode($_GET['key']),':email'=> base64_decode($_GET["email"]),':rec_status'=>'A'),
     			'join'=>''
     				));
     		if(!empty($userModel)&&time() <=$userModel->createtime)
@@ -76,7 +76,20 @@ class SiteController extends Controller
     		$user_model = User::model()->findByPk($model->user_id);
     		$user_model ->user_pwd = md5($model->password);
     		if($user_model->save())
-                Yii::app()->end($model->user_id);
+    		{
+				$model = UserForget::model()->findAll(array(
+						'select' => '*',
+						'condition' => 'user_id = :user_id AND rec_status =:rec_status',
+						'params' => array(':user_id' =>$model->user_id,':rec_status'=>'A'),
+						'join' =>''
+						));
+				foreach ($model as $it)
+				{
+					$it->rec_status = 'D';
+					$it->save();
+				}
+                Yii::app()->end(count($model));
+    		}
     	}
     }
     
