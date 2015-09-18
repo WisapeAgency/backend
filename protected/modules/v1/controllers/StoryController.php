@@ -46,15 +46,20 @@ class StoryController extends ApiController{
 	        		}
 	        	}
 	        }else if($type == 3){
-	            $model->like_num +=1;
-	        	if($model->like_num == 10)
-	        	{
-                	$user = User::model()->findByPk($model->uid);
-                	if($user && !empty($user->user_email)){
-		        		$title = 'Your story has been liked by more than 10 times.';
-		        		$user_message = 'people liked your story "'.$model->story_name.'".\n Publish your story on other social channels to get more likes.';
-		        		$this->sendMessage($user->user_email, $title, $user_message);
-	        		}
+	        	$opt = isset($_REQUEST['opt']) ? $_REQUEST['opt'] : 'like';
+	        	if($opt == 'like'){
+		            $model->like_num +=1;
+		        	if($model->like_num == 10)
+		        	{
+	                	$user = User::model()->findByPk($model->uid);
+	                	if($user && !empty($user->user_email)){
+			        		$title = 'Your story has been liked by more than 10 times.';
+			        		$user_message = 'people liked your story "'.$model->story_name.'".\n Publish your story on other social channels to get more likes.';
+			        		$this->sendMessage($user->user_email, $title, $user_message);
+		        		}
+		        	}
+	        	}else{
+	        		$model->like_num -=1;
 	        	}
 	        }
 	        if($model->save()){
@@ -134,7 +139,9 @@ class StoryController extends ApiController{
                 }
                 $zip = Yii::app()->zip;
                 if($zip->extractZip($zipPath,$target_path)){
-                    if(!unlink($zipPath)) $this->sendErrorResponse(500,'del zip error');
+//                     if(!unlink($zipPath)) $this->sendErrorResponse(500,'del zip error');
+					//TODO 替换图片为绝对路径，也可能在APP端做
+                	
                     $model->story_url = SITE_URL.'/'.$target_path;
                     $fp=fopen(ROOT_PATH.'/'.$target_path, "r+");
                     while(!feof($fp))

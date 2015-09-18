@@ -66,6 +66,81 @@ class SiteController extends Controller
     	}
     }
     
+    /**
+     * 播放story
+     * @return Ambigous <string, mixed>
+     */
+    public function actionStory()
+    {
+    	if(!isset($_REQUEST['id'])){
+    		echo '无效的url';exit;	
+    	}
+    	$sid = $_REQUEST['id'];
+    	$model = Story::model()->findByPk($sid, "rec_status='A'");
+    	if(!$model){
+    		echo 'story不存在';exit;
+    	}
+    	//story创作人基本信息
+    	$user = User::model()->findByPk($model->uid);
+    	if(!$user){
+    		echo '无效的story';exit;
+    	}
+    	//内容
+    	$base_url = SITE_URL.strstr($model->story_url, 'html/').'/'.$model->story_name.'/';
+    	$url = $base_url.'index.html';
+    	$path = ROOT_PATH.strstr($url, '/html');
+    	$content = file_get_contents($path);
+    	
+    	$isMobile = $this->isMobile();
+    	//二维码
+    	$qr_url = $base_url.'qr.png';
+    	if(!$isMobile){
+	    	$fileName = dirname($path).'/qr.png';
+	    	//二维码文件不存在的时候才创建
+	    	if(!file_exists($fileName)){
+		    	require_once('phpqrcode.php');
+		    	$data = SITE_URL.'index.php/site/story/id/'.$sid;
+		    	QRcode::png($data,$fileName,'L',3);
+	    	}
+    	}
+    	
+    	//分发
+    	$view = 'story_pc';
+    	if($isMobile){
+    		$view = 'story_app';
+    	}
+    	
+    	return $this->renderPartial($view, array(
+    			'sid'=>$sid,
+    			'user'=>$user,
+    			'like_num'=>$model->like_num,
+    			'content'=>$content,
+    			'qr_url'=>$qr_url
+    	));
+    }
+    
+	/**
+	* 检查是否是以手机浏览器进入(IN_MOBILE)
+	*/
+	function isMobile() {
+	    $mobile = array();
+	    static $mobilebrowser_list ='Mobile|iPhone|Android|WAP|NetFront|JAVA|OperasMini|UCWEB|WindowssCE|Symbian|Series|webOS|SonyEricsson|Sony|BlackBerry|Cellphone|dopod|Nokia|samsung|PalmSource|Xphone|Xda|Smartphone|PIEPlus|MEIZU|MIDP|CLDC';
+	    //note 获取手机浏览器
+	    if(preg_match("/$mobilebrowser_list/i", $_SERVER['HTTP_USER_AGENT'], $mobile)) {
+	        return true;
+	    }else{
+	        if(preg_match('/(mozilla|chrome|safari|opera|m3gate|winwap|openwave)/i', $_SERVER['HTTP_USER_AGENT'])) {
+	            return false;
+	        }else{
+	            if($_GET['mobile'] === 'yes') {
+	                return true;
+	            }else{
+	                return false;
+	            }
+	        }
+	    }
+	}
+    
     public function actionUpdatePwd(){
     	$model=new ResetPWD();
     	$this->performAjaxValidationRequest_c($model);
@@ -341,5 +416,10 @@ class SiteController extends Controller
     	ParseApi::send($data);echo 'ok';exit;
     }
 
+
+    public function actionQr(){
+    	include ROOT_PATH.'/protected/components/phpqrcode.php';
+    	QRcode::png('http://www.wisape.com');
+    }
 
 }
