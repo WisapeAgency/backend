@@ -160,16 +160,26 @@ class StoryController extends ApiController{
      * sid
      */
     public function actionDel(){
-        $model = $this->getUserModelByToken($_POST['access_token']);
-        $uid = $model->user_id;
-
-        $model = Story::model()->findByAttributes(array(
-            'id'=>$_POST['sid'],
-            'uid'=>$uid
-        ));
+        $model = $this->getUserModelByToken($_REQUEST['access_token']);
         if($model){
-            $model->rec_status='D';
-            if($model->save()) $this->sendDataResponse($model->getAttributes());
+	        $uid = $model->user_id;
+	
+	        $model = Story::model()->findByAttributes(array(
+	            'id'=>$_REQUEST['sid'],
+	            'uid'=>$uid
+	        ));
+	        if($model){
+	            $model->rec_status='D';
+	            if($model->save()){
+	            	$this->sendDataResponse($model->getAttributes());
+	            }else{
+		        	$this->sendErrorResponse('500', '删除失败');
+	            }
+	        }else{
+	        	$this->sendErrorResponse('404', '没有对应的story');
+	        }
+        }else{
+        	$this->sendErrorResponse('404', '用户token验证失败');
         }
     }
 
