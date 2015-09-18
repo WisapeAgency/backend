@@ -198,7 +198,7 @@ class StoryController extends ApiController{
                     $pageSize = PAGE_SIZE;
                 }
                 $start = ($page-1)*$pageSize;
-                $sql = "select * from story where uid=$uid limit $start,$pageSize";
+                $sql = "SELECT * FROM story WHERE uid=$uid AND rec_status='A' limit $start,$pageSize";
                 $model = Yii::app()->db->createCommand($sql)->queryAll();
             }else{
                 $model = Story::model()->findAll('uid=:uid',array(
@@ -207,7 +207,7 @@ class StoryController extends ApiController{
             }
             $this->sendDataResponse($model);
         }else{
-        	$this->sendErrorResponse(404, '没有找到资源');
+        	$this->sendErrorResponse(404, '无效的token');
         }
 
     }
