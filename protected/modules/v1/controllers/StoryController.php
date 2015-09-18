@@ -208,7 +208,7 @@ class StoryController extends ApiController{
                 $sql = "SELECT * FROM story WHERE uid=$uid AND rec_status='A' limit $start,$pageSize";
                 $model = Yii::app()->db->createCommand($sql)->queryAll();
             }else{
-                $model = Story::model()->findAll('uid=:uid',array(
+                $model = Story::model()->findAll("uid=:uid AND rec_status='A'",array(
                     ':uid'=>$uid,
                 ));
             }
