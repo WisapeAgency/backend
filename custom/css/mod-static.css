@@ -281,7 +281,7 @@ left:50%;margin-left:-15px;-webkit-animation: move2 2s infinite;}
 	z-index: 200;
 	width: 30px;
 	height: 30px;
-	background-image: url(../images/audio.png);
+	background-image: url(../play-img/audio.png);
 	background-repeat: no-repeat;
 	background-size: 30px 30px;
 }
@@ -293,17 +293,17 @@ left:50%;margin-left:-15px;-webkit-animation: move2 2s infinite;}
 	z-index: 200;
 	width: 30px;
 	height: 30px;
-	background-image: url(../images/audio.png);
+	background-image: url(../play-img/audio.png);
 	background-repeat: no-repeat;
 	background-size: 30px 30px;
 }
  .on{
-	background: url('../images/audio.png') no-repeat 0 0;
+	background: url('../play-img/audio.png') no-repeat 0 0;
 	-webkit-animation: rotating 1.2s linear infinite;
 	animation: rotating 1.2s linear infinite;
 }
  .off{
-	background: url('../images/audio.png') no-repeat 0 0;
+	background: url('../play-img/audio.png') no-repeat 0 0;
 }
 @-webkit-keyframes rotating {
 	from{
@@ -371,7 +371,7 @@ left:50%;margin-left:-15px;-webkit-animation: move2 2s infinite;}
 	float: left;
 	height: 40px;
 	width: 120px;
-	background-image: url(../images/like.png);
+	background-image: url(../play-img/like.png);
 	background-repeat: no-repeat;
 	background-size: 397px 40px;
 }
@@ -380,7 +380,7 @@ left:50%;margin-left:-15px;-webkit-animation: move2 2s infinite;}
 	float: left;
 	height: 40px;
 	width: 120px;
-	background-image: url(../images/like.png);
+	background-image: url(../play-img/like.png);
 	background-repeat: no-repeat;
 	background-size: 397px 40px;
 	background-position: -131px 0px;
@@ -396,7 +396,7 @@ left:50%;margin-left:-15px;-webkit-animation: move2 2s infinite;}
 	font-weight: bold;
 	line-height: 40px;
 	padding-left: 7px;
-	background-image: url(../images/like2.png);
+	background-image: url(../play-img/like2.png);
 	background-repeat: no-repeat;
 	background-size: 86px 40px;
 }
@@ -419,7 +419,7 @@ left:50%;margin-left:-15px;-webkit-animation: move2 2s infinite;}
 	height: 38px;
 	width: 120px;
 	margin: 10px auto 0;
-	background-image: url(../images/like.png);
+	background-image: url(../play-img/like.png);
 	background-repeat: no-repeat;
 	background-size: 342px 38px;
 	background-position: -223px 0px;
@@ -428,7 +428,7 @@ left:50%;margin-left:-15px;-webkit-animation: move2 2s infinite;}
 	height: 50px;
 	width: 100px;
 	margin: 10px auto 0;
-	background-image: url(../images/sjlogo.png);
+	background-image: url(../play-img/sjlogo.png);
 	background-repeat: no-repeat;
 	background-size: 100px 50px;
 	background-position: 0px 0px;

@@ -1,0 +1,125 @@
+body{background-color:transparent;overflow:hidden;background-size:cover;background-position:50% 50%}
+.phone_panel{
+	left:50%;
+	margin-left:-605px;
+	position:absolute;
+	height:865px;
+	width: 1210px;
+	bottom: 0px;
+}
+.phoneBox{
+	width:536px;
+	height:872px;
+	float:Left;
+	background-image: url(../play-img/sj.png);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+.phoneBox .nr{
+	background-color:#000;
+	position:relative;
+	cursor:pointer;
+	height:749px;
+	width: 485px;
+	border-right:1px solid #f6f6f6;
+	border-left:1px solid #F6F6F6;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	-webkit-user-select:none;
+	margin: 116px 0 0 25px;
+}
+.phoneBox .nr .iframe{
+	border-style: none;
+}
+#code{
+	float: right;
+	width: 490px;
+	height: 865px;
+	padding: 75px 0;
+}
+.code_h1{
+	font-size: 61px;
+	font-weight: lighter;
+	margin: 0 0 15px 0;
+}
+.code_p1{
+	font-size: 22px;
+	line-height: 35px;
+}
+.code_p2{
+	font-size: 17px;
+	margin: 25px 0 20px 0;
+}
+.code_p3{
+	font-size: 17px;
+	color: #AAA8A3;
+	line-height: 60px;
+}
+.code_p4{
+	display: block;
+	height: 46px;
+}
+.code_div1{
+	height: 78px;
+	margin-top:50px; 
+	padding: 0 0 0 96px;
+	background-image:  url(../play-img/tb1.png);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+.code_div1_p_span1{
+	font-size: 24px;
+	line-height: 45px;
+}
+.code_div1_p_span2{
+	font-size: 17px;
+}
+#code #codeImg{
+	display:block;
+	width: 135px;
+	height: 135px;
+}
+.code_p4_a{
+	display: block;
+	width: 42px;
+	height: 42px;
+	float: left;
+	background-image: url(../play-img/fx.png);
+	background-repeat: no-repeat;
+	margin: 0 10px 0 0;
+}
+.code_p4_a1{
+	background-position: 0px -2px;
+}
+.code_p4_a2{
+	background-position: -56px -2px;
+}
+.code_p4_a3{
+	background-position: -113px -2px;
+}
+.code_p4_a4{
+	background-position: -170px -2px;
+}
+.code_p4_a5{
+	background-position: -228px -2px;
+}
+.code_p4_a6{
+	background-position: -283px -2px;
+}
+.code_p5{
+	display: block;
+	margin-top: 40px;
+	height: 50px;
+}
+.code_p5_a{
+	display: block;
+	width: 151px;
+	height: 50px;
+	float: left;
+	background-image: url(../play-img/an.png);
+	background-repeat: no-repeat;
+	margin: 0 35px 0 0;
+}
+.code_p5_a2{
+	background-position: -187px 0px;
+}

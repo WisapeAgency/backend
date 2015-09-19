@@ -17,6 +17,7 @@
 <link href="<?php echo SITE_URL?>custom/css/reset-static.css" rel="stylesheet" type="text/css">
 <link href="<?php echo SITE_URL?>custom/css/mod-static.css" rel="stylesheet" type="text/css">
 <link href="<?php echo SITE_URL?>custom/css/reset.css" rel="stylesheet" type="text/css">
+<link href="<?php echo SITE_URL?>custom/css/animation.css" rel="stylesheet" type="text/css">
 <link href="<?php echo SITE_URL?>uploads/fonts/fonts.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="<?php echo SITE_URL?>custom/js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_URL?>custom/js/wxsharejs.js"></script>
@@ -32,18 +33,18 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
   <div class="p-index main" id="con"> 
    <!--上下滚动 start-->
     <section class="m-page hide" >
-      	<div class="m-img" ><img src="<?php echo SITE_URL?>custom/images/zs_pic7.jpg"></div>
+      	<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic7.jpg"></div>
     </section>
     
     <section class="m-page hide" >
-  		<div class="m-img" ><img src="<?php echo SITE_URL?>custom/images/zs_pic5.jpg"></div>
+  		<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic5.jpg"></div>
   	</section>
   	
     <section class="m-page hide" >
-	  	<div class="stage-content edit-area pages-img pages-img-bg" style="background: url(<?php echo SITE_URL?>custom/images/zs_pic4.jpg);background-size: 50% 50%;background-postion:cover;width:100%;height:100%;">
+	  	<div class="stage-content edit-area pages-img pages-img-bg" style="background: url(<?php echo SITE_URL?>custom/play-img/zs_pic4.jpg);background-size: 50% 50%;background-postion:cover;width:100%;height:100%;">
 		    <div class="symbol" style="z-index: 2;">
 		        <div class="pages-img edit-area">
-		            <img data-name="img1" width="50" height="50" style="" src="<?php echo SITE_URL?>custom/images/zs_pic1.jpg"/>
+		            <img data-name="img1" width="50" height="50" style="" src="<?php echo SITE_URL?>custom/play-img/zs_pic1.jpg"/>
 		        </div>
 		    </div>
 		    <div class="symbol" style="z-index: 3;">
@@ -58,7 +59,7 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
         <div class="m-img" >
 	    	<div class="sj_zh1">
 	    		<div class="sj_zh1_tx">
-	    			<img src="<?php echo SITE_URL?>custom/images/tx.jpg" alt="">
+	    			<img src="<?php echo SITE_URL?>custom/play-img/tx.jpg" alt="">
 	    		</div>
 	    		<p class="sj_zh1_tx_p1">by <?php echo $user->nick_name?></p>
 	    		<p class="sj_zh1_tx_p2">
@@ -77,13 +78,13 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 	    </div>
     </section>
 
-    <section class='u-arrow'><img src="<?php echo SITE_URL?>custom/images/btn01_arrow.png" /></section>
+    <section class='u-arrow'><img src="<?php echo SITE_URL?>custom/play-img/btn01_arrow.png" /></section>
     <!--上下滚动代码 end-->
 </div>
 
 <!--音乐-->
 <div id="audio-btn" class="on" onclick="lanren.changeClass(this,'media')">
-	<audio loop="loop" src="<?php echo SITE_URL?>custom/images/mymusic.mp3" id="media" preload="preload"></audio>
+	<audio loop="loop" src="<?php echo SITE_URL?>custom/play-img/mymusic.mp3" id="media" preload="preload"></audio>
 </div>
 <script>
 	var lanren = {
