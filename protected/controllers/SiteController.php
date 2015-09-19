@@ -86,13 +86,13 @@ class SiteController extends Controller
     		echo '无效的story';exit;
     	}
     	//内容
-    	$base_url = SITE_URL.strstr($model->story_url, 'html/').'/'.$model->story_name.'/';
-    	$url = $base_url.'index.html';
-    	$path = ROOT_PATH.strstr($url, '/html');
+    	$path = ROOT_PATH.strstr($model->story_url, '/html');
     	$content = file_get_contents($path);
     	
     	$isMobile = $this->isMobile();
     	//二维码
+    	$offset = -strlen('index.html');
+    	$base_url = substr(SITE_URL.strstr($model->story_url, 'html/'), 0, $offset);
     	$qr_url = $base_url.'qr.png';
     	if(!$isMobile){
 	    	$fileName = dirname($path).'/qr.png';

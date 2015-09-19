@@ -125,41 +125,72 @@ class StoryController extends ApiController{
         $model->uid = $_REQUEST['uid'];
         $model->description = isset($_REQUEST['description'])?$_REQUEST['description']:'';
         $model->rec_status = isset($_REQUEST['rec_status'])?$_REQUEST['rec_status']:'';
-        $model->small_img = isset($_REQUEST['small_img'])?$this->saveStrToImg(trim($_REQUEST['small_img'])):'';
+        $model->small_img = isset($_REQUEST['small_img'])?$this->saveStoryCover(trim($_REQUEST['small_img'])):'';
         $model->story_name = $_REQUEST['story_name'];
+        $model->bg_music = $_REQUEST['bg_music'];
         if(isset($_FILES['zip_file']['tmp_name'])){
-            $target_path = "html/";
-            $target_path = $target_path.$_REQUEST['uid'].'/'.date('YmdHi');
-            $zipPath = $target_path.'/'.$_FILES['zip_file']['name'];
-            if (!is_dir($target_path)) $this->mkdirs($target_path);
-//                $this->sendErrorResponse(404,$target_path);
-            try {
-                if (!move_uploaded_file($_FILES['zip_file']['tmp_name'],$zipPath)){
-                    $this->sendErrorResponse(403);
-                }
-                $zip = Yii::app()->zip;
-                if($zip->extractZip($zipPath,$target_path)){
+        	$filename = md5(uniqid());
+            $target_path = ROOT_PATH.'/html/'.$_REQUEST['uid'].'/'.date('Ymd').'/'.$filename;
+            if (!is_dir($target_path)){
+            	$this->mkdirs($target_path);
+            }
+			//上传资源
+            $zipPath = $target_path.'.zip';
+        	if(!move_uploaded_file($_FILES['zip_file']['tmp_name'], $zipPath)){
+        		$this->sendErrorResponse(500, '上传story资源失败');
+        	}
+        	//解压
+            $zip = Yii::app()->zip;
+            if($zip->extractZip($zipPath, $target_path)){
 //                     if(!unlink($zipPath)) $this->sendErrorResponse(500,'del zip error');
-					//TODO 替换图片为绝对路径，也可能在APP端做
-                	
-                    $model->story_url = SITE_URL.'/'.$target_path;
-                    $fp=fopen(ROOT_PATH.'/'.$target_path, "r+");
-                    while(!feof($fp))
-                    {
-                        $buffer=fgets($fp,4096);
-//                        $story .=$this->replace_tag($buffer);
-                    }
-                }else{
-                    $this->sendErrorResponse(500,'zip file extract error');
+				//TODO 替换图片为绝对路径，也可能在APP端做
+                $prefix = $_REQUEST['img_prefix'];
+                if(!empty($prefix)){
+                	$url_prefix = str_replace(ROOT_PATH.'/', SITE_URL, $target_path);
+                	$html_path = $target_path.'/index.html';
+                	$content = file_get_contents($html_path);
+                	$content = str_replace($prefix, $url_prefix, $content);
+                	$fp=fopen($html_path,"w");
+                	fwrite($fp,$content);
+                	fclose($fp);
+                	//
+                	$model->story_url = $html_path;
                 }
-            } catch (Exception $e) {
-                $this->sendErrorResponse(403,$e->getMessage());
+            }else{
+                $this->sendErrorResponse(500,'zip file extract error');
             }
         }
-        if(!$model->save()){
-            $this->sendErrorResponse(403);
+        if($model->save()){
+	        $this->sendDataResponse($model->getAttributes());
+        }else{
+            $this->sendErrorResponse(500, '保存story失败');
         }
-        $this->sendDataResponse($model->getAttributes());
+    }
+    
+    /**
+     * 设置story
+     */
+    public function actionSetting(){
+    	if(!isset($_REQUEST['sid'])){
+    		$this->sendErrorResponse('400', '缺少storyId');
+    	}
+    	$model = Story::model()->findByPk($_REQUEST['sid']);
+    	//
+    	if(isset($_REQUEST['story_name']) && !empty($_REQUEST['story_name'])){
+    		$model->story_name = $_REQUEST['story_name'];
+    	}
+    	if(isset($_REQUEST['description']) && !empty($_REQUEST['description'])){
+    		$model->description = $_REQUEST['description'];
+    	}
+    	if(isset($_REQUEST['small_img']) && !empty($_REQUEST['small_img'])){
+    		$model->small_img = $this->saveStoryCover(trim($_REQUEST['small_img']));
+    	}
+    	
+    	if($model->save()){
+	        $this->sendDataResponse($model->getAttributes());
+        }else{
+            $this->sendErrorResponse(500, '设置story失败');
+        }
     }
 
     /**

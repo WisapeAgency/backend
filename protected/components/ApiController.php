@@ -184,11 +184,11 @@ class ApiController extends CController
     }
 
 
-    protected function saveStrToImg($str){
+    private function saveStrToImg($str, $folder){
         $jpg = base64_decode($str);
         $filename=time().'_'.rand().'.jpg';
 
-        $dir = '/uploads/avatar/'.date('Ymd').'/';
+        $dir = '/uploads/'.$folder.'/'.date('Ymd').'/';
         $path = ROOT_PATH.$dir;
         try{
             if (!is_dir($path)) $this->mkdirs($path);
@@ -200,6 +200,23 @@ class ApiController extends CController
         }catch (Exception $e){
             $this->sendErrorResponse(500,'图片保存失败!');
         }
+    }
+    
+    /**
+     * 保存用户头像
+     * @param unknown $str
+     * @return string
+     */
+    protected function saveAvatar($str){
+    	return $this->saveStrToImg($str, 'avatar');
+    }
+    
+    /**
+     * 保存story封面
+     * @return string
+     */
+    protected function saveStoryCover($str){
+    	return $this->saveStrToImg($str, 'story_cover');
     }
 
     /**

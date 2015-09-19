@@ -303,7 +303,7 @@ EOF;
 	            $im1 = false;
 	            if(isset($_REQUEST['user_ico']) && !empty($_REQUEST['user_ico'])){
 	                $img1 = $userModel->user_ico_b;
-	                $im1 = $userModel->user_ico_b = $this->saveStrToImg(trim($_REQUEST['user_ico']));
+	                $im1 = $userModel->user_ico_b = $this->saveAvatar(trim($_REQUEST['user_ico']));
 	                $userModel->user_ico_n = $im1;
 	            }
 	            if(isset($_REQUEST['user_email']) && !empty($_REQUEST['user_email'])){

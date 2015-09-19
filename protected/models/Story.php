@@ -9,6 +9,7 @@
  * @property string $story_name
  * @property string $story_url
  * @property string $description
+ * @property string $bg_music
  * @property string $small_img
  * @property string $rec_status
  * @property integer $share_num
@@ -41,7 +42,7 @@ class Story extends CActiveRecord
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, uid, story_name, story_url, description, small_img, rec_status, share_num, like_num, view_num, createtime', 'safe', 'on'=>'search'),
+			array('id, uid, story_name, story_url, description, bg_music, small_img, rec_status, share_num, like_num, view_num, createtime', 'safe', 'on'=>'search'),
 		);
 	}
 
