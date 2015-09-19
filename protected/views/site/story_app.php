@@ -63,7 +63,7 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 
 <!--音乐-->
 <div id="audio-btn" class="on" onclick="lanren.changeClass(this,'media')">
-	<audio loop="loop" src="<?php echo SITE_URL?>uploads/muscic/<?php echo $bg_music?>" id="media" preload="preload"></audio>
+	<audio loop="loop" src="<?php echo SITE_URL?>uploads/music/<?php echo $bg_music?>.mp3" id="media" preload="preload"></audio>
 </div>
 <script>
 	var lanren = {

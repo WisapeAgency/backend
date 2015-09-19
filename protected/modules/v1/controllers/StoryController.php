@@ -145,14 +145,15 @@ class StoryController extends ApiController{
 //                     if(!unlink($zipPath)) $this->sendErrorResponse(500,'del zip error');
 				//TODO 替换图片为绝对路径，也可能在APP端做
                 $prefix = $_REQUEST['img_prefix'];
-                Yii::log('img_prefix:'.$prefix, CLogger::LEVEL_TRACE);
                 if(!empty($prefix)){
-                	$prefix .= ($model->story_name);
+                	$prefix .= '/'.($model->story_name);
+	                Yii::log('img_prefix:'.$prefix, CLogger::LEVEL_ERROR);
                 	$url_prefix = str_replace(ROOT_PATH.'/', SITE_URL, $target_path);
                 	$html_path = $target_path.'/story.html';
                 	$content = file_get_contents($html_path);
+                	Yii::log('replace_before:'.$content, CLogger::LEVEL_ERROR);
                 	$content = str_replace($prefix, $url_prefix, $content);
-                	Yii::log('story_content:'.$content, CLogger::LEVEL_TRACE);
+                	Yii::log('replace_end:'.$content, CLogger::LEVEL_ERROR);
                 	$fp=fopen($html_path,"w");
                 	fwrite($fp,$content);
                 	fclose($fp);

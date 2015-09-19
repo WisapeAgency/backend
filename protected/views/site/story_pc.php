@@ -54,7 +54,7 @@
 			    <!--上下滚动代码 end-->
 			    <!--音乐-->
 				<div id="audio-btn" class="on" onclick="lanren.changeClass(this,'media')">
-					<audio loop="loop" src="<?php echo SITE_URL?>uploads/muscic/<?php echo $bg_music?>" id="media" preload="preload"></audio>
+					<audio loop="loop" src="<?php echo SITE_URL?>uploads/music/<?php echo $bg_music?>.mp3" id="media" preload="preload"></audio>
 				</div>
 			</div>
         </div>
