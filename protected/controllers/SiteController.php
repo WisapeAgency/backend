@@ -109,7 +109,6 @@ class SiteController extends Controller
     	if($isMobile){
     		$view = 'story_app';
     	}
-    	
     	return $this->renderPartial($view, array(
     			'sid'=>$sid,
     			'user'=>$user,

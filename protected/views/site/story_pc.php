@@ -31,7 +31,7 @@
 			        <div class="m-img" >
 				    	<div class="sj_zh1">
 				    		<div class="sj_zh1_tx">
-				    			<img src="./<?php echo SITE_URL?>custom/play-img/tx.jpg" alt="">
+				    			<img src="<?php echo empty($user->user_ico_n) ? SITE_URL.'custom/play-img/icon_menu_default_head.png' : $user->user_ico_n ?>" alt="">
 				    		</div>
 				    		<p class="sj_zh1_tx_p1">by <?php echo $user->nick_name?></p>
 				    		<p class="sj_zh1_tx_p2">
@@ -109,6 +109,14 @@
 	}
 	lanren.play();
 <!--代码部分end-->
+
+	//更新浏览数量
+	$(function(){
+		var url = '<?php echo SITE_URL?>index.php/v1/story/share';
+		$.get(url, {type:'2', sid:'<?php echo $sid?>'}, function(){
+			//
+		});
+	});
 
 	//点赞
 	$('.sj_zh1_tx_p2 a').click(function(){
