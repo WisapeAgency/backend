@@ -73,17 +73,17 @@ class SiteController extends Controller
     public function actionStory()
     {
     	if(!isset($_REQUEST['id'])){
-    		echo '无效的url';exit;	
+    		echo 'Invalid URL';exit;	
     	}
     	$sid = $_REQUEST['id'];
     	$model = Story::model()->findByPk($sid, "rec_status='A'");
     	if(!$model){
-    		echo 'story不存在';exit;
+    		echo 'Story not found';exit;
     	}
     	//story创作人基本信息
     	$user = User::model()->findByPk($model->uid);
     	if(!$user){
-    		echo '无效的story';exit;
+    		echo 'Invalid story';exit;
     	}
     	//内容
     	$path = ROOT_PATH.strstr($model->story_url, '/html');
@@ -91,7 +91,7 @@ class SiteController extends Controller
     	
     	$isMobile = $this->isMobile();
     	//二维码
-    	$offset = -strlen('index.html');
+    	$offset = -strlen('story.html');
     	$base_url = substr(SITE_URL.strstr($model->story_url, 'html/'), 0, $offset);
     	$qr_url = $base_url.'qr.png';
     	if(!$isMobile){
@@ -114,6 +114,7 @@ class SiteController extends Controller
     			'sid'=>$sid,
     			'user'=>$user,
     			'like_num'=>$model->like_num,
+    			'bg_music'=>$model->bg_music,
     			'content'=>$content,
     			'qr_url'=>$qr_url
     	));

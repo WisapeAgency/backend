@@ -127,7 +127,7 @@ class StoryController extends ApiController{
         $model->rec_status = isset($_REQUEST['rec_status'])?$_REQUEST['rec_status']:'';
         $model->small_img = isset($_REQUEST['small_img'])?$this->saveStoryCover(trim($_REQUEST['small_img'])):'';
         $model->story_name = $_REQUEST['story_name'];
-        $model->bg_music = $_REQUEST['bg_music'];
+        $model->bg_music = isset($_REQUEST['bg_music']) ? $_REQUEST['bg_music'] : '';
         if(isset($_FILES['zip_file']['tmp_name'])){
         	$filename = md5(uniqid());
             $target_path = ROOT_PATH.'/html/'.$_REQUEST['uid'].'/'.date('Ymd').'/'.$filename;
@@ -145,11 +145,14 @@ class StoryController extends ApiController{
 //                     if(!unlink($zipPath)) $this->sendErrorResponse(500,'del zip error');
 				//TODO 替换图片为绝对路径，也可能在APP端做
                 $prefix = $_REQUEST['img_prefix'];
+                Yii::log('img_prefix:'.$prefix, CLogger::LEVEL_TRACE);
                 if(!empty($prefix)){
+                	$prefix .= ($model->story_name);
                 	$url_prefix = str_replace(ROOT_PATH.'/', SITE_URL, $target_path);
-                	$html_path = $target_path.'/index.html';
+                	$html_path = $target_path.'/story.html';
                 	$content = file_get_contents($html_path);
                 	$content = str_replace($prefix, $url_prefix, $content);
+                	Yii::log('story_content:'.$content, CLogger::LEVEL_TRACE);
                 	$fp=fopen($html_path,"w");
                 	fwrite($fp,$content);
                 	fclose($fp);

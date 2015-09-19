@@ -26,33 +26,7 @@
 			</script>
 			<div class="" id="con"> 
 		   <!--上下滚动 start-->
-				<section class="m-page hide" >
-					<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic1.jpg"></div>
-				</section>
-
-			    <section class="m-page hide" >
-			  		<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic2.jpg"></div>
-			  	</section>
-			    
-			    <section class="m-page hide" >
-			    	<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic3.jpg"></div>
-			    </section>
-			    
-			    <section class="m-page hide" >
-			      	<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic4.jpg"></div>
-			    </section>
-			    
-			    <section class="m-page hide" >
-			    	<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic5.jpg"></div>
-			    </section>
-			    
-			    <section class="m-page hide" >
-			    	<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic6.jpg"></div>
-			    </section>
-			    
-			    <section class="m-page hide" >
-			    	<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic7.jpg"></div>
-			    </section>
+				<?php echo $content?>
 			    <section class="m-page hide" >
 			        <div class="m-img" >
 				    	<div class="sj_zh1">
@@ -80,7 +54,7 @@
 			    <!--上下滚动代码 end-->
 			    <!--音乐-->
 				<div id="audio-btn" class="on" onclick="lanren.changeClass(this,'media')">
-					<audio loop="loop" src="<?php echo SITE_URL?>custom/play-img/mymusic.mp3" id="media" preload="preload"></audio>
+					<audio loop="loop" src="<?php echo SITE_URL?>uploads/muscic/<?php echo $bg_music?>" id="media" preload="preload"></audio>
 				</div>
 			</div>
         </div>
@@ -100,19 +74,12 @@
 		<p class="code_p3">Or</p>
 		 <!-- AddToAny BEGIN -->
 		<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-		<a class="a2a_dd" href="https://www.addtoany.com/share_save"></a>
 		<a class="a2a_button_facebook"></a>
 		<a class="a2a_button_twitter"></a>
+		<a class="a2a_button_linkedin"></a>
 		<a class="a2a_button_google_plus"></a>
-		<a class="a2a_button_diaspora"></a>
-		<a class="a2a_button_design_float"></a>
-		<a class="a2a_button_bibsonomy"></a>
-		<a class="a2a_button_baidu"></a>
+		<a class="a2a_dd" href="https://www.addtoany.com/share_save"></a>
 		</div>
-		<script type="text/javascript">
-		var a2a_config = a2a_config || {};
-		a2a_config.num_services = 14;
-		</script>
 		<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
 		<!-- AddToAny END -->
 		<div class="code_div1">

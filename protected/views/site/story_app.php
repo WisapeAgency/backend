@@ -32,28 +32,7 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 </script>
   <div class="p-index main" id="con"> 
    <!--上下滚动 start-->
-    <section class="m-page hide" >
-      	<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic7.jpg"></div>
-    </section>
-    
-    <section class="m-page hide" >
-  		<div class="m-img" ><img src="<?php echo SITE_URL?>custom/play-img/zs_pic5.jpg"></div>
-  	</section>
-  	
-    <section class="m-page hide" >
-	  	<div class="stage-content edit-area pages-img pages-img-bg" style="background: url(<?php echo SITE_URL?>custom/play-img/zs_pic4.jpg);background-size: 50% 50%;background-postion:cover;width:100%;height:100%;">
-		    <div class="symbol" style="z-index: 2;">
-		        <div class="pages-img edit-area">
-		            <img data-name="img1" width="50" height="50" style="" src="<?php echo SITE_URL?>custom/play-img/zs_pic1.jpg"/>
-		        </div>
-		    </div>
-		    <div class="symbol" style="z-index: 3;">
-		        <div class="pages-txt edit-area" data-animation="animated bounce" style="margin:70px auto;width:150px;color:#fff;text-align: center;">As c
-		            update of the classictranslation corpus, the combination of network technology and language essence
-		        </div>
-		    </div>
-		</div>
-	</section>
+    <?php echo $content?>
   	
     <section class="m-page hide" >
         <div class="m-img" >
@@ -84,7 +63,7 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 
 <!--音乐-->
 <div id="audio-btn" class="on" onclick="lanren.changeClass(this,'media')">
-	<audio loop="loop" src="<?php echo SITE_URL?>custom/play-img/mymusic.mp3" id="media" preload="preload"></audio>
+	<audio loop="loop" src="<?php echo SITE_URL?>uploads/muscic/<?php echo $bg_music?>" id="media" preload="preload"></audio>
 </div>
 <script>
 	var lanren = {
