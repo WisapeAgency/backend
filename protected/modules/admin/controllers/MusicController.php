@@ -174,7 +174,7 @@ class MusicController extends AdminController
 				$type = $n['name'];
 				$temp_name = $n['music_name'];
 				if(isset($data[$type])){
-					$data[$type] .= '\n'.$temp_name;
+					$data[$type] .= $this->new_line.$temp_name;
 				}else{
 					$data[$type] = $temp_name;
 				}
@@ -182,13 +182,13 @@ class MusicController extends AdminController
 			//拼装
 			$str = '';
 			while ($var = current($data)) {
-				$str .= key($data).'分类：\n'.$var.'\n';
+				$str .= key($data).'分类：'.$this->new_line.$var.$this->new_line;
 				next($data);
 			}
 			//推送消息
 			$message=new SendMessage;
 			$message->title = $size.' new background musics are available for you';
-			$message->user_message = 'Set your story background with new music:\n'.$str;
+			$message->user_message = 'Set your story background with new music:'.$this->new_line.$str;
 			if($message->save()){
 				$this->sendMessage($message);
 			}

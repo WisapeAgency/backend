@@ -196,7 +196,7 @@ class TemplateController extends AdminController
     			$type = $n['name'];
     			$temp_name = $n['temp_name'];
     			if(isset($data[$type])){
-    				$data[$type] .= '\n'.$temp_name;
+    				$data[$type] .= $this->new_line.$temp_name;
     			}else{
 	    			$data[$type] = $temp_name;
     			}
@@ -204,13 +204,13 @@ class TemplateController extends AdminController
     		//拼装
     		$str = '';
 			while ($var = current($data)) {
-				$str .= key($data).'分类：\n'.$var.'\n';
+				$str .= key($data).'分类：'.$this->new_line.$var.$this->new_line;
 				next($data);
 			}
     		//推送消息
     		$message=new SendMessage;
     		$message->title = $size.' new Templates are available for you';
-    		$message->user_message = 'Create your story with new Template:\n'.$str;
+    		$message->user_message = 'Create your story with new Template:'.$this->new_line.$str;
             if($message->save()){
     			$this->sendMessage($message);
     		}

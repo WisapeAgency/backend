@@ -237,12 +237,12 @@ EOF;
 			$names = $connection->createcommand($sql)->queryAll();
 			$namestr = '';
 			foreach ($names as $n){
-				$namestr .= $n['name'].'\n';
+				$namestr .= $n['name'].$this->new_line;
 			}
 			//推送消息
 			$message=new SendMessage;
 			$message->title = $size.' new fonts are available for you';
-			$message->user_message = 'Create your story with new font:\n'.$namestr;
+			$message->user_message = 'Create your story with new font:'.$this->new_line.$namestr;
 			if($message->save()){
 				$this->sendMessage($message);
 			}
