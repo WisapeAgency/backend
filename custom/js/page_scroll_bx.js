@@ -195,13 +195,22 @@ var Msize = $(".m-page").size(), 	//页面的数目
 		position ? move_p = moveP - firstP > 100 : move_p = firstP - moveP > 100 ;
 		if(move){
 			//切画页面(移动成功)
-			if( move_p && Math.abs(moveP) >5 ){	
-				$(".m-page").eq(newM-1).animate({'top':0},300,"easeOutSine",function(){
+			if( move_p && Math.abs(moveP) >5 ){
+				var me = $(".m-page").eq(newM-1),animItem = $(".pages-txt"),animLen = animItem.length;
+				me.animate({'top':0},300,"easeOutSine",function(){
 					/*
 					** 切换成功回调的函数
 					*/
 					success();
 					$(".m-page").attr("style","");
+
+					for(var i = 0;i<animLen;i++) {
+						var cur = animItem.eq(i);
+						cur.removeClass(cur.data("animation"));
+					}
+
+					console.info("success");
+					me.find(".pages-txt").addClass($(".pages-txt").data("animation"));
 				})
 			//返回页面(移动失败)
 			}else if (Math.abs(moveP) >=5){	//页面退回去
@@ -285,7 +294,7 @@ var Msize = $(".m-page").size(), 	//页面的数目
 	var input_focus = false;
 	function initPage(){
 		//初始化一个页面
-		$(".m-page").addClass("hide").eq(page_n-1).addClass("show").removeClass("hide");
+		$(".m-page").addClass("hide").eq(page_n-1).addClass("show").removeClass("hide").find(".pages-txt").addClass($(".pages-txt").data("animation"));
 		//PC端图片点击不产生拖拽
 		$(document.body).find("img").on("mousedown",function(e){
 			e.preventDefault();
