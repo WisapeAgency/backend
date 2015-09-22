@@ -386,12 +386,14 @@ class SiteController extends Controller
         $uploadHandler->setSizeLimit($sizeLimit);
         $folder=Yii::app() -> getBasePath() . "/../uploads/";
         //根据业务模块分类
+        $uniqName = false;
         if(isset($_POST['module']) && !empty($_POST['module'])){
         	$folder = $folder.$_POST['module'].'/';
         	//模板包含缩略图和资源包，需要用文件夹包起来
 	        if($_POST['module'] == 'template'){
-		        $m = date('YmdH');
+		        $m = date('Ymd');
 		        $folder = $folder.$m.'/';
+		        $uniqName = true;
 	        }
         }
         
@@ -399,9 +401,9 @@ class SiteController extends Controller
             mkdir($folder,0777,true);
         }
         if(isset($customGetParam) && $customGetParam == true){
-            $result = $uploadHandler->handleUpload($folder,false,false,true);
+            $result = $uploadHandler->handleUpload($folder,$uniqName,false,true);
         }else{
-            $result = $uploadHandler->handleUpload($folder, false, true);
+            $result = $uploadHandler->handleUpload($folder, $uniqName, true);
         }
         // to pass data through iframe you will need to encode all html tags
         echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);

@@ -111,8 +111,8 @@ class StoryController extends ApiController{
     public function actionCreate(){
         ini_set('upload_max_filesize', '20M');
         ini_set('post_max_size', '20M');
-        ini_set('max_input_time', 300);
-        ini_set('max_execution_time', 300);
+//         ini_set('max_input_time', 300);
+//         ini_set('max_execution_time', 300);
         //if(!isset($_POST)) $this->sendErrorResponse(403);
         //修改哈
         if(isset($_REQUEST['sid'])){

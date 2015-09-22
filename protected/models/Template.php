@@ -33,7 +33,7 @@ class Template extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-            array('temp_name, temp_img, temp_url, rec_status, type', 'required'),
+            array('temp_name, temp_img, temp_url, type', 'required'),
 			array('type, order', 'numerical', 'integerOnly'=>true),
 			array('temp_name', 'length', 'max'=>200),
 			array('temp_img, temp_url', 'length', 'max'=>255),
