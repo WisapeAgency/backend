@@ -115,7 +115,7 @@ class StoryController extends ApiController{
 //         ini_set('max_execution_time', 300);
         //if(!isset($_POST)) $this->sendErrorResponse(403);
         //修改哈
-        if(isset($_REQUEST['sid'])){
+        if(isset($_REQUEST['sid']) && $_REQUEST['sid'] > 0){
             $model = Story::model()->findByPk($_REQUEST['sid']);
         }else{
             $model = new Story(); //新建

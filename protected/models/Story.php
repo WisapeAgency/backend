@@ -35,6 +35,7 @@ class Story extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('story_name, uid, story_url', 'required'),
 			array('uid, share_num, like_num, view_num, createtime', 'numerical', 'integerOnly'=>true),
 			array('story_name, story_url', 'length', 'max'=>200),
 			array('small_img', 'length', 'max'=>255),
@@ -54,6 +55,7 @@ class Story extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+				'user'=>array(self::BELONGS_TO,'User','uid'),
 		);
 	}
 
