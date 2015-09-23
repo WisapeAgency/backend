@@ -282,7 +282,7 @@ left:50%;margin-left:-15px;-webkit-animation: move2 2s infinite;}
 }
 #audio-btn{
 	overflow: hidden;
-	position: fixed;
+	position: absolute;
 	right: 10px;
 	top: 10px;
 	z-index: 200;

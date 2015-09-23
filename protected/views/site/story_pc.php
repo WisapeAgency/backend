@@ -36,7 +36,7 @@
 				    		<p class="sj_zh1_tx_p1">by <?php echo $user->nick_name?></p>
 				    		<p class="sj_zh1_tx_p2">
 				    			<a href="javascript:;" class="sj_zh1_tx_p2_a1"></a><!-- 点赞以后换成sj_zh1_tx_p2_a2即可 -->
-				    			<span class="sj_zh1_tx_p2_psan1"><?php echo $like_num?></span>
+				    			<span class="sj_zh1_tx_p2_psan1"><?php echo $story->like_num?></span>
 				    		</p>
 				    	</div>
 				    	<div class="sj_zh2">
@@ -54,7 +54,7 @@
 			    <!--上下滚动代码 end-->
 			    <!--音乐-->
 				<div id="audio-btn" class="on" onclick="lanren.changeClass(this,'media')">
-					<audio loop="loop" src="<?php echo SITE_URL?>uploads/music/<?php echo $bg_music?>.mp3" id="media" preload="preload"></audio>
+					<audio loop="loop" src="<?php echo SITE_URL?>uploads/music/<?php echo $story->bg_music?>.mp3" id="media" preload="preload"></audio>
 				</div>
 			</div>
         </div>
@@ -65,8 +65,8 @@
 
 	</div>
 	<div id="code">
-		<h1 class="code_h1"><span class="code_span1">B</span>usness card</h1>
-		<p class="code_p1">Look at the following contrast figure,you will find that,no friends an ugly too handsome to look</p>
+		<h1 class="code_h1"><?php echo $story->story_name?></h1>
+		<p class="code_p1"><?php echo $story->description?></p>
 		<p class="code_p2">Scan QR Code to share this story</p>
 		<div style="text-align: center;background:#fff;padding: 10px;" id="codeImg">
 			<img width="200" height="200" src="<?php echo $qr_url?>">
@@ -113,7 +113,7 @@
 	//更新浏览数量
 	$(function(){
 		var url = '<?php echo SITE_URL?>index.php/v1/story/share';
-		$.get(url, {type:'2', sid:'<?php echo $sid?>'}, function(){
+		$.get(url, {type:'2', sid:'<?php echo $story->id?>'}, function(){
 			//
 		});
 	});
@@ -135,7 +135,7 @@
 			opt = 'unlike';
 		}
 		var url = '<?php echo SITE_URL?>index.php/v1/story/share';
-		$.get(url, {type:'3', opt:opt, sid:'<?php echo $sid?>'}, function(){
+		$.get(url, {type:'3', opt:opt, sid:'<?php echo $story->id?>'}, function(){
 			like_num_obj.text(like_num);
 		});
 	});

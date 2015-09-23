@@ -147,13 +147,14 @@ class StoryController extends ApiController{
                 $prefix = $_REQUEST['img_prefix'];
                 if(!empty($prefix)){
                 	$prefix .= '/'.($model->story_name);
-	                Yii::log('img_prefix:'.$prefix, CLogger::LEVEL_ERROR);
+	                Yii::log('前缀:'.$prefix, CLogger::LEVEL_ERROR);
                 	$url_prefix = str_replace(ROOT_PATH.'/', SITE_URL, $target_path);
                 	$html_path = $target_path.'/story.html';
                 	$content = file_get_contents($html_path);
-                	Yii::log('replace_before:'.$content, CLogger::LEVEL_ERROR);
+                	Yii::log('替换前:'.$content, CLogger::LEVEL_ERROR);
                 	$content = str_replace($prefix, $url_prefix, $content);
-                	Yii::log('replace_end:'.$content, CLogger::LEVEL_ERROR);
+                	$content = str_replace('file://', '', $content);//替换背景图的本地路径
+                	Yii::log('替换后:'.$content, CLogger::LEVEL_ERROR);
                 	$fp=fopen($html_path,"w");
                 	fwrite($fp,$content);
                 	fclose($fp);

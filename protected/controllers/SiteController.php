@@ -110,10 +110,8 @@ class SiteController extends Controller
     		$view = 'story_app';
     	}
     	return $this->renderPartial($view, array(
-    			'sid'=>$sid,
+    			'story'=>$model,
     			'user'=>$user,
-    			'like_num'=>$model->like_num,
-    			'bg_music'=>$model->bg_music,
     			'content'=>$content,
     			'qr_url'=>$qr_url
     	));
