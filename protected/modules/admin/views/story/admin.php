@@ -50,9 +50,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'value'=>'$data->user->user_email'
         ),
 		'story_name',
-		'share_num',
 		'like_num',
 		'view_num',
+		'bg_music',
 		array(
             'name'=>'rec_status',
             'header'=>'status',
@@ -60,6 +60,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'value'=> '$data->rec_status=="A" ? "正常":"已删除"',
         ),
 		/*
+		'share_num',
 		'story_url',
 		'bg_music',
 		'description',

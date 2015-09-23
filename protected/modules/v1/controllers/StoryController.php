@@ -146,7 +146,7 @@ class StoryController extends ApiController{
 				//TODO 替换图片为绝对路径，也可能在APP端做
                 $prefix = $_REQUEST['img_prefix'];
                 if(!empty($prefix)){
-                	$prefix .= '/'.($model->story_name);
+//                 	$prefix .= '/'.($model->story_name);
 	                Yii::log('前缀:'.$prefix, CLogger::LEVEL_ERROR);
                 	$url_prefix = str_replace(ROOT_PATH.'/', SITE_URL, $target_path);
                 	$html_path = $target_path.'/story.html';

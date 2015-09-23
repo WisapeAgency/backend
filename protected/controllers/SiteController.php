@@ -384,14 +384,13 @@ class SiteController extends Controller
         $uploadHandler->setSizeLimit($sizeLimit);
         $folder=Yii::app() -> getBasePath() . "/../uploads/";
         //根据业务模块分类
-        $uniqName = false;
+        $uniqName = isset($_POST['uniqName']) ? $_POST['uniqName'] : true;
         if(isset($_POST['module']) && !empty($_POST['module'])){
         	$folder = $folder.$_POST['module'].'/';
         	//模板包含缩略图和资源包，需要用文件夹包起来
 	        if($_POST['module'] == 'template'){
 		        $m = date('Ymd');
 		        $folder = $folder.$m.'/';
-		        $uniqName = true;
 	        }
         }
         

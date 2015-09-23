@@ -37,7 +37,7 @@
             'config'=>array(
                 'request'=>array(
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
-                	'params'=>array('module'=>'fonts/preview_image')
+                	'params'=>array('module'=>'fonts/preview_image', 'uniqName'=>'0')
                 ),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){
@@ -71,7 +71,7 @@
             'config'=>array(
                 'request'=>array(
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
-                	'params'=>array('module'=>'fonts'),
+                	'params'=>array('module'=>'fonts', 'uniqName'=>'0'),
                     $allowedExtensions = array("zip")
                 ),
                 'callbacks' => array(

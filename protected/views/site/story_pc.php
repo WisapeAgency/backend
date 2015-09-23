@@ -53,9 +53,11 @@
 			    <section class='u-arrow'><img src="<?php echo SITE_URL?>custom/play-img/btn01_arrow.png" /></section>
 			    <!--上下滚动代码 end-->
 			    <!--音乐-->
+			    <?php if($story->bg_music){?>
 				<div id="audio-btn" class="on" onclick="lanren.changeClass(this,'media')">
 					<audio loop="loop" src="<?php echo SITE_URL?>uploads/music/<?php echo $story->bg_music?>.mp3" id="media" preload="preload"></audio>
 				</div>
+				<?php }?>
 			</div>
         </div>
 	</div>

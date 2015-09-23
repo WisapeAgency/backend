@@ -43,7 +43,7 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 	    		<p class="sj_zh1_tx_p1">by <?php echo $user->nick_name?></p>
 	    		<p class="sj_zh1_tx_p2">
 	    			<a href="javascript:;" class="sj_zh1_tx_p2_a1"></a><!-- 点赞以后换成sj_zh1_tx_p2_a2即可 -->
-	    			<span class="sj_zh1_tx_p2_psan1"><?php echo $like_num?></span>
+	    			<span class="sj_zh1_tx_p2_psan1"><?php echo $story->like_num?></span>
 	    		</p>
 	    	</div>
 	    	<div class="sj_zh2">
@@ -62,9 +62,11 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 </div>
 
 <!--音乐-->
+<?php if($story->bg_music){?>
 <div id="audio-btn" class="on" onclick="lanren.changeClass(this,'media')">
-	<audio loop="loop" src="<?php echo SITE_URL?>uploads/music/<?php echo $bg_music?>.mp3" id="media" preload="preload"></audio>
+	<audio loop="loop" src="<?php echo SITE_URL?>uploads/music/<?php echo $story->bg_music?>.mp3" id="media" preload="preload"></audio>
 </div>
+<?php }?>
 <script>
 	var lanren = {
 		changeClass: function (target,id) {
@@ -87,7 +89,7 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 	//更新浏览数量
 	$(function(){
 		var url = '<?php echo SITE_URL?>index.php/v1/story/share';
-		$.get(url, {type:'2', sid:'<?php echo $sid?>'}, function(){
+		$.get(url, {type:'2', sid:'<?php echo $story->id?>'}, function(){
 			//
 		});
 	});
@@ -109,7 +111,7 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 			opt = 'unlike';
 		}
 		var url = '<?php echo SITE_URL?>index.php/v1/story/share';
-		$.get(url, {type:'3', opt:opt, sid:'<?php echo $sid?>'}, function(){
+		$.get(url, {type:'3', opt:opt, sid:'<?php echo $story->id?>'}, function(){
 			like_num_obj.text(like_num);
 		});
 	});

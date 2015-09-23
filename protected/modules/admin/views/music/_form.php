@@ -35,7 +35,7 @@
             'config'=>array(
                 'request'=>array(
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
-                	'params'=>array('module'=>'music'),
+                	'params'=>array('module'=>'music', 'uniqName'=>'0'),
                     $allowedExtensions = array("zip")
                 ),
                 'callbacks' => array(
