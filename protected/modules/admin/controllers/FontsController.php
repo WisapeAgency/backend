@@ -86,15 +86,15 @@ EOF;
 		{
 			$model->attributes=$_POST['Fonts'];
 			$model->name = $this->getName($model->zip_url);
+			//解压
+			$zip = Yii::app()->zip;
+			$source = ROOT_PATH.strstr($model->zip_url,'/uploads');
+			$desc = ROOT_PATH.'/uploads/fonts/';
+			if(!$zip->extractZip($source, $desc)){
+				Yii::log('解压字体包失败:'.$source, CLogger::LEVEL_ERROR);
+				echo '解压字体包失败';exit;
+			}
 			if($model->save()){
-                $zip = Yii::app()->zip;
-                $source = ROOT_PATH.strstr($model->zip_url,'/uploads');
-//                 $desc = substr($source,0,-4);
-				$desc = ROOT_PATH.'/uploads/fonts/';
-                $zip->extractZip($source, $desc);
-                if(!unlink($source)){
-                	Yii::log('删除字体压缩包失败:'.$source, CLogger::LEVEL_WARNING);
-                }
                 //添加css模块
                 $this->addCss($model->name);
 
@@ -125,11 +125,21 @@ EOF;
 		{
 			$model->attributes=$_POST['Fonts'];
 			$model->name = $this->getName($model->zip_url);
-			if($model->save()){
+			//解压
+			$zip = Yii::app()->zip;
+			$source = ROOT_PATH.strstr($model->zip_url,'/uploads');
+			$desc = ROOT_PATH.'/uploads/fonts/';
+			if(!$zip->extractZip($source, $desc)){
+				Yii::log('解压字体包失败:'.$source, CLogger::LEVEL_ERROR);
+				echo '解压字体包失败';exit;
+			}
+			if($model->save()){		
+				//
 				if($old_name != $model->name){
 					$this->delCss($old_name);
 					$this->addCss($model->name);
-				}				
+				}
+				//跳转
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
@@ -189,6 +199,15 @@ EOF;
 		if($model->delete()){
 			//删除css
 			$this->delCss($model->name);
+			//删除资源包
+			$zip = ROOT_PATH.strstr($model->zip_url,'/uploads');
+			if(file_exists($zip) && !unlink($zip)){
+				Yii::log('删除字体文件失败:'.$zip, CLogger::LEVEL_ERROR);
+			}
+			$dir = substr($zip, 0, -4);
+			if(file_exists($dir) && !$this->deldir($dir)){
+				Yii::log('删除字体文件失败:'.$dir, CLogger::LEVEL_ERROR);
+			}
 		}
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))

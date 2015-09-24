@@ -122,7 +122,14 @@ class MusicController extends AdminController
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		$model = $this->loadModel($id);
+		if($model->delete()){
+			//删除资源包
+			$file = ROOT_PATH.strstr($model->music_url,'/uploads');
+			if(file_exists($file) && !unlink($file)){
+				Yii::log('删除音乐文件失败:'.$file, CLogger::LEVEL_ERROR);
+			}
+		}
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))

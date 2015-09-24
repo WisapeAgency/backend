@@ -144,7 +144,18 @@ class TemplateController extends AdminController
      */
     public function actionDelete($id)
     {
-        $this->loadModel($id)->delete();
+        $model = $this->loadModel($id);
+		if($model->delete()){
+			//删除资源包
+			$zip = ROOT_PATH.strstr($model->temp_url,'/uploads');
+			if(file_exists($zip) && !unlink($zip)){
+				Yii::log('删除模板文件失败:'.$zip, CLogger::LEVEL_ERROR);
+			}
+			$dir = substr($zip, 0, -4);
+			if(file_exists($dir) && !$this->deldir($dir)){
+				Yii::log('删除模板文件失败:'.$dir, CLogger::LEVEL_ERROR);
+			}
+		}
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax']))

@@ -114,8 +114,15 @@ class StoryOfficialController extends AdminController
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
-			$this->loadModel()->delete();
-
+			$model = $this->loadModel();
+			if($model->delete()){
+				//删除资源包
+				$zip = ROOT_PATH.strstr($model->story_url,'/uploads');
+				if(file_exists($zip) && !unlink($zip)){
+					Yii::log('删除默认story文件失败:'.$zip, CLogger::LEVEL_ERROR);
+				}
+			}
+				
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
 				$this->redirect(array('index'));
