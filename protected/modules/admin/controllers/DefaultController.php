@@ -34,4 +34,9 @@ class DefaultController extends AdminController
         // display the login form
         $this->render('login',array('model'=>$model));
     }
+    
+    public function actionUpload(){
+    	$model=new Fonts();
+    	$this->render('upload',array('model'=>$model));
+    }
 }

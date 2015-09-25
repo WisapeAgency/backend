@@ -20,7 +20,6 @@
 <link href="<?php echo SITE_URL?>custom/css/animation.css" rel="stylesheet" type="text/css">
 <link href="<?php echo SITE_URL?>uploads/fonts/fonts.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="<?php echo SITE_URL?>custom/js/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="<?php echo SITE_URL?>custom/js/wxsharejs.js"></script>
 <style>
 footer {display:block; position:fixed; bottom:0; width:100%; line-height:2.5;  color:#fff; font-size:12px; text-align:center; background-color:#333; z-index:100; opacity:0.6}
 footer a { color:white; }

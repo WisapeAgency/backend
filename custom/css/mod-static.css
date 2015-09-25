@@ -16,7 +16,7 @@ img
        -moz-box-sizing: border-box;
     width: 100%;
     min-width: 300px;
-    height: 100%;
+    /*height: 100%;*/
     margin: 0 auto;
 }
 
@@ -59,14 +59,14 @@ img
 
 .u-arrow
 {
-    position: fixed;
+    position: absolute;
     z-index: 150;
     bottom: 10px;
     left: 50%;
 
     width: 24px;
     height: 24px;
-    margin-left: -7px;
+    margin-left: -12px;
 }
 
 .u-arrow img
@@ -239,34 +239,6 @@ right:8px;-webkit-animation: move 2s infinite;	}
   to { right:50px; }
 }
 /*左右滚动开始*/
-
-
-/*画布效果*/
-#cas{
-	position:absolute;
-	z-index:669;
-	width: 100%;
-	height: 100%;
-	opacity: 1;
-	-webkit-transition:opacity .5s;
-	-ms-transition:opacity .5s;
-	-moz-transition:opacity .5s;
-}
-		
-.noOp{
-	opacity: 0 !important;
-}
-
-/*上下撕裂*/
-.jt_up{position:absolute;bottom:5px;display:block;width:30px;height:30px;z-index:100;
-left:50%;margin-left:-15px;-webkit-animation: move2 2s infinite;}
-.jt_up img{width:30px;height:30px;}
-
-@-webkit-keyframes move2  {
-  from { bottom:5px; }
-  to { bottom:15px; }
-}
-
 
 .audio_btn1{
 	overflow: hidden;
