@@ -131,7 +131,10 @@
 		var gd=($(document.body).height());
 		$("body").height(gd);
 	});
-	window.onresize=function(){ location=location };
+	window.onresize=function(){ 
+		var gd=($(document.body).height());
+		$("body").height(gd);
+	};
 	//播放音乐
 	var lanren = {
 		changeClass: function (target,id) {

@@ -125,7 +125,7 @@ class qqFileUploadHandler
 		if($isUniqName){
 	        $filename = md5(uniqid());
 		}else{
-	        $filename = $pathinfo['filename'];
+	        $filename = str_replace(' ', '-', trim($pathinfo['filename']));
 		}
         $ext = $pathinfo['extension'];
 

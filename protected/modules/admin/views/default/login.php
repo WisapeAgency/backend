@@ -34,9 +34,6 @@ $this->breadcrumbs=array(
         <div class="controls">
             <?php echo $form->passwordField($model,'password'); ?>
             <?php echo $form->error($model,'password'); ?>
-            <span class="help-block">
-				Hint: You may login with <tt>demo/demo</tt> or <tt>admin/admin</tt>.
-			</span>
         </div>
     </div>
 

@@ -167,7 +167,7 @@ class UserController extends ApiController
 			</tr>
 			<tr>
 				<td class="content" valign="top" style="padding:0 100px;">
-					<h3>WELCOME TO WLSAPE</h3>
+					<h3>WELCOME TO WISAPE</h3>
 					<p>We're happy you're here.We created Wisape lets you create a stunning story with no technical skills needed ,and promote it to your Facebook,Twitter,LINE,etc</p>
 					<img src="{$site_url}/custom/mail-icon/Welcome-to-register.png" width="347" height="182">
 					<br/><br/>
@@ -229,7 +229,7 @@ EOF;
 			</tr>
 			<tr>
 				<td class="content1" valign="top" style="padding:0 50px;">
-					<p>You has requested a link to change your password.To continue,please clikck on the link below.</p>
+					<p>You has requested a link to change your password.To continue,please click on the link below.</p>
 					<p><a href="{$url}" class="content_a" style="text-decoration: none;">Change My Password</a></p>
 					<p>Or copy and paste this URL into you browser:</p>
 					<p><a href="{$url}" class="content_a1" style="width: 514px; display: block;">{$url}</a></p>
