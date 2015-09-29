@@ -33,7 +33,7 @@ class ParseApi{
 		if(isset($param) && !empty($param['user'])){
 			$installId = self::getUserInstallId($param['user']);
 			if(!$installId){
-				//TODO 记录日志：没有找到推送对象
+				Yii::log('没有找到接收消息的终端，user_email:'.$param['user'], CLogger::LEVEL_ERROR);
 				return;
 			}
 			$query->equalTo('installationId', $installId);
@@ -62,8 +62,12 @@ class ParseApi{
 			//转换为UTC时间
 			$data['expiration_time'] = self::convert($param['expiration_time']);
 		}
-		
-		ParsePush::send($data);
+		try{
+			ParsePush::send($data);
+		}catch (Exception $e){
+			SendMessage::model()->findByPk($content['id'])->delete();
+			echo $e->getMessage();exit;
+		}
 	}
 	
 	/**

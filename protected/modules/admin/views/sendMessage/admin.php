@@ -52,10 +52,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'parsetime',
 		'createtime',
 		array(
-				'header'=>'消息类型',
+				'header'=>'type',
 				'name'=>'type',
-				'filter'=>CHtml::dropDownList('SendMessage[type]', $model->type, array(''=>'请选择','1'=>'系统','2'=>'运营','3'=>'活动')),
-				'value'=>'$data->type=="1" ? "系统" : ($data->type=="2" ? "运营" : "活动")'
+				'filter'=>CHtml::dropDownList('SendMessage[type]', $model->type, array(''=>'请选择','1'=>'系统','2'=>'运营')),
+				'value'=>'$data->type=="1" ? "系统" : ($data->type=="2" ? "运营" : "其他")'
 		),
 		array(
 			'class'=>'CButtonColumn',

@@ -70,8 +70,6 @@ class ActiveController extends AdminController
 		if(isset($_POST['Active']))
 		{
 			$model->attributes=$_POST['Active'];
-//             $model->start_time = strtotime($model->start_time);
-//             $model->end_time   = strtotime($model->end_time);
 			if($model->save()){
 				//推送
 				include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';

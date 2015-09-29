@@ -37,7 +37,7 @@
             'config'=>array(
                 'request'=>array(
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
-                	'params'=>array('module'=>'fonts/preview_image', 'uniqName'=>'0')
+                	'params'=>array('module'=>'fonts/preview_image', 'uniqName'=>'0', 'file_type'=>'jpg,png,jpeg,bmp')
                 ),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){
@@ -47,7 +47,7 @@
                     'onProgress'=>"js:function(id, fileName, loaded,total){}",
                 ),
                 'template' => '<div class="qq-uploader span12">'
-                    .'<div class="qq-upload-button btn btn-success">{uploadButtonText}</div>'
+                    .'<div class="qq-upload-button btn btn-success">Upload a image</div>'
                     .'<pre class="qq-upload-drop-area span12"><span>{dragZoneText}</span></pre>'
                     .'<span class="qq-drop-processing"><span>{dropProcessingText}</span><span class="qq-drop-processing-spinner"></span></span>'
                     .'<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;width:50%"></ul>'
@@ -71,8 +71,7 @@
             'config'=>array(
                 'request'=>array(
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
-                	'params'=>array('module'=>'fonts', 'uniqName'=>'0'),
-                    $allowedExtensions = array("zip")
+                	'params'=>array('module'=>'fonts', 'uniqName'=>'0', 'file_type'=>'zip')
                 ),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){

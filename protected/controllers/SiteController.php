@@ -61,8 +61,12 @@ class SiteController extends Controller
 	    		return $this->renderPartial('resetpassword',array(
 	    				'resetPWD'=>$model,
 	    		));
+    		}else{
+    			echo 'This URL has expired.';
     		}
     		return;
+    	}else{
+    		echo 'This URL is invalid.';
     	}
     }
     
@@ -120,7 +124,7 @@ class SiteController extends Controller
 	/**
 	* 检查是否是以手机浏览器进入(IN_MOBILE)
 	*/
-	function isMobile() {
+	private function isMobile() {
 	    $mobile = array();
 	    static $mobilebrowser_list ='Mobile|iPhone|Android|WAP|NetFront|JAVA|OperasMini|UCWEB|WindowssCE|Symbian|Series|webOS|SonyEricsson|Sony|BlackBerry|Cellphone|dopod|Nokia|samsung|PalmSource|Xphone|Xda|Smartphone|PIEPlus|MEIZU|MIDP|CLDC';
 	    //note 获取手机浏览器
@@ -376,7 +380,12 @@ class SiteController extends Controller
     {
         Yii::import("ext.EAjaxUpload.qqFileUploadHandler");
         // list of valid extensions, ex. array("jpeg", "xml", "bmp")
-        $allowedExtensions = array("jpg",'png','jpeg','mp3','bmp','zip','apk');
+        $allowedExtensions = null;
+        if($_POST['file_type']){
+        	$allowedExtensions = explode(',', $_POST['file_type']);
+        }else{
+        	$allowedExtensions = array('jpg','png','jpeg','bmp','mp3','zip','apk');
+        }
         // max file size in bytes (1MB here)
         $sizeLimit = 20 * 1024 * 1024;
         $uploadHandler = new qqFileUploadHandler();

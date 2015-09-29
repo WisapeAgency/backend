@@ -35,8 +35,7 @@
             'config'=>array(
                 'request'=>array(
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
-                	'params'=>array('module'=>'music', 'uniqName'=>'0'),
-                    $allowedExtensions = array("zip")
+                	'params'=>array('module'=>'music', 'uniqName'=>'0', 'file_type'=>'mp3')
                 ),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){

@@ -62,8 +62,8 @@ class Active extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'title' => '标题',
-			'bg_img' => '背景图片',
-			'url' => '网址',
+			'bg_img' => '活动图片',
+			'url' => '活动详情（以"http://"开头）',
 			'rec_status' => '状态',
 			'start_time' => '开始时间',
 			'end_time' => '结束时间',
