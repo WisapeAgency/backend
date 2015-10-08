@@ -7,6 +7,7 @@
  * @property integer $id
  * @property integer $uid
  * @property string $story_name
+ * @property string $story_path
  * @property string $story_url
  * @property string $description
  * @property string $bg_music
@@ -35,7 +36,7 @@ class Story extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('story_name, uid, story_url', 'required'),
+			array('story_name, uid', 'required'),
 			array('uid, share_num, like_num, view_num, createtime', 'numerical', 'integerOnly'=>true),
 			array('story_name, story_url', 'length', 'max'=>200),
 			array('small_img', 'length', 'max'=>255),

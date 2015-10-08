@@ -90,13 +90,13 @@ class SiteController extends Controller
     		echo 'Invalid story';exit;
     	}
     	//内容
-    	$path = $model->story_url;
+    	$path = $model->story_path;
     	$content = file_get_contents($path);
     	
     	$isMobile = $this->isMobile();
     	//二维码
     	$offset = -strlen('story.html');
-    	$base_url = substr(SITE_URL.substr($model->story_url, strrpos($model->story_url, 'html/')), 0, $offset);
+    	$base_url = substr(SITE_URL.substr($path, strrpos($path, 'html/')), 0, $offset);
     	$qr_url = $base_url.'qr.png';
     	if(!$isMobile){
 	    	$fileName = dirname($path).'/qr.png';

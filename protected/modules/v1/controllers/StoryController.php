@@ -158,14 +158,16 @@ class StoryController extends ApiController{
                 	$fp=fopen($html_path,"w");
                 	fwrite($fp,$content);
                 	fclose($fp);
-                	//
-                	$model->story_url = $html_path;
+                	//记录story片段文件的路径
+                	$model->story_path = $html_path;
                 }
             }else{
                 $this->sendErrorResponse(500,'zip file extract error');
             }
         }
         if($model->save()){
+            $model->story_url = SITE_URL.'index.php/site/story/id/'.$model->id;
+            $model->update();
 	        $this->sendDataResponse($model->getAttributes());
         }else{
             $this->sendErrorResponse(500, '保存story失败');

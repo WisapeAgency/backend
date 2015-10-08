@@ -22,6 +22,7 @@ $this->menu=array(
 		'uid',
 		'story_name',
 		'story_url',
+		'story_path',
 		'description',
 		'bg_music',
 		'small_img',
