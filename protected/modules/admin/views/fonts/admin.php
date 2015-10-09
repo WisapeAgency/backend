@@ -67,12 +67,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'filter'=>CHtml::dropDownList('Fonts[rec_status]', $model->rec_status, array(''=>'请选择','A'=>'激活','D'=>'未激活')),
             'value'=> '$data->rec_status=="A" ? "激活":"未激活"',
         ),
-		array(
-				'header'=>'静默下载',
-				'name'=>'default_down',
-				'filter'=>CHtml::dropDownList('Fonts[default_down]', $model->default_down, array(''=>'请选择','0'=>'否','1'=>'是')),
-				'value'=>'$data->default_down=="0" ? "否":"是"'
-		),
+// 		array(
+// 				'header'=>'静默下载',
+// 				'name'=>'default_down',
+// 				'filter'=>CHtml::dropDownList('Fonts[default_down]', $model->default_down, array(''=>'请选择','0'=>'否','1'=>'是')),
+// 				'value'=>'$data->default_down=="0" ? "否":"是"'
+// 		),
 		array(
 			'class'=>'CButtonColumn',
 		),

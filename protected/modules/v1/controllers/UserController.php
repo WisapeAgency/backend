@@ -21,7 +21,7 @@ class UserController extends ApiController
 	    if(isset($_REQUEST['type'])){
             $type=$_REQUEST['type'];
         }else{
-            $this->sendErrorResponse(403, '缺少登录类型');
+            $this->sendErrorResponse(403, 'Missing necessary parameters.');
         }
         //本地注册处理
         if($type == WIS_USER){
@@ -41,7 +41,7 @@ class UserController extends ApiController
 	                		$this->check_change_device($user);//是否更换终端登录
 	                		$this->sendDataResponse($user);
 	                	}else{
-	                		$this->sendErrorResponse(403,'密码错误');
+	                		$this->sendErrorResponse(403,'Incorrect username or password.');
 	                	}
 	                }
 	                try{
@@ -57,18 +57,24 @@ class UserController extends ApiController
 	                    $model->user_ext = $type;
 	                    $model->access_token = $this->getAccessToken();
 	                    $model->install_id = isset($_REQUEST['install_id']) ? $_REQUEST['install_id'] : '';
-	                    $model->save();
-	                    //发送欢迎邮件
-	                    $this->sendWelcomeMail($model->user_email);
-	                    
-	                    $this->sendDataResponse($model->getAttributes());
+	                    if($model->save()){
+		                    try{
+			                    //发送欢迎邮件
+			                    $this->sendWelcomeMail($model->user_email);
+		                    }catch (Exception $e1){
+		                    	Yii::log($e1->getMessage(), CLogger::LEVEL_ERROR);
+		                    }
+	                    	$this->sendDataResponse($model->getAttributes());
+	                    }else{
+	                    	$this->sendErrorResponse(500, 'Save register data failed.');
+	                    }
 	                }catch (Exception $e){
 	                    //本地用户创建失败!
 	                    $this->sendErrorResponse(500,$e->getMessage());
 	                }
             	}
             }
-            $this->sendErrorResponse(403,'用户输入信息不全');
+            $this->sendErrorResponse(403,'Missing necessary parameters.');
         }
 
         //第三方登陆是否已注册
@@ -105,15 +111,18 @@ class UserController extends ApiController
                     $model->unique_str = $_REQUEST['unique_str'];
                     $model->access_token = $this->getAccessToken();
                     $model->install_id = isset($_REQUEST['install_id']) ? $_REQUEST['install_id'] : '';
-                    $model->save();
+                    if($model->save()){
+                    	$this->sendDataResponse($model->getAttributes());
+                    }else{
+	                    $this->sendErrorResponse(500, 'Save register data failed.');
+                    }
                 }catch (Exception $e){
                     //第三方注册失败
                     $this->sendErrorResponse(500,$e->getMessage());
                 }
-                $this->sendDataResponse($model->getAttributes());
             }
         }else{
-            $this->sendErrorResponse(403,'第三方登陆参数传递错误!');
+            $this->sendErrorResponse(403,'Missing necessary parameters.');
         }
     }
 

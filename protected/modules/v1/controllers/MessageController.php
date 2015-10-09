@@ -17,14 +17,15 @@ class MessageController extends ApiController
 			$model = User::model()->findByPk($_REQUEST['uid']);
 			if($model){
 				$user_email = $model->user_email;
+				$now = time();
+				$add = " AND (unix_timestamp(parsetime) <= $now OR parsetime IS NULL OR parsetime = '')";
 				//获得用户没有读过的message
-				$add = '';
 // 				$sql = "select mid from readed_message where uid={$_REQUEST['uid']}";
 // 				$str = Yii::app()->db->createCommand($sql)->queryScalar();
 // 				if(is_string($str)){
 // 					$add = " and id not in($str)";
 // 				}
-				$sql = "select * from send_message where (user_email = '$user_email' or user_email is null or user_email ='') $add order by createtime desc";
+				$sql = "SELECT * FROM send_message WHERE (user_email = '$user_email' OR user_email IS NULL OR user_email ='') $add ORDER BY createtime DESC";
 				$data = Yii::app()->db->createCommand($sql)->queryAll();
 				$this->sendDataResponse($data);
 			}

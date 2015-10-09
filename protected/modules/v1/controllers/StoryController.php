@@ -244,13 +244,20 @@ class StoryController extends ApiController{
                 }
                 $start = ($page-1)*$pageSize;
                 $sql = "SELECT * FROM story WHERE uid=$uid AND rec_status='A' limit $start,$pageSize";
-                $model = Yii::app()->db->createCommand($sql)->queryAll();
+                $list = Yii::app()->db->createCommand($sql)->queryAll();
             }else{
-                $model = Story::model()->findAll("uid=:uid AND rec_status='A'",array(
+                $list = Story::model()->findAll("uid=:uid AND rec_status='A'",array(
                     ':uid'=>$uid,
                 ));
             }
-            $this->sendDataResponse($model);
+            //
+            foreach ($list as $story){
+            	$path = $story['story_path'];
+            	if(!empty($path)){
+            		$story['story_path'] = substr($path, 0, -strlen('/story.html')).'.zip';
+            	}
+            }
+            $this->sendDataResponse($list);
         }else{
         	$this->sendErrorResponse(404, '无效的token');
         }

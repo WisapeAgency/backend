@@ -113,13 +113,13 @@
 		<?php echo $form->DropDownList($model,'order_type',array(''=>'请选择','N'=>'New','H'=>'Hot')); ?>
 		<?php echo $form->error($model,'order_type'); ?>
 	</div>
-
+<?php /**
 	<div class="row">
 		<?php echo $form->labelEx($model,'default_down'); ?>
 		<?php echo $form->DropDownList($model,'default_down',array('0'=>'否','1'=>'是')); ?>
 		<?php echo $form->error($model,'default_down'); ?>
 	</div>
-
+**/?>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

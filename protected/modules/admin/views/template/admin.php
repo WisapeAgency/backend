@@ -80,12 +80,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'filter'=>CHtml::dropDownList('Template[order_type]', $model->order_type, array(''=>'请选择','H'=>'Hot','N'=>'New')),
             'value'=>'$data->order_type=="H" ? "H":"N"'
         ),
-		array(
-				'header'=>'静默下载',
-				'name'=>'default_down',
-				'filter'=>CHtml::dropDownList('Template[default_down]', $model->default_down, array(''=>'请选择','0'=>'否','1'=>'是')),
-				'value'=>'$data->default_down=="0" ? "否":"是"'
-		),
+// 		array(
+// 				'header'=>'静默下载',
+// 				'name'=>'default_down',
+// 				'filter'=>CHtml::dropDownList('Template[default_down]', $model->default_down, array(''=>'请选择','0'=>'否','1'=>'是')),
+// 				'value'=>'$data->default_down=="0" ? "否":"是"'
+// 		),
 		array(
 			'class'=>'CButtonColumn',
 		),
