@@ -22,7 +22,7 @@ body {
 	background-position: 50% 50%;
 	font-weight: 300;
 	font-size: 62.5%;
-	font-family: 'Microsoft Yahei',Tahoma,Helvetica,Arial,sans-serif;
+	font-family: Helvetica,'Microsoft Yahei',Tahoma,Arial,sans-serif;
 	line-height: 1.231;
 	background-size: cover;
 	-webkit-touch-callout: none;
@@ -161,7 +161,6 @@ body {
 	height: 135px;
 	text-align: center;
 	background:#fff;
-	padding: 10px;
 	border:solid 1px #efefef;
 }
 .code_p4_a{
@@ -237,4 +236,147 @@ body {
 	bottom: 2%;
 	font-size: 15px;
 	font-weight: 400;
+}
+.sj_zh1_tx
+{
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
+    padding-top: 50px;
+
+    border-radius: 50%;
+}
+.sj_zh1_tx img
+{
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+}
+#audio-btn
+{
+    position: absolute;
+    z-index: 200;
+    top: 10px;
+    right: 10px;
+
+    overflow: hidden;
+
+    width: 45px;
+    height: 45px;
+
+    background-image: url(../play-img/audio.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.sj_zh1_tx_p1
+{
+    font-size: 1.4rem;
+
+    text-align: center;
+
+    color: #70c53c;
+}
+.sj_zh1_tx_p2
+{
+    display: block;
+
+    width: 220px;
+    height: 50px;
+    margin: 30px auto 0;
+}
+
+.sj_zh1_tx_p2_a1
+{
+    display: block;
+    float: left;
+
+    width: 135px;
+    height: 50px;
+
+    border-radius: 4px;
+    background-image: url(../play-img/like1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.sj_zh1_tx_p2_a2
+{
+    display: block;
+    float: left;
+
+    width: 135px;
+    height: 50px;
+
+    border-radius: 4px;
+    background-image: url(../play-img/like3.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.sj_zh1_tx_p2_psan1
+{
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 50px;
+
+    display: block;
+    float: left;
+
+    width: 66px;
+    height: 50px;
+    margin-left: 10px;
+    padding-left: 9px;
+
+    text-align: center;
+
+    background-image: url(../play-img/like2.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.sj_zh2_p1
+{
+    font-size: 1.9rem;
+
+    padding-top: 50px;
+
+    text-align: center;
+}
+.sj_zh2_p2
+{
+    font-size: 1.4rem;
+    line-height: 40px;
+
+    text-align: center;
+}
+.sj_zh2_p3
+{
+    display: block;
+
+    height: 48px;
+}
+.sj_zh2_p3_a1
+{
+    display: block;
+
+    width: 153px;
+    height: 48px;
+    margin: 25px auto 0;
+
+    border-radius: 4px;
+    background-image: url(../play-img/like4.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 100% 100%;
+}
+.sj_zh2_div1
+{
+    width: 105px;
+    height: 65px;
+    margin: 30px auto 0;
+
+    background-image: url(../play-img/sjlogo.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }

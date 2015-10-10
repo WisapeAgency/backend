@@ -22,7 +22,7 @@ body {
 	background-position: 50% 50%;
 	font-weight: 300;
 	font-size: 62.5%;
-	font-family: 'Microsoft Yahei',Tahoma,Helvetica,Arial,sans-serif;
+	font-family: Helvetica,'Microsoft Yahei',Tahoma,Arial,sans-serif;
 	line-height: 1.231;
 	background-size: cover;
 	-webkit-touch-callout: none;
@@ -164,7 +164,6 @@ body {
 	height: 78px;
 	text-align: center;
 	background:#fff;
-	padding: 4px;
 	border:solid 1px #efefef;
 
 }

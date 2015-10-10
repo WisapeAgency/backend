@@ -254,7 +254,9 @@ class StoryController extends ApiController{
             foreach ($list as $story){
             	$path = $story['story_path'];
             	if(!empty($path)){
-            		$story['story_path'] = substr($path, 0, -strlen('/story.html')).'.zip';
+            		$offset = -strlen('/story.html');
+            		$base_url = substr(SITE_URL.substr($path, strrpos($path, 'html/')), 0, $offset);
+            		$story['story_path'] = $base_url.'.zip';
             	}
             }
             $this->sendDataResponse($list);
