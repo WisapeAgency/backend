@@ -3,14 +3,14 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>custom/css/eqShow-5.0.11.css" media="screen and (min-width: 1920px)">
-	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>custom/css/eqShow-5.0.12.css" media="screen and (min-width: 1366px) and (max-width: 1919px)">
-	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>custom/css/eqShow-5.0.13.css" media="screen and (max-width: 1365px)">
 	<link href="<?php echo SITE_URL?>custom/css/reset-static.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo SITE_URL?>custom/css/mod-static.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo SITE_URL?>custom/css/reset.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo SITE_URL?>custom/css/animation.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo SITE_URL?>uploads/fonts/fonts.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>custom/css/eqShow-5.0.11.css" media="screen and (min-width: 1920px)">
+	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>custom/css/eqShow-5.0.12.css" media="screen and (min-width: 1366px) and (max-width: 1919px)">
+	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>custom/css/eqShow-5.0.13.css" media="screen and (max-width: 1365px)">
 	<script type="text/javascript" src="<?php echo SITE_URL?>custom/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo SITE_URL?>custom/js/wxsharejs.js"></script>
 	<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>

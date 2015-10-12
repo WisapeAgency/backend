@@ -104,7 +104,7 @@ class SiteController extends Controller
 	    	if(!file_exists($fileName)){
 		    	require_once('phpqrcode.php');
 		    	$data = SITE_URL.'index.php/site/story/id/'.$sid;
-		    	QRcode::png($data,$fileName,'L',3);
+		    	QRcode::png($data,$fileName,'L',3,2);
 	    	}
     	}
     	
@@ -427,7 +427,7 @@ class SiteController extends Controller
 
     public function actionQr(){
     	include ROOT_PATH.'/protected/components/phpqrcode.php';
-    	QRcode::png('http://www.wisape.com');
+    	QRcode::png('http://www.wisape.com', false, 'L', 3, 2);
     }
 
 }

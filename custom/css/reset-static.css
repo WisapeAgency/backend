@@ -4,7 +4,7 @@
 article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
 a { text-decoration: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0.35); }
 html { height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-body { margin: 0; padding: 0; width: 100%; height: 100%; min-height: 100%; font-family:"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53", Arial, Helvetica, sans-serif; font-size: 62.5%; line-height: 1.231; -webkit-touch-callout: none; display: -webkit-box; -webkit-box-orient: vertical; -webkit-box-align: stretch; position: relative; }
+body { margin: 0; padding: 0; width: 100%; height: 100%; min-height: 100%; font-family:"Helvetica, \5FAE\8F6F\96C5\9ED1","\5b8b\4f53", Arial, sans-serif; font-size: 62.5%; line-height: 1.231; -webkit-touch-callout: none; display: -webkit-box; -webkit-box-orient: vertical; -webkit-box-align: stretch; position: relative; }
 img { -ms-interpolation-mode: bicubic; vertical-align: middle; border: 0 none;max-width: 100%;height: auto;width: auto\9; /* ie8 */}
 img:not([src*="/"]) { display: none; }
 table { border-collapse: collapse; border-spacing: 0; width: 100%; }
