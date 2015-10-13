@@ -32,5 +32,6 @@ $this->menu=array(
 		'access_token',
 		'user_back_img',
 		'unique_str',
+		'install_id'
 	),
 )); ?>

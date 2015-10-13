@@ -11,3 +11,5 @@ define('LOGIN_MESSAGE', 0);
 define('SYSTEM_MESSAGE', 1);
 define('OPERATION_MESSAGE', 2);
 define('ACTIVE_MESSAGE', 3);
+define('SYNC_TEMP_MESSAGE', 4);
+define('SYNC_FONT_MESSAGE', 5);

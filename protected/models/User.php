@@ -83,6 +83,7 @@ class User extends CActiveRecord
 			'access_token' => 'Access Token',
 			'user_back_img' => '用户资料背景图',
 			'unique_str' => '第三方平台唯一标识',
+			'install_id' => '最后一次登录的设备编号',
 		);
 	}
 

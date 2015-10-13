@@ -266,6 +266,14 @@ EOF;
 				$this->sendMessage($message);
 			}
 		}
+		//发送同步列表的通知
+		include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+		$data = array (
+				'type' => SYNC_FONT_MESSAGE,
+				'message_title' => 'need synchronize font list.'
+		);
+		ParseApi::send($data);
+		
 		echo 1;
 	}
 

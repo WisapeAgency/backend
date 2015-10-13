@@ -75,9 +75,7 @@ class ActiveController extends AdminController
 				include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
 				$data = array (
 						'type' => ACTIVE_MESSAGE,
-						'id' => $model->id,
-						'message_title' => $model->title,
-						'message_subject' => ''
+						'message_title' => $model->title
 				);
 				$param = array (
 						'locale' => $model->country,
