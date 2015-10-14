@@ -227,12 +227,12 @@ class TemplateController extends AdminController
     		}
     	}
     	//发送同步列表的通知
-    	include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+    	include_once ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
     	$data = array (
     			'type' => SYNC_TEMP_MESSAGE,
     			'message_title' => 'need synchronize template list.'
     	);
-    	ParseApi::send($data);
+    	ParseApi::sendSync($data);
     	
     	echo 1;
     }

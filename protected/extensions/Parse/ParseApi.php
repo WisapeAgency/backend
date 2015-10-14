@@ -80,6 +80,16 @@ class ParseApi{
 		self::send($content, $param);
 	}
 	
+	/**
+	 * 发送同步模板、字体的通知
+	 * @param unknown $content
+	 * @param unknown $param
+	 */
+	static function sendSync($content, $param=array()) {
+		$content['action'] = 'com.wisape.android.content.DataSynchronizerReceiver';
+		self::send($content, $param);
+	}
+	
 	private static function getUserInstallId($email){		
 		$rs = Yii::app ()->db->createCommand ()->select ( 'install_id' )->from ( 'user' )->where ( 'user_email=:email', array (
 				':email' => strtolower ( $email ) 
