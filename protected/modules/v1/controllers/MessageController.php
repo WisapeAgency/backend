@@ -31,7 +31,7 @@ class MessageController extends ApiController
 				$this->sendDataResponse($data);
 			}
 		}else{
-			$this->sendErrorResponse(400, '参数不正确');
+			$this->sendErrorResponse(400, 'Missing necessary parameters.');
 		}
 	}
 
@@ -58,13 +58,13 @@ class MessageController extends ApiController
 				if($model->save()){
 					$this->sendDataResponse($message->getAttributes());
 				}else{
-					$this->sendErrorResponse(500, '读取消息内容失败');
+					$this->sendErrorResponse(500, 'Get the message content failed.');
 				}
 			}else{
-				$this->sendErrorResponse(404, '消息不存在');
+				$this->sendErrorResponse(404, 'This message is not found.');
 			}
 		}
-		$this->sendErrorResponse(400, '参数不正确');
+		$this->sendErrorResponse(400, 'Missing necessary parameters.');
 	} 
 	
 }

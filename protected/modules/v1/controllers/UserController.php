@@ -66,11 +66,12 @@ class UserController extends ApiController
 		                    }
 	                    	$this->sendDataResponse($model->getAttributes());
 	                    }else{
-	                    	$this->sendErrorResponse(500, 'Save register data failed.');
+	                    	$this->sendErrorResponse(500, 'Save register information failed.');
 	                    }
 	                }catch (Exception $e){
 	                    //本地用户创建失败!
-	                    $this->sendErrorResponse(500,$e->getMessage());
+	                	Yii::log($e->getMessage(), CLogger::LEVEL_ERROR);
+	                    $this->sendErrorResponse(500, 'Server error.');
 	                }
             	}
             }
@@ -118,7 +119,8 @@ class UserController extends ApiController
                     }
                 }catch (Exception $e){
                     //第三方注册失败
-                    $this->sendErrorResponse(500,$e->getMessage());
+                	Yii::log($e->getMessage(), CLogger::LEVEL_ERROR);
+                    $this->sendErrorResponse(500, 'Server error.');
                 }
             }
         }else{
@@ -268,14 +270,14 @@ EOF;
                     if($model->save()){
                         $this->sendSuccessResponse();
                     }else{
-                        $this->sendErrorResponse(500, '邮件发送完成，数据库未记录');
+                        $this->sendErrorResponse(500, 'Save record failed.');
                     }
                 }else{
                     //邮件发送失败，报告错误
-                    $this->sendErrorResponse(500, '邮件发送失败');
+                    $this->sendErrorResponse(500, 'Send email failed.');
                 }
             }else{
-                $this->sendErrorResponse(401, '用户不存在');
+                $this->sendErrorResponse(401, 'User is not found.');
             }
         }
     }
@@ -324,7 +326,7 @@ EOF;
 	                    ->where('user_id <> '.$userModel['user_id'].' and user_email=:email',array(':email'=>$email))
 	                    ->queryScalar();
 	           		if($rs){
-	           			$this->sendErrorResponse(403, '邮箱已经存在');
+	           			$this->sendErrorResponse(403, 'Email already exists.');
 	           		}
 	                $userModel->user_email = $email;
 	            }
@@ -333,12 +335,13 @@ EOF;
 	                    if($im1) $this->delFileFromServer($img1);
 	                }
 	            }catch (Exception $e){
-	                $this->sendErrorResponse(500,$e->getMessage());
+	            	Yii::log($e->getMessage(), CLogger::LEVEL_ERROR);
+	                $this->sendErrorResponse(500, 'Server error.');
 	            }
 	            $this->sendDataResponse($userModel->getAttributes());
             }
         }
-        $this->sendErrorResponse(403, '无效的token');
+        $this->sendErrorResponse(403, 'Invalid access token.');
     }
 
 

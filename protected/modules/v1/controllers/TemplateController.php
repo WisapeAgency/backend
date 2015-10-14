@@ -72,13 +72,13 @@ class TemplateController extends ApiController{
 					$file_name = ($model->temp_name).'.zip';
 	            	$this->sendDataResponse(array('temp_name'=>$file_name, 'temp_url'=>$url));
 	            }else{
-	                $this->sendErrorResponse(404, $url);
+	                $this->sendErrorResponse(404, 'File does not exist.');
 	            }
             }else{
-            	$this->sendErrorResponse(400, '模板不存在');
+            	$this->sendErrorResponse(400, 'This template is not found.');
             }
         }else{
-        	$this->sendErrorResponse(400, '缺少模板ID');
+        	$this->sendErrorResponse(400, 'Missing necessary parameters.');
         }
     }
 

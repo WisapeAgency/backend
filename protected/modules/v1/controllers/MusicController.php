@@ -63,13 +63,13 @@ class MusicController extends ApiController{
 	                readfile( $file_path ); //读入一个文件并写入到输出缓冲。
 	                Yii::app()->end();
 	            }else{
-	                $this->sendErrorResponse(404, $url);
+	                $this->sendErrorResponse(404, 'File does not exist.');
 	            }
         	}else{	
-            	$this->sendErrorResponse(400, '音乐不存在');
+            	$this->sendErrorResponse(400, 'This music is not found.');
             }
         }else{
-        	$this->sendErrorResponse(400, '缺少音乐ID');
+        	$this->sendErrorResponse(400, 'Missing necessary parameters.');
         }
     }
 }

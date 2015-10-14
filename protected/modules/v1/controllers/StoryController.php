@@ -66,7 +66,7 @@ class StoryController extends ApiController{
 	            $this->sendDataResponse($model->getAttributes());
 	        }
     	}else{
-    		$this->sendErrorResponse(400, '缺少参数');
+    		$this->sendErrorResponse(400, 'Missing necessary parameters.');
     	}
     }
     
@@ -100,7 +100,7 @@ class StoryController extends ApiController{
     		$data = array('view_num'=>$model->view_num, 'like_num'=>$model->like_num, 'share_num'=>$model->share_num);
     		$this->sendDataResponse($data);
     	}else{
-    		$this->sendErrorResponse(400, '缺少参数');
+    		$this->sendErrorResponse(400, 'Missing necessary parameters.');
     	}
     }
 
@@ -137,7 +137,7 @@ class StoryController extends ApiController{
 			//上传资源
             $zipPath = $target_path.'.zip';
         	if(!move_uploaded_file($_FILES['zip_file']['tmp_name'], $zipPath)){
-        		$this->sendErrorResponse(500, '上传story资源失败');
+        		$this->sendErrorResponse(500, 'Upload story zip file failed.');
         	}
         	//解压
             $zip = Yii::app()->zip;
@@ -162,7 +162,7 @@ class StoryController extends ApiController{
                 	$model->story_path = $html_path;
                 }
             }else{
-                $this->sendErrorResponse(500,'zip file extract error');
+                $this->sendErrorResponse(500,'zip file extract error.');
             }
         }
         if($model->save()){
@@ -170,7 +170,7 @@ class StoryController extends ApiController{
             $model->update();
 	        $this->sendDataResponse($model->getAttributes());
         }else{
-            $this->sendErrorResponse(500, '保存story失败');
+            $this->sendErrorResponse(500, 'Save story failed.');
         }
     }
     
@@ -179,7 +179,7 @@ class StoryController extends ApiController{
      */
     public function actionSetting(){
     	if(!isset($_REQUEST['sid'])){
-    		$this->sendErrorResponse('400', '缺少storyId');
+    		$this->sendErrorResponse('400', 'Missing necessary parameters.');
     	}
     	$model = Story::model()->findByPk($_REQUEST['sid']);
     	//
@@ -196,7 +196,7 @@ class StoryController extends ApiController{
     	if($model->save()){
 	        $this->sendDataResponse($model->getAttributes());
         }else{
-            $this->sendErrorResponse(500, '设置story失败');
+            $this->sendErrorResponse(500, 'Setting story failed.');
         }
     }
 
@@ -218,13 +218,13 @@ class StoryController extends ApiController{
 	            if($model->save()){
 	            	$this->sendDataResponse($model->getAttributes());
 	            }else{
-		        	$this->sendErrorResponse('500', '删除失败');
+		        	$this->sendErrorResponse('500', 'Delete story failed.');
 	            }
 	        }else{
-	        	$this->sendErrorResponse('404', '没有对应的story');
+	        	$this->sendErrorResponse('404', 'This story is not found.');
 	        }
         }else{
-        	$this->sendErrorResponse('404', '用户token验证失败');
+        	$this->sendErrorResponse('404', 'Invalid access token.');
         }
     }
 
@@ -261,7 +261,7 @@ class StoryController extends ApiController{
             }
             $this->sendDataResponse($list);
         }else{
-        	$this->sendErrorResponse(404, '无效的token');
+        	$this->sendErrorResponse(404, 'Invalid access token');
         }
 
     }
@@ -300,7 +300,7 @@ class StoryController extends ApiController{
     public function actionCopystory(){
         if(isset($_POST['sid']) && $_POST['uid']){
             $sourceStory = Story::model()->findByPk($_POST['sid']);
-            if($sourceStory->uid != 1) $this->sendErrorResponse(403,'不是官方提供的模板');
+            if($sourceStory->uid != 1) $this->sendErrorResponse(403,'Invalid template.');
             $model = new Story();
             $model->attributes = $sourceStory->getAttributes();
             $model->uid = $_POST['uid'];
@@ -358,7 +358,7 @@ class StoryController extends ApiController{
 //     		}
 			$this->sendDataResponse($model);
     	}else{
-    		$this->sendErrorResponse(404, '没有找到默认的story');
+    		$this->sendErrorResponse(404, 'Default story is not found.');
     	}
     }
 
