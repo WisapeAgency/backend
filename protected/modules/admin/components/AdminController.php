@@ -5,7 +5,7 @@
  */
 class AdminController extends CController
 {
-	protected $new_line = '</br>';
+	protected $new_line = '<br/>';
 	
     /**
      * @var string the default layout for the controller views. Defaults to '//layouts/column1',
