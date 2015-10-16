@@ -11,7 +11,7 @@ $this->menu=array(
 	array('label'=>'List TemplateType', 'url'=>array('index')),
 	array('label'=>'Create TemplateType', 'url'=>array('create')),
 	array('label'=>'Update TemplateType', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete TemplateType', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Delete TemplateType', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'你确定要删除【'.$model->name.'】吗？（该分类下的所有模板也会被删除）')),
 	array('label'=>'Manage TemplateType', 'url'=>array('admin')),
 );
 ?>

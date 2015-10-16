@@ -110,6 +110,12 @@ class TemplateTypeController extends AdminController
 	 */
 	public function actionDelete($id)
 	{
+		//删除模板
+		$del = Template::model()->deleteAll('type='.$id);
+		if(!$del){
+			echo '删除模板失败，请稍后重试！';exit;
+		}
+		//		
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
