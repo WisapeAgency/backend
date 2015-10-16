@@ -122,12 +122,12 @@ body {
 	margin: 0 0 15px 0;
 }
 .code_p1{
-	font-size: 22px;
+	font-size: 24px;
 	line-height: 35px;
 }
 .code_p2{
 	font-size: 17px;
-	margin: 25px 0 10px 0;
+	margin: 40px 0 10px 0;
 	color: #484848;
 }
 .code_p3{
@@ -141,7 +141,7 @@ body {
 }
 .code_div1{
 	height: 78px;
-	margin-top:75px; 
+	margin-top:80px; 
 	padding: 0 0 0 88px;
 	background-image:  url(../play-img/tb1.png);
 	background-repeat: no-repeat;
@@ -199,7 +199,7 @@ body {
 .code_p4_a4:hover{
 	background-position: -163px -47px;
 }
-.code_p4_a5:hover{
+.code_p4_a5_hover{
 	background-position: -271px -47px;
 }
 .code_p5{

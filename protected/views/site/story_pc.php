@@ -87,7 +87,7 @@
 			<a href="#" class="a2a_button_twitter code_p4_a code_p4_a2"></a>
 			<a href="#" class="a2a_button_linkedin code_p4_a code_p4_a3"></a>
 			<a href="#" class="a2a_button_google_plus code_p4_a code_p4_a4"></a>
-			<a href="#" class="copy code_p4_a code_p4_a5"></a>
+			<a href="#" class="copy_link code_p4_a code_p4_a5"></a>
 		</p>
 		<!--
 		<div class="a2a_kit a2a_kit_size_32 a2a_default_style code_p4">
@@ -118,12 +118,20 @@
 	//拷贝当前链接
 	$(document).ready(function(){
 		/* 定义所有class为copy标签，点击后可复制被点击对象的文本 */
-	    $(".copy").zclip({
+	    $(".copy_link").zclip({
 	        path: "<?php echo SITE_URL?>custom/js/ZeroClipboard.swf",
 	        copy: function(){
 	        	return '<?php echo SITE_URL?>index.php/site/story/id/<?php echo $story->id?>';
 	        }
 	    });
+	    $(".copy_link").hover(
+	    	 function(){
+				$(this).addClass('code_p4_a5_hover');
+	    	 },
+	    	 function(){
+	    		 $(this).removeClass('code_p4_a5_hover');
+	    	 }  
+    	);
 	});
 	//
 	$(document).ready(function(){

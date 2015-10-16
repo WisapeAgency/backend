@@ -130,7 +130,7 @@ body {
 }
 .code_p2{
 	font-size: 12px;
-	margin: 15px 0 10px 0;
+	margin: 25px 0 10px 0;
 	color: #484848;
 }
 .code_p3{
@@ -144,7 +144,7 @@ body {
 }
 .code_div1{
 	height: 45px;
-	margin-top:50px; 
+	margin-top:40px; 
 	padding: 0 0 0 55px;
 	background-image:  url(../play-img/tb1.png);
 	background-repeat: no-repeat;
@@ -204,7 +204,7 @@ body {
 .code_p4_a4:hover{
 	background-position: -98px -28px;
 }
-.code_p4_a5:hover{
+.code_p4_a5_hover{
 	background-position: -163px -28px;
 }
 .code_p5{
