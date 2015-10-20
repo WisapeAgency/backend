@@ -30,5 +30,6 @@ $this->menu=array(
 		'type',
 		'order',
 		'order_type',
+		'hash_code'
 	),
 )); ?>

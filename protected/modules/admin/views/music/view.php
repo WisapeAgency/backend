@@ -26,5 +26,6 @@ $this->menu=array(
 		'music_url',
 		'type',
 		'rec_status',
+		'hash_code'
 	),
 )); ?>

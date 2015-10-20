@@ -70,8 +70,11 @@ class TemplateController extends AdminController
         if(isset($_POST['Template']))
         {
             $model->attributes=$_POST['Template'];
+            //计算hash值
+			$source = ROOT_PATH.strstr($model->temp_url,'/uploads');
+            $model->hash_code = hash_file('md5', $source);
             if($model->save()){
-                //解压并删除zip
+                /*//解压并删除zip
                 $dir_str = strstr($model->temp_url,'/uploads');
                 $zip_name = explode('/',$dir_str);
                 $zip_name = $zip_name[sizeof($zip_name) - 1];
@@ -105,7 +108,8 @@ class TemplateController extends AdminController
                     }else{
                         echo 'extract error';exit;
                     }
-                }
+                }*/
+	            $this->redirect(array('view','id'=>$model->id));
             }
         }
         $this->render('create',array(
@@ -128,6 +132,9 @@ class TemplateController extends AdminController
         if(isset($_POST['Template']))
         {
             $model->attributes=$_POST['Template'];
+            //计算hash值
+			$source = ROOT_PATH.strstr($model->temp_url,'/uploads');
+            $model->hash_code = hash_file('md5', $source);
             if($model->save())
                 $this->redirect(array('view','id'=>$model->id));
         }

@@ -94,6 +94,8 @@ EOF;
 				Yii::log('解压字体包失败:'.$source, CLogger::LEVEL_ERROR);
 				echo '解压字体包失败';exit;
 			}
+			//计算hash值
+			$model->hash_code = hash_file('md5', $source);
 			if($model->save()){
                 //添加css模块
                 $this->addCss($model->name);
@@ -133,6 +135,8 @@ EOF;
 				Yii::log('解压字体包失败:'.$source, CLogger::LEVEL_ERROR);
 				echo '解压字体包失败';exit;
 			}
+			//计算hash值
+			$model->hash_code = hash_file('md5', $source);
 			if($model->save()){		
 				//
 				if($old_name != $model->name){

@@ -139,7 +139,8 @@ class UserController extends ApiController
     private function add_default_story($user_id){
     	$story = Story::model();
     	$story->uid = $user_id;
-    	$story->story_name = 'Default';
+    	$story->story_name = 'My story';
+    	$story->description = 'Something wonderful is coming';
     	$story->rec_status = 'B';
     	if(!$story->save()){
     		Yii::log('添加默认story数据失败，uid:'.$user_id, CLogger::LEVEL_ERROR);

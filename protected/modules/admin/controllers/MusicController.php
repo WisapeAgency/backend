@@ -71,6 +71,10 @@ class MusicController extends AdminController
 		{
 			$model->attributes=$_POST['Music'];
 			$model->music_name = $this->getName($model->music_url);
+
+			//计算hash值
+			$source = ROOT_PATH.strstr($model->music_url,'/uploads');
+			$model->hash_code = hash_file('md5', $source);
 			if($model->save()){
 				$this->redirect(array('view','id'=>$model->id));
 			}
@@ -97,6 +101,9 @@ class MusicController extends AdminController
 		{
 			$model->attributes=$_POST['Music'];
 			$model->music_name = $this->getName($model->music_url);
+			//计算hash值
+			$source = ROOT_PATH.strstr($model->music_url,'/uploads');
+			$model->hash_code = hash_file('md5', $source);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

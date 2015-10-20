@@ -24,5 +24,7 @@ $this->menu=array(
 		'id',
 		'name',
 		'zip_url',
+		'rec_status',
+		'hash_code'
 	),
 )); ?>
