@@ -124,10 +124,11 @@ class StoryController extends ApiController{
         $model->createtime = time();
         $model->uid = $_REQUEST['uid'];
         $model->description = isset($_REQUEST['description'])?$_REQUEST['description']:'';
-        $model->rec_status = isset($_REQUEST['rec_status'])?$_REQUEST['rec_status']:'';
+        $model->rec_status = isset($_REQUEST['rec_status'])?$_REQUEST['rec_status']:'A';
         $model->small_img = isset($_REQUEST['small_img'])?$this->saveStoryCover(trim($_REQUEST['small_img'])):'';
         $model->story_name = $_REQUEST['story_name'];
         $model->bg_music = isset($_REQUEST['bg_music']) ? $_REQUEST['bg_music'] : '';
+        $model->local_cover = isset($_REQUEST['local_cover']) ? $_REQUEST['local_cover'] : 0;
         if(isset($_FILES['zip_file']['tmp_name'])){
         	$filename = md5(uniqid());
             $target_path = ROOT_PATH.'/html/'.$_REQUEST['uid'].'/'.date('Ymd').'/'.$filename;
@@ -243,10 +244,10 @@ class StoryController extends ApiController{
                     $pageSize = PAGE_SIZE;
                 }
                 $start = ($page-1)*$pageSize;
-                $sql = "SELECT * FROM story WHERE uid=$uid AND rec_status='A' limit $start,$pageSize";
+                $sql = "SELECT * FROM story WHERE uid=$uid AND rec_status<>'D' ORDER BY rec_status DESC,createtime DESC limit $start,$pageSize";
                 $list = Yii::app()->db->createCommand($sql)->queryAll();
             }else{
-                $list = Story::model()->findAll("uid=:uid AND rec_status='A'",array(
+                $list = Story::model()->findAll("uid=:uid AND rec_status<>'D' ORDER BY rec_status DESC,createtime DESC",array(
                     ':uid'=>$uid,
                 ));
             }

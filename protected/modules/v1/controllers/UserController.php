@@ -58,6 +58,8 @@ class UserController extends ApiController
 	                    $model->access_token = $this->getAccessToken();
 	                    $model->install_id = isset($_REQUEST['install_id']) ? $_REQUEST['install_id'] : '';
 	                    if($model->save()){
+	                    	//添加默认story
+	                    	$this->add_default_story($model->user_id);
 		                    try{
 			                    //发送欢迎邮件
 			                    $this->sendWelcomeMail($model->user_email);
@@ -113,6 +115,9 @@ class UserController extends ApiController
                     $model->access_token = $this->getAccessToken();
                     $model->install_id = isset($_REQUEST['install_id']) ? $_REQUEST['install_id'] : '';
                     if($model->save()){
+                    	//添加默认story
+                    	$this->add_default_story($model->user_id);
+                    	
                     	$this->sendDataResponse($model->getAttributes());
                     }else{
 	                    $this->sendErrorResponse(500, 'Save register data failed.');
@@ -126,6 +131,19 @@ class UserController extends ApiController
         }else{
             $this->sendErrorResponse(403,'Missing necessary parameters.');
         }
+    }
+    
+    /**
+     * 添加默认story数据
+     */
+    private function add_default_story($user_id){
+    	$story = Story::model();
+    	$story->uid = $user_id;
+    	$story->story_name = 'Default';
+    	$story->rec_status = 'B';
+    	if(!$story->save()){
+    		Yii::log('添加默认story数据失败，uid:'.$user_id, CLogger::LEVEL_ERROR);
+    	}
     }
 
     /**

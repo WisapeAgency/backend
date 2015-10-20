@@ -16,6 +16,7 @@
  * @property integer $share_num
  * @property integer $like_num
  * @property integer $view_num
+ * @property integer $local_cover
  * @property integer $createtime
  */
 class Story extends CActiveRecord
