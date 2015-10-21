@@ -46,14 +46,13 @@ class UserController extends ApiController
 	                }
 	                try{
 	                    $model=new User;
-	                    $model->attributes=$_REQUEST;
-	                    $model->user_email = strtolower($model->user_email);
+// 	                    $model->attributes=$_REQUEST;
+	                    $model->user_email = strtolower($_REQUEST['user_email']);
 	                    $model->user_pwd = md5($pwd);
 	                    //生成用户昵称
 	                    $nick_name = explode('@',$email);
 	                    $model->nick_name = $nick_name[0];
-	//                    $model->nick_name = Yii::app()->badWords->replacement($model->nick_name);
-	                    $model->nick_name = $model->nick_name;
+// 	                    $model->nick_name = Yii::app()->badWords->replacement($model->nick_name);
 	                    $model->user_ext = $type;
 	                    $model->access_token = $this->getAccessToken();
 	                    $model->install_id = isset($_REQUEST['install_id']) ? $_REQUEST['install_id'] : '';
@@ -103,11 +102,10 @@ class UserController extends ApiController
                 //如果系统不存在，则创建用户
                 try{
                     $model=new User;
-                    $model->attributes=$_REQUEST;
+//                     $model->attributes=$_REQUEST;
                     //第三方拿到的信息有 id,名称，头象
                     $model->nick_name = $_REQUEST['nick_name'];
-//                    $model->nick_name = Yii::app()->badWords->replacement($model->nick_name);
-                    $model->nick_name = $model->nick_name;
+//                     $model->nick_name = Yii::app()->badWords->replacement($model->nick_name);
                     $model->user_ext = $_REQUEST['type'];
                     $model->user_ext_name = $user_ext_name;
                     $model->user_ico_n = $_REQUEST['user_ico'];
@@ -137,7 +135,7 @@ class UserController extends ApiController
      * 添加默认story数据
      */
     private function add_default_story($user_id){
-    	$story = Story::model();
+    	$story = new Story;
     	$story->uid = $user_id;
     	$story->story_name = 'My story';
     	$story->description = 'Something wonderful is coming';
@@ -174,6 +172,9 @@ class UserController extends ApiController
      * @param unknown $email
      */
     private function sendWelcomeMail($email){
+    	if(!$email){
+    		return;
+    	}
     	$site_url = SITE_URL;
 //     	$site_url = 'http://106.75.196.252/';
     	$html = <<<EOF
@@ -262,7 +263,7 @@ EOF;
 					<p>You has requested a link to change your password.To continue,please click on the link below.</p>
 					<p><a href="{$url}" class="content_a" style="text-decoration: none;">Change My Password</a></p>
 					<p>Or copy and paste this URL into you browser:</p>
-					<p><a href="{$url}" class="content_a1" style="width: 514px; display: block;">{$url}</a></p>
+					<p><a href="{$url}" class="content_a1" style="width: 514px; display: block; word-wrap:break-word;">{$url}</a></p>
 					<br/>
 					<p>Your password won't be changed until you access the link above and create a new one.</p>
 					<p>If you didn't request this,please send us a message at <a class="content_a2">support@wisape.com</a></p>

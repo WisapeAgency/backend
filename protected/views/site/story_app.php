@@ -79,7 +79,10 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 	           	: ids.play();
 	   	},
 		play:function(){
-			document.getElementById('media').play();
+			var media = document.getElementById('media');
+			if(media != undefined){
+				media.play();
+			}
 		}
 	}
 	lanren.play();
@@ -94,24 +97,30 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 	});
 
 	//点赞
+	var executing = false;
 	$('.sj_zh1_tx_p2 a').click(function(){
+		if(executing){
+			return;
+		}
+		executing = true;
 		var _this = $(this);
 		var like_num_obj = _this.parent().find('span');
-		var like_num;
-		var opt = 'like';
-		if(_this.is('.sj_zh1_tx_p2_a1')){
-			_this.removeClass('sj_zh1_tx_p2_a1');
-			_this.addClass('sj_zh1_tx_p2_a2');
-			like_num = parseInt(like_num_obj.text()) + 1;
-		}else{
-			_this.removeClass('sj_zh1_tx_p2_a2');
-			_this.addClass('sj_zh1_tx_p2_a1');
-			like_num = parseInt(like_num_obj.text()) - 1;
-			opt = 'unlike';
-		}
+		var is_like = _this.is('.sj_zh1_tx_p2_a1');
+		var opt = is_like ? 'like' : 'unlike';
 		var url = '<?php echo SITE_URL?>index.php/v1/story/share';
 		$.get(url, {type:'3', opt:opt, sid:'<?php echo $story->id?>'}, function(){
+			var like_num;
+			if(is_like){
+				_this.removeClass('sj_zh1_tx_p2_a1');
+				_this.addClass('sj_zh1_tx_p2_a2');
+				like_num = parseInt(like_num_obj.text()) + 1;
+			}else{
+				_this.removeClass('sj_zh1_tx_p2_a2');
+				_this.addClass('sj_zh1_tx_p2_a1');
+				like_num = parseInt(like_num_obj.text()) - 1;
+			}
 			like_num_obj.text(like_num);
+			executing = false;
 		});
 	});
 </script>

@@ -56,8 +56,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array(
             'name'=>'rec_status',
             'header'=>'status',
-            'filter'=>CHtml::dropDownList('Story[rec_status]', $model->rec_status, array(''=>'请选择','A'=>'正常','D'=>'已删除')),
-            'value'=> '$data->rec_status=="A" ? "正常":"已删除"',
+            'filter'=>CHtml::dropDownList('Story[rec_status]', $model->rec_status, array(''=>'请选择','A'=>'正常','B'=>'默认' ,'D'=>'已删除')),
+            'value'=> '$data->rec_status=="A" ? "正常":($data->rec_status=="B" ? "默认": "已删除")',
         ),
 		/*
 		'share_num',
