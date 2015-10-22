@@ -128,6 +128,7 @@ class StoryController extends ApiController{
         $model->small_img = isset($_REQUEST['small_img'])?$this->saveStoryCover(trim($_REQUEST['small_img'])):'';
         $model->story_name = $_REQUEST['story_name'];
         $model->bg_music = isset($_REQUEST['bg_music']) ? $_REQUEST['bg_music'] : '';
+        $model->story_local = isset($_REQUEST['story_local']) ? $_REQUEST['story_local'] : '';
         $model->local_cover = isset($_REQUEST['local_cover']) ? $_REQUEST['local_cover'] : 0;
         if(isset($_FILES['zip_file']['tmp_name'])){
         	$filename = md5(uniqid());

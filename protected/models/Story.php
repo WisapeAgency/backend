@@ -9,6 +9,7 @@
  * @property string $story_name
  * @property string $story_path
  * @property string $story_url
+ * @property string $story_local
  * @property string $description
  * @property string $bg_music
  * @property string $small_img

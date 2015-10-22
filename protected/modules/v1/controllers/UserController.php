@@ -139,6 +139,7 @@ class UserController extends ApiController
     	$story->uid = $user_id;
     	$story->story_name = 'My story';
     	$story->description = 'Something wonderful is coming';
+    	$story->story_local = date('YmdHis');
     	$story->rec_status = 'B';
     	if(!$story->save()){
     		Yii::log('添加默认story数据失败，uid:'.$user_id, CLogger::LEVEL_ERROR);
@@ -156,7 +157,7 @@ class UserController extends ApiController
     		include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
     		$data = array (
     				'type' => LOGIN_MESSAGE,
-    				'message_title' => 'Your account has been logged in at another device.'
+    				'message_title' => 'Your account has been logged in at another device.install_id:'.$_REQUEST['install_id'].',user_email:'.$user['user_email']
     		);
     		$param = array (
     				'user' => $user['user_email']

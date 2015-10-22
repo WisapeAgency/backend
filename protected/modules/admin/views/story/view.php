@@ -23,6 +23,7 @@ $this->menu=array(
 		'story_name',
 		'story_url',
 		'story_path',
+		'story_local',
 		'description',
 		'bg_music',
 		'small_img',
@@ -30,6 +31,7 @@ $this->menu=array(
 		'share_num',
 		'like_num',
 		'view_num',
+		'local_cover',
 		'createtime',
 	),
 )); ?>
