@@ -73,6 +73,8 @@ class SendMessageController extends AdminController
 			$parsetime = $_POST['SendMessage']['parsetime'];
 			if($parsetime){
 				$model->parsetime=$parsetime;
+			}else{
+				$model->parsetime=date('Y-m-d H:i:s', time() + 8 * 3600);//补充数据库字段的值，不会发送到parse
 			}
 			$model->type = OPERATION_MESSAGE;
 			if($model->save()){
@@ -86,7 +88,7 @@ class SendMessageController extends AdminController
 				);
 				$param = array (
 						'user' => $model->user_email,
-						'push_time' => $model->parsetime
+						'push_time' => $parsetime
 				);
 				ParseApi::send($data, $param);
 				//

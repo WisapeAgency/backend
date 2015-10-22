@@ -193,6 +193,9 @@ class StoryController extends ApiController{
     	if(isset($_REQUEST['small_img']) && !empty($_REQUEST['small_img'])){
     		$model->small_img = $this->saveStoryCover(trim($_REQUEST['small_img']));
     	}
+    	if(isset($_REQUEST['local_cover']) && !empty($_REQUEST['local_cover'])){
+    		$model->local_cover = $_REQUEST['local_cover'];
+    	}
     	
     	if($model->save()){
 	        $this->sendDataResponse($model->getAttributes());
