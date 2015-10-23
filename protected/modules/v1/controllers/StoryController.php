@@ -125,7 +125,7 @@ class StoryController extends ApiController{
         $model->uid = $_REQUEST['uid'];
         $model->description = isset($_REQUEST['description'])?$_REQUEST['description']:'';
         $model->rec_status = isset($_REQUEST['rec_status'])?$_REQUEST['rec_status']:'A';
-        $model->small_img = isset($_REQUEST['small_img'])?$this->saveStoryCover(trim($_REQUEST['small_img'])):'';
+//         $model->small_img = isset($_REQUEST['small_img'])?$this->saveStoryCover(trim($_REQUEST['small_img'])):'';
         $model->story_name = $_REQUEST['story_name'];
         $model->bg_music = isset($_REQUEST['bg_music']) ? $_REQUEST['bg_music'] : '';
         $model->story_local = isset($_REQUEST['story_local']) ? $_REQUEST['story_local'] : '';
@@ -149,14 +149,11 @@ class StoryController extends ApiController{
                 $prefix = $_REQUEST['img_prefix'];
                 if(!empty($prefix)){
 //                 	$prefix .= '/'.($model->story_name);
-	                Yii::log('前缀:'.$prefix, CLogger::LEVEL_ERROR);
                 	$url_prefix = str_replace(ROOT_PATH.'/', SITE_URL, $target_path);
                 	$html_path = $target_path.'/story.html';
                 	$content = file_get_contents($html_path);
-                	Yii::log('替换前:'.$content, CLogger::LEVEL_ERROR);
                 	$content = str_replace($prefix, $url_prefix, $content);
                 	$content = str_replace('file://', '', $content);//替换背景图的本地路径
-                	Yii::log('替换后:'.$content, CLogger::LEVEL_ERROR);
                 	$fp=fopen($html_path,"w");
                 	fwrite($fp,$content);
                 	fclose($fp);
@@ -168,6 +165,7 @@ class StoryController extends ApiController{
             }
         }
         if($model->save()){
+	        Yii::log('STORY_ID:'.$model->id.',前缀:'.$_REQUEST['img_prefix'], CLogger::LEVEL_ERROR);
             $model->story_url = SITE_URL.'index.php/site/story/id/'.$model->id;
             $model->update();
 	        $this->sendDataResponse($model->getAttributes());

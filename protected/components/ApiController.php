@@ -198,6 +198,7 @@ class ApiController extends CController
             fclose($file);//关闭
             return SITE_URL.$dir.$filename;
         }catch (Exception $e){
+	        Yii::log('保存图片出错，路径：'.$path.'，日志:'.$e->getMessage(), CLogger::LEVEL_ERROR);
             $this->sendErrorResponse(500,'图片保存失败!');
         }
     }

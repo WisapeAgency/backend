@@ -63,7 +63,7 @@ class UserController extends ApiController
 			                    //发送欢迎邮件
 			                    $this->sendWelcomeMail($model->user_email);
 		                    }catch (Exception $e1){
-		                    	Yii::log($e1->getMessage(), CLogger::LEVEL_ERROR);
+		                    	Yii::log('发送欢迎邮件异常：'.$e1->getMessage(), CLogger::LEVEL_ERROR);
 		                    }
 	                    	$this->sendDataResponse($model->getAttributes());
 	                    }else{
@@ -71,7 +71,7 @@ class UserController extends ApiController
 	                    }
 	                }catch (Exception $e){
 	                    //本地用户创建失败!
-	                	Yii::log($e->getMessage(), CLogger::LEVEL_ERROR);
+	                	Yii::log('登录出错：'.$e->getMessage(), CLogger::LEVEL_ERROR);
 	                    $this->sendErrorResponse(500, 'Server error.');
 	                }
             	}
@@ -122,7 +122,7 @@ class UserController extends ApiController
                     }
                 }catch (Exception $e){
                     //第三方注册失败
-                	Yii::log($e->getMessage(), CLogger::LEVEL_ERROR);
+                	Yii::log('第三方登录异常：'.$e->getMessage(), CLogger::LEVEL_ERROR);
                     $this->sendErrorResponse(500, 'Server error.');
                 }
             }
@@ -356,7 +356,7 @@ EOF;
 	                    if($im1) $this->delFileFromServer($img1);
 	                }
 	            }catch (Exception $e){
-	            	Yii::log($e->getMessage(), CLogger::LEVEL_ERROR);
+	            	Yii::log('修改个人资料异常：'.$e->getMessage(), CLogger::LEVEL_ERROR);
 	                $this->sendErrorResponse(500, 'Server error.');
 	            }
 	            $this->sendDataResponse($userModel->getAttributes());
