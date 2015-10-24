@@ -318,11 +318,11 @@ class StoryController extends ApiController{
      * get Story by sid
      */
     public function actionGet(){
-        if(isset($_POST['sid'])){
-            $model = Story::model()->findByPk($_POST['sid']);
+        if(isset($_REQUEST['sid'])){
+            $model = Story::model()->findByPk($_REQUEST['sid']);
             $this->sendDataResponse($model->getAttributes());
         }
-        $this->sendErrorResponse(403);
+        $this->sendErrorResponse(403, 'Story is not found.');
     }
 
     /**
