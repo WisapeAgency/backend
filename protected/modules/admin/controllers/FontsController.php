@@ -266,9 +266,7 @@ EOF;
 			$message=new SendMessage;
 			$message->title = $size.' new fonts are available for you';
 			$message->user_message = 'Create your story with new font:'.$this->new_line.$namestr;
-			if($message->save()){
-				$this->sendMessage($message);
-			}
+			$this->sendMessage($message);
 		}
 		//发送同步列表的通知
 		include_once ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';

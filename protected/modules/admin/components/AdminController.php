@@ -62,13 +62,16 @@ class AdminController extends CController
      * @param unknown $messageModel
      */
     protected function sendMessage($messageModel){
-    	include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
-    	$data = array (
-    			'type' => SYSTEM_MESSAGE,
-    			'id' => $messageModel->id,
-    			'message_title' => $messageModel->title,
-    			'message_subject' => $messageModel->subject
-    	);
-    	ParseApi::send($data);
+    	$messageModel->parsetime=date('Y-m-d H:i:s', time() + 8 * 3600);//补充数据库字段的值，不会发送到parse
+    	if($messageModel->save()){
+	    	include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
+	    	$data = array (
+	    			'type' => SYSTEM_MESSAGE,
+	    			'id' => $messageModel->id,
+	    			'message_title' => $messageModel->title,
+	    			'message_subject' => $messageModel->subject
+	    	);
+	    	ParseApi::send($data);
+    	}
     }
 }

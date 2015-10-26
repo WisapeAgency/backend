@@ -229,9 +229,7 @@ class TemplateController extends AdminController
     		$message=new SendMessage;
     		$message->title = $size.' new Templates are available for you';
     		$message->user_message = 'Create your story with new Template:'.$this->new_line.$str;
-            if($message->save()){
-    			$this->sendMessage($message);
-    		}
+    		$this->sendMessage($message);
     	}
     	//发送同步列表的通知
     	include_once ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';

@@ -75,6 +75,7 @@ class StoryController extends ApiController{
     	$message->user_email = $receiver;
     	$message->title = $title;
     	$message->user_message = $content;
+    	$message->parsetime=date('Y-m-d H:i:s', time() + 8 * 3600);//补充数据库字段的值，不会发送到parse
     	if($message->save()){
 	    	//推送
 	    	include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
@@ -87,7 +88,7 @@ class StoryController extends ApiController{
 	    	$param = array (
 	    			'user' => $message->user_email
 	    	);
-	    	ParseApi::send($data, $param);
+// 	    	ParseApi::send($data, $param);
     	}
     }
     
@@ -125,7 +126,7 @@ class StoryController extends ApiController{
         $model->uid = $_REQUEST['uid'];
         $model->description = isset($_REQUEST['description'])?$_REQUEST['description']:'';
         $model->rec_status = isset($_REQUEST['rec_status'])?$_REQUEST['rec_status']:'A';
-//         $model->small_img = isset($_REQUEST['small_img'])?$this->saveStoryCover(trim($_REQUEST['small_img'])):'';
+        $model->small_img = isset($_REQUEST['small_img'])?$this->saveStoryCover(trim($_REQUEST['small_img'])):'';
         $model->story_name = $_REQUEST['story_name'];
         $model->bg_music = isset($_REQUEST['bg_music']) ? $_REQUEST['bg_music'] : '';
         $model->story_local = isset($_REQUEST['story_local']) ? $_REQUEST['story_local'] : '';

@@ -203,9 +203,7 @@ class MusicController extends AdminController
 			$message=new SendMessage;
 			$message->title = $size.' new background musics are available for you';
 			$message->user_message = 'Set your story background with new music:'.$this->new_line.$str;
-			if($message->save()){
-				$this->sendMessage($message);
-			}
+			$this->sendMessage($message);
 		}
 		echo 1;
 	}
