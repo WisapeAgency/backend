@@ -112,9 +112,6 @@ class MusicTypeController extends AdminController
 	{
 		//删除音乐
 		$del = Music::model()->deleteAll('type='.$id);
-		if(!$del){
-			echo '删除模板失败，请稍后重试！';exit;
-		}
 		//
 		$this->loadModel($id)->delete();
 

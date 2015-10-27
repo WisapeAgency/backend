@@ -88,7 +88,7 @@ class StoryController extends ApiController{
 	    	$param = array (
 	    			'user' => $message->user_email
 	    	);
-// 	    	ParseApi::send($data, $param);
+	    	ParseApi::send($data, $param);
     	}
     }
     
@@ -169,6 +169,7 @@ class StoryController extends ApiController{
 	        Yii::log('STORY_ID:'.$model->id.',前缀:'.$_REQUEST['img_prefix'], CLogger::LEVEL_ERROR);
             $model->story_url = SITE_URL.'index.php/site/story/id/'.$model->id;
             $model->update();
+            Yii::log('STORY_DATA:'.CJSON::encode($model->getAttributes()), CLogger::LEVEL_ERROR);
 	        $this->sendDataResponse($model->getAttributes());
         }else{
             $this->sendErrorResponse(500, 'Save story failed.');
