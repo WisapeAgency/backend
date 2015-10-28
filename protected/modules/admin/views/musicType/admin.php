@@ -47,6 +47,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'name',
+		'order',
 		array(
 			'class'=>'CButtonColumn',
 			'deleteConfirmation'=>"js:'你确定要删除【'+$(this).parent().parent().find('td:eq(1)').html()+'】吗？（该分类下的所有音乐也会被删除）'"

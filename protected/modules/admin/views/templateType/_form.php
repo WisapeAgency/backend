@@ -25,6 +25,12 @@
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'order'); ?>
+		<?php echo $form->textField($model,'order'); ?>
+		<?php echo $form->error($model,'order'); ?>
+	</div>
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

@@ -13,7 +13,7 @@ class MusicController extends ApiController{
      */
     public function actionGettype(){
         $this->sendDataResponse(MusicType::model()->findAll(array(
-            'order'=>'`order` ASC'
+            'order'=>'`order` DESC'
             )));
     }
 

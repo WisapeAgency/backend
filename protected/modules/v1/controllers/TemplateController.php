@@ -12,7 +12,7 @@ class TemplateController extends ApiController{
      */
     public function actionGettype(){
         $this->sendDataResponse(TemplateType::model()->findAll(array(
-            'order'=>'`order` ASC'
+            'order'=>'`order` DESC'
         )));
     }
 
