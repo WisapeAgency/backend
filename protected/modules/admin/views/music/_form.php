@@ -37,6 +37,10 @@
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
                 	'params'=>array('module'=>'music', 'uniqName'=>'0', 'file_type'=>'mp3')
                 ),
+            	'validation'=> array(
+            			'allowedExtensions'=>array('mp3'),
+            			'sizeLimit'=> 2*1024*1024
+            	),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){
                     $(\"#music_url\").val(responseJSON.filename);

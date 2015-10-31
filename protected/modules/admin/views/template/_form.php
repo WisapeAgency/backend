@@ -31,6 +31,10 @@
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
 					'params'=>array('module'=>'template', 'file_type'=>'jpg,png,jpeg,bmp')
                 ),
+            	'validation'=> array(
+            			'allowedExtensions'=>array('jpg','png','jpeg','bmp'),
+            			'sizeLimit'=> 2*1024*1024
+            	),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){
                     $(\"#temp_img\").val(responseJSON.filename);
@@ -73,6 +77,10 @@
 					'params'=>array('module'=>'template', 'file_type'=>'zip'),
                     $allowedExtensions = array("zip")
                 ),
+				'validation'=> array(
+						'allowedExtensions'=>array('zip'),
+						'sizeLimit'=> 2*1024*1024
+				),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){
                     $(\"#temp_url\").val(responseJSON.filename);

@@ -33,10 +33,10 @@ class MusicController extends ApiController{
                 $pageSize = PAGE_SIZE;
             }
             $start = ($page-1)*$pageSize;
-            $sql = "select * from music where rec_status='A' $where limit $start,$pageSize";
+            $sql = "select * from music where 1=1 $where limit $start,$pageSize";
             $model = Yii::app()->db->createCommand($sql)->queryAll();
         }else{
-            $sql = "select * from music where rec_status='A' $where";
+            $sql = "select * from music where 1=1 $where";
             $model = Yii::app()->db->createCommand($sql)->queryAll();
         }
         $this->sendDataResponse($model);

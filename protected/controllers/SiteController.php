@@ -381,12 +381,12 @@ class SiteController extends Controller
         Yii::import("ext.EAjaxUpload.qqFileUploadHandler");
         // list of valid extensions, ex. array("jpeg", "xml", "bmp")
         $allowedExtensions = null;
-        if($_POST['file_type']){
+        if(isset($_POST['file_type']) && $_POST['file_type']){
         	$allowedExtensions = explode(',', $_POST['file_type']);
         }else{
         	$allowedExtensions = array('jpg','png','jpeg','bmp','mp3','zip','apk');
         }
-        // max file size in bytes (1MB here)
+        // max file size in bytes (20MB here)
         $sizeLimit = 20 * 1024 * 1024;
         $uploadHandler = new qqFileUploadHandler();
         $uploadHandler->setAllowedExtensions($allowedExtensions);

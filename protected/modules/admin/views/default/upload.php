@@ -36,6 +36,10 @@
                     'endpoint'=>Yii::app()->createUrl('site/ajaxUpload'),
                 	'params'=>array('module'=>'app', 'uniqName'=>'0')
                 ),
+            	'validation'=> array(
+            		'allowedExtensions'=>array('apk'),
+            		'sizeLimit'=> 20*1024*1024 // 200 kB = 200 * 1024 bytes
+            	),
                 'callbacks' => array(
                     'onComplete'=>"js:function(id, fileName, responseJSON){
                     $(\"#preview_img\").val(responseJSON.filename);
