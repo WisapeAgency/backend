@@ -103,7 +103,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
                 }
             })
         }
-
+		//禁止删除
+        $('.delete').hide();
     </script>
     <?php echo CHtml::button("激活",array('onClick'=>'submitAjax("A");')); ?>
     <?php echo CHtml::button("禁用",array('onClick'=>'submitAjax("D");')); ?>

@@ -266,7 +266,7 @@ class StoryController extends ApiController{
             }
             $this->sendDataResponse($list);
         }else{
-        	$this->sendErrorResponse(404, 'Invalid access token');
+        	$this->sendErrorResponse(404, 'Invalid access token.');
         }
 
     }

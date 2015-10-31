@@ -134,7 +134,22 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 		if(document.readyState == "complete"){
 			$('#mask').hide();
 		}
-	} 
+	}
+
+	(function (doc, win) {
+
+	    var docEl = doc.documentElement,
+	        recalc = function () {
+	            var clientWidth = docEl.clientWidth;
+	            if (!clientWidth) return;
+	            docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+
+	            console.info("html font-size:" + clientWidth);
+	            console.info("html font-size:" + $('body').width());
+	            console.info("html font-size:" + (20 * (clientWidth / 320) + 'px'));
+	        };
+	    recalc();
+	})(document, window);
 </script>
 <script type="text/javascript" src="<?php echo SITE_URL?>custom/js/jquery.easing.1.3.js"></script> 
 <script type="text/javascript" src="<?php echo SITE_URL?>custom/js/page_scroll_bx.js"></script> 

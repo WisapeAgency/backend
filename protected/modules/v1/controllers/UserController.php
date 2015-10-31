@@ -360,9 +360,12 @@ EOF;
 	                $this->sendErrorResponse(500, 'Server error.');
 	            }
 	            $this->sendDataResponse($userModel->getAttributes());
+            }else{
+		        $this->sendErrorResponse(403, 'Invalid access token.');
             }
+        }else{
+        	$this->sendErrorResponse(403,'Missing necessary parameters.');
         }
-        $this->sendErrorResponse(403, 'Invalid access token.');
     }
 
 
