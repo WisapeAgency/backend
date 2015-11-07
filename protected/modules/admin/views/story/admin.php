@@ -47,7 +47,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'name'=>'uid',
             'filter'=>CHtml::listData( User::model()->findAll(), 'user_id', 'user_email'),
 //             'filter'=>CHtml::textField('Story[user][user_email]'),
-            'value'=>'$data->user->user_email'
+            'value'=>'isset($data->user) ? $data->user->user_email : ""'
         ),
 		'story_name',
 		'like_num',

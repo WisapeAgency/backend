@@ -114,7 +114,10 @@ class UserController extends AdminController
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
-			$this->loadModel()->delete();
+			$user = $this->loadModel();
+			$user->delete();
+			//删除该用户的story
+			Story::model()->updateAll(array('rec_status'=>'D'), 'uid='.$user->user_id);
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
