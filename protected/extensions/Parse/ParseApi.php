@@ -38,7 +38,8 @@ class ParseApi{
 			}
 			$query->equalTo('installationId', $installId);
 		}else{
-			$query->equalTo('channels', 'abcde');
+// 			$query->equalTo('channels', 'abcde');
+			$query->equalTo('deviceType', 'android');
 		}
 		//设置推送地区
 		if(isset($param) && !empty($param['locale'])){

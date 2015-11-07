@@ -126,7 +126,9 @@ class StoryController extends ApiController{
         $model->uid = $_REQUEST['uid'];
         $model->description = isset($_REQUEST['description'])?$_REQUEST['description']:'';
         $model->rec_status = isset($_REQUEST['rec_status'])?$_REQUEST['rec_status']:'A';
-        $model->small_img = isset($_REQUEST['small_img'])?$this->saveStoryCover(trim($_REQUEST['small_img'])):'';
+        if(isset($_REQUEST['small_img']) && !empty($_REQUEST['small_img'])){
+	        $model->small_img = $this->saveStoryCover(trim($_REQUEST['small_img']));
+        }
         $model->story_name = $_REQUEST['story_name'];
         $model->bg_music = isset($_REQUEST['bg_music']) ? $_REQUEST['bg_music'] : '';
         $model->story_local = isset($_REQUEST['story_local']) ? $_REQUEST['story_local'] : '';

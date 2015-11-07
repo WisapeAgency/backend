@@ -69,6 +69,12 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 </div>
 <?php }?>
 <script>
+	$(function(){
+    	$('div.font-link').click(function(){
+        	window.location.href = $(this).attr('data-href');
+        });
+	})
+		
 	var lanren = {
 		changeClass: function (target,id) {
 	       	var className = $(target).attr('class');

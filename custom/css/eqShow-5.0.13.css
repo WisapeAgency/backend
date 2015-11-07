@@ -51,32 +51,34 @@ body {
 	width: 86px;
 }
 .phone_panel{
-	height:538px;
-	width: 750px;
+	height:689px;
+	width: 890px;
 	bottom: 0px;
 	position: absolute;
 	left: 50%;
-	margin-left: -375px;
+	top:50%;
+	margin-top:-330px;
+	margin-left: -445px;
 }
 .phoneBox{
-	width:338px;
-	height:538px;
+	width:383px;
+	height:689px;
 	float:left;
 	background-image: url(../play-img/sj.png);
 	background-repeat: no-repeat;
 	background-position: left;
-	background-size: 338px 538px;
+	background-size: 100% 100%;
 }
 .phoneBox .nr{
 	background-color:#000;
 	position:relative;
 	cursor:pointer;
-	height:470px;
-	width: 307px;
+	height:536px;
+	width: 309px;
 	overflow-x:hidden;
 	overflow-y:hidden;
 	-webkit-user-select:none;
-	margin: 68px 0 0 16px;
+	margin: 73px 0 0 38px;
 }
 .phoneBox .nr .iframe{
 	border-style: none;
@@ -85,7 +87,7 @@ body {
 	float: left;
 	top: 435px;
 	width: 38px;
-	left: -3px;
+	left: -25px;
 	position: relative;
 }
 .btn {
@@ -114,10 +116,10 @@ body {
 }
 #code{
 	float: right;
-	width: 310px;
+	width: 445px;
 	position: relative;
 	top: 50%;
-	margin-top: -224px;
+	margin-top: -270px;
 }
 .code_h1{
 	font-size: 38px;
@@ -125,12 +127,13 @@ body {
 	margin: 0 0 9px 0;
 }
 .code_p1{
-	font-size: 14px;
-	line-height: 21px;
+	font-size: 20px;
+	line-height: 27px;
+	color:#343434;
 }
 .code_p2{
-	font-size: 12px;
-	margin: 25px 0 10px 0;
+	font-size: 24px;
+	margin: 30px 0 15px 0;
 	color: #484848;
 }
 .code_p3{
@@ -141,22 +144,27 @@ body {
 .code_p4{
 	display: block;
 	height: 46px;
+	float:left;
+	width:120px;
+	margin-left:15px;
 }
 .code_div1{
-	height: 45px;
-	margin-top:40px; 
-	padding: 0 0 0 55px;
+	height: 70px;
+	margin-top:50px; 
+	padding: 0 0 0 85px;
 	background-image:  url(../play-img/tb1.png);
 	background-repeat: no-repeat;
 	background-position: left;
-	background-size: 45px 45px;
+	background-size: 70px 70px;
+	float:left;
+	clear:both;
 }
 .code_div1_p_span1{
-	font-size: 16px;
-	line-height: 25px;
+	font-size: 24px;
+	line-height: 40px;
 }
 .code_div1_p_span2{
-	font-size: 12px;
+	font-size: 16px;
 }
 #code #codeImg{
 	display:block;
@@ -165,79 +173,84 @@ body {
 	text-align: center;
 	background:#fff;
 	border:solid 1px #efefef;
+	float:left;
 
 }
 .code_p4_a{
 	display: block;
-	width: 26px;
-	height: 26px;
+	width: 30px;
+	height: 30px;
 	float: left;
 	background-image: url(../play-img/fx.png);
 	background-repeat: no-repeat;
-	margin: 0 10px 0 0;
-	background-size: 300px 54px;
+	margin: 9px 10px 0 0;
+	background-size: 349px 60px;
 }
 .code_p4_a1{
 	background-position: 0px 0px;
 }
 .code_p4_a2{
-	background-position: -32px 0px;
+	background-position: -38px 0px;
 }
 .code_p4_a3{
-	background-position: -65px 0px;
+	background-position: -77px 0px;
 }
 .code_p4_a4{
-	background-position: -98px 0px;
+	background-position: -114px 0px;
 }
 .code_p4_a5{
-	background-position: -163px 0px;
+	background-position: -189px 0px;
 }
 .code_p4_a1:hover{
-	background-position: 0px -28px;
+	background-position: 0px -31px;
 }
 .code_p4_a2:hover{
-	background-position: -32px -28px;
+	background-position: -38px -31px;
 }
 .code_p4_a3:hover{
-	background-position: -65px -28px;
+	background-position: -77px -31px;
 }
 .code_p4_a4:hover{
-	background-position: -98px -28px;
+	background-position: -114px -31px;
 }
-.code_p4_a5_hover{
-	background-position: -163px -28px;
+.code_p4_a5:hover{
+	background-position: -189px -31px;
 }
 .code_p5{
+	float:left;
 	display: block;
-	margin-top: 13px;
-	height: 29px;
+	margin-top: 24px;
+	height: 45px;
 }
 .code_p5_a{
 	display: block;
-	width: 86px;
-	height: 29px;
+	width: 148px;
+	height: 45px;
 	float: left;
 	background-image: url(../play-img/an.png);
 	background-repeat: no-repeat;
 	margin: 0 15px 0 0;
-	background-size: 209px 65px;
 }
 .code_p5_a1{
-	background-position: 0px 0px;
+	background-position: 0px -2px;
 }
 .code_p5_a2{
-	background-position: -104px 1px;
+	background-position: -169px -2px;
 }
 .code_p5_a1:hover{
-	background-position: 0px -36px;
+	background-position: 0px -63px;
 }
 .code_p5_a2:hover{
-	background-position: -104px -36px;
+	background-position: -169px -63px;
 }
 .img5 {
-	right: 30px;
-	position: absolute;
-	bottom: 10px;
 	font-size: 12px;
 	font-weight: 400;
+	float:left;
+	clear:both;
+	margin-top:68px;
+}
+.pc-box {
+	width:750px;
+	margin:0 auto;
 }

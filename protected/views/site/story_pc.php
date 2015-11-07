@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-size:20px;">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
@@ -8,9 +8,7 @@
 	<link href="<?php echo SITE_URL?>custom/css/reset.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo SITE_URL?>custom/css/animation.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo SITE_URL?>uploads/fonts/fonts.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>custom/css/eqShow-5.0.11.css" media="screen and (min-width: 1920px)">
-	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>custom/css/eqShow-5.0.12.css" media="screen and (min-width: 1366px) and (max-width: 1919px)">
-	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>custom/css/eqShow-5.0.13.css" media="screen and (max-width: 1365px)">
+	<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>custom/css/eqShow-5.0.13.css">
 	<script type="text/javascript" src="<?php echo SITE_URL?>custom/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo SITE_URL?>custom/js/wxsharejs.js"></script>
 	<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
@@ -18,17 +16,12 @@
 		.code_p4_a span{
 			background-image:none!important;
 		}
-		html{
-			font-size: 20px;
-		}
 	</style>
 </head>
 <body>
 <div id="mask" style="width: 100%; height: 100%; z-index: 9999; position: absolute; top: 0px; left: 0px; background: white url(<?php echo SITE_URL?>custom/play-img/loading.gif) no-repeat center center;" >
 </div>
-<div class="logo">
-    <a href="index.html"><img src="<?php echo SITE_URL?>custom/play-img/logo.png" alt=""/></a>
-</div>
+<div class="pc-box">
 <div class="phone_panel">
 	<div class="phoneBox">
 		<div class="nr" id="nr">
@@ -81,11 +74,10 @@
 	<div id="code">
 		<h1 class="code_h1"><?php echo $story->story_name?></h1>
 		<p class="code_p1"><?php echo $story->description?></p>
-		<p class="code_p2">Scan QR Code to share this story</p>
+		<p class="code_p2">Share the story:</p>
 		<div id="codeImg">
 			<img width="200" height="200" src="<?php echo $qr_url?>">
 		</div>
-		<p class="code_p3">Or</p>
 		 <!-- AddToAny BEGIN -->
 		<p class="a2a_kit code_p4">
 			<a href="#" class="a2a_button_facebook code_p4_a code_p4_a1"></a>
@@ -111,9 +103,10 @@
 			<a href="#" class="code_p5_a code_p5_a1"></a>
 			<a href="#" class="code_p5_a code_p5_a2"></a>
 		</p>
+		<div class="img5">Copyright @2015 Wisape all rights reserved</div>
 	</div>
 </div>
-<div class="img5">Copyright @2015 Wisape all rights reserved</div>
+</div>
 </body>
 <script type="text/javascript" src="<?php echo SITE_URL?>custom/js/jquery.easing.1.3.js"></script> 
 <script type="text/javascript" src="<?php echo SITE_URL?>custom/js/page_scroll_bx.js"></script>
@@ -137,6 +130,10 @@
 	    		 $(this).removeClass('code_p4_a5_hover');
 	    	 }  
     	);
+
+    	$('div.font-link').click(function(){
+        	window.location.href = $(this).attr('data-href');
+        });
 	});
 	//
 	$(document).ready(function(){
