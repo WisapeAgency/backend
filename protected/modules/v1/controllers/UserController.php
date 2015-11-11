@@ -157,7 +157,7 @@ class UserController extends ApiController
     		include ROOT_PATH.'/protected/extensions/Parse/ParseApi.php';
     		$data = array (
     				'type' => LOGIN_MESSAGE,
-    				'message_title' => 'Your account has been logged in at another device.install_id:'.$_REQUEST['install_id'].',user_email:'.$user['user_email']
+    				'message_title' => 'Your account has been logged in at another device.old_install_id:'.$user['install_id'].',user_email:'.$user['user_email']
     		);
     		$param = array (
     				'user' => $user['user_email']

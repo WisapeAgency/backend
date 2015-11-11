@@ -34,7 +34,7 @@ class ParseApi{
 			$installId = self::getUserInstallId($param['user']);
 			if(!$installId){
 				Yii::log('没有找到接收消息的终端，user_email:'.$param['user'], CLogger::LEVEL_ERROR);
-				return;
+				return false;
 			}
 			$query->equalTo('installationId', $installId);
 		}else{
@@ -66,9 +66,13 @@ class ParseApi{
 		try{
 			ParsePush::send($data);
 		}catch (Exception $e){
-			SendMessage::model()->findByPk($content['id'])->delete();
-			echo $e->getMessage();exit;
+			if(isset($content['id']) && $content['id'] > 0){
+				SendMessage::model()->findByPk($content['id'])->delete();
+			}
+			echo $e->getMessage();
+			return false;
 		}
+		return true;
 	}
 	
 	/**
@@ -78,7 +82,7 @@ class ParseApi{
 	 */
 	static function sendActive($content, $param=array()) {
 		$content['action'] = 'com.wisape.android.content.ActiveBroadcastReciver';
-		self::send($content, $param);
+		return self::send($content, $param);
 	}
 	
 	/**

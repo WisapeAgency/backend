@@ -26,7 +26,7 @@ class MessageController extends ApiController
 // 					$add = " and id not in($str)";
 // 				}
 				$sql = "SELECT * FROM send_message WHERE (user_email = '$user_email' OR user_email IS NULL OR user_email ='') $add ORDER BY createtime DESC";
-				Yii::log('message_list_sql:'.$sql, CLogger::LEVEL_ERROR);
+				Yii::log('message_list_sql:'.$sql, CLogger::LEVEL_INFO);
 				$data = Yii::app()->db->createCommand($sql)->queryAll();
 				$this->sendDataResponse($data);
 			}
