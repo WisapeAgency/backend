@@ -28,6 +28,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+    	$this->renderPartial('home');exit;
+    	
         $request_model_b = new Request();
         $request_model_c = new RequestPerson();
         $model=new Subscribe;
