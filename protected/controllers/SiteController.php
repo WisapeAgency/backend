@@ -235,7 +235,7 @@ class SiteController extends ApiController
     		$pid = base64_decode($code);
     		$increament = false;
     		$ip=$_SERVER["REMOTE_ADDR"];
-    		$pd = PartnerDownload::model()->find('ip_address='.$ip);
+    		$pd = PartnerDownload::model()->find("ip_address='".$ip."'");
     		if($pd){
     			$pd->last_time =time();
     			$pd->dl_count = $pd->dl_count + 1;
