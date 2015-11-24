@@ -1,6 +1,6 @@
 <?php
 
-class SiteController extends Controller
+class SiteController extends ApiController
 {
     /**
      * Declares class-based actions.
@@ -227,6 +227,149 @@ class SiteController extends Controller
                 //$this->redirect(array('view','id'=>$model->id));
             }
         }
+    }
+    
+    public function actionDownloadApk(){
+    	if(isset($_REQUEST['code'])){
+    		$code = $_REQUEST['code'];
+    		$pid = base64_decode($code);
+    		$increament = false;
+    		$ip=$_SERVER["REMOTE_ADDR"];
+    		$pd = PartnerDownload::model()->find('ip_address='.$ip);
+    		if($pd){
+    			$pd->last_time =time();
+    			$pd->dl_count = $pd->dl_count + 1;
+    			$pd->update();
+    		}else{
+    			$pd = new PartnerDownload();
+    			$pd->ip_address = $ip;
+    			$pd->dl_count = 1;
+    			if($pd->save()){
+	    			$increament = true;
+    			}else{
+    				Yii::log('记录 下载数据失败，partner：'.$pid, CLogger::LEVEL_ERROR);
+    			}
+    		}
+			if($increament){
+				$partner = RequestPerson::model()->findByPk($pid);
+				$partner->download_count = $partner->download_count + 1;
+				if(!$partner->update()){
+					Yii::log('累计分销次数失败，partner：'.$pid, CLogger::LEVEL_ERROR);
+				}
+			}
+    	}
+    	$file_path = ROOT_PATH.'/uploads/app/wisape.apk';
+    		
+    	header("Pragma: public"); // required 指明响应可被任何缓存保存
+    	header("Expires: 0");
+    	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    	header("Cache-Control: private",false); // required for certain browsers
+    	header("Content-Type: application/apk");
+    	header('Content-Disposition: attachment; filename=wisape.apk');
+    	header("Content-Transfer-Encoding: binary");
+    	header('Content-Length: '.filesize($file_path));
+    	ob_clean(); //Clean (erase) the output buffer
+    	flush();
+    	readfile( $file_path ); //读入一个文件并写入到输出缓冲。
+    	Yii::app()->end();
+    }
+    
+    /**
+     * 创建parnter信息
+     */
+    public function actionCreatePartner()
+    {
+    	if(!isset($_REQUEST['user_email'])){
+    		$this->sendErrorResponse(400, 'Missing parameter:user_email');
+    	}
+    	$email = trim($_REQUEST['user_email']);
+    	$parnter = RequestPerson::model()->find("user_email='".$email."'");
+    	if($parnter){
+    		$this->sendErrorResponse(400, 'parnter already exist:'.$email);
+    	}
+    	
+    	$model=new RequestPerson();
+    	$model->user_email = $email;
+    	$model->first_name = isset($_REQUEST['first_name'])?$_REQUEST['first_name']:'';
+    	$model->last_name = isset($_REQUEST['last_name'])?$_REQUEST['last_name']:'';
+    	$model->company_name = isset($_REQUEST['company_name'])?$_REQUEST['company_name']:'';
+    	$model->country = isset($_REQUEST['country'])?$_REQUEST['country']:'';
+    	$model->message = isset($_REQUEST['message'])?$_REQUEST['message']:'';
+    	$model->createtime = date('Y-m-d H:i:s');
+    	try {
+			if ($model->save ()) {
+				// 发送邮件
+				$this->sendPartnerMail ( $model->user_email, $model->id );
+			} else {
+				Yii::log ( '保存partner数据失败', CLogger::LEVEL_ERROR );
+			}
+		} catch ( Exception $e ) {
+			Yii::log ( $e->getMessage (), CLogger::LEVEL_ERROR );
+		}
+    }
+    
+    public function actionMailtest(){
+    	$this->sendPartnerMail('sir.zhang@foxmail.com', 11);
+    }
+    
+    /**
+     * 申请成为partner系统自动回复邮件
+     * @param unknown $email
+     * @param unknown $partner_id
+     */
+    private function sendPartnerMail($email, $partner_id){
+    	if(empty($email)){
+    		return;
+    	}
+    	$title = 'Welcome to join Wisape Global Partner Plan';
+    	$site_url = SITE_URL;
+    	//     	$site_url = 'http://106.75.196.252/';
+    	$url = $site_url.'uploads/app/wisape.apk/code/'.base64_encode($partner_id);
+    	
+    	$html = <<<EOF
+<div style="width:100%; height:100%; background-color:#f5f5f5; color:#b9bbbc;text-align:center;line-height: 35px;font-size:14px;"> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title></title>
+	<style type="text/css">
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+		fieldset,img{border:0;}
+		table{border:1px solid #eceae9; border-radius:5px; background-color:#FFFFFF;}
+		.content1{line-height:20px;font-size:14px;font-family:微软雅黑;text-align:center;position:relative;}
+		.content1 p{line-height:25px;padding:7px 0;font-family:微软雅黑; color:#000000;}
+		.content_a{line-height: 40px;display: block;height: 40px;width: 221px;color: #FFFFFF;text-decoration: none;background-color: #43a047; border-radius:5px;margin: 0 auto;font-size:15px;}
+		.content_a1{ color:#ff8800;}
+		.content_a2{color:#ff8800;text-decoration: none;}
+	</style>
+	<table width="616" align="center" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td align="center" valign="top">
+					<p><img src="{$site_url}/custom/mail-icon/logo.png"></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="content1" valign="top" style="padding:0 50px;">
+					<p>You has requested a link to change your password.To continue,please click on the link below.</p>
+					<p><a href="{$url}" class="content_a" style="text-decoration: none;">Change My Password</a></p>
+					<p>Or copy and paste this URL into you browser:</p>
+					<p><a href="{$url}" class="content_a1" style="width: 514px; display: block; word-wrap:break-word;">{$url}</a></p>
+					<br/>
+					<p>Your password won't be changed until you access the link above and create a new one.</p>
+					<p>If you didn't request this,please send us a message at <a class="content_a2">support@wisape.com</a></p>
+					<br/>
+					<br/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	This message is sent by Wisape
+</div>
+EOF;
+    	if(!$this->sendemail($email, $title, $html, true)){
+    		//TODO 记录日志
+    		$msg = 'send partner email failed. user_email:'.$email;
+    		Yii::log($msg, CLogger::LEVEL_ERROR);
+    	}
     }
 
     /**

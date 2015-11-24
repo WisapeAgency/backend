@@ -270,9 +270,8 @@ class ApiController extends CController
         return md5(sha1(uniqid(rand())).microtime());
     }
 
-    protected function sendemail($email,$subject, $html){
+    protected function sendemail($email,$subject, $html, $is_partner = false){
         $to = $email;
-//         $subject = 'Password Recovery';
         if($to !== null){
 //             //要看email是否存在，存在才发邮件
 //             $data = $this->curl_post("http://107.150.97.118:58080/web/check!email.action", array(
@@ -280,43 +279,26 @@ class ApiController extends CController
 //             ));
 //             $resultData = json_decode($data);
 //             if($resultData->errorCode == 3){
-                $key = sha1(uniqid(rand()));
-                $url = SITE_URL.'index.php/site/forget/k/'.base64_encode($key).'/e/'.base64_encode($to);
-//                 try{
-//                     $model = new WebForget();
-//                     $model->forget_key = $key;
-//                     $model->user_email = $to;
-//                     $model->rec_status = 'A';
-//                     $model->save();
-//                 }catch (Exception $e){
-//                     echo $e->getMessage();exit;
-//                 }
-
-//                 $html = <<<EOF
-//                 Hello!,
-
-//                 You recently requested a new password for your account. Click the following link to create a new password.
-//                 {$url}
-//                 If clicking the link above doesn't work, please copy and paste the link in a new browser window instead.
-//                      Please note: your secure link is only valid for a limited period of time.
-//                 If you have not requested a new password it's likely that another user entered your address by mistake, so you can safely disregard this email.
-
-//                 Welcome back!
-//                 wisape.com
-// EOF;
                 
                 Yii::app()->mailer->Host = 'smtp.exmail.qq.com';
                 Yii::app()->mailer->IsSMTP();
                 Yii::app()->mailer->IsHTML(true);
-                Yii::app()->mailer->From = 'support@wisape.com';
                 Yii::app()->mailer->FromName = 'wisape';
-                Yii::app()->mailer->Username = 'support@wisape.com';
-                Yii::app()->mailer->Password = '20150625wisape';
+                if($is_partner){
+	                Yii::app()->mailer->Username = 'partner@wisape.com';
+	                Yii::app()->mailer->Password = '20150625wisape';
+	                Yii::app()->mailer->From = 'partner@wisape.com';
+                	Yii::app()->mailer->AddReplyTo('partner@wisape.com');
+                }else{
+	                Yii::app()->mailer->Username = 'support@wisape.com';
+	                Yii::app()->mailer->Password = '20150625wisape';
+	                Yii::app()->mailer->From = 'support@wisape.com';
+	                Yii::app()->mailer->AddReplyTo('support@wisape.com');
+                }
                 Yii::app()->mailer->SMTPSecure = 'ssl';
                 Yii::app()->mailer->Port = 465;
                 Yii::app()->mailer->SMTPAuth  = true;
                 Yii::app()->mailer->SMTPDebug = false;
-                Yii::app()->mailer->AddReplyTo('support@wisape.com');
                 Yii::app()->mailer->AddAddress($to);
                 Yii::app()->mailer->Subject = $subject;
                 Yii::app()->mailer->Body = $html;

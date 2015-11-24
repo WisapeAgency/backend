@@ -12,6 +12,7 @@
  * @property string $country
  * @property string $user_email
  * @property string $message
+ * @property integer $download_count
  * @property string $createtime
  */
 class RequestPerson extends CActiveRecord
