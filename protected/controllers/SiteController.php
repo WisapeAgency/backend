@@ -300,11 +300,23 @@ class SiteController extends ApiController
 			if ($model->save ()) {
 				// 发送邮件
 				$this->sendPartnerMail ( $model->user_email, $model->id );
+				echo CJSON::encode(array(
+						'success' => 1,
+						'message' => 'submit successful.'
+				));
 			} else {
 				Yii::log ( '保存partner数据失败', CLogger::LEVEL_ERROR );
+				echo CJSON::encode(array(
+						'success' => 500,
+						'message' => '保存partner数据失败'
+				));
 			}
 		} catch ( Exception $e ) {
 			Yii::log ( $e->getMessage (), CLogger::LEVEL_ERROR );
+			echo CJSON::encode(array(
+					'success' => 500,
+					'message' => $e->getMessage ()
+			));
 		}
     }
     
