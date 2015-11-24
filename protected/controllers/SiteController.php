@@ -242,6 +242,7 @@ class SiteController extends ApiController
     			$pd->update();
     		}else{
     			$pd = new PartnerDownload();
+    			$pd->last_time =time();
     			$pd->ip_address = $ip;
     			$pd->dl_count = 1;
     			if($pd->save()){
