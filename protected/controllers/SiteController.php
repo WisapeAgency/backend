@@ -300,23 +300,14 @@ class SiteController extends ApiController
 			if ($model->save ()) {
 				// 发送邮件
 				$this->sendPartnerMail ( $model->user_email, $model->id );
-				echo CJSON::encode(array(
-						'success' => 1,
-						'message' => 'submit successful.'
-				));
+				$this->sendSuccessResponse();
 			} else {
 				Yii::log ( '保存partner数据失败', CLogger::LEVEL_ERROR );
-				echo CJSON::encode(array(
-						'success' => 500,
-						'message' => '保存partner数据失败'
-				));
+				$this->sendErrorResponse(500, '保存partner数据失败');
 			}
 		} catch ( Exception $e ) {
 			Yii::log ( $e->getMessage (), CLogger::LEVEL_ERROR );
-			echo CJSON::encode(array(
-					'success' => 500,
-					'message' => $e->getMessage ()
-			));
+			$this->sendErrorResponse(500, $e->getMessage ());
 		}
     }
     
@@ -336,7 +327,7 @@ class SiteController extends ApiController
     	$title = 'Welcome to join Wisape Global Partner Plan';
     	$site_url = SITE_URL;
     	//     	$site_url = 'http://106.75.196.252/';
-    	$url = $site_url.'uploads/app/wisape.apk/code/'.base64_encode($partner_id);
+    	$url = $site_url.'index.php/site/downloadApk/code/'.base64_encode($partner_id);
     	
     	$html = <<<EOF
 <div style="width:100%; height:100%; background-color:#f5f5f5; color:#b9bbbc;text-align:center;line-height: 35px;font-size:14px;"> 
