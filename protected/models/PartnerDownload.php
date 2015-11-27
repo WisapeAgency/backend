@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'partner_download':
  * @property integer $id
+ * @property integer $partner_id
  * @property string $ip_address
  * @property integer $dl_count
  * @property integer $last_time

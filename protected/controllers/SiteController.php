@@ -235,29 +235,28 @@ class SiteController extends ApiController
     		$pid = base64_decode($code);
     		$increament = false;
     		$ip=$_SERVER["REMOTE_ADDR"];
-    		$pd = PartnerDownload::model()->find("ip_address='".$ip."'");
+    		$pd = PartnerDownload::model()->find("partner_id='".$pid."' and ip_address='".$ip."'");
     		if($pd){
     			$pd->last_time =time();
     			$pd->dl_count = $pd->dl_count + 1;
-    			$pd->update();
     		}else{
     			$pd = new PartnerDownload();
-    			$pd->last_time =time();
     			$pd->ip_address = $ip;
+    			$pd->partner_id = $pid;
     			$pd->dl_count = 1;
-    			if($pd->save()){
-	    			$increament = true;
-    			}else{
-    				Yii::log('记录 下载数据失败，partner：'.$pid, CLogger::LEVEL_ERROR);
-    			}
+	    		$increament = true;
     		}
-			if($increament){
-				$partner = RequestPerson::model()->findByPk($pid);
-				$partner->download_count = $partner->download_count + 1;
-				if(!$partner->update()){
-					Yii::log('累计分销次数失败，partner：'.$pid, CLogger::LEVEL_ERROR);
+    		if($pd->save()){
+				if($increament){
+					$partner = RequestPerson::model()->findByPk($pid);
+					$partner->download_count = $partner->download_count + 1;
+					if(!$partner->update()){
+						Yii::log('累计分销次数失败，partner：'.$pid, CLogger::LEVEL_ERROR);
+					}
 				}
-			}
+    		}else{
+    			Yii::log('记录 下载数据失败，partner：'.$pid, CLogger::LEVEL_ERROR);
+    		}
     	}
     	$file_path = ROOT_PATH.'/uploads/app/wisape.apk';
     		
@@ -312,8 +311,19 @@ class SiteController extends ApiController
 		}
     }
     
-    public function actionMailtest(){
-    	$this->sendPartnerMail('sir.zhang@foxmail.com', 11);
+    public function actionRemedyMail(){
+    	if(!isset($_REQUEST['user_email'])){
+    		$this->sendErrorResponse(400, 'Missing parameter:user_email');
+    	}
+    	$email = $_REQUEST['user_email'];
+    	$parnter = RequestPerson::model()->find("user_email='".$email."'");
+    	if(!$parnter){
+    		$this->sendErrorResponse(400, 'parnter does not exis.');
+    	}
+    	if($this->sendPartnerMail($email, $parnter->id)){
+    		echo 'send successful.';
+    	}
+    	echo 'send failed.';
     }
     
     /**
@@ -323,7 +333,7 @@ class SiteController extends ApiController
      */
     private function sendPartnerMail($email, $partner_id){
     	if(empty($email)){
-    		return;
+    		return false;
     	}
     	$title = 'Welcome to join Wisape Global Partner Plan';
     	$site_url = SITE_URL;
@@ -331,49 +341,53 @@ class SiteController extends ApiController
     	$url = $site_url.'index.php/site/downloadApk/code/'.base64_encode($partner_id);
     	
     	$html = <<<EOF
-<div style="width:100%; height:100%; background-color:#f5f5f5; color:#b9bbbc;text-align:center;line-height: 35px;font-size:14px;"> 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title></title>
-	<style type="text/css">
-		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
-		fieldset,img{border:0;}
-		table{border:1px solid #eceae9; border-radius:5px; background-color:#FFFFFF;}
-		.content1{line-height:20px;font-size:14px;font-family:微软雅黑;text-align:center;position:relative;}
-		.content1 p{line-height:25px;padding:7px 0;font-family:微软雅黑; color:#000000;}
-		.content_a{line-height: 40px;display: block;height: 40px;width: 221px;color: #FFFFFF;text-decoration: none;background-color: #43a047; border-radius:5px;margin: 0 auto;font-size:15px;}
-		.content_a1{ color:#ff8800;}
-		.content_a2{color:#ff8800;text-decoration: none;}
-	</style>
-	<table width="616" align="center" cellspacing="0" cellpadding="0">
-		<tbody>
-			<tr>
-				<td align="center" valign="top">
-					<p><img src="{$site_url}/custom/mail-icon/logo.png"></p>
-				</td>
-			</tr>
-			<tr>
-				<td class="content1" valign="top" style="padding:0 50px;">
-					<p>You has requested a link to change your password.To continue,please click on the link below.</p>
-					<p><a href="{$url}" class="content_a" style="text-decoration: none;">Change My Password</a></p>
-					<p>Or copy and paste this URL into you browser:</p>
-					<p><a href="{$url}" class="content_a1" style="width: 514px; display: block; word-wrap:break-word;">{$url}</a></p>
-					<br/>
-					<p>Your password won't be changed until you access the link above and create a new one.</p>
-					<p>If you didn't request this,please send us a message at <a class="content_a2">support@wisape.com</a></p>
-					<br/>
-					<br/>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	This message is sent by Wisape
+<div style="margin: 0;padding: 0;text-align: center; background: #f5f5f5; font-family: Arial;">
+    <div class="mail-box" style="margin: 50px auto 0; padding: 50px 80px; width: 480px; background: #fff; color: #2d3437; border-radius: 5px; border: solid 1px #eaeaeb;">
+        <p style="padding: 0; margin: 0;"><img src="{$site_url}/custom/mail-icon/partner_logo.png" width="164" height="45" alt="border:none"></p>
+        <p style="padding: 0; margin: 0; padding-top: 25px; line-height: 28px; font-size: 20px;text-transform: uppercase">Welcome to join Wisape <br>Global Partner</p>
+        <p style="padding: 0; margin: 0; font-size: 14px; padding-top: 40px; font-weight: bold;text-transform: uppercase">
+            The last step to win <em style="color: #d73d32; font-style: normal;">100% commission</em>
+        </p>
+        <p style="padding: 0; margin: 0; font-size: 14px; padding-top: 20px; line-height: 22px;">
+            Invite over 100 users to join Wisape Beta FREE version,<br>
+            your exclusive download link:<br>
+            <a href="{$url}" style="text-decoration: underline; color: #2962ff">{$url}</a>
+        </p>
+        <p style="padding: 0; margin: 0; font-size: 14px; padding-top: 40px;text-transform: uppercase">How to invite</p>
+        <p style="padding: 0; margin: 0; font-size: 14px; padding-top: 20px; line-height: 22px;">
+            ust invite others to click your link to download and install the Wisape Beta<br>
+            FREE APP (Android) - without extra work for you.<br>
+            Wisape will record every effective download and install from your link,when<br>
+            the number to 100, Wisape will automatically send you email, to congratu-<br>
+            late you to become one of Wisape VIP partners.
+        </p>
+        <table cellpadding="0" cellspacing="0" width="100%" style="padding-top: 45px; font-size: 14px; text-align: center;">
+            <tr>
+                <td width="35%">
+                    <p style="padding: 0; margin: 0; height: 10px; margin-top: 10px; border-top: solid 1px #ddd;"></p>
+                </td>
+                <td width="30%" style="height: 21px; line-height: 21px; margin: 0 10px;">Get social with us</td>
+                <td width="35%">
+                    <p style="padding: 0; margin: 0; height: 10px; margin-top: 10px; border-top: solid 1px #ddd;"></p>
+                </td>
+            </tr>
+        </table>
+        <p style="padding: 0; margin: 0; padding-top: 20px;">
+            <a href="" style="display: inline-block; margin-right: 5px;"><img src="{$site_url}/custom/mail-icon/icon1.png" width="30" height="30" alt="border:none;"></a>
+            <a href="" style="display: inline-block; margin-right: 5px;"><img src="{$site_url}/custom/mail-icon/icon2.png" width="30" height="30" alt="border:none;"></a>
+            <a href="" style="display: inline-block"><img src="{$site_url}/custom/mail-icon/icon3.png" width="30" height="30" alt="border:none;"></a>
+        </p>
+    </div>
+    <div class="mail-foot" style="margin: 20px auto 50px; font-size: 14px; padding: 0; color: #a5a7a7;">2015 Wisape, All rights reserved</div>
 </div>
 EOF;
     	if(!$this->sendemail($email, $title, $html, true)){
     		//TODO 记录日志
     		$msg = 'send partner email failed. user_email:'.$email;
     		Yii::log($msg, CLogger::LEVEL_ERROR);
+    		return false;
     	}
+    	return true;
     }
 
     /**
