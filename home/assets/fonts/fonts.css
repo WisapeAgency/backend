@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'helveticaneueltstd';
+
+    src:url('./helveticaneueltstd-th.woff') format('woff'), /* Modern Browsers */
+    url('./helveticaneueltstd-th.ttf')  format('truetype') /* Safari, Android, iOS */
+
+}

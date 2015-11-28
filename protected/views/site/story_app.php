@@ -26,7 +26,7 @@ footer a { color:white; }
 </style>
 </head>
 <body>
-<div id="mask" style="width: 100%; height: 100%; z-index: 9999; position: absolute; top: 0px; left: 0px; background: white url(<?php echo SITE_URL?>custom/play-img/loading.gif) no-repeat center center;" >
+<div id="mask" style="width: 100%; height: 100%; z-index: 9999; position: absolute; top: 0px; left: 0px; background: white url(<?php echo SITE_URL?>custom/play-img/loading.gif) no-repeat center center; background-size: 4.5rem 4.5rem;" >
 </div>
 <script>
 var gd = true;//true:无限滚动，false:到最后页不能再滚
