@@ -373,9 +373,9 @@ class SiteController extends ApiController
             </tr>
         </table>
         <p style="padding: 0; margin: 0; padding-top: 20px;">
-            <a href="" style="display: inline-block; margin-right: 5px;"><img src="{$site_url}/custom/mail-icon/icon1.png" width="30" height="30" alt="border:none;"></a>
-            <a href="" style="display: inline-block; margin-right: 5px;"><img src="{$site_url}/custom/mail-icon/icon2.png" width="30" height="30" alt="border:none;"></a>
-            <a href="" style="display: inline-block"><img src="{$site_url}/custom/mail-icon/icon3.png" width="30" height="30" alt="border:none;"></a>
+            <a href="https://www.facebook.com/Wisape-Story-Builder-968758586520540/" style="display: inline-block; margin-right: 5px;"><img src="{$site_url}/custom/mail-icon/icon1.png" width="30" height="30" alt="border:none;"></a>
+            <a href="https://twitter.com/WisapeAgency" style="display: inline-block; margin-right: 5px;"><img src="{$site_url}/custom/mail-icon/icon2.png" width="30" height="30" alt="border:none;"></a>
+            <a href="https://plus.google.com/+AgencyWisape/about" style="display: inline-block"><img src="{$site_url}/custom/mail-icon/icon3.png" width="30" height="30" alt="border:none;"></a>
         </p>
     </div>
     <div class="mail-foot" style="margin: 20px auto 50px; font-size: 14px; padding: 0; color: #a5a7a7;">2015 Wisape, All rights reserved</div>
