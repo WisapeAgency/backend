@@ -101,7 +101,7 @@
 		</div>
 		<p class="code_p5">
 			<a href="#" class="code_p5_a code_p5_a1"></a>
-			<a href="#" class="code_p5_a code_p5_a2"></a>
+			<a href="http://www.fir.im/wisape" target="_blank" class="code_p5_a code_p5_a2"></a>
 		</p>
 		<div class="img5">Copyright @2015 Wisape all rights reserved</div>
 	</div>

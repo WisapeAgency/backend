@@ -28,7 +28,7 @@ class SiteController extends ApiController
      */
     public function actionIndex()
     {
-    	$this->redirect(SITE_URL.'home');exit;
+    	$this->redirect('http://www.wisape.com/'.'home');exit;
     	
         $request_model_b = new Request();
         $request_model_c = new RequestPerson();
