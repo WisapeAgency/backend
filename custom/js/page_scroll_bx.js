@@ -196,24 +196,14 @@ function page_touchend(e){
 	if(move){
 		//切画页面(移动成功)
 		if( move_p && Math.abs(moveP) >5 ){
-			var me = $(".m-page").eq(newM-1),animItem = $(".pages-txt"),animLen = animItem.length;
+			var me = $(".m-page").eq(newM-1);
 			me.animate({'top':0},300,"easeOutSine",function(){
 				/*
 				 ** 切换成功回调的函数
 				 */
 				success();
 				$(".m-page").attr("style","");
-
-				for(var i = 0;i<animLen;i++) {
-					var cur = animItem.eq(i);
-					cur.removeClass(cur.data("animation"));
-				}
-
-				console.info("success");
-				me.find(".pages-txt").each(function(){
-					var _this = $(this);
-					_this.addClass(_this.data("animation"));
-				})
+				addAnimation(newM-1);
 			})
 			//返回页面(移动失败)
 		}else if (Math.abs(moveP) >=5){	//页面退回去
@@ -240,6 +230,7 @@ function success(){
 	//设置页面的出现
 	$(".m-page").eq(page_n-1).removeClass("show active").addClass("hide");
 	$(".m-page").eq(newM-1).removeClass("active hide").addClass("show");
+	fnVmiddle(newM-1);
 
 
 	//重新设置页面移动的控制值
@@ -297,7 +288,8 @@ var gd = true;//true:无限滚动，false:到最后页不能再滚
 var input_focus = false;
 function initPage(){
 	//初始化一个页面
-	$(".m-page").addClass("hide").eq(page_n-1).addClass("show").removeClass("hide").find(".pages-txt").addClass($(".pages-txt").data("animation"));
+	$(".m-page").addClass("hide").eq(page_n-1).addClass("show").removeClass("hide");
+	addAnimation(newM);
 	//PC端图片点击不产生拖拽
 	$(document.body).find("img").on("mousedown",function(e){
 		e.preventDefault();
@@ -306,18 +298,39 @@ function initPage(){
 	if(RegExp("iPhone").test(navigator.userAgent)||RegExp("iPod").test(navigator.userAgent)||RegExp("iPad").test(navigator.userAgent)) $('.m-page').css('height','101%');
 }(initPage());
 
-$(".j-vmiddle").each(function(){
-    var _this = $(this),
-    parent = _this.parents("div[symbol=top]");
-    scale = 1;
-    if(_this.css("transform").split("matrix(")[1]) {
-        scale = parseFloat(_this.css("transform").split("matrix(")[1].split(",")[0])
-    }
-    console.info(_this.css("transform"));
-    console.info(_this.parents(".stage-content").height());
-    console.info(_this.height());
-    _this.css({
-        "margin-top": (parent.height() - _this.height()*scale)/2
-    })
-})
+function addAnimation(index){
+	var me = $(".m-page").eq(index),animItem = $(".pages-txt,.pages-img"),animLen = animItem.length;
+	$(".m-page").attr("style","");
+
+	for(var i = 0;i<animLen;i++) {
+		var cur = animItem.eq(i);
+		cur.removeClass(cur.data("animation"));
+	}
+
+	console.info("success");
+	me.find(".pages-txt,.pages-img").each(function(){
+		var _this = $(this);
+		_this.addClass(_this.data("animation"));
+	})
+}
+
+
+function fnVmiddle(i){
+	$(".j-vmiddle").eq(i).each(function(){
+		var _this = $(this),
+				parent = _this.parents("div[symbol=top]");
+		scale = 1;
+		if(_this.css("transform").split("matrix(")[1]) {
+			scale = parseFloat(_this.css("transform").split("matrix(")[1].split(",")[0])
+		}
+		console.info(_this.css("transform"));
+		console.info(parent.height());
+		console.info(_this.height());
+		_this.css({
+			"margin-top": (parent.height() - _this.height()*scale)/2
+		})
+	});
+};
+
+fnVmiddle(0);
 

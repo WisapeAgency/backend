@@ -14,6 +14,57 @@ class UserController extends ApiController
 //        );
 //    }
 
+    public function actionRegister()
+    {
+    	if(isset($_REQUEST['user_email']) && isset($_REQUEST['user_pwd'])){
+    		$email = trim($_REQUEST['user_email']);
+    		$pwd = trim($_REQUEST['user_pwd']);
+    		if(!empty($email) && !empty($pwd)){
+    			//邮箱是否已存在
+    			$rs = Yii::app()->db->createCommand()
+    			->select('user_id')
+    			->from('user')
+    			->where('user_email=:email',array(':email'=>strtolower($email)))
+    			->queryScalar();
+    			if($rs){
+    				$this->sendErrorResponse(403, 'Email has been used.');
+    			}
+    			try{
+    				$model=new User;
+    				$model->user_email = strtolower($email);
+    				$model->user_pwd = md5($pwd);
+    				if(isset($_REQUEST['nick_name']) && !empty($_REQUEST['nick_name'])){
+    					$model->nick_name = $_REQUEST['nick_name'];
+    				}else{
+	    				//生成用户昵称
+	    				$nick_name = explode('@',$email);
+	    				$model->nick_name = $nick_name[0];
+    				}
+    				$model->user_ext = WIS_USER;
+    				$model->access_token = $this->getAccessToken();
+    				$model->install_id = isset($_REQUEST['install_id']) ? $_REQUEST['install_id'] : '';
+    				if($model->save()){
+    					//添加默认story
+    					$this->add_default_story($model->user_id);
+    					try{
+    						//发送欢迎邮件
+    						$this->sendWelcomeMail($model->user_email);
+    					}catch (Exception $e1){
+    						Yii::log('发送欢迎邮件异常：'.$e1->getMessage(), CLogger::LEVEL_ERROR);
+    					}
+    					$this->sendDataResponse($model->getAttributes());
+    				}else{
+    					$this->sendErrorResponse(500, 'Save register information failed.');
+    				}
+    			}catch (Exception $e){
+    				//本地用户创建失败!
+    				Yii::log('登录出错：'.$e->getMessage(), CLogger::LEVEL_ERROR);
+    				$this->sendErrorResponse(500, 'Server error.');
+    			}
+    		}
+    	}
+    	$this->sendErrorResponse(403, 'Email and password can not be empty.');
+    }
 
     public function actionLogin()
     {
@@ -40,43 +91,12 @@ class UserController extends ApiController
 	                	if(md5($pwd) == $user['user_pwd']){
 	                		$this->check_change_device($user);//是否更换终端登录
 	                		$this->sendDataResponse($user);
-	                	}else{
-	                		$this->sendErrorResponse(403,'Incorrect username or password.');
 	                	}
 	                }
-	                try{
-	                    $model=new User;
-// 	                    $model->attributes=$_REQUEST;
-	                    $model->user_email = strtolower($_REQUEST['user_email']);
-	                    $model->user_pwd = md5($pwd);
-	                    //生成用户昵称
-	                    $nick_name = explode('@',$email);
-	                    $model->nick_name = $nick_name[0];
-// 	                    $model->nick_name = Yii::app()->badWords->replacement($model->nick_name);
-	                    $model->user_ext = $type;
-	                    $model->access_token = $this->getAccessToken();
-	                    $model->install_id = isset($_REQUEST['install_id']) ? $_REQUEST['install_id'] : '';
-	                    if($model->save()){
-	                    	//添加默认story
-	                    	$this->add_default_story($model->user_id);
-		                    try{
-			                    //发送欢迎邮件
-			                    $this->sendWelcomeMail($model->user_email);
-		                    }catch (Exception $e1){
-		                    	Yii::log('发送欢迎邮件异常：'.$e1->getMessage(), CLogger::LEVEL_ERROR);
-		                    }
-	                    	$this->sendDataResponse($model->getAttributes());
-	                    }else{
-	                    	$this->sendErrorResponse(500, 'Save register information failed.');
-	                    }
-	                }catch (Exception $e){
-	                    //本地用户创建失败!
-	                	Yii::log('登录出错：'.$e->getMessage(), CLogger::LEVEL_ERROR);
-	                    $this->sendErrorResponse(500, 'Server error.');
-	                }
+	                $this->sendErrorResponse(403,'Incorrect username or password.');
             	}
             }
-            $this->sendErrorResponse(403,'Missing necessary parameters.');
+            $this->sendErrorResponse(403, 'Email and password can not be empty.');
         }
 
         //第三方登陆是否已注册
@@ -372,7 +392,7 @@ EOF;
 
 
     /**
-     * 根据country 代码返回
+     * 根据国家编码获取活动列表
      */
     public function actionActive(){
 	        $now = time();
@@ -389,6 +409,7 @@ EOF;
 
     /**
      * 启动页图片
+     * @deprec 2015.11.28
      */
     public function actionStartpage(){
         $model = StartPage::model()->findByAttributes(array(
