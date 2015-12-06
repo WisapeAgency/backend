@@ -1,8 +1,31 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en" style="font-size:20px;">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
+	
+	<meta property="fb:app_id" content="900883746624807" />
+<meta property="og:title" content="Wisape Story" />
+<meta property="og:site_name" content="Wisape" />
+<meta property="og:url"
+	content="http://106.75.196.252/index.php/site/story/id/305" />
+<meta property="og:description"
+	content="Wisape description" />
+<meta property="og:image"
+	content="http://img30.360buyimg.com/da/jfs/t2275/49/1409578333/95655/58ec72b0/565d63e7N1aab3b15.jpg" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<!-- Default -->
+<meta property="og:locale:alternate" content="fr_FR" />
+<!-- French -->
+<meta property="og:locale:alternate" content="it_IT" />
+<!-- Italian -->
+<meta property="article:author"
+	content="https://www.facebook.com/fareedzakaria" />
+<meta property="article:publisher"
+	content="https://www.facebook.com/cnn" />
+	
+	
+	
 	<link href="<?php echo SITE_URL?>custom/css/reset-static.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo SITE_URL?>custom/css/mod-static.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo SITE_URL?>custom/css/reset.css" rel="stylesheet" type="text/css">
@@ -19,6 +42,95 @@
 	</style>
 </head>
 <body>
+<script type="text/javascript">
+  // You probably don't want to use globals, but this is just example code
+  var fbAppId = '900883746624807';
+  var objectToLike = 'http://techcrunch.com/2013/02/06/facebook-launches-developers-live-video-channel-to-keep-its-developer-ecosystem-up-to-date/';
+
+  // This check is just here to make sure you set your app ID. You don't
+  // need to use it in production. 
+  if (fbAppId === 'replace me') {
+    alert('Please set the fbAppId in the sample.');
+  }
+
+  /*
+   * This is boilerplate code that is used to initialize
+   * the Facebook JS SDK.  You would normally set your
+   * App ID in this code.
+   */
+
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : fbAppId, // App ID
+      status     : true,    // check login status
+      cookie     : true,    // enable cookies to allow the
+                            // server to access the session
+      xfbml      : true,     // parse page for xfbml or html5
+                            // social plugins like login button below
+      version        : 'v2.0',  // Specify an API version
+    });
+
+    // Put additional init code here
+  };
+
+  // Load the SDK Asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  /*
+   * This function makes a call to the og.likes API.  The
+   * object argument is the object you like.  Other types
+   * of APIs may take other arguments. (i.e. the book.reads
+   * API takes a book= argument.)
+   *
+   * Because it's a sample, it also sets the privacy
+   * parameter so that it will create a story that only you
+   * can see.  Remove the privacy parameter and the story
+   * will be visible to whatever the default privacy was when
+   * you added the app.
+   *
+   * Also note that you can view any story with the id, as
+   * demonstrated with the code below.
+   *
+   * APIs used in postLike():
+   * Call the Graph API from JS:
+   *   https://developers.facebook.com/docs/reference/javascript/FB.api
+   * The Open Graph og.likes API:
+   *   https://developers.facebook.com/docs/reference/opengraph/action-type/og.likes
+   * Privacy argument:
+   *   https://developers.facebook.com/docs/reference/api/privacy-parameter
+   */
+
+  function postLike() {
+    FB.api(
+       'https://graph.facebook.com/me/og.likes',
+       'post',
+       { object: objectToLike,
+         privacy: {'value': 'SELF'} },
+       function(response) {
+         if (!response) {
+           alert('Error occurred.');
+         } else if (response.error) {
+           document.getElementById('result').innerHTML =
+             'Error: ' + response.error.message;
+         } else {
+           document.getElementById('result').innerHTML =
+             '<a href=\"https://www.facebook.com/me/activity/' +
+             response.id + '\">' +
+             'Story created.  ID is ' +
+             response.id + '</a>';
+         }
+       }
+    );
+  }
+</script>
+
 <div id="mask" style="width: 100%; height: 100%; z-index: 9999; position: absolute; top: 0px; left: 0px; background: white url(<?php echo SITE_URL?>custom/play-img/loading.gif) no-repeat center center;" >
 </div>
 <div class="pc-box">
