@@ -110,12 +110,6 @@ class StoryController extends ApiController{
      * 创建，修改故事
      */
     public function actionCreate(){
-        ini_set('upload_max_filesize', '20M');
-        ini_set('post_max_size', '20M');
-//         ini_set('max_input_time', 300);
-//         ini_set('max_execution_time', 300);
-        //if(!isset($_POST)) $this->sendErrorResponse(403);
-        //修改哈
         if(isset($_REQUEST['sid']) && $_REQUEST['sid'] > 0){
             $model = Story::model()->findByPk($_REQUEST['sid']);
         }else{
@@ -133,41 +127,8 @@ class StoryController extends ApiController{
         $model->bg_music = isset($_REQUEST['bg_music']) ? $_REQUEST['bg_music'] : '';
         $model->story_local = isset($_REQUEST['story_local']) ? $_REQUEST['story_local'] : '';
         $model->local_cover = isset($_REQUEST['local_cover']) ? $_REQUEST['local_cover'] : 0;
-        if(isset($_FILES['zip_file']['tmp_name'])){
-        	$filename = md5(uniqid());
-            $target_path = ROOT_PATH.'/html/'.$_REQUEST['uid'].'/'.date('Ymd').'/'.$filename;
-            if (!is_dir($target_path)){
-            	$this->mkdirs($target_path);
-            }
-			//上传资源
-            $zipPath = $target_path.'.zip';
-        	if(!move_uploaded_file($_FILES['zip_file']['tmp_name'], $zipPath)){
-        		$this->sendErrorResponse(500, 'Upload story zip file failed.');
-        	}
-        	//解压
-            $zip = Yii::app()->zip;
-            if($zip->extractZip($zipPath, $target_path)){
-//                     if(!unlink($zipPath)) $this->sendErrorResponse(500,'del zip error');
-				//TODO 替换图片为绝对路径，也可能在APP端做
-                $prefix = $_REQUEST['img_prefix'];
-                if(!empty($prefix)){
-//                 	$prefix .= '/'.($model->story_name);
-                	$url_prefix = str_replace(ROOT_PATH.'/', SITE_URL, $target_path);
-                	$html_path = $target_path.'/story.html';
-                	$content = file_get_contents($html_path);
-                	$content = str_replace($prefix, $url_prefix, $content);
-                	$content = str_replace('file://', '', $content);//替换背景图的本地路径
-                	$fp=fopen($html_path,"w");
-                	fwrite($fp,$content);
-                	fclose($fp);
-                	//记录story片段文件的路径
-                	$model->story_path = $html_path;
-                }
-            }else{
-                $this->sendErrorResponse(500,'zip file extract error.');
-            }
-        }
         if($model->save()){
+	        $this->upload($model);//处理上传的资源
 	        Yii::log('STORY_ID:'.$model->id.',前缀:'.$_REQUEST['img_prefix'], CLogger::LEVEL_INFO);
             $model->story_url = SITE_URL.'index.php/site/story/id/'.$model->id;
             $model->update();
@@ -176,6 +137,69 @@ class StoryController extends ApiController{
         }else{
             $this->sendErrorResponse(500, 'Save story failed.');
         }
+    }
+    
+	/**
+	 * Android异步上传story资源包
+	 */
+    public function actionUpload(){
+    	if(!isset($_POST)){ 
+    		$this->sendErrorResponse(403);
+    	}
+    	if(isset($_REQUEST['sid']) && $_REQUEST['sid'] > 0){
+    		$model = Story::model()->findByPk($_REQUEST['sid']);
+    	 	$this->upload($model);
+    	 	$model->update();
+	    	$this->sendDataResponse();
+    	}else{
+    		$this->sendErrorResponse(400);
+    	}
+    }
+    
+    /**
+     * 处理上传的资源
+     */
+    private function upload($model){
+    	if(isset($_FILES['zip_file']['tmp_name'])){
+			//
+    		ini_set('upload_max_filesize', '20M');
+    		ini_set('post_max_size', '20M');
+//         ini_set('max_input_time', 300);
+//         ini_set('max_execution_time', 300);
+    		
+    		$filename = md5(uniqid());
+    		$target_path = ROOT_PATH.'/html/'.$_REQUEST['uid'].'/'.date('Ymd').'/'.$filename;
+    		if (!is_dir($target_path)){
+    			$this->mkdirs($target_path);
+    		}
+    		//上传资源
+    		$zipPath = $target_path.'.zip';
+    		if(!move_uploaded_file($_FILES['zip_file']['tmp_name'], $zipPath)){
+    			$this->sendErrorResponse(500, 'Upload story zip file failed.');
+    		}
+    		//解压
+    		$zip = Yii::app()->zip;
+    		if($zip->extractZip($zipPath, $target_path)){
+    			//                     if(!unlink($zipPath)) $this->sendErrorResponse(500,'del zip error');
+    			//TODO 替换图片为绝对路径，也可能在APP端做
+    			$prefix = $_REQUEST['img_prefix'];
+    			if(!empty($prefix)){
+    				//                 	$prefix .= '/'.($model->story_name);
+    				$url_prefix = str_replace(ROOT_PATH.'/', SITE_URL, $target_path);
+    				$html_path = $target_path.'/story.html';
+    				$content = file_get_contents($html_path);
+    				$content = str_replace($prefix, $url_prefix, $content);
+    				$content = str_replace('file://', '', $content);//替换背景图的本地路径
+    				$fp=fopen($html_path,"w");
+    				fwrite($fp,$content);
+    				fclose($fp);
+    				//记录story片段文件的路径
+    				$model->story_path = $html_path;
+    			}
+    		}else{
+    			$this->sendErrorResponse(500,'zip file extract error.');
+    		}
+    	}
     }
     
     /**
