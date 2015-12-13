@@ -7,11 +7,11 @@
 <meta property="og:title" content="Wisape Story" />
 <meta property="og:site_name" content="Wisape" />
 <meta property="og:url"
-	content="http://106.75.196.252/index.php/site/story/id/305" />
+	content="<?php echo $story_url?>" />
 <meta property="og:description"
 	content="Wisape description" />
 <meta property="og:image"
-	content="http://img30.360buyimg.com/da/jfs/t2275/49/1409578333/95655/58ec72b0/565d63e7N1aab3b15.jpg" />
+	content="<?php echo $story->small_img?>" />
 <meta property="og:type" content="article" />
 <meta property="og:locale" content="en_US" />
 <!-- Default -->
@@ -191,7 +191,7 @@
 			<img width="200" height="200" src="<?php echo $qr_url?>">
 		</div>
 		 <!-- AddToAny BEGIN -->
-		<p class="a2a_kit code_p4">
+		<p class="a2a_kit code_p4" data-a2a-url="<?php echo $story_url?>" data-a2a-title="<?php echo $story->description?>">
 			<a href="#" class="a2a_button_facebook code_p4_a code_p4_a1"></a>
 			<a href="#" class="a2a_button_twitter code_p4_a code_p4_a2"></a>
 			<a href="#" class="a2a_button_linkedin code_p4_a code_p4_a3"></a>
@@ -231,7 +231,7 @@
 	    $(".copy_link").zclip({
 	        path: "<?php echo SITE_URL?>custom/js/ZeroClipboard.swf",
 	        copy: function(){
-	        	return '<?php echo SITE_URL?>index.php/site/story/id/<?php echo $story->id?>';
+	        	return '<?php echo $story_url?>';
 	        }
 	    });
 	    $(".copy_link").hover(

@@ -28,6 +28,18 @@ class SiteController extends ApiController
      */
     public function actionIndex()
     {
+    	$host = $_SERVER['HTTP_HOST'];
+    	if($host == 'viewer.wisape.com'){
+    		$uri = $_SERVER['REQUEST_URI'];
+    		if(!empty($uri)){
+    			$code = substr($uri, 1);
+	    		$sid = base64_decode($code);
+	    		header('Location: '.SITE_URL.'site/story/'.$code);
+    		}
+    		exit;
+    	}
+    	
+    	//进入首页
     	$this->redirect(SITE_URL.'home');exit;
     	
         $request_model_b = new Request();
@@ -78,11 +90,13 @@ class SiteController extends ApiController
      */
     public function actionStory()
     {
-    	if(!isset($_REQUEST['id'])){
-    		echo 'Invalid URL';exit;	
-    	}
-    	$sid = $_REQUEST['id'];
-    	$model = Story::model()->findByPk($sid, "rec_status='A'");
+//     	if(!isset($_REQUEST['id'])){
+//     		echo 'Invalid URL';exit;	
+//     	}
+//     	$sid = $_REQUEST['id'];
+    	$uri = $_SERVER['REQUEST_URI'];
+    	$sid = substr(strrchr($uri,'/'),1);
+    	$model = Story::model()->findByPk(base64_decode($sid), "rec_status='A'");
     	if(!$model){
     		echo 'Story not found';exit;
     	}
@@ -91,6 +105,8 @@ class SiteController extends ApiController
     	if(!$user){
     		echo 'Invalid story';exit;
     	}
+    	//对外URL
+    	$URL = SITE_URL.'site/story/'.$sid;
     	//内容
     	$path = $model->story_path;
     	$content = file_get_contents($path);
@@ -105,8 +121,7 @@ class SiteController extends ApiController
 	    	//二维码文件不存在的时候才创建
 	    	if(!file_exists($fileName)){
 		    	require_once('phpqrcode.php');
-		    	$data = SITE_URL.'index.php/site/story/id/'.$sid;
-		    	QRcode::png($data,$fileName,'L',3,2);
+		    	QRcode::png($URL,$fileName,'L',3,2);
 	    	}
     	}
     	
@@ -119,7 +134,8 @@ class SiteController extends ApiController
     			'story'=>$model,
     			'user'=>$user,
     			'content'=>$content,
-    			'qr_url'=>$qr_url
+    			'qr_url'=>$qr_url,
+    			'story_url'=>$URL
     	));
     }
     
