@@ -130,7 +130,7 @@ class StoryController extends ApiController{
         if($model->save()){
 	        $this->upload($model);//处理上传的资源
 	        Yii::log('STORY_ID:'.$model->id.',前缀:'.$_REQUEST['img_prefix'], CLogger::LEVEL_INFO);
-            $model->story_url = SITE_URL.'site/story/'.base64_encode($model->id);
+            $model->story_url = 'http://v.wisape.com/?'.base64_encode($model->id);
             $model->update();
             Yii::log('STORY_DATA:'.CJSON::encode($model->getAttributes()), CLogger::LEVEL_INFO);
 	        $this->sendDataResponse($model->getAttributes());

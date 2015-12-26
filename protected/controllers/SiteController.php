@@ -29,12 +29,11 @@ class SiteController extends ApiController
     public function actionIndex()
     {
     	$host = $_SERVER['HTTP_HOST'];
-    	if($host == 'viewer.wisape.com'){
+    	if($host == 'v.wisape.com'){
     		$uri = $_SERVER['REQUEST_URI'];
     		if(!empty($uri)){
     			$code = substr($uri, 1);
-	    		$sid = base64_decode($code);
-	    		header('Location: '.SITE_URL.'site/story/'.$code);
+	    		header('Location: '.'http://v.wisape.com/site/story/'.$code);
     		}
     		exit;
     	}
@@ -106,7 +105,7 @@ class SiteController extends ApiController
     		echo 'Invalid story';exit;
     	}
     	//对外URL
-    	$URL = SITE_URL.'site/story/'.$sid;
+    	$URL = 'http://v.wisape.com/?'.$sid;
     	//内容
     	$path = $model->story_path;
     	$content = file_get_contents($path);
